@@ -16,9 +16,10 @@ class CreateWorkshopsTable extends Migration
         Schema::create('workshops', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description')->unique();
+            $table->text('description');
             $table->integer('app_deadline');
             $table->integer('no_of_applicant');
+            $table->unsignedBigInteger('chef_id');
             $table->foreign('chef_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

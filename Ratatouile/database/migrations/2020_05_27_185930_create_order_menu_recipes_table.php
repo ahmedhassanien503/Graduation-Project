@@ -15,8 +15,8 @@ class CreateOrderMenuRecipesTable extends Migration
     {
         Schema::create('order_menu_recipes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->BigInteger('order_id')->unsigned()->index();
-            $table->BigInteger('menu_recipe_id')->unsigned()->index();
+            $table->BigInteger('order_id')->unsigned();
+            $table->BigInteger('menu_recipe_id')->unsigned();
             //foreign key order 
             $table->foreign('order_id')
             ->references('id')

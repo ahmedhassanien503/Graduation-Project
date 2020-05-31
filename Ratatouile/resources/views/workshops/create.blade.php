@@ -47,7 +47,7 @@
               </div>
               <div class="form-group">
                 <label for="inputClientCompany">Applying Deadline</label>
-                <input type="datetime-local" name="app_deadline" id="inputClientCompany" class="form-control" placeholder="example: 1-1-2001">
+                <input type="date" name="app_deadline" id="inputClientCompany" class="form-control" placeholder="example: 1-1-2001">
               </div>
            <div class="form-group">
                 <label for="inputStatus">Chefs</label>

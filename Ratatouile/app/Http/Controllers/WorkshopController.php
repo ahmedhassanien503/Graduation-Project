@@ -6,8 +6,9 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+// use Illuminate\Foundation\Auth\Chef;
 use App\Workshop;
-use App\User;
+use App\Chef;
 class WorkshopController extends Controller
 {
     /**
@@ -31,7 +32,7 @@ class WorkshopController extends Controller
     public function create()
     {
 
-        $chefs = User::where('is_chef','1')->get();
+        $chefs = Chef::all();
         return view('workshops.create',[
             'chefs' =>$chefs,
         ]);
@@ -84,7 +85,7 @@ class WorkshopController extends Controller
 
        
         $workshop = Workshop::find($workshopId);
-        $chefs = User::where('is_chef','1')->get();
+        $chefs = Chef::all();
         
         return view('workshops.show',[
             'workshop' => $workshop,
@@ -104,7 +105,7 @@ class WorkshopController extends Controller
         $request = request();
         $workshopId = $request->workshop;
         $workshop = Workshop::find($workshopId);
-        $chefs = User::where('is_chef','1')->get();
+        $chefs = Chef::all();
 
         return view('workshops.edit',[
             'workshop'=>$workshop,
@@ -137,7 +138,7 @@ class WorkshopController extends Controller
         $workshop->description = $request->description;
         $workshop->app_deadline= $request->app_deadline;
         $workshop->no_of_applicant = $request->no_of_applicant;
-        $chefs = User::where('is_chef','1')->get();
+        $chefs = Chef::all();
         // $workshop->image= $request->filename;
        
         $workshop->save();

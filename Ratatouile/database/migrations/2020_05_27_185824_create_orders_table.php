@@ -17,20 +17,18 @@ class CreateOrdersTable extends Migration
             $table->bigIncrements('id');
             $table->dateTime('date');
             $table->string('address');
-            $table->char('total_price');
-
-            // $table->BigInteger('chef_id')->unsigned()->index();
-            // $table->BigInteger('user_id')->unsigned()->index();
-            
+            $table->char('total_price');       
             //user_id of user who made the order 
+            $table->BigInteger('user_id')->unsigned()->index();
             $table->foreignId('user_id')
             ->references('id')
             ->on('users')
             ->onDelete('cascade');
             //user_id of chef who will recieve the order
+            $table->BigInteger('chef_id')->unsigned()->index();
             $table->foreignId('chef_id')
             ->references('id')
-            ->on('users')
+            ->on('chefs')
             ->onDelete('cascade');
             $table->timestamps();
         });

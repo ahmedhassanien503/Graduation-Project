@@ -19,13 +19,13 @@ class CreateOrdersTable extends Migration
             $table->string('address');
             $table->char('total_price');       
             //user_id of user who made the order 
-            $table->BigInteger('user_id')->unsigned()->index();
+            // $table->BigInteger('user_id')->unsigned()->index();
             $table->foreignId('user_id')
             ->references('id')
             ->on('users')
             ->onDelete('cascade');
             //user_id of chef who will recieve the order
-            $table->BigInteger('chef_id')->unsigned()->index();
+            // $table->BigInteger('chef_id')->unsigned()->index();
             $table->foreignId('chef_id')
             ->references('id')
             ->on('chefs')

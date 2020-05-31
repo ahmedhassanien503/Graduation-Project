@@ -15,8 +15,6 @@ class SeasonController extends Controller
     public function index()
     {
         $seasons = Season::paginate(5);
-        // $seasons = Season::all();
-    
         return view('seasons.index', [
             'seasons' => $seasons,
         ]);
@@ -73,7 +71,7 @@ class SeasonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
         $request = request();
         $seasonId = $request->season;

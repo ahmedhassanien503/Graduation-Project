@@ -32,7 +32,7 @@ class Recipe extends Model
 
     public function chef()
     {
-        return $this->belongsTo('App\Chefs', 'chef_id');
+        return $this->belongsTo('App\Chef', 'chef_id');
     }
 
 }

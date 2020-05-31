@@ -16,6 +16,14 @@ class MenuRecipes extends Model
     ];
 
     /**
+    * The chef who add the menu
+    */
+    public function chefs()
+    {
+        return $this->belongsTo('App\Chef');
+    }
+
+    /**
      * The orders that belong to the chef.
     */
     public function orders()

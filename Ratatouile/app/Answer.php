@@ -9,12 +9,12 @@ class Answer extends Model
 
     protected $fillable = [
         'answer',
-        'user_id',
+        'chef_id',
         'question_id',  
     ];
-    public function user()
+    public function chef()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Chef');
     }
 
     public function question()

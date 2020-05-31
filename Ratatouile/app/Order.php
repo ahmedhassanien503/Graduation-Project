@@ -19,10 +19,18 @@ class Order extends Model
     /**
         * The user that request  the order.
     */
-    // public function users()
-    // {
-    //     return $this->belongsTo('App\User');
-    // }
+    public function users()
+    {
+        return $this->belongsTo('App\User');
+    }
+
+    /**
+    * The chef that request  the order.
+    */
+    public function chefs()
+    {
+        return $this->belongsTo('App\Chef');
+    }
 
     /**
         * The recipes that belong to the order.

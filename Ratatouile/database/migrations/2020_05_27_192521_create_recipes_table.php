@@ -20,10 +20,12 @@ class CreateRecipesTable extends Migration
             $table->text('details');
             $table->string('image')-> nullable();  
             $table->integer('Serving')-> nullable();    
-            $table->char('TakenTime', 100)-> nullable();	
-
+            $table->char('TakenTime', 100)-> nullable();
+        //    flag: chef_recipe=1 , user_recipe=0
+            $table->boolean('chef_recipe')->default(false);	
+            $table->unsignedBigInteger('chef_id');
             $table->unsignedBigInteger('user_id');
-
+            $table->foreign('chef_id')->references('id')->on('chefs');
             $table->foreign('user_id')->references('id')->on('users');
         });
     }

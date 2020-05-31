@@ -17,14 +17,14 @@ class Workshop extends Model
     ];
     public function chef()
     {
-        return $this->belongsTo('App\User','chef_id');
+        return $this->belongsTo('App\Chefs','chef_id');
     }
 
 
-    public function users()
-    {
-        return $this->belongsToMany('App\User');
-    }
+    // public function users()
+    // {
+    //     return $this->belongsToMany('App\User');
+    // }
 
    
 

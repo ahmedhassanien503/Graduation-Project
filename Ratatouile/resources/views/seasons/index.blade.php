@@ -13,7 +13,7 @@
             <tr>
               <th scope="col">ID</th>
               <th scope="col">المناسبة</th>
-             
+              <th scope="col">Added On</th>
               <th scope="col" colspan="3">Actions</th>
              
             </tr>
@@ -24,6 +24,7 @@
                 
             <th scope="row">{{ $season->id }}</th>
               <td>{{ $season->SeasonName }} </td>
+              <td>{{ $season->created_at}} </td>
          
               <td><a href="{{route('seasons.show',['season' => $season->id])}}" class="btn btn-primary btn-rounded" >  <i class="fas fa-folder">
             </i> View</a></td>

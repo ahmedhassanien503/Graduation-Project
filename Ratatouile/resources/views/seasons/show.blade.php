@@ -21,6 +21,7 @@
                   <div class="col-md-12">
                     <h1 class="lead"><b>{{$season->SeasonName}}</b></h1>
                     <h5 class= ""> Season ID: {{$season->id}}</h5>
+                    <h5 class= ""> Added On: {{$season->created_at}}</h5>
                   </div>
                
                 </div>

@@ -13,10 +13,11 @@ class Workshop extends Model
         'app_deadline',
         'no_of_applicant',
         'image',
+        'chef_id',  
     ];
-    public function user()
+    public function chef()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User','chef_id');
     }
 
 

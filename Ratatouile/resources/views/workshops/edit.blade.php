@@ -48,7 +48,7 @@
               </div>
               <div class="form-group">
                 <label for="inputClientCompany">Applying Deadline</label>
-                <input type="text" name="app_deadline" id="inputClientCompany" class="form-control" value="{{$workshop->app_deadline}}">
+                <input type="date" name="app_deadline" id="inputClientCompany" class="form-control" value="{{$workshop->app_deadline}}">
               </div>
            <div class="form-group">
                 <label for="inputStatus">Chefs</label>

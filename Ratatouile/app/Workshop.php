@@ -12,18 +12,19 @@ class Workshop extends Model
         'description', 
         'app_deadline',
         'no_of_applicant',
-        
+        'image',
+        'chef_id',  
     ];
-    public function user()
+    public function chef()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Chef','chef_id');
     }
 
 
-    public function users()
-    {
-        return $this->belongsToMany('App\User');
-    }
+    // public function users()
+    // {
+    //     return $this->belongsToMany('App\User');
+    // }
 
    
 

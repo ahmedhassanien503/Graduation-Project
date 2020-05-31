@@ -12,4 +12,9 @@ class Workshop_user extends Model
         
         
     ];
+
+    public function workshop()
+    {
+        return $this->belongsTo('App\Workshop','workshop_id');
+    }
 }

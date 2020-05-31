@@ -17,11 +17,13 @@ class CreateWorkshopsTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->integer('app_deadline');
+            $table->date('app_deadline');
             $table->integer('no_of_applicant');
             $table->unsignedBigInteger('chef_id');
-            $table->foreign('chef_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('image')-> nullable(); 
+            $table->foreign('chef_id')->references('id')->on('chefs')->onDelete('cascade');
             $table->timestamps();
+
         });
     }
 

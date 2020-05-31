@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>Ratatouille</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -27,7 +27,7 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini sidebar-collapse">
 <div class="wrapper">
 
   <!-- Navbar -->
@@ -159,7 +159,7 @@
     <a href="index3.html" class="brand-link">
       <img src="{{asset('dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">Admin</span>
     </a>
 
     <!-- Sidebar -->
@@ -213,27 +213,27 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('workshops.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Workshops</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('question.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Questions</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('answer.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Answers</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('seasons.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Seasonal</p>
+                  <p>Seasons</p>
                 </a>
               </li>
             </ul>
@@ -249,10 +249,12 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
   @yield('content')
+  <img src="{{asset('uploads/background/3.jpg')}}" width="1500px" height="590px">
+
   </div>
     <!-- </section> -->
     <!-- /.content -->
-  
+
   <!-- /.content-wrapper -->
     
 </div>

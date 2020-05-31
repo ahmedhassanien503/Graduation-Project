@@ -15,6 +15,7 @@ class Recipe extends Model
         'Serving',
         'TakenTime',
         'user_id',
+        'chef_id',
         
     ];
 
@@ -26,6 +27,16 @@ class Recipe extends Model
     public function seasons()
     {
         return $this->belongsToMany('App\Season', 'season_recipes');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'user_id');
+    }
+
+    public function chef()
+    {
+        return $this->belongsTo('App\Chef', 'chef_id');
     }
 
 }

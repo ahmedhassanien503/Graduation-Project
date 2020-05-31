@@ -15,11 +15,11 @@ class CreateMenuRecipesTable extends Migration
     {
         Schema::create('menu_recipes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            //chef_id of user who has the menu recipes 
+            //chef_id of chef who has the menu recipes 
             $table->BigInteger('chef_id')->unsigned();
             $table->foreign('chef_id')
             ->references('id')
-            ->on('users')
+            ->on('chefs')
             ->onDelete('cascade');
             $table->string('name');
             $table->text('description');

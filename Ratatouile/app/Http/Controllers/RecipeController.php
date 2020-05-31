@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Recipe;
 
@@ -15,7 +16,7 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        $recipes=Recipe::all();
+        $recipes=Recipe::paginate(4);
          return view('recipes.index',["recipes"=>$recipes]);
     }
 
@@ -39,15 +40,16 @@ class RecipeController extends Controller
 
     public function store(Request $request){
 
-        // if($request->hasFile('image'))
-        // {
-        //     $file = $request->file('image');
-        //     $extension = $file->getClientOriginalExtension(); // getting image extension
-        //     $filename =time().'.'.$extension;
-        //     Storage::disk('public')->put('pharmacies/'.$filename, File::get($file));
-        // } else {
-        //     $filename = 'pharmacy.jpg';
-        // }
+        if($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension(); 
+            $filename =time().'.'.$extension;
+            Storage::disk('public')->put('recipes/'.$filename, File::get($file));
+        } else {
+            $filename = 'recipe.jpg';
+        }
+
 
 
         Recipe::create([
@@ -57,10 +59,11 @@ class RecipeController extends Controller
             'updated_at'=>$request->updated_at,
             'RecipeName'=>$request->RecipeName,
             'details'=>$request->details,
-            // 'image'=>$filename,
-            'serving'=>$request->Serving,
+            'image'=>$filename,
+            'Serving'=>$request->Serving,
             'TakenTime'=>$request->TakenTime,
             'user_id'=>$request->user_id,
+            'chef_id'=>$request->chef_id,
         
         ]);
         return redirect()->route('recipes.index');

@@ -45,7 +45,7 @@
               </div>
             </div>
             <div class="card-body">
-              <form method="POST" action="{{route('categories.update',['category' => $category->id])}}">
+              <form method="POST" action="{{route('categories.update',['category' => $category->id])}}"enctype="multipart/form-data>
                 @method('PUT')
                 @csrf
 

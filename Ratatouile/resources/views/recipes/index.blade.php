@@ -18,6 +18,7 @@
                <th scope="col">Serving</th>
                <th scope="col">Taken Time</th>
                <th scope="col">User</th>
+               <th scope="col">Chef</th>
                <h3><th scope="col">Actions</th> </h3>
                <th scope="col"></th>
                <th scope="col"></th>
@@ -34,10 +35,11 @@
       <td>{{$recipe->updated_at}}</td>
       <td>{{$recipe->RecipeName}}</td>
       <td>{{$recipe->details}}</td>
-      <td>{{$recipe->image}}</td>
+      <td><img src="{{asset('uploads/recipes/'.$recipe->image)}}" width="100px" height="100px"></td>
       <td>{{$recipe->Serving}}</td>
       <td>{{$recipe->TakenTime}}</td>
       <td>{{$recipe->user_id}}</td>
+      <td>{{$recipe->chef_id}}</td>
    
     <td><a href="{{route('recipes.show',['recipe' => $recipe->id])}}"  class="btn btn-outline-primary" >  <i class="fas fa-folder">
      </i> View</a></td>
@@ -55,9 +57,13 @@
         </form>
     </tr> 
     @endforeach
-
-
 </table>
+<div class="row">
+  <div class="col-12 text-center">
+    {{$recipes->links()}}
+
+  </div>
+</div>
 
 
 @endsection

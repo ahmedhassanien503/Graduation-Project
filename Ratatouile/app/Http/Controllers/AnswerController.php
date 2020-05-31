@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Answer;
 use App\Question;
 use App\User;
+use App\Chef;
 
 class AnswerController extends Controller
 {
@@ -38,17 +39,17 @@ class AnswerController extends Controller
     public function create(){
         $action =route('answer.store');
         $questions=Question::all();
-        $users = User::where('is_chef','===','true')->get();
+        $chefs = Chef::all();
         return view('answers.create',[
             'action'=> $action,
-            'users' => $users,
+            'chefs' => $chefs,
             'questions'=>$questions,
         ]);
     }
     public function store(Request $request){
         $answer=Answer::create([
             'answer' => $request->answer,
-            'user_id' => $request->user_id,
+            'chef_id' => $request->chef_id,
             'question_id'=>$request->question_id,
         ]);     
         return redirect()->route('answer.index');
@@ -69,13 +70,13 @@ class AnswerController extends Controller
      */
     public function edit(){
         $request=request();
-        $users= User::where('name','<>','admin')->get();
+        $chefs = Chef::all();
         $answerId=$request->answer;
         $answer = Answer::find($answerId);
         $action =route('answer.update',['answerid'=>$answerId]);
         return view('answers.create',[
             'answer'=> $answer,
-            'users'=>$users,
+            'chefs'=>$chefs,
             'action'=> $action,
         ]);
     }
@@ -83,7 +84,7 @@ class AnswerController extends Controller
         $answerId=$request->answerid;
         $answer= Answer::find($answerId);
         $answer->answer = $request->answer;
-        $answer->user_id = $request->user_id;
+        $answer->chef_id = $request->chef_id;
         $answer->save();
         return redirect()->route('answer.index');
     }

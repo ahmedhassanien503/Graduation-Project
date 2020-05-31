@@ -8,7 +8,6 @@ use Illuminate\Notifications\Notifiable;
 
 class Chef extends Authenticatable
 {
-    //
     use Notifiable;
 
     /**

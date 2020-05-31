@@ -47,20 +47,20 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="exampleFormControlTextarea1">Chef</label>
-                                <select name="user_id" class="form-control" required>
+                                <select name="chef_id" class="form-control" required>
                             
                                     @if(isset($answer))
-                                        <option value="{{$answer->user->id}}">{{$answer->user->name}}</option>
-                                        @foreach ($users as $user)
-                                            @if ($user->name === $answer->user->name )
-                                                <option value="{{$user->id}}" hidden> {{$user->name}}</option>
+                                        <option value="{{$answer->chef->id}}">{{$answer->chef->name}}</option>
+                                        @foreach ($chefs as $chef)
+                                            @if ($chef->name === $answer->chef->name )
+                                                <option value="{{$chef->id}}" hidden> {{$chef->name}}</option>
                                             @else
-                                                <option value="{{$user->id}}"> {{$user->name}}</option>
+                                                <option value="{{$chef->id}}"> {{$chef->name}}</option>
                                             @endif
                                         @endforeach
                                     @else
-                                        @foreach ($users as $user)
-                                            <option value="{{$user->id}}">{{$user->name}}</option>
+                                        @foreach ($chefs as $chef)
+                                            <option value="{{$chef->id}}">{{$chef->name}}</option>
                                         @endforeach
                                     @endif
                             

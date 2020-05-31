@@ -27,7 +27,7 @@
             <td>{{ $answer->question->question}} </td>
             <td>{{ $answer->answer }} </td>
             <td>{{ $answer->question->user->name}} </td>
-            <td>{{$answer->user->name}}</td>
+            <td>{{$answer->chef->name}}</td>
             <td><a href="{{route('answer.show',['answer' => $answer->id])}}" class="btn btn-primary btn-sm" >  <i class="fas fa-folder">
               </i> View</a>
             </td>

@@ -36,7 +36,7 @@
                         <strong>By: {{$answer->question->user->name}}</strong>
                     </p>
                     <hr>
-                    <strong> By: {{$answer->user->name}}</strong>
+                    <strong> By: {{$answer->chef->name}}</strong>
                     <p class="text-muted"> created_at: {{$answer->created_at}}</p>
                     <hr>
 

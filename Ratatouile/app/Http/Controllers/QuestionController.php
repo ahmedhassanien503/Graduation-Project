@@ -38,7 +38,7 @@ class QuestionController extends Controller
      */
     public function create(){
         $action =route('question.store');
-        $users = User::all();
+        $users= User::where('name','<>','admin')->get();
         return view('questions.create',[
             'action'=> $action,
             'users' => $users,

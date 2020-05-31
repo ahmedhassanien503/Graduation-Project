@@ -225,7 +225,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('answer.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Answers</p>
                 </a>

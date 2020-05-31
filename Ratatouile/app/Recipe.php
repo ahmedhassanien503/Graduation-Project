@@ -25,4 +25,14 @@ class Recipe extends Model
         return $this->belongsToMany('App\Season', 'season_recipes');
     }
 
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'user_id');
+    }
+
+    public function chef()
+    {
+        return $this->belongsTo('App\Chef', 'chef_id');
+    }
+
 }

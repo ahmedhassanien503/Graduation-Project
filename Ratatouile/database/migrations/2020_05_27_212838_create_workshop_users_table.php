@@ -17,7 +17,7 @@ class CreateWorkshopUsersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('workshop_id');
-            
+            $table->boolean('is_accepted')->default(false);
             $table->unique(['user_id','workshop_id']);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('workshop_id')->references('id')->on('workshops')->onDelete('cascade');

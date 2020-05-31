@@ -20,8 +20,10 @@ class CreateWorkshopsTable extends Migration
             $table->integer('app_deadline');
             $table->integer('no_of_applicant');
             $table->unsignedBigInteger('chef_id');
+            $table->string('image')-> nullable(); 
             $table->foreign('chef_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
+
         });
     }
 

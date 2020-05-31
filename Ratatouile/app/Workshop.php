@@ -12,7 +12,7 @@ class Workshop extends Model
         'description', 
         'app_deadline',
         'no_of_applicant',
-        
+        'image',
     ];
     public function user()
     {

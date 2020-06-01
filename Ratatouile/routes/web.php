@@ -12,15 +12,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::get('/', function () {
     return view('welcome');
-    }); 
+});
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/admin', function () {return view('admin');})->name('admin.index');
-    
-    //Recipes Routes
+    ######################   Recipes Routes ##########################################################
     Route::get('/recipes', 'RecipeController@index')->name('recipes.index');
     Route::get('/recipes/create','RecipeController@create')->name('recipes.create');
     Route::get('/recipes/{recipe}', 'RecipeController@show')->name('recipes.show');
@@ -28,7 +26,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::delete('/recipes/{recipe}','RecipeController@destroy')->name('recipes.destroy');
     Route::get('/recipes/{recipe}/edit','RecipeController@edit')->name('recipes.edit');
     Route::put('/recipes/{recipe}','RecipeController@update')->name('recipes.update');
-    //Categries Routes
+    ######################   Categries Routes ##########################################################
     Route::get('/categories', 'CategoryController@index')->name('categories.index');
     Route::get('/categories/create','CategoryController@create')->name('categories.create');
     Route::get('/categories/{category}', 'CategoryController@show')->name('categories.show');

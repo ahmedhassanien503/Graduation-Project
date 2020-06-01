@@ -39,9 +39,12 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    /**
+     * override logout function
+     */
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('login');;
+        return redirect()->route('login');
     }
 }

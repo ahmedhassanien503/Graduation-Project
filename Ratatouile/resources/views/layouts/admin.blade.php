@@ -219,6 +219,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="{{route('applicants.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Applicants</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="{{route('question.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Questions</p>

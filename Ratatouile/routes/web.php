@@ -61,3 +61,12 @@ Route::delete('Answers/{answer}/delete', 'AnswerController@destroy')->name('answ
 Route::get('Answers/{answer}/edit', 'AnswerController@edit')->name('answer.edit');
 Route::put('Answers/{answerid}', 'AnswerController@update')->name('answer.update');
 
+
+###################### Applicants Routes ##########################################################
+Route::get('/applicants', 'WorkshopUsersController@index')->name('applicants.index');
+Route::get('/applicants/create', 'WorkshopUsersController@create')->name('applicants.create');
+Route::post('/applicants', 'WorkshopUsersController@store')->name('applicants.store');
+Route::get('/applicants/{applicant}', 'WorkshopUsersController@show')->name('applicants.show');
+Route::delete('/applicants/{applicant}/delete', 'WorkshopUsersController@destroy')->name('applicants.destroy');
+Route::get('/applicants/{applicant}/accept', 'WorkshopUsersController@accept')->name('applicants.accept');
+Route::get('/applicants/{applicant}/reject', 'WorkshopUsersController@reject')->name('applicants.reject');

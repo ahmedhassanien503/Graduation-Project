@@ -184,13 +184,15 @@
       </div>
 
       <!-- Sidebar Menu -->
-      <nav class="mt-2">
+       <!-- Sidebar Menu -->
+       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="fas fa-bars"></i>
+
               <p>
                 Main Menu
                 <i class="right fas fa-angle-left"></i>
@@ -199,56 +201,56 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
               <a href="{{route('recipes.index')}}" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-utensils"></i>
                   <p>Recipes</p>
                 </a>
               </li>
               <li class="nav-item">
               <a href="{{route('categories.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                <i class="fas fa-hamburger"></i>
                   <p>Categories</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-pizza-slice"></i>
                   <p>Users</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('orders.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-drumstick-bite"></i>
                   <p>Orders</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('workshops.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-pepper-hot"></i>
                   <p>Workshops</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('applicants.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-fish"></i>
                   <p>Applicants</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('question.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-carrot"></i>
                   <p>Questions</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('answer.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-lemon"></i>
                   <p>Answers</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('seasons.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Seasons</p>
+                  <i class="fas fa-cookie-bite"></i>
+                  <p> Seasons</p>
                 </a>
               </li>
             </ul>
@@ -264,8 +266,8 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
   @yield('content')
-  <img src="{{asset('uploads/background/3.jpg')}}" width="1500px" height="590px">
-
+ <img src="{{asset('uploads/background/cook6.jpg')}}" style="width:100%;">
+ 
   </div>
     <!-- </section> -->
     <!-- /.content -->

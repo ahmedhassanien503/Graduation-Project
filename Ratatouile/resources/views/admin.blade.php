@@ -189,13 +189,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+              <a href="{{route('recipes.index')}}" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Recipes</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+              <a href="{{route('categories.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Categories</p>
                 </a>
@@ -207,7 +207,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('orders.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Orders</p>
                 </a>
@@ -255,10 +255,12 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
   @yield('content')
+  <img src="{{asset('uploads/background/3.jpg')}}" width="1500px" height="590px">
+
   </div>
     <!-- </section> -->
     <!-- /.content -->
-  
+
   <!-- /.content-wrapper -->
     
 </div>

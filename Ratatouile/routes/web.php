@@ -21,6 +21,29 @@ Route::get('/admin', function () {
     return view('admin');
 });
 
+
+
+//Recipes Routes
+
+Route::get('/recipes', 'RecipeController@index')->name('recipes.index');
+Route::get('/recipes/create','RecipeController@create')->name('recipes.create');
+Route::get('/recipes/{recipe}', 'RecipeController@show')->name('recipes.show');
+Route::post('/recipes','RecipeController@store')->name('recipes.store');
+Route::delete('/recipes/{recipe}','RecipeController@destroy')->name('recipes.destroy');
+Route::get('/recipes/{recipe}/edit','RecipeController@edit')->name('recipes.edit');
+Route::put('/recipes/{recipe}','RecipeController@update')->name('recipes.update');
+
+
+//Categries Routes
+
+Route::get('/categories', 'CategoryController@index')->name('categories.index');
+Route::get('/categories/create','CategoryController@create')->name('categories.create');
+Route::get('/categories/{category}', 'CategoryController@show')->name('categories.show');
+Route::post('/categories','CategoryController@store')->name('categories.store');
+Route::delete('/categories/{category}','CategoryController@destroy')->name('categories.destroy');
+Route::get('/categories/{category}/edit','CategoryController@edit')->name('categories.edit');
+Route::put('/categories/{category}','CategoryController@update')->name('categories.update');
+
 ######################   Seasons Routes ##########################################################
 Route::get('/seasons', 'SeasonController@index')->name('seasons.index');
 Route::get('/seasons/create', 'SeasonController@create')->name('seasons.create');
@@ -70,3 +93,13 @@ Route::get('/applicants/{applicant}', 'WorkshopUsersController@show')->name('app
 Route::delete('/applicants/{applicant}/delete', 'WorkshopUsersController@destroy')->name('applicants.destroy');
 Route::get('/applicants/{applicant}/accept', 'WorkshopUsersController@accept')->name('applicants.accept');
 Route::get('/applicants/{applicant}/reject', 'WorkshopUsersController@reject')->name('applicants.reject');
+##################### Orders Routes #############################################################
+
+Route::get('/orders', 'OrderController@index')->name('orders.index');
+Route::get('/orders/create', 'OrderController@create')->name('orders.create');
+Route::post('/orders', 'OrderController@store')->name('orders.store');
+Route::get('/orders/{order}', 'OrderController@show')->name('orders.show');
+Route::get('/orders/{order}/edit', 'OrderController@edit')->name('orders.edit');
+Route::put('/orders/{order}', 'OrderController@update')->name('orders.update');
+Route::delete('/orders/{order}/delete', 'OrderController@destroy')->name('orders.destroy');
+

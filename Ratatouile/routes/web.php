@@ -61,3 +61,14 @@ Route::delete('Answers/{answer}/delete', 'AnswerController@destroy')->name('answ
 Route::get('Answers/{answer}/edit', 'AnswerController@edit')->name('answer.edit');
 Route::put('Answers/{answerid}', 'AnswerController@update')->name('answer.update');
 
+
+##################### Orders Routes #############################################################
+
+Route::get('/orders', 'OrderController@index')->name('orders.index');
+Route::get('/orders/create', 'OrderController@create')->name('orders.create');
+Route::post('/orders', 'OrderController@store')->name('orders.store');
+Route::get('/orders/{order}', 'OrderController@show')->name('orders.show');
+Route::get('/orders/{order}/edit', 'OrderController@edit')->name('orders.edit');
+Route::put('/orders/{order}', 'OrderController@update')->name('orders.update');
+Route::delete('/orders/{order}/delete', 'OrderController@destroy')->name('orders.destroy');
+

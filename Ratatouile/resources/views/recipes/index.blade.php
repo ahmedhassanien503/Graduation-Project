@@ -4,7 +4,7 @@
 <div class="d-flex align-content-stretch flex-wrap" style="text-align:center">
     <div class="container " style="text-align:center">
         <br>
-        <a href="{{route('recipes.create')}}"  class="btn btn-outline-warning mb-5" style="align-center" >Add New Recipe</a>
+        <a href="{{route('recipes.create')}}"  class="btn btn-success mb-5" style="align-center" > New Recipe <i class="far fa-plus-square"></i> </a>
         {{-- <button type="button" class="btn btn-lg btn-primary" >Primary button</button> --}}
       
       <table class="table table-bordered table-hover table-dark" class="mx-auto" style="background-color: 	rgb(52, 57, 64)" >

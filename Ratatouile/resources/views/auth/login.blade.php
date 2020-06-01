@@ -2,11 +2,11 @@
 
 @section('content')
 
-<div class="container">
+<div class="container" style="margin-top: 350px">
   <div class="row justify-content-center">
     <div class="login-box">
       <div class="card">
-        <div class="card-body login-card-body">
+        <div class="card-body login-card-body"  style="width: 700px; height: 320px;">
           <p class="login-box-msg justify-content-center">{{ __('Login') }}</p>
 
           <form  method="POST" action="{{ route('login') }}">
@@ -39,6 +39,8 @@
                     </span>
                 @enderror
             </div>
+            <br>
+      
             <div class="row">
               <div class="col-12">
                 <div class="icheck-primary">
@@ -48,14 +50,13 @@
                   </label>
                 </div>
               </div>
+              <br>
+    
+              <br>
               <!-- /.col -->
               <div class="col-12">
                 <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-                  @if (Route::has('password.request'))
-                      <a class="btn btn-link" href="{{ route('password.request') }}">
-                          {{ __('Forgot Your Password?') }}
-                      </a>
-                  @endif
+                 
               </div>
               <!-- /.col -->
             </div>

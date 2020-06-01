@@ -7,11 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Recipe extends Model
 {
     protected $fillable = [
+        'created_at',
+        'updated_at',
         'RecipeName',
         'details', 
         'image',
         'Serving',
         'TakenTime',
+        'user_id',
+        'chef_id',
         
     ];
 

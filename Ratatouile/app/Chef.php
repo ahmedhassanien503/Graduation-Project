@@ -16,7 +16,7 @@ class Chef extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'is_banned', 'work_place', 'image'
     ];
 
     /**

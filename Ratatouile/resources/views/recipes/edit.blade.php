@@ -16,7 +16,7 @@
 @endif
 
 <div class="container">
-<form method="POST" action="{{route('recipes.update',['recipe' => $recipe->id])}} enctype="multipart/form-data">
+<form method="POST" action="{{route('recipes.update',['recipe' => $recipe->id])}}" enctype="multipart/form-data">
     @method('PUT')
     @csrf
     <div class="form-row">

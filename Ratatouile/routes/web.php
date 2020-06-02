@@ -84,4 +84,16 @@ Route::delete('Answers/{answer}/delete', 'AnswerController@destroy')->name('answ
 Route::get('Answers/{answer}/edit', 'AnswerController@edit')->name('answer.edit');
 Route::put('Answers/{answerid}', 'AnswerController@update')->name('answer.update');
 
+//User Routes
 
+Route::get('users', 'UserController@index')->name('users.index');
+Route::get('users/{user}/edit', 'UserController@edit')->name('users.edit');
+Route::put('users/{user}', 'UserController@update')->name('users.update');
+Route::delete('users/{user}/delete', 'UserController@destroy')->name('users.destroy');
+
+//Chef Routes
+
+Route::get('chefs', 'ChefController@index')->name('chefs.index');
+Route::get('chefs/{chef}/edit', 'ChefController@edit')->name('chefs.edit');
+Route::put('chefs/{chef}', 'ChefController@update')->name('chefs.update');
+Route::delete('chefs/{chef}/delete', 'ChefController@destroy')->name('chefs.destroy');

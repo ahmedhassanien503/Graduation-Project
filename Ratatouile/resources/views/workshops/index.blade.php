@@ -39,15 +39,15 @@
                  <td>{{ $doctor->pharmacy->name}}</td> 
               @endrole --}}
          
-              <td><a href="{{route('workshops.show',['workshop' => $workshop->id])}}" class="btn btn-primary btn-sm" >  <i class="fas fa-folder">
+              <td><a href="{{route('workshops.show',['workshop' => $workshop->id])}}" class="btn btn-outline-primary btn-sm" >  <i class="fas fa-folder">
             </i> View</a></td>
-              <td><a href="{{route('workshops.edit',['workshop' => $workshop->id])}}" class="btn btn-info btn-sm" > <i class="fas fa-pencil-alt">
+              <td><a href="{{route('workshops.edit',['workshop' => $workshop->id])}}" class="btn btn-outline-info btn-sm" > <i class="fas fa-pencil-alt">
             </i> Edit</a></td>
             <td> 
                 <form method="POST" action="{{route('workshops.destroy',['workshop' => $workshop->id])}}" >
                     @method('DELETE')
                     @csrf
-                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this workshop?')"><i class="fas fa-trash-alt">
+                    <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Are you sure you want to delete this workshop?')"><i class="fas fa-trash-alt">
                     </i> Delete</button>
                 </form>
             </td>

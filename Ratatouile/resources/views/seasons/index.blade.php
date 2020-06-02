@@ -12,7 +12,7 @@
         <thead class="thead-light">
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">المناسبة</th>
+              <th scope="col">Season</th>
               <th scope="col">Added On</th>
               <th scope="col" colspan="3">Actions</th>
              
@@ -26,15 +26,15 @@
               <td>{{ $season->SeasonName }} </td>
               <td>{{ $season->created_at}} </td>
          
-              <td><a href="{{route('seasons.show',['season' => $season->id])}}" class="btn btn-primary btn-rounded" >  <i class="fas fa-folder">
+              <td><a href="{{route('seasons.show',['season' => $season->id])}}" class="btn btn-outline-primary btn-rounded" >  <i class="fas fa-folder">
             </i> View</a></td>
-              <td><a href="{{route('seasons.edit',['season' => $season->id])}}" class="btn btn-info btn-rounded" > <i class="fas fa-pencil-alt">
+              <td><a href="{{route('seasons.edit',['season' => $season->id])}}" class="btn btn-outline-info btn-rounded" > <i class="fas fa-pencil-alt">
             </i> Edit</a></td>
             <td> 
                 <form method="POST" action="{{route('seasons.destroy',['season' => $season->id])}}" >
                     @method('DELETE')
                     @csrf
-                    <button type="submit" class="btn btn-danger  btn-rounded" onclick="return confirm('Are you sure you want to delete this season?')"><i class="fas fa-trash-alt">
+                    <button type="submit" class="btn btn-outline-danger  btn-rounded" onclick="return confirm('Are you sure you want to delete this season?')"><i class="fas fa-trash-alt">
                     </i> Delete</button>
                 </form>
             </td>

@@ -38,10 +38,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+        <a href="{{route('admin.index')}}" class="nav-link">Home</a>
       </li>
     </ul>
 
@@ -144,11 +141,24 @@
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
+      <li class="nav-item dropdown">
+        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            {{ Auth::user()->name }} <span class="caret"></span>
         </a>
+
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        </div>
       </li>
+    
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -156,7 +166,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{route('admin.index')}}" class="brand-link">
       <img src="{{asset('dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">Admin</span>
@@ -181,7 +191,8 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="fas fa-bars"></i>
+
               <p>
                 Main Menu
                 <i class="right fas fa-angle-left"></i>
@@ -190,50 +201,56 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
               <a href="{{route('recipes.index')}}" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-utensils"></i>
                   <p>Recipes</p>
                 </a>
               </li>
               <li class="nav-item">
               <a href="{{route('categories.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                <i class="fas fa-hamburger"></i>
                   <p>Categories</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-pizza-slice"></i>
                   <p>Users</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                <a href="{{route('orders.index')}}" class="nav-link">
+                  <i class="fas fa-drumstick-bite"></i>
                   <p>Orders</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('workshops.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-pepper-hot"></i>
                   <p>Workshops</p>
                 </a>
               </li>
               <li class="nav-item">
+                <a href="{{route('applicants.index')}}" class="nav-link">
+                  <i class="fas fa-fish"></i>
+                  <p>Applicants</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="{{route('question.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-carrot"></i>
                   <p>Questions</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('answer.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-lemon"></i>
                   <p>Answers</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('seasons.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Seasons</p>
+                  <i class="fas fa-cookie-bite"></i>
+                  <p> Seasons</p>
                 </a>
               </li>
             </ul>

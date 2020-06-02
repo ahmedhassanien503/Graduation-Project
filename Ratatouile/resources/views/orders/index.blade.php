@@ -15,7 +15,7 @@
               <th scope="col">Total Price</th>
               <th scope="col">Chef Name</th>
               <th scope="col">User Name</th>
-              <th scope="col" colspan="3">Actions</th>
+              <th scope="col" colspan="4">Actions</th>
               
             
             </tr>
@@ -32,15 +32,15 @@
               <td>{{ $order->user->name}} </td>
               <td>{{ $order->created_at}} </td>
          
-              <td><a href="{{route('orders.show',['order' => $order->id])}}" class="btn btn-primary btn-sm" >  <i class="fas fa-folder">
+              <td><a href="{{route('orders.show',['order' => $order->id])}}" class="btn btn-outline-primary btn-sm" >  <i class="fas fa-folder">
             </i> View</a></td>
-              <td><a href="{{route('orders.edit',['order' => $order->id])}}" class="btn btn-info btn-sm" > <i class="fas fa-pencil-alt">
+              <td><a href="{{route('orders.edit',['order' => $order->id])}}" class="btn btn-outline-info btn-sm" > <i class="fas fa-pencil-alt">
             </i> Edit</a></td>
             <td> 
                 <form method="POST" action="{{route('orders.destroy',['order' => $order->id])}}" >
                     @method('DELETE')
                     @csrf
-                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this order?')"><i class="fas fa-trash-alt">
+                    <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Are you sure you want to delete this order?')"><i class="fas fa-trash-alt">
                     </i> Delete</button>
                 </form>
             </td>

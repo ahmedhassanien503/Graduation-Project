@@ -34,14 +34,14 @@
               <td>{{ $applicant->created_at}} </td>
               
               
-              <td><a href="{{route('applicants.show',['applicant' => $applicant->id])}}" class="btn btn-primary btn-sm" >  <i class="fas fa-folder">
+              <td><a href="{{route('applicants.show',['applicant' => $applicant->id])}}" class="btn btn-outline-primary btn-sm" >  <i class="fas fa-folder">
             </i> View</a></td> 
              
             <td> 
                 <form method="POST" action="{{route('applicants.destroy',['applicant' => $applicant->id])}}" >
                     @method('DELETE')
                     @csrf
-                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to remove this applicant?')"><i class="fas fa-trash-alt">
+                    <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Are you sure you want to remove this applicant?')"><i class="fas fa-trash-alt">
                     </i> Delete</button>
                 </form>
             </td>
@@ -50,10 +50,10 @@
         @method('PATCH') 
         @csrf
             @if($applicant->is_accepted)         
-              <td><a href="{{route('applicants.reject',['applicant' => $applicant->id])}}" class="btn btn-warning btn-sm" data-id='$applicant->id' >  <i class="fas fa-user-slash">
+              <td><a href="{{route('applicants.reject',['applicant' => $applicant->id])}}" class="btn btn-outline-warning btn-sm" data-id='$applicant->id' >  <i class="fas fa-user-slash">
               </i> Reject</a></td>           
             @else
-              <td><a href="{{route('applicants.accept',['applicant' => $applicant->id])}}" class="btn btn-success btn-sm" data-id='$applicant->id'>  <i class="far fa-check-square"></i>  Accept</a></td>    
+              <td><a href="{{route('applicants.accept',['applicant' => $applicant->id])}}" class="btn btn-outline-success btn-sm" data-id='$applicant->id'>  <i class="far fa-check-square"></i>  Accept</a></td>    
             @endif
     </form>
 

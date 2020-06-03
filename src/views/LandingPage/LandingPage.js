@@ -24,7 +24,7 @@ import WorkSection from "./Sections/WorkSection.js";
 
 import Button from '@material-ui/core/Button';
 import SectionCarousel from "./SectionCarousel";
-
+import CategoriesSection from "./CategoriesSection"
 const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
@@ -81,6 +81,9 @@ export default function LandingPage(props) {
         </div>
       {/* </Parallax> */}
       </SectionCarousel>
+
+      <CategoriesSection />
+
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.container}>
           <ProductSection />

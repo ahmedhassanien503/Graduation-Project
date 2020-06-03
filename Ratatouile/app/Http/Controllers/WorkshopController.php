@@ -121,25 +121,21 @@ class WorkshopController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        // if($request->hasFile('image'))
-        // {
-        //     $file = $request->file('image');
-        //     $extension = $file->getClientOriginalExtension(); // getting image extension
-        //     $filename =time().'.'.$extension;
-        //     Storage::disk('public')->put('workshops/'.$filename, File::get($file));
-        // } else {
-        //     $filename = 'workshop.jpg';
-        // }
-
         $workshop = Workshop::find($id);
         $workshop->name= $request->name;
         $workshop->description = $request->description;
         $workshop->app_deadline= $request->app_deadline;
         $workshop->no_of_applicant = $request->no_of_applicant;
         $chefs = User::where('is_chef','1')->get();
-        // $workshop->image= $request->filename;
-       
+
+        if($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename =time().'.'.$extension;
+            Storage::disk('public')->put('workshops/'.$filename, File::get($file));
+            $workshop->image= $filename;
+        } 
         $workshop->save();
         return redirect()->route('workshops.index');
     }

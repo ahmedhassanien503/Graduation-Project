@@ -105,6 +105,14 @@ class SeasonController extends Controller
     {
         $season = Season::find($id);
         $season->season_name= $request->name;
+        if($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename =time().'.'.$extension;
+            Storage::disk('public')->put('seasons/'.$filename, File::get($file));
+            $season->image= $filename;
+        } 
         $season->save();
         return redirect()->route('seasons.index');
     }

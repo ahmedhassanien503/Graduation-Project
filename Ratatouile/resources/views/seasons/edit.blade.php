@@ -26,7 +26,7 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Season Name</label>
-                  <input type="text" name="name" class="form-control" id="exampleInputPassword1" value="{{$season->SeasonName}}">
+                  <input type="text" name="name" class="form-control" id="exampleInputPassword1" value="{{$season->season_name}}">
                 </div>
               
               </div>

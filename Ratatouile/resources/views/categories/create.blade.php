@@ -58,7 +58,13 @@
               </div>
               <div class="form-group">
                 <label for="inputName">Category Name</label>
-                <input type="text" name="CategoryName" class="form-control">
+                <input type="text" name="category_name" class="form-control">
+              </div>
+              <div class="form-group">
+                <div class="form-group col-md-12">
+                  <label for="avatar">Image</label>
+                  <input type="file" class="d-block" id="image" name="image" accept="image/*">
+                </div>
               </div>
               
         <div class="row ">

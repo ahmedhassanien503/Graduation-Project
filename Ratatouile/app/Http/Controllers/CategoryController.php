@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Category;
 
@@ -36,12 +37,23 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+
+        if($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension(); 
+            $filename =time().'.'.$extension;
+            Storage::disk('public')->put('categories/'.$filename, File::get($file));
+        } else {
+            $filename = 'category.jpg';
+        }
         Category::create([
           
 
             'created_at'=>$request->created_at,
             'updated_at'=>$request->updated_at,
-            'CategoryName'=>$request->CategoryName,
+            'category_name'=>$request->category_name,
+            'image'=>$filename,
         
         ]);
         return redirect()->route('categories.index');
@@ -94,7 +106,10 @@ class CategoryController extends Controller
    
         $categoryId= $request->category;
         $category=Category::find($categoryId);
-        $category->CategoryName=$request->get('CategoryName');
+        $category->category_name=$request->get('category_name');
+        $category->created_at=$request->get('created_at');
+        $category->updated_at=$request->get('updated_at');
+        $category->image=$request->get('image');
         $category->save();
          
         return redirect('/categories');

@@ -9,7 +9,8 @@ class Category extends Model
     protected $fillable=[
         'created_at',
         'updated_at',
-        'CategoryName'
+        'category_name',
+        'image',
     ];
 
     public function recipes()

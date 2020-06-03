@@ -158,6 +158,7 @@
             </form>
         </div>
       </li>
+    
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -184,8 +185,7 @@
       </div>
 
       <!-- Sidebar Menu -->
-       <!-- Sidebar Menu -->
-       <nav class="mt-2">
+      <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
@@ -212,8 +212,14 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('chefs.index')}}" class="nav-link">
                   <i class="fas fa-pizza-slice"></i>
+                  <p>Chefs</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('users.index')}}" class="nav-link">
+                  <i class="fas fa-ice-cream"></i>
                   <p>Users</p>
                 </a>
               </li>
@@ -266,12 +272,11 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
   @yield('content')
- <img src="{{asset('uploads/background/cook6.jpg')}}" style="width:100%;">
- 
+  <img src="{{asset('uploads/background/cook6.jpg')}}" style="width:100%;">
   </div>
     <!-- </section> -->
     <!-- /.content -->
-
+  
   <!-- /.content-wrapper -->
     
 </div>

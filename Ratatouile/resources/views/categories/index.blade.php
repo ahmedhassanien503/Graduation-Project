@@ -8,11 +8,12 @@
         {{-- <button type="button" class="btn btn-lg btn-primary" >Primary button</button> --}}
       
       <table class="table table-bordered table-hover table-dark" class="mx-auto" style="background-color: 	rgb(52, 57, 64)" >
-        <thead class="thead-dark">
+        <thead class="thead-light">
             <tr>
               <th scope="col">Created at</th>
               <th scope="col">Updated at</th>
               <th scope="col">Category</th>
+              <th scope="col">Image</th>
                <h3><th scope="col">Actions</th> </h3>
                <th scope="col"></th>
                {{-- <th scope="col"></th> --}}
@@ -27,7 +28,9 @@
     
       <td>{{$category->created_at}}</td>
       <td>{{$category->updated_at}}</td>
-      <td>{{$category->CategoryName}}</td>
+      <td>{{$category->category_name}}</td>
+      <td><img src="{{asset('uploads/categories/'.$category->image)}}" width="100px" height="100px"></td>
+
      
    
     {{-- <td><a href="{{route('categories.show',['category' => $category->id])}}"  class="btn btn-outline-primary" >  <i class="fas fa-folder">

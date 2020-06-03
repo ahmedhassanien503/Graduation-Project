@@ -24,11 +24,11 @@
         <tr>     
           <th scope="row">{{ $question->id }}</th>
             <td>{{ $question->question }} </td>
-            <td>{{$question->user_id}}</td>
-            <td><a href="{{route('question.show',['question' => $question->id])}}" class="btn btn-outline-primary btn-sm" >  <i class="fas fa-folder">
+            <td>{{$question->user->name}}</td>
+            <td><a href="{{route('question.show',['question' => $question->id])}}" class="btn btn-outline-info btn-sm" >  <i class="fas fa-folder">
               </i> View</a>
             </td>
-            <td><a href="{{route('question.edit',['question' => $question->id])}}" class="btn btn-outline-info btn-sm" > <i class="fas fa-pencil-alt">
+            <td><a href="{{route('question.edit',['question' => $question->id])}}" class="btn btn-outline-warning btn-sm" > <i class="fas fa-pencil-alt">
               </i> Edit</a>
             </td>
           <td> 

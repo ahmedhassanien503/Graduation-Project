@@ -16,6 +16,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+// Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm')->name('admin.login');
+// Route::post('/login/admin', 'Auth\LoginController@adminLogin');
+
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/admin', function () {return view('admin');})->name('admin.index');
     ######################   Recipes Routes ##########################################################
@@ -82,6 +86,17 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/orders/{order}/edit', 'OrderController@edit')->name('orders.edit');
     Route::put('/orders/{order}', 'OrderController@update')->name('orders.update');
     Route::delete('/orders/{order}/delete', 'OrderController@destroy')->name('orders.destroy');
+    ##################### Users Routes #############################################################
+    Route::get('users', 'UserController@userIndex')->name('users.index');
+    Route::get('users/{user}/edit', 'UserController@userEdit')->name('users.edit');
+    Route::put('users/{user}', 'UserController@userUpdate')->name('users.update');
+    Route::delete('users/{user}/delete', 'UserController@userDestroy')->name('users.destroy');
+    ##################### Chefs Routes #############################################################
+    Route::get('chefs', 'UserController@chefIndex')->name('chefs.index');
+    Route::get('chefs/{chef}/edit', 'UserController@chefEdit')->name('chefs.edit');
+    Route::put('chefs/{chef}', 'UserController@chefUpdate')->name('chefs.update');
+    Route::delete('chefs/{chef}/delete', 'UserController@chefDestroy')->name('chefs.destroy');
 });
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+

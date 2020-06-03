@@ -30,18 +30,13 @@
               <td>{{ $workshop->name }} </td>
               <td>{{$workshop->description }}</td>
               <td><img src="{{asset('uploads/workshops/'.$workshop->image)}}" width="90px" height="90px"></td>
-              <td>{{ $workshop->chef->name}}</td>
+              <td>{{ $workshop->user->name}}</td>
               <td>{{ $workshop->no_of_applicant}} </td>
               <td>{{ $workshop->app_deadline}} </td>
               <td>{{ $workshop->created_at}} </td>
-              {{-- <td>{{ $doctor->created_at->format('d-m-y')}}</td>  --}}
-              {{-- @role('admin', 'admin')
-                 <td>{{ $doctor->pharmacy->name}}</td> 
-              @endrole --}}
-         
-              <td><a href="{{route('workshops.show',['workshop' => $workshop->id])}}" class="btn btn-outline-primary btn-sm" >  <i class="fas fa-folder">
+              <td><a href="{{route('workshops.show',['workshop' => $workshop->id])}}" class="btn btn-outline-info btn-sm" >  <i class="fas fa-folder">
             </i> View</a></td>
-              <td><a href="{{route('workshops.edit',['workshop' => $workshop->id])}}" class="btn btn-outline-info btn-sm" > <i class="fas fa-pencil-alt">
+              <td><a href="{{route('workshops.edit',['workshop' => $workshop->id])}}" class="btn btn-outline-warning btn-sm" > <i class="fas fa-pencil-alt">
             </i> Edit</a></td>
             <td> 
                 <form method="POST" action="{{route('workshops.destroy',['workshop' => $workshop->id])}}" >

@@ -34,7 +34,7 @@
               <td>{{ $applicant->created_at}} </td>
               
               
-              <td><a href="{{route('applicants.show',['applicant' => $applicant->id])}}" class="btn btn-outline-primary btn-sm" >  <i class="fas fa-folder">
+              <td><a href="{{route('applicants.show',['applicant' => $applicant->id])}}" class="btn btn-outline-info btn-sm" >  <i class="fas fa-folder">
             </i> View</a></td> 
              
             <td> 

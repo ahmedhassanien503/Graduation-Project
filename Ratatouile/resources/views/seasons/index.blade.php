@@ -13,6 +13,7 @@
             <tr>
               <th scope="col">ID</th>
               <th scope="col">Season</th>
+              <th scope="col">Image</th>
               <th scope="col">Added On</th>
               <th scope="col" colspan="3">Actions</th>
              
@@ -23,12 +24,13 @@
             <tr>
                 
             <th scope="row">{{ $season->id }}</th>
-              <td>{{ $season->SeasonName }} </td>
+              <td>{{ $season->season_name }} </td>
+              <td><img src="{{asset('uploads/seasons/'.$season->image)}}" width="90px" height="90px"></td>
               <td>{{ $season->created_at}} </td>
          
-              <td><a href="{{route('seasons.show',['season' => $season->id])}}" class="btn btn-outline-primary btn-rounded" >  <i class="fas fa-folder">
+              <td><a href="{{route('seasons.show',['season' => $season->id])}}" class="btn btn-outline-info btn-rounded" >  <i class="fas fa-folder">
             </i> View</a></td>
-              <td><a href="{{route('seasons.edit',['season' => $season->id])}}" class="btn btn-outline-info btn-rounded" > <i class="fas fa-pencil-alt">
+              <td><a href="{{route('seasons.edit',['season' => $season->id])}}" class="btn btn-outline-warning btn-rounded" > <i class="fas fa-pencil-alt">
             </i> Edit</a></td>
             <td> 
                 <form method="POST" action="{{route('seasons.destroy',['season' => $season->id])}}" >

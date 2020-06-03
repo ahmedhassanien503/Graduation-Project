@@ -23,6 +23,15 @@
             <label>is_banned</label>
             <input name="is_banned" value="{{$user->is_banned}}" type="text" class="form-control" >
         </div>
+        <div class="form-group">
+            <label>is_chef</label>
+            <input name="is_chef" value="{{$user->is_chef}}" type="text" class="form-control" >
+        </div>
+        
+        <div class="form-group">
+            <label>work_place</label>
+            <input name="work_place" value="{{$user->work_place}}" type="text" class="form-control" >
+        </div>
         <button type="submit" class="btn btn-primary">Update</button>
         </form>
     </div>

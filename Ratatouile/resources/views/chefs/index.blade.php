@@ -8,9 +8,11 @@
         <th scope="col">name</th>
         <th scope="col">email</th>
         <th scope="col">image</th>
-        <th scope="col">work_place</th>
+        
         <th scope="col">is_banned</th>
-        <th scope="col" colspan="3">actions</th>
+        <th scope="col">is_chef</th>
+        <th scope="col">work_place</th>
+        <th scope="col" colspan="2">actions</th>
         </tr>
     </thead>
     <tbody>
@@ -20,8 +22,9 @@
         <td>{{$chef->name}}</td>
         <td>{{$chef->email}}</td>
         <td><img src=" {{$chef->image}}"></td>
-        <td>{{$chef->work_place}}</td>
         <td>{{$chef->is_banned}}</td>
+        <td>{{$chef->is_chef}}</td>
+        <td>{{$chef->work_place}}</td>
         <td>
         <a href="{{route('chefs.edit',['chef' => $chef->id])}}" class="btn btn-primary">Edit</a>
         </td>

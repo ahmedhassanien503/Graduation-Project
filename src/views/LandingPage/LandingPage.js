@@ -21,7 +21,7 @@ import styles from "assets/jss/material-kit-react/views/landingPage.js";
 import ProductSection from "./Sections/ProductSection.js";
 import TeamSection from "./Sections/TeamSection.js";
 import WorkSection from "./Sections/WorkSection.js";
-
+import ChefSection from "./Sections/ChefSection.js";
 import Button from '@material-ui/core/Button';
 import SectionCarousel from "./SectionCarousel";
 
@@ -86,7 +86,7 @@ export default function LandingPage(props) {
           <ProductSection />
           <TeamSection />
           <WorkSection />
-          <TeamSection />
+          <ChefSection />
            
         </div>
       </div>

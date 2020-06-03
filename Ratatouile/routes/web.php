@@ -16,6 +16,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+// Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm')->name('admin.login');
+// Route::post('/login/admin', 'Auth\LoginController@adminLogin');
+
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/admin', function () {return view('admin');})->name('admin.index');
     ######################   Recipes Routes ##########################################################

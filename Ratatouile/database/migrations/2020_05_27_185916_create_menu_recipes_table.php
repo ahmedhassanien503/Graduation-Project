@@ -19,7 +19,7 @@ class CreateMenuRecipesTable extends Migration
             $table->BigInteger('chef_id')->unsigned();
             $table->foreign('chef_id')
             ->references('id')
-            ->on('chefs')
+            ->on('users')
             ->onDelete('cascade');
             $table->string('name');
             $table->text('description');

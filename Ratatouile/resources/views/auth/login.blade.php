@@ -46,7 +46,7 @@
                 <div class="icheck-primary">
                   <input  type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                   <label for="remember">
-                  {{ __('Remember Me') }}
+                   {{ __('Remember Me') }}
                   </label>
                 </div>
               </div>

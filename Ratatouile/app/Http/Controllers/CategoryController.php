@@ -109,7 +109,14 @@ class CategoryController extends Controller
         $category->category_name=$request->get('category_name');
         $category->created_at=$request->get('created_at');
         $category->updated_at=$request->get('updated_at');
-        $category->image=$request->get('image');
+        if($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename =time().'.'.$extension;
+            Storage::disk('public')->put('categories/'.$filename, File::get($file));
+            $category->image= $filename;
+        } 
         $category->save();
          
         return redirect('/categories');

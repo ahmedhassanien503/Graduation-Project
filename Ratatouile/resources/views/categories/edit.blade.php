@@ -61,6 +61,11 @@
                 <label for="inputName">Category Name</label>
                 <input name="category_name" type="text" class="form-control" id="validationDefault01"  value="{{ $category['category_name'] }}" required>
             </div>
+
+            <div class="form-group">
+                  <label for="exampleFormControlFile1">Image</label>
+                  <input name="image" type="file" class="form-control-file" id="exampleFormControlFile1" value="{{ $category['image'] }}">
+                  </div> 
               
         <div class="row ">
         <div class="col-12">

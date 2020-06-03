@@ -9,9 +9,10 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Card from "components/Card/Card.js";
 
-import image1 from "assets/img/bg.jpg";
-import image2 from "assets/img/bg2.jpg";
-import image3 from "assets/img/bg3.jpg";
+import image1 from "assets/img/food1.jpg";
+import image2 from "assets/img/food6.jpg";
+import image3 from "assets/img/dessert1.jpg";
+import image4 from "assets/img/food7.jpg";
 
 export default function SectionCarousel(){
   const settings = {
@@ -35,8 +36,7 @@ export default function SectionCarousel(){
               />
               <div className="slick-caption">
                 <h4>
-                  <LocationOn className="slick-icons" />Yellowstone
-                  National Park, United States
+                  <LocationOn className="slick-icons" />Ratatouile
                 </h4>
               </div>
             </div>
@@ -48,8 +48,7 @@ export default function SectionCarousel(){
               />
               <div className="slick-caption">
                 <h4>
-                  <LocationOn className="slick-icons" />Somewhere Beyond,
-                  United States
+                  <LocationOn className="slick-icons" />Ratatouile
                 </h4>
               </div>
             </div>
@@ -61,8 +60,19 @@ export default function SectionCarousel(){
               />
               <div className="slick-caption">
                 <h4>
-                  <LocationOn className="slick-icons" />Yellowstone
-                  National Park, United States
+                  <LocationOn className="slick-icons" />Ratatouile
+                </h4>
+              </div>
+            </div>
+            <div>
+              <img
+                src={image4}
+                alt="Fourth slide"
+                className="slick-image"
+              />
+              <div className="slick-caption">
+                <h4>
+                  <LocationOn className="slick-icons" />Ratatouile
                 </h4>
               </div>
             </div>

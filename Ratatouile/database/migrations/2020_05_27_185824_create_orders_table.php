@@ -26,7 +26,7 @@ class CreateOrdersTable extends Migration
             //chef_id of chef who will recieve the order
             $table->foreignId('chef_id')
             ->references('id')
-            ->on('chefs')
+            ->on('users')
             ->onDelete('cascade');
             $table->timestamps();
         });

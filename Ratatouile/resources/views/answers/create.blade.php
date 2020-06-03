@@ -48,7 +48,6 @@
                             <div class="form-group col-md-6">
                                 <label for="exampleFormControlTextarea1">Chef</label>
                                 <select name="chef_id" class="form-control" required>
-                            
                                     @if(isset($answer))
                                         <option value="{{$answer->chef->id}}">{{$answer->chef->name}}</option>
                                         @foreach ($chefs as $chef)
@@ -63,7 +62,6 @@
                                             <option value="{{$chef->id}}">{{$chef->name}}</option>
                                         @endforeach
                                     @endif
-                            
                                 </select>
                             </div>
                             <div class="form-group col-md-12">

@@ -10,15 +10,17 @@ class Answer extends Model
     protected $fillable = [
         'answer',
         'chef_id',
-        'question_id',  
+        'question_id', 
     ];
+    
     public function chef()
     {
-        return $this->belongsTo('App\Chef');
+        return $this->belongsTo(User::class);
     }
 
     public function question()
     {
-        return $this->belongsTo('App\Question');
+        return $this->belongsTo(Question::class);
     }
+
 }

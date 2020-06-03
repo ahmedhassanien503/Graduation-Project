@@ -14,6 +14,7 @@ class QuestionController extends Controller
     public function index()
     {
         $questions = Question::paginate(5);
+        // dd($questions);
         return view('questions.index', [
             'questions' => $questions,
         ]);
@@ -38,7 +39,8 @@ class QuestionController extends Controller
      */
     public function create(){
         $action =route('question.store');
-        $users= User::where('name','<>','admin')->get();
+        $users= User::where([ ['is_chef','==',false],['is_admin','==',false] ])->get();
+        // dd($users);
         return view('questions.create',[
             'action'=> $action,
             'users' => $users,
@@ -67,7 +69,7 @@ class QuestionController extends Controller
      */
     public function edit(){
         $request=request();
-        $users= User::where('name','<>','admin')->get();
+        $users= User::where([ ['is_chef','==',false],['is_admin','==',false] ])->get();
         $questionId=$request->question;
         $question = Question::find($questionId);
         $action =route('question.update',['questionid'=>$questionId]);

@@ -16,7 +16,7 @@ class CreateRecipesTable extends Migration
         Schema::create('recipes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('RecipeName');
+            $table->string('recipe_name');
             $table->text('details');
             $table->string('image')-> nullable();  
             $table->integer('Serving')-> nullable();    
@@ -25,7 +25,7 @@ class CreateRecipesTable extends Migration
             $table->boolean('chef_recipe')->default(false);	
             $table->unsignedBigInteger('chef_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('chef_id')->references('id')->on('chefs');
+            $table->foreign('chef_id')->references('id')->on('users');
             $table->foreign('user_id')->references('id')->on('users');
         });
     }

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Answer;
 use App\Question;
 use App\User;
-use App\Chef;
+// use App\Chef;
 
 class AnswerController extends Controller
 {
@@ -16,14 +16,17 @@ class AnswerController extends Controller
     public function index()
     {
         $answers = Answer::paginate(5);
+        // dd($answers);
         return view('answers.index', [
             'answers' => $answers,
         ]);
+
     }
 
     /**
      * show thw answer --> find specific answer with answer id
-     */
+    */
+
     public function show(){
         $request=request();
         $answerId=$request->answer;
@@ -35,11 +38,13 @@ class AnswerController extends Controller
 
     /**
      * add answer --> answer content and chef who write the answer
-     */
+    */
+
     public function create(){
         $action =route('answer.store');
         $questions=Question::all();
-        $chefs = Chef::all();
+        $chefs = User::where('is_chef','!=',false)->get();
+        // dd($chefs);
         return view('answers.create',[
             'action'=> $action,
             'chefs' => $chefs,
@@ -70,7 +75,7 @@ class AnswerController extends Controller
      */
     public function edit(){
         $request=request();
-        $chefs = Chef::all();
+        $chefs = User::where('is_chef','!=',false)->get();
         $answerId=$request->answer;
         $answer = Answer::find($answerId);
         $action =route('answer.update',['answerid'=>$answerId]);

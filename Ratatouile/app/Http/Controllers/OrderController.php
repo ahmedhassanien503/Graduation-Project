@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\Chef;
 use App\Order;
 
 class OrderController extends Controller
@@ -18,8 +17,8 @@ class OrderController extends Controller
     }
 
     public function create(){
-        $users = User::all();
-        $chefs = Chef::all();
+        $users= User::where([ ['is_chef','==',false],['is_admin','==',false] ])->get();
+        $chefs = User::where('is_chef','!=',false)->get();
         $action =route('orders.store');
         return view('orders.create',[
             'action'=> $action,
@@ -64,8 +63,8 @@ class OrderController extends Controller
     public function edit(){
 
         $request=request();
-        $users= User::all();
-        $chefs = Chef::all();
+        $users= User::where([ ['is_chef','==',false],['is_admin','==',false] ])->get();
+        $chefs = User::where('is_chef','!=',false)->get();
         $orderId=$request->order;
         $order = Order::find($orderId);
         $action =route('orders.update',['order'=>$orderId]);

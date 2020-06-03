@@ -41,7 +41,7 @@
       <td>{{$recipe->user_id}}</td>
       <td>{{$recipe->chef_id}}</td>
    
-    <td><a href="{{route('recipes.show',['recipe' => $recipe->id])}}"  class="btn btn-outline-primary" >  <i class="fas fa-folder">
+    <td><a href="{{route('recipes.show',['recipe' => $recipe->id])}}"  class="btn btn-outline-info" >  <i class="fas fa-folder">
      </i> View</a></td>
 
       <td><a href="{{route('recipes.edit',['recipe' => $recipe->id])}}" class="btn btn-outline-warning" > <i class="fas fa-pencil-alt">

@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Season extends Model
 {
 
-    protected $fillable=['SeasonName'];
+    protected $fillable=[
+        'season_name',
+        'image',
+];
 
     public function Recipes()
     {

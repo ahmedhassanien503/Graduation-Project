@@ -65,7 +65,7 @@
             <strong><i class="fas fa-pencil-alt mr-1"></i> Chef Name</strong>
 
             <p class="text-muted">
-              <span class="tag tag-danger">{{ $workshop->chef->name}}</span>
+              <span class="tag tag-danger">{{ $workshop->user->name}}</span>
            
             </p>
 

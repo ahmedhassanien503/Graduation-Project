@@ -9,7 +9,8 @@
         <th scope="col">email</th>
         <th scope="col">image</th>
         <th scope="col">is_banned</th>
-        <th scope="col" colspan="3">actions</th>
+        <th scope="col">is_chef</th>
+        <th scope="col" colspan="2">actions</th>
         </tr>
     </thead>
     <tbody>
@@ -20,6 +21,7 @@
         <td>{{$user->email}}</td>
         <td><img src=" {{$user->image}}"></td>
         <td>{{$user->is_banned}}</td>
+        <td>{{$user->is_chef}}</td>
         <td>
         <a href="{{route('users.edit',['user' => $user->id])}}" class="btn btn-primary">Edit</a>
         </td>

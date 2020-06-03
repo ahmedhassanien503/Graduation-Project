@@ -10,14 +10,22 @@ use Illuminate\Support\Facades\DB;
 use App\User;
 class UserController extends Controller
 {
-    public function index(){
-        $users = User::all();
-        
+    public function userIndex(){
+
+        $users = User::where('is_chef',false)->get();
         return view('users.index',[
-            'users' => $users,
+            'users'=>$users,
         ]);
     }
-    public function edit(){
+    public function chefIndex(){
+        
+        $chefs = User::where('is_chef',true)->get();
+        return view('chefs.index',[
+            'chefs'=>$chefs,
+        ]);
+    }
+    public function userEdit(){
+        // $users = User::where('is_chef',false)->get();
         $request = request();
         $userId = $request->user;
         $user = User::find($userId);
@@ -25,23 +33,55 @@ class UserController extends Controller
             'user'=>$user,
         ]);
     }
-    public function update(){
+    public function chefEdit(){
+        // $users = User::where('is_chef',false)->get();
+        $request = request();
+        $chefId = $request->chef;
+        // dd($chefId);
+        $chef = User::find($chefId);
+        return view('chefs.edit',[
+            'chef'=>$chef,
+        ]);
+    }
+    public function userUpdate(){
         $request = request();
         $userId = $request->user;
         $user = User::find($userId);
-        // dd($userId);
         $user->name = $request->name;
         $user->email = $request->email;
         $user->image = $request->file('image');
         $user->is_banned = $request->is_banned;
+        $user->is_chef = $request->is_banned;
         $user->save();
-        // $user->password =>$request->password;
-        
+        if($user->is_chef == true){
+            return redirect()->route('chefs.index');
+        }
         return redirect()->route('users.index');
     }
-    public function destroy($id){
+    public function chefUpdate(){
+        $request = request();
+        $chefId = $request->chef;
+        $chef = User::find($chefId);
+        $chef->name = $request->name;
+        $chef->email = $request->email;
+        $chef->image = $request->file('image');
+        $chef->is_banned = $request->is_banned;
+        $chef->is_chef = $request->is_chef;
+        $chef->work_place = $request->work_place;
+        $chef->save();
+        if($chef->is_chef == false){
+            return redirect()->route('users.index');
+        }
+        return redirect()->route('chefs.index');
+    }
+    public function userDestroy($id){
         $user = User::find($id);
         $user -> delete();
         return redirect()->route('users.index');
+    }
+    public function chefDestroy($id){
+        $user = User::find($id);
+        $user -> delete();
+        return redirect()->route('chefs.index');
     }
 }

@@ -212,8 +212,14 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('chefs.index')}}" class="nav-link">
                   <i class="fas fa-pizza-slice"></i>
+                  <p>Chefs</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('users.index')}}" class="nav-link">
+                  <i class="fas fa-ice-cream"></i>
                   <p>Users</p>
                 </a>
               </li>

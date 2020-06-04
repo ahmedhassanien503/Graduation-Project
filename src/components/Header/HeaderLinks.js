@@ -62,6 +62,9 @@ export default function HeaderLinks(props) {
                 ورش الطبخ   
             </Link>,
             <Link to="#" className={classes.dropdownLink}>
+                اسال الشيف   
+            </Link>,
+            <Link to="#" className={classes.dropdownLink}>
                 من نحن ؟ 
             </Link>,
             <Link to="#" className={classes.dropdownLink}>

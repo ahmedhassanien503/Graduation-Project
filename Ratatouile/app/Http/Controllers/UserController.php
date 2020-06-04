@@ -51,7 +51,14 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->image = $request->file('image');
         $user->is_banned = $request->is_banned;
-        $user->is_chef = $request->is_banned;
+        $user->is_chef = $request->is_chef;
+        if($request->hasfile('image')){
+            $file=$request->file('image');
+            $extention=$file->getClientOriginalExtension();
+            $filename=time() . '.' . $extention;
+            $file->move('uploads/user/', $filename);
+            $user->image = $filename;
+        }
         $user->save();
         if($user->is_chef == true){
             return redirect()->route('chefs.index');
@@ -68,6 +75,13 @@ class UserController extends Controller
         $chef->is_banned = $request->is_banned;
         $chef->is_chef = $request->is_chef;
         $chef->work_place = $request->work_place;
+        if($request->hasfile('image')){
+            $file=$request->file('image');
+            $extention=$file->getClientOriginalExtension();
+            $filename=time() . '.' . $extention;
+            $file->move('uploads/chef/', $filename);
+            $chef->image = $filename;
+        }
         $chef->save();
         if($chef->is_chef == false){
             return redirect()->route('users.index');

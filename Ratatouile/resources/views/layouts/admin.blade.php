@@ -212,7 +212,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('users.index')}}" class="nav-link">
                   <i class="fas fa-pizza-slice"></i>
                   <p>Users</p>
                 </a>

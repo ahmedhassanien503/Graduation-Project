@@ -21,11 +21,10 @@ import styles from "assets/jss/material-kit-react/views/landingPage.js";
 import ProductSection from "./Sections/ProductSection.js";
 import TeamSection from "./Sections/TeamSection.js";
 import WorkSection from "./Sections/WorkSection.js";
-import SeasonSection from "./Sections/SeasonSection.js";
-
+import ChefSection from "./Sections/ChefSection.js";
 import Button from '@material-ui/core/Button';
 import SectionCarousel from "./SectionCarousel";
-
+import CategoriesSection from "./CategoriesSection"
 const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
@@ -38,7 +37,7 @@ export default function LandingPage(props) {
       <Header
         color="transparent"
         routes={dashboardRoutes}
-        brand="Material Kit React"
+        brand="Ratatouile"
         rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{
@@ -82,12 +81,15 @@ export default function LandingPage(props) {
         </div>
       {/* </Parallax> */}
       </SectionCarousel>
+
+      <CategoriesSection />
+
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.container}>
           <ProductSection />
           <TeamSection />
           <WorkSection />
-    
+          <ChefSection />
            
         </div>
       </div>

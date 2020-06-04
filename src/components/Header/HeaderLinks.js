@@ -12,7 +12,7 @@ import ListItem from "@material-ui/core/ListItem";
 import Tooltip from "@material-ui/core/Tooltip";
 
 // @material-ui/icons
-import { Apps, CloudDownload } from "@material-ui/icons";
+import { Fastfood, HomeSharp , ExpandMore , LockOpen ,Menu} from "@material-ui/icons";
 
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
@@ -29,91 +29,105 @@ export default function HeaderLinks(props) {
       <ListItem className={classes.listItem}>
         <CustomDropdown
           noLiPadding
-          buttonText="Components"
+          buttonText="انضم الينا"
           buttonProps={{
             className: classes.navLink,
             color: "transparent"
           }}
-          buttonIcon={Apps}
+          buttonIcon={LockOpen}
           dropdownList={[
-            <Link to="/" className={classes.dropdownLink}>
-              All components
+            <Link to="#" className={classes.dropdownLink}>
+                لديك حساب   
             </Link>,
-            <a
-              href="https://creativetimofficial.github.io/material-kit-react/#/documentation?ref=mkr-navbar"
-              target="_blank"
-              className={classes.dropdownLink}
-            >
-              Documentation
-            </a>
+            <Link to="#" className={classes.dropdownLink}>
+                 انشاء حساب جديد 
+             </Link>,
+          ]}
+        />
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <CustomDropdown
+          noLiPadding
+          buttonText="المزيد"
+          buttonProps={{
+            className: classes.navLink,
+            color: "transparent"
+          }}
+          buttonIcon={ExpandMore}
+          dropdownList={[
+            <Link to="#" className={classes.dropdownLink}>
+                التصنيفات   
+            </Link>,
+            <Link to="#" className={classes.dropdownLink}>
+                ورش الطبخ   
+            </Link>,
+            <Link to="#" className={classes.dropdownLink}>
+                اسال الشيف   
+            </Link>,
+            <Link to="#" className={classes.dropdownLink}>
+                من نحن ؟ 
+            </Link>,
+            <Link to="#" className={classes.dropdownLink}>
+                  للتواصل معنا 
+             </Link>,
+          ]}
+        />
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <CustomDropdown
+          noLiPadding
+          buttonText="وصفات"
+          buttonProps={{
+            className: classes.navLink,
+            color: "transparent"
+          }}
+          buttonIcon={Fastfood}
+          dropdownList={[
+            <Link to="#" className={classes.dropdownLink}>
+              وصفات الطهاه
+            </Link>,
+            <Link to="#" className={classes.dropdownLink}>
+              وصفات المستخدمين
+            </Link>,
+            // <a
+            //   href="#"
+            //   target="_blank"
+            //   className={classes.dropdownLink}
+            // >
+            //   وصفات المستخدمين
+            // </a>
           ]}
         />
       </ListItem>
       <ListItem className={classes.listItem}>
         <Button
-          href="https://www.creative-tim.com/product/material-kit-react?ref=mkr-navbar"
+          href="#"
           color="transparent"
-          target="_blank"
+          // target="_blank"
           className={classes.navLink}
         >
-          <CloudDownload className={classes.icons} /> Download
+         <HomeSharp className={classes.icons} /> الرئيسيه
         </Button>
       </ListItem>
+
       <ListItem className={classes.listItem}>
-        {/*<Tooltip title="Delete">
-          <IconButton aria-label="Delete">
-            <DeleteIcon />
-          </IconButton>
-        </Tooltip>*/}
-        <Tooltip
-          id="instagram-twitter"
-          title="Follow us on twitter"
-          placement={window.innerWidth > 959 ? "top" : "left"}
-          classes={{ tooltip: classes.tooltip }}
-        >
-          <Button
-            href="https://twitter.com/CreativeTim?ref=creativetim"
-            target="_blank"
-            color="transparent"
-            className={classes.navLink}
-          >
-            <i className={classes.socialIcons + " fab fa-twitter"} />
-          </Button>
-        </Tooltip>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Tooltip
-          id="instagram-facebook"
-          title="Follow us on facebook"
-          placement={window.innerWidth > 959 ? "top" : "left"}
-          classes={{ tooltip: classes.tooltip }}
-        >
-          <Button
-            color="transparent"
-            href="https://www.facebook.com/CreativeTim?ref=creativetim"
-            target="_blank"
-            className={classes.navLink}
-          >
-            <i className={classes.socialIcons + " fab fa-facebook"} />
-          </Button>
-        </Tooltip>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Tooltip
-          id="instagram-tooltip"
-          title="Follow us on instagram"
-          placement={window.innerWidth > 959 ? "top" : "left"}
-          classes={{ tooltip: classes.tooltip }}
-        >
-          <Button
-            color="transparent"
-            href="https://www.instagram.com/CreativeTimOfficial?ref=creativetim"
-            target="_blank"
-            className={classes.navLink}
-          >
-            <i className={classes.socialIcons + " fab fa-instagram"} />
-          </Button>
-        </Tooltip>
+        <CustomDropdown
+          noLiPadding
+          // buttonText="انضم الينا"
+          buttonProps={{
+            className: classes.navLink,
+            color: "transparent"
+          }}
+          buttonIcon={Menu}
+          dropdownList={[
+            <Link to="#" className={classes.dropdownLink}>
+                لديك حساب   
+            </Link>,
+            <Link to="#" className={classes.dropdownLink}>
+                 انشاء حساب جديد 
+             </Link>,
+          ]}
+        />
       </ListItem>
     </List>
   );

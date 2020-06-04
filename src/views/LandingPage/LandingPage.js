@@ -20,6 +20,7 @@ import styles from "assets/jss/material-kit-react/views/landingPage.js";
 // Sections for this page
 import ProductSection from "./Sections/ProductSection.js";
 import TeamSection from "./Sections/TeamSection.js";
+import SeasonSection from "./Sections/SeasonSection.js";
 import WorkSection from "./Sections/WorkSection.js";
 import ChefSection from "./Sections/ChefSection.js";
 import Button from '@material-ui/core/Button';
@@ -88,6 +89,7 @@ export default function LandingPage(props) {
         <div className={classes.container}>
           <ProductSection />
           <TeamSection />
+          <SeasonSection />
           <WorkSection />
           <ChefSection />
            

@@ -21,3 +21,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     ##################### Workshop Routes #############################################################
     Route::get('/workshops','API\WorkshopController@index');
     Route::get('/workshops/{workshop}','API\WorkshopController@show');
+
+
+
+     ##################### Season Routes #############################################################
+     Route::get('/seasons','API\SeasonController@index');
+     
+ 

@@ -97,6 +97,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::put('chefs/{chef}', 'UserController@chefUpdate')->name('chefs.update');
     Route::delete('chefs/{chef}/delete', 'UserController@chefDestroy')->name('chefs.destroy');
 });
+
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 

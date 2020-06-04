@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+//API Routes
+    ##################### Workshop Routes #############################################################
+    Route::get('/workshops','API\WorkshopController@index');
+    Route::get('/workshops/{workshop}','API\WorkshopController@show');

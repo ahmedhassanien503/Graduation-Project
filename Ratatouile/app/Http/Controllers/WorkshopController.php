@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App\Workshop;
 use App\User;
+
 class WorkshopController extends Controller
 {
     /**

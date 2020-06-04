@@ -15,7 +15,7 @@ class Recipe extends Model
         'Serving',
         'TakenTime',
         'user_id',
-        'chef_id',
+      
         
     ];
 

@@ -121,13 +121,23 @@ class RecipeController extends Controller
         $recipe=Recipe::find($recipeId);
         $recipe->RecipeName=$request->get('RecipeName');
         $recipe->details=$request->get('details');
-        $recipe->image=$request->get('image');
+        if($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename =time().'.'.$extension;
+            Storage::disk('public')->put('recipes/'.$filename, File::get($file));
+            $recipe->image= $filename;
+        } 
         $recipe->serving=$request->get('Serving');
         $recipe->TakenTime=$request->get('TakenTime');
         $recipe->save();
          
         return redirect('/recipes');
     }
+
+
+
 
     /**
      * Remove the specified resource from storage.

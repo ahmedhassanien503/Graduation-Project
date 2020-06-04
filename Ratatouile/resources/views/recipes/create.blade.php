@@ -50,12 +50,9 @@
 
               <div class="form-group">
                 <label for="inputName">Created at</label>
-                <input type="text" id="inputName" name="created_at" class="form-control">
+                <input type="date" name="created_at"  class="form-control" placeholder="example: 1-1-2020">
               </div>
-              <div class="form-group">
-                <label for="inputName">Updated at</label>
-                <input type="text" id="inputName" name="updated_at" class="form-control">
-              </div>
+             
               <div class="form-group">
                 <label for="inputName">Recipe Name</label>
                 <input type="text" name="RecipeName" class="form-control">

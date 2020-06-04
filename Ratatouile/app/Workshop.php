@@ -15,10 +15,7 @@ class Workshop extends Model
         'image',
         'chef_id',  
     ];
-    // public function chef()
-    // {
-    //     return $this->belongsTo('App\Chef','chef_id');
-    // }
+  
 
     public function user()
     {

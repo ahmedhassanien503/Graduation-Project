@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use App\Season;
 
 class SeasonController extends Controller
@@ -38,8 +40,19 @@ class SeasonController extends Controller
      */
     public function store(Request $request)
     {
+
+        if($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename =time().'.'.$extension;
+            Storage::disk('public')->put('seasons/'.$filename, File::get($file));
+        } else {
+            $filename = 'season.jpg';
+        }
         $season = Season::create([
-            'SeasonName' =>$request->name
+            'season_name' =>$request->name,
+            'image'=>$filename,
         ]);
         return redirect()->route('seasons.index');
     }
@@ -91,7 +104,15 @@ class SeasonController extends Controller
     public function update(Request $request, $id)
     {
         $season = Season::find($id);
-        $season->SeasonName= $request->name;
+        $season->season_name= $request->name;
+        if($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename =time().'.'.$extension;
+            Storage::disk('public')->put('seasons/'.$filename, File::get($file));
+            $season->image= $filename;
+        } 
         $season->save();
         return redirect()->route('seasons.index');
     }

@@ -45,10 +45,10 @@
               </div>
             </div>
             <div class="card-body">
-              <form method="POST" action="{{route('categories.update',['category' => $category->id])}}"enctype="multipart/form-data>
+              <form method="POST" action="{{route('categories.update',['category' => $category->id])}}"enctype="multipart/form-data">
                 @method('PUT')
-                @csrf
-
+                 @csrf
+             
               <div class="form-group">
                 <label for="inputName">Created at</label>
                 <input name="created_at" type="text" class="form-control" id="validationDefault01"  value="{{ $category['created_at'] }}" required>
@@ -59,8 +59,13 @@
             </div>
               <div class="form-group">
                 <label for="inputName">Category Name</label>
-                <input name="CategoryName" type="text" class="form-control" id="validationDefault01"  value="{{ $category['CategoryName'] }}" required>
+                <input name="category_name" type="text" class="form-control" id="validationDefault01"  value="{{ $category['category_name'] }}" required>
             </div>
+
+            <div class="form-group">
+                  <label for="exampleFormControlFile1">Image</label>
+                  <input name="image" type="file" class="form-control-file" id="exampleFormControlFile1" value="{{ $category['image'] }}">
+                  </div> 
               
         <div class="row ">
         <div class="col-12">

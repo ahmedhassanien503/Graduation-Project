@@ -30,7 +30,7 @@ class WorkshopUsersController extends Controller
     public function create()
     {
         $workshops = Workshop::all();
-        $users = User::all();
+        $users = User::where([ ['is_chef','0'],['is_admin','0'] ])->get();
         return view('applicants.create', [
             'workshops' => $workshops,
             'users' => $users,

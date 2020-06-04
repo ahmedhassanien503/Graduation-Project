@@ -26,11 +26,6 @@
   <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"  />
-    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>
 </head>
 <body class="hold-transition sidebar-mini sidebar-collapse">
 <div class="wrapper">
@@ -163,6 +158,7 @@
             </form>
         </div>
       </li>
+    
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -189,8 +185,7 @@
       </div>
 
       <!-- Sidebar Menu -->
-       <!-- Sidebar Menu -->
-       <nav class="mt-2">
+      <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
@@ -217,8 +212,14 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('users.index')}}" class="nav-link">
+                <a href="{{route('chefs.index')}}" class="nav-link">
                   <i class="fas fa-pizza-slice"></i>
+                  <p>Chefs</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('users.index')}}" class="nav-link">
+                  <i class="fas fa-ice-cream"></i>
                   <p>Users</p>
                 </a>
               </li>
@@ -271,19 +272,16 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
   @yield('content')
- <img src="{{asset('uploads/background/cook6.jpg')}}" style="width:100%;">
- 
+  <img src="{{asset('uploads/background/cook6.jpg')}}" style="width:100%;">
   </div>
     <!-- </section> -->
     <!-- /.content -->
-
+  
   <!-- /.content-wrapper -->
     
 </div>
 <!-- ./wrapper -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script>
-<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-  
+
 <!-- jQuery -->
 <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -318,7 +316,5 @@
 <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
-
-
 </body>
 </html>

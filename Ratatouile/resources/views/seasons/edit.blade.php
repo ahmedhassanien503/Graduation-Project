@@ -26,8 +26,15 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Season Name</label>
-                  <input type="text" name="name" class="form-control" id="exampleInputPassword1" value="{{$season->SeasonName}}">
+                  <input type="text" name="name" class="form-control" id="exampleInputPassword1" value="{{$season->season_name}}">
                 </div>
+
+                <div class="form-group">
+                  <div class="form-group">
+                    <label for="image">Season Image</label>
+                    <input type="file" class="d-block" id="image" name="image" accept="image/*">
+                  </div>
+                </div>   
               
               </div>
               <!-- /.card-body -->

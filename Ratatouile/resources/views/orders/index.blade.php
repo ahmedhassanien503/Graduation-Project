@@ -32,9 +32,9 @@
               <td>{{ $order->user->name}} </td>
               <td>{{ $order->created_at}} </td>
          
-              <td><a href="{{route('orders.show',['order' => $order->id])}}" class="btn btn-outline-primary btn-sm" >  <i class="fas fa-folder">
+              <td><a href="{{route('orders.show',['order' => $order->id])}}" class="btn btn-outline-info btn-sm" >  <i class="fas fa-folder">
             </i> View</a></td>
-              <td><a href="{{route('orders.edit',['order' => $order->id])}}" class="btn btn-outline-info btn-sm" > <i class="fas fa-pencil-alt">
+              <td><a href="{{route('orders.edit',['order' => $order->id])}}" class="btn btn-outline-warning btn-sm" > <i class="fas fa-pencil-alt">
             </i> Edit</a></td>
             <td> 
                 <form method="POST" action="{{route('orders.destroy',['order' => $order->id])}}" >

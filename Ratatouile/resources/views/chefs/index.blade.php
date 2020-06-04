@@ -21,7 +21,7 @@
         <th scope="row">{{$chef->id}}</th>
         <td>{{$chef->name}}</td>
         <td>{{$chef->email}}</td>
-        <td><img src=" {{asset('uploads/chefs/' . $chef->image)}}"></td>
+        <td><img src=" {{asset('uploads/chef/' . $chef->image)}}" height="100px"></td>
         <td>{{$chef->is_banned}}</td>
         <td>{{$chef->is_chef}}</td>
         <td>{{$chef->work_place}}</td>

@@ -17,3 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+//API Routes
+    ##################### Workshop Routes #############################################################
+    Route::get('/workshops','API\WorkshopController@index');
+    Route::get('/workshops/{workshop}','API\WorkshopController@show');
+    ##################### Users Routes #############################################################
+    Route::get('/users','API\UserController@index');
+    Route::get('/users/{user}','API\UserController@show');
+    ##################### Chefs Routes #############################################################
+    Route::get('/chefs','API\ChefController@index');
+    Route::get('/chefs/{chef}','API\ChefController@show');

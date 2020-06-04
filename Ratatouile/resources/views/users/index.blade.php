@@ -19,7 +19,7 @@
         <th scope="row">{{$user->id}}</th>
         <td>{{$user->name}}</td>
         <td>{{$user->email}}</td>
-        <td><img src="{{asset('uploads/chefs/' . $user->image)}}"></td>
+        <td><img src="{{asset('uploads/user/' . $user->image)}}" height="100px"></td>
         <td>{{$user->is_banned}}</td>
         <td>{{$user->is_chef}}</td>
         <td>

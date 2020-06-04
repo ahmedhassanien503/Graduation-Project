@@ -8,7 +8,7 @@
         {{-- <button type="button" class="btn btn-lg btn-primary" >Primary button</button> --}}
       
       <table class="table table-bordered table-hover table-dark" class="mx-auto" style="background-color: 	rgb(52, 57, 64)" >
-        <thead class="thead-dark">
+        <thead class="thead-light">
             <tr>
               <th scope="col">Created at</th>
               <th scope="col">Updated at</th>
@@ -18,7 +18,6 @@
                <th scope="col">Serving</th>
                <th scope="col">Taken Time</th>
                <th scope="col">User</th>
-               <th scope="col">Chef</th>
                <h3><th scope="col">Actions</th> </h3>
                <th scope="col"></th>
                <th scope="col"></th>
@@ -39,9 +38,9 @@
       <td>{{$recipe->Serving}}</td>
       <td>{{$recipe->TakenTime}}</td>
       <td>{{$recipe->user_id}}</td>
-      <td>{{$recipe->chef_id}}</td>
    
-    <td><a href="{{route('recipes.show',['recipe' => $recipe->id])}}"  class="btn btn-outline-primary" >  <i class="fas fa-folder">
+   
+    <td><a href="{{route('recipes.show',['recipe' => $recipe->id])}}"  class="btn btn-outline-info" >  <i class="fas fa-folder">
      </i> View</a></td>
 
       <td><a href="{{route('recipes.edit',['recipe' => $recipe->id])}}" class="btn btn-outline-warning" > <i class="fas fa-pencil-alt">

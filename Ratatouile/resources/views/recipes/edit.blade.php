@@ -44,8 +44,9 @@
         <div class="form-row">
         <div class="col-md-6 mb-3">
             <label for="exampleFormControlFile1">Image</label>
-            <input name="image" type="file" class="form-control-file" id="exampleFormControlFile1" value="{{ $recipe['imge'] }}">
-            </div>
+            <input name="image" type="file" class="form-control-file" id="exampleFormControlFile1" value="{{ $recipe['image'] }}">
+            </div> 
+
 
        
             <div class="col-md-6 mb-3">

@@ -1,5 +1,4 @@
 import React , {Component} from 'react';
-
 import OwlCarousel from 'react-owl-carousel';
 class RecipeSection extends Component {
  
@@ -10,6 +9,8 @@ class RecipeSection extends Component {
         <div className="RecipeSection container">
 
 <section className="welcome-post-sliders">
+<h2> تصنيفاتنا من المأكولات تحتوى على كل ما تشتهيه</h2>
+<hr/>
 
 <OwlCarousel
     loop
@@ -21,6 +22,7 @@ class RecipeSection extends Component {
             
             <img src="img/bg-img/slide-1.jpg" alt=""/>
          
+  
             <div className="project_title">
                 <div className="post-date-commnents d-flex">
                     <a href="#">May 19, 2017</a>

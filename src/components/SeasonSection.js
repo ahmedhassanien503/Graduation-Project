@@ -10,8 +10,8 @@ class SeasonSection extends Component {
        <br/>
        <br/>
        
-    <h2 > سفراتنا الموسمية</h2>
-
+    <h2 > اطباقنا الموسمية</h2>
+<hr/>
     <div className="row">
         <div className="col-12 col-md-6 col-lg-4">
             <div className="single_catagory wow fadeInUp" data-wow-delay=".3s">

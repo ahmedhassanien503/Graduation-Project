@@ -26,32 +26,32 @@ class HeaderSection extends Component {
                         <div className="collapse navbar-collapse justify-content-center" id="yummyfood-nav">
                             <ul className="navbar-nav" id="yummy-nav">
                                 <li className="nav-item active">
-                                    <a className="nav-link" href="index.html">Home <span className="sr-only">(current)</span></a>
+                                    <a className="nav-link" href="index.html">للتواصل معنا </a>
+                                </li>
+                              
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#">من نحن ؟</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#"> اسأل الشيف</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="archive.html">ورش الطبخ</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#">التصنيفات</a>
                                 </li>
                                 <li className="nav-item dropdown">
-                                    <a className="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+                                    <a className="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">الوصفات</a>
                                     <div className="dropdown-menu" aria-labelledby="yummyDropdown">
-                                        <a className="dropdown-item" href="index.html">Home</a>
-                                        <a className="dropdown-item" href="archive.html">Archive</a>
-                                        <a className="dropdown-item" href="single.html">Single Blog</a>
-                                        <a className="dropdown-item" href="static.html">Static Page</a>
-                                        <a className="dropdown-item" href="contact.html">Contact</a>
+                                        <a className="dropdown-item" href="index.html">وصفات الطهاة</a>
+                                        <a className="dropdown-item" href="archive.html">وصفات الاعضاء</a>
+                                   
+                                
                                     </div>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">Features</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#">Categories</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="archive.html">Archive</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#">About</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="contact.html">Contact</a>
+                                    <a className="nav-link" href="#"><span className="sr-only">(current)</span>الرئيسية </a>
                                 </li>
                             </ul>
                         </div>

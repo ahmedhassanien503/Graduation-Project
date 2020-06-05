@@ -13,7 +13,7 @@ class HeaderSection extends Component {
               
                 <div className="col-12">
                     <div className="logo_area text-center">
-                        <a href="index.html" className="yummy-logo">Ratatouille <i className="fas fa-utensils"></i></a>
+                        <a href="index.html" className="yummy-logo">Ratatouille <img src="img/chefs.svg" alt=""  width="60" height="70"/></a>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@ class HeaderSection extends Component {
                         <div className="collapse navbar-collapse justify-content-center" id="yummyfood-nav">
                             <ul className="navbar-nav" id="yummy-nav">
                                 <li className="nav-item active">
-                                    <a className="nav-link" href="index.html">للتواصل معنا <i className="fas fa-blender-phone"></i> </a>
+                                    <a className="nav-link" href="index.html">للتواصل معنا </a>
                                 </li>
                               
                                 <li className="nav-item">

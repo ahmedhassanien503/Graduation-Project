@@ -1,4 +1,8 @@
 import React , {Component} from 'react';
+
+//stylesheet;
+import  '../../src/assets/css/headerlinks.css';
+
 class HeaderSection extends Component {
  
 
@@ -13,7 +17,7 @@ class HeaderSection extends Component {
               
                 <div className="col-12">
                     <div className="logo_area text-center">
-                        <a href="index.html" className="yummy-logo">Ratatouille</a>
+                        <a href="index.html" className="yummy-logo">Ratatouille <img src="img/chefs.svg" alt=""  width="60" height="70"/></a>
                     </div>
                 </div>
             </div>
@@ -26,20 +30,32 @@ class HeaderSection extends Component {
                         <div className="collapse navbar-collapse justify-content-center" id="yummyfood-nav">
                             <ul className="navbar-nav" id="yummy-nav">
                                 <li className="nav-item active">
-                                    <a className="nav-link" href="index.html">للتواصل معنا </a>
+                                    <a className="nav-link" href="index.html">
+                                        للتواصل معنا 
+                                        <i className="fas fa-blender-phone" style={{width: "25px"}}></i>
+                                    </a>
                                 </li>
                               
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">من نحن ؟</a>
+                                    <a className="nav-link" href="#">
+                                        من نحن ؟ <i class="far fa-address-card" style={{width: "25px"}}></i>
+                                    </a>
+
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#"> اسأل الشيف</a>
+                                    <a className="nav-link" href="#"> اسأل الشيف
+                                        <i class="fas fa-comment" style={{width: "25px"}}></i>
+                                    </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="archive.html">ورش الطبخ</a>
+                                    <a className="nav-link" href="archive.html">ورش الطبخ
+                                     <i class="fas fa-users"  style={{width: "25px"}}></i></a>
+                                  
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">التصنيفات</a>
+                                    <a className="nav-link" href="#"> التصنيفات
+                                        <i class="fas fa-hamburger" style={{width: "25px"}}></i>
+                                    </a>
                                 </li>
                                 <li className="nav-item dropdown">
                                     <a className="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">الوصفات</a>
@@ -51,7 +67,10 @@ class HeaderSection extends Component {
                                     </div>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#"><span className="sr-only">(current)</span>الرئيسية </a>
+                                    <a className="nav-link" href="#">
+                                        <span className="sr-only">(current)</span>الرئيسية
+                                        <i class="fa fa-fw fa-home" style={{width: "25px"}}></i>
+                                    </a>
                                 </li>
                             </ul>
                         </div>

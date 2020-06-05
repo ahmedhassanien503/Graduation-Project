@@ -10,10 +10,14 @@ class RecipeSliderSection extends Component {
 
  <div className="instargram_area section_padding_100_0 clearfix" id="portfolio"> 
 
+
 <OwlCarousel
     loop
     margin={3}
     nav
+    autoplay
+    autoplayTimeout={1500}
+    autoplayHoverPause={true}
 >
         <div className="instagram_gallery_item">
           

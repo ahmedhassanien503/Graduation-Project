@@ -12,7 +12,7 @@ class FooterSection extends Component {
             <div className="footer-content">
               
                 <div className="footer-logo-area text-center">
-                    <a href="index.html" className="yummy-logo">Ratatouille</a>
+                    <a href="index.html" className="yummy-logo">Ratatouille  <img src="img/chefs.svg" alt=""  width="60" height="70"/></a>
                 </div>
              
                 <nav className="navbar navbar-expand-lg">
@@ -51,7 +51,7 @@ class FooterSection extends Component {
         <div className="col-12">
           
             <div className="copy_right_text text-center">
-                <p>@2020, Made with <i className="fa fa-heart-o" aria-hidden="true"></i> by <a href="#" > Ratatouille Team </a> for food lover's.</p>
+                <p>@2020, Made with <i className="fas fa-heart"></i> by <a href="#" > Ratatouille Team </a> for food lover's.</p>
             </div>
         </div>
     </div>

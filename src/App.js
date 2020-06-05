@@ -12,6 +12,7 @@ import SidebarSection from './components/SidebarSection.js';
 import HeadlineSection from './components/HeadlinesSection.js';
 import SinglepageSection from './components/SinglepageSection.js';
 import ChefSection from './components/ChefSection.js';
+import NavHeaderSection from './components/NavHeaderSection.js';
 import Form from './components/Form.js';
 
 
@@ -21,14 +22,16 @@ function App() {
     <div className="App">
  
 
-      
-      <NavbarSection/>
-      <HeaderSection />
+      <NavHeaderSection/>
+      <br/>
+      <MainSection /> 
+      {/* <NavbarSection/>
+      <HeaderSection /> */}
       <RecipeSliderSection />
       {/* <SidebarSection /> */} 
       <SeasonSection /> 
       <RecipeSection />
-      <MainSection /> 
+     
       <ChefSection />
       <FooterSection />
       <SocialSection />   

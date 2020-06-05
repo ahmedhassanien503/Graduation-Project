@@ -16,6 +16,9 @@ class RecipeSection extends Component {
     loop
     margin={10}
     nav
+    autoplay
+    autoplayTimeout={2000}
+    autoplayHoverPause={true}
 >
      
         <div className="welcome-single-slide">

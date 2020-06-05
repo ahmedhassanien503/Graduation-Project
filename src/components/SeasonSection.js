@@ -1,5 +1,22 @@
 import React, {Component} from "react";
+import axios from 'axios';
 class SeasonSection extends Component {
+
+    constructor()
+    {
+       
+        super();
+        this.state={
+            seasons:[]
+        }
+    }
+    
+    componentDidMount()
+    {
+       axios.get('http://127.0.0.1:8000/api/seasons')
+       .then(res=>{console.log(res.data.data)});
+    
+    }
  
 
     render(){

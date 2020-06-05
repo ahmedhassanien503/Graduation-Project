@@ -32,7 +32,7 @@ class ChefSection extends Component {
 
                                 <div className="col-lg-6 mb-5">
                                     <div className="media row">
-                                        <div className="col-2"><img src="img/blog-img/17.jpg" class="mr-3 img-fluid" alt=""/></div>
+                                        <div className="col-2"><img src="img/blog-img/17.jpg" className="mr-3 img-fluid" alt=""/></div>
                                         <div className="media-body col-10">
                                             <h5 className="mt-0">ياسمين خالد</h5>
                                             <p>Customer Corp.</p>
@@ -49,7 +49,7 @@ class ChefSection extends Component {
                             <div className="slide-box row">
                                 <div className="col-lg-6 mb-5">
                                     <div className="media row">
-                                        <div className="col-2"><img src="img/blog-img/17.jpg" class="mr-3 img-fluid" alt=""/></div>
+                                        <div className="col-2"><img src="img/blog-img/17.jpg" className="mr-3 img-fluid" alt=""/></div>
                                         <div className="media-body col-10">
                                             <h5 className="mt-0">احمد حسنين</h5>
                                             <p>Customer Corp.</p>
@@ -62,7 +62,7 @@ class ChefSection extends Component {
 
                                 <div className="col-lg-6 mb-5">
                                     <div className="media row">
-                                        <div className="col-2"><img src="img/blog-img/18.jpg" class="mr-3 img-fluid" alt=""/></div>
+                                        <div className="col-2"><img src="img/blog-img/18.jpg" className="mr-3 img-fluid" alt=""/></div>
                                         <div className="media-body col-10">
                                             <h5 className="mt-0">مروة ايمن</h5>
                                             <p>Customer Corp.</p>

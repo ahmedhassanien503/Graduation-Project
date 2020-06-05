@@ -22,13 +22,14 @@ function App() {
 
       <NavHeaderSection/>
       <br/>
+      <MainSection /> 
       {/* <NavbarSection/>
       <HeaderSection /> */}
       <RecipeSliderSection />
       {/* <SidebarSection /> */} 
       <SeasonSection /> 
       <RecipeSection />
-      <MainSection /> 
+     
       <ChefSection />
       <FooterSection />
       <SocialSection />   

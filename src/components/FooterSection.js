@@ -21,22 +21,22 @@ class FooterSection extends Component {
                     <div className="collapse navbar-collapse justify-content-center" id="yummyfood-footer-nav">
                         <ul className="navbar-nav">
                             <li className="nav-item active">
-                                <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                                <a className="nav-link" href="#"> للتواصل معنا </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Features</a>
+                                <a className="nav-link" href="#">من نحن ؟</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Categories</a>
+                                <a className="nav-link" href="#"> اسأل الشيف </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Archive</a>
+                                <a className="nav-link" href="#">ورش الطبخ</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">About</a>
+                                <a className="nav-link" href="#">التصنيفات</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Contact</a>
+                                <a className="nav-link" href="#">الرئيسية <span className="sr-only">(current)</span></a>
                             </li>
                         </ul>
                     </div>
@@ -51,7 +51,7 @@ class FooterSection extends Component {
         <div className="col-12">
           
             <div className="copy_right_text text-center">
-                <p>Copyright @2020 All rights reserved | This template is made with <i className="fa fa-heart-o" aria-hidden="true"></i> by Ratatouille Team </p>
+                <p>@2020, Made with <i className="fa fa-heart-o" aria-hidden="true"></i> by <a href="#" > Ratatouille Team </a> for food lover's.</p>
             </div>
         </div>
     </div>

@@ -1195,6 +1195,7 @@ li {
 .contact-form-sidebar {
     background-size: cover;
     background-position: center center;
+    background-image: url(img/bg-img/contact.jpg);
 }
 
 /* -------------------- 
@@ -1494,3 +1495,17 @@ li {
 	color: #fff;
 	cursor: pointer;
 }
+
+chefs section
+.slide-box {padding-bottom: 5rem;}
+
+#carouselExampleCaptions .carousel-indicators li {background-color: #848484;}
+
+#carouselExampleCaptions .carousel-indicators li.active,
+#pre-footer {background-color: rgba(255, 193, 7, 0.959);}
+
+#testimonial {background-color: rgb(247, 247, 247)}
+
+#testimonial h2 {margin-bottom: 6rem;}
+
+#testimonial .slide-box .content {margin-top: 2rem;}

@@ -11,6 +11,8 @@ class MainSection extends Component {
 
 <br/>
 <br/>
+<h2>افضل الوصفات</h2>
+<hr/>
             <div className="col-12">
                 <div className="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".2s">
                 

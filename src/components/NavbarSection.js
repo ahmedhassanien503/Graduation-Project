@@ -1,6 +1,6 @@
 import React , {Component} from 'react';
 
-
+import { Fastfood, HomeSharp , ExpandMore , LockOpen ,Menu} from "@material-ui/icons";
 class NavbarSection extends Component {
  
 
@@ -15,8 +15,10 @@ class NavbarSection extends Component {
                     
 
                     <div className="top_social_bar">
+                       
                         <a href="#"><i className="fa fa-facebook" aria-hidden="true"></i></a>
                         <a href="#"><i className="fa fa-instagram" aria-hidden="true"></i></a>
+                    
                       
                     </div>
                 </div>
@@ -25,10 +27,10 @@ class NavbarSection extends Component {
                     <div className="signup-search-area d-flex align-items-center justify-content-end">
                         <div className="login_register_area d-flex">
                             <div className="login">
-                                <a href="register.html">Sing in</a>
+                                <a href="register.html">تسجيل الدخول</a>
                             </div>
                             <div className="register">
-                                <a href="register.html">Sing up</a>
+                                <a href="register.html">الاشتراك</a>
                             </div>
                         </div>
                 

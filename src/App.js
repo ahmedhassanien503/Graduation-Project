@@ -9,25 +9,33 @@ import MainSection from './components/MainSection.js';
 import SocialSection from './components/SocialSection.js';
 import NavbarSection from './components/NavbarSection.js';
 import SidebarSection from './components/SidebarSection.js';
+import HeadlineSection from './components/HeadlinesSection.js';
+import SinglepageSection from './components/SinglepageSection.js';
+
 function App() {
   return (
     <div className="App">
-      <NavbarSection/>
+       <NavbarSection/>
       <HeaderSection />
    
-      <RecipeSliderSection />
-      {/* <SidebarSection /> */}
+       <RecipeSliderSection />
+       {/* <SidebarSection /> */}
       
       <SeasonSection />
-    
+     
+
       <MainSection />
     
       <RecipeSection />
    
       <FooterSection />
-      <SocialSection />
+      <SocialSection />    */}
+
+     {/* < HeadlineSection />
+
+     {/* <SinglepageSection /> */}
     
-    
+   {/* <AllrecipesSection /> */}
     </div>
   );
 }

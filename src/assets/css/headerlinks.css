@@ -1,0 +1,24 @@
+.icons
+ {
+    width: "5px";
+    height: "5px";
+    margin-top: "1px";
+    margin-right: "1px";
+  }
+
+  .navLink
+   {
+    width: "15px";
+    height: "15px";
+    /* color: "inherit"; */
+    position: "relative";
+    /* padding: "0.9375rem";
+    font-weight: "400";
+    font-size: "12px";
+    text-transform: "uppercase";
+    border-radius: "3px";
+    line-height: "20px";
+    text-decoration: "none";
+    margin: "0px"; */
+    display: "inline-flex";
+   }

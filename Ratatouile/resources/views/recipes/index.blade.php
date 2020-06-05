@@ -37,7 +37,7 @@
       <td><img src="{{asset('uploads/recipes/'.$recipe->image)}}" width="100px" height="100px"></td>
       <td>{{$recipe->Serving}}</td>
       <td>{{$recipe->TakenTime}}</td>
-      <td>{{$recipe->user_id}}</td>
+      <td>{{$recipe->user->name}}</td>
    
    
     <td><a href="{{route('recipes.show',['recipe' => $recipe->id])}}"  class="btn btn-outline-info" >  <i class="fas fa-folder">

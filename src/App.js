@@ -1,24 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import HeaderSection from './components/HeaderSection.js';
+import FooterSection from './components/FooterSection.js';
+import RecipeSection from './components/RecipeSection.js';
+import RecipeSliderSection from './components/RecipeSliderSection.js';
+import SeasonSection from './components/SeasonSection.js';
+import MainSection from './components/MainSection.js';
+import SocialSection from './components/SocialSection.js';
+import NavbarSection from './components/NavbarSection.js';
+import SidebarSection from './components/SidebarSection.js';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavbarSection/>
+      <HeaderSection />
+   
+      <RecipeSliderSection />
+      {/* <SidebarSection /> */}
+      
+      <SeasonSection />
+    
+      <MainSection />
+    
+      <RecipeSection />
+   
+      <FooterSection />
+      <SocialSection />
+    
+    
     </div>
   );
 }

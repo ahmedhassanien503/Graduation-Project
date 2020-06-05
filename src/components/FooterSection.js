@@ -51,7 +51,7 @@ class FooterSection extends Component {
         <div className="col-12">
           
             <div className="copy_right_text text-center">
-                <p>@2020, Made with <i className="fa fa-heart-o" aria-hidden="true"></i> by <a href="#" > Ratatouille Team </a> for food lover's.</p>
+                <p>@2020, Made with <i className="fas fa-heart"></i> by <a href="#" > Ratatouille Team </a> for food lover's.</p>
             </div>
         </div>
     </div>

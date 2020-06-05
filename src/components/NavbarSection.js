@@ -16,8 +16,8 @@ class NavbarSection extends Component {
 
                     <div className="top_social_bar">
                        
-                        <a href="#"><i className="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a href="#"><i className="fa fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#"><i className="fab fa-facebook-square"></i></a>
+                        <a href="#"><i className="fab fa-instagram"></i></a>
                     
                       
                     </div>

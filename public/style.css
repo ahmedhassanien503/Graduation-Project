@@ -1509,3 +1509,9 @@ chefs section
 #testimonial h2 {margin-bottom: 6rem;}
 
 #testimonial .slide-box .content {margin-top: 2rem;}
+#chef-img{
+    border-radius: 100%;
+}
+#chef-name{
+    margin-top: 10px;
+}

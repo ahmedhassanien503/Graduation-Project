@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use App\User;
 use App\Recipe;
 
@@ -38,7 +40,7 @@ class RecipeApiController extends Controller
      */
     public function create()
     {
-        //
+       
     }
 
     /**
@@ -49,7 +51,33 @@ class RecipeApiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension(); 
+            $filename =time().'.'.$extension;
+            Storage::disk('public')->put('recipes/'.$filename, File::get($file));
+        } else {
+            $filename = 'recipe.jpg';
+        }
+
+
+
+        $recipes=Recipe::create([
+          
+
+            'created_at'=>$request->created_at,
+            'updated_at'=>$request->updated_at,
+            'RecipeName'=>$request->RecipeName,
+            'details'=>$request->details,
+            'image'=>$filename,
+            'Serving'=>$request->Serving,
+            'TakenTime'=>$request->TakenTime,
+            'user_id'=>$request->user_id,
+            'chef_id'=>$request->chef_id,
+        
+        ]);
+       return response()->json($recipes,201);
     }
 
     /**

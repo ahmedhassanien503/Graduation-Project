@@ -7,7 +7,8 @@ class NavbarSection extends Component {
    
     return (
         <div className="MainSection">
-                                  <div className="top_header_area">
+                                
+        <div class="top_header_area">
         <div className="container">
             <div className="row">
                 <div className="col-5 col-sm-6">
@@ -15,7 +16,7 @@ class NavbarSection extends Component {
 
                     <div className="top_social_bar">
                        
-                        <a href="#"><i className="fab fa-facebook-square"></i></a>
+                        <a href="#"><i className="fab fa-facebook" style={{width: "20px"}}></i></a>
                         <a href="#"><i className="fab fa-instagram"></i></a>
                     
                       
@@ -26,10 +27,13 @@ class NavbarSection extends Component {
                     <div className="signup-search-area d-flex align-items-center justify-content-end">
                         <div className="login_register_area d-flex">
                             <div className="login">
-                                <a href="register.html">تسجيل الدخول</a>
+                                <a href="register.html">
+                                    تسجيل الدخول</a>
                             </div>
                             <div className="register">
-                                <a href="register.html">الاشتراك</a>
+                                <a href="register.html">
+                                    الاشتراك                          
+                                    <i class="fa fa-fw fa-user"></i></a>
                             </div>
                         </div>
                 

@@ -2,6 +2,7 @@ import React , {Component} from 'react';
 
 //stylesheet;
 import  '../../src/assets/css/headerlinks.css';
+import { BrowserRouter as Router, Switch, Route, Link , Redirect } from "react-router-dom";
 
 class HeaderSection extends Component {
  
@@ -48,7 +49,8 @@ class HeaderSection extends Component {
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="archive.html">ورش الطبخ
+                                    <a className="nav-link" href="/workshops">
+                                    <Link to={"/workshops"}> ورش الطبخ </Link> 
                                      <i class="fas fa-users"  style={{width: "25px"}}></i></a>
                                   
                                 </li>
@@ -67,8 +69,8 @@ class HeaderSection extends Component {
                                     </div>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">
-                                        <span className="sr-only">(current)</span>الرئيسية
+                                    <a className="nav-link" href="/">
+                                        <Link to={"/"}>  <span className="sr-only">(current)</span>الرئيسية  </Link> 
                                         <i class="fa fa-fw fa-home" style={{width: "25px"}}></i>
                                     </a>
                                 </li>

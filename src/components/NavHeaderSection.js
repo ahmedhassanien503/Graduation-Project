@@ -2,9 +2,6 @@ import React , {Component , useState} from 'react';
 //stylesheet;
 import  '../../src/assets/css/headerlinks.css';
 import Carousel from 'react-bootstrap/Carousel';
-import Navbar  from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import NavDropdown from 'react-bootstrap/NavDropdown'
 
 function NavHeaderSection() {
     const [index, setIndex] = useState(0);

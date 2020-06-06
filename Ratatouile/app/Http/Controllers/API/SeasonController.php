@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\API;
-
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\SeasonResource;
+use App\Http\Resources\SeasonalRecipeResource;
 use App\Season;
-
+use App\SeasonRecipe;
+use App\Recipe;
 class SeasonController extends Controller
 {
     /**
@@ -59,7 +61,10 @@ class SeasonController extends Controller
      */
     public function show($id)
     {
-        //
+        $season_id = DB::table('seasons')->where('id',$id)->value('id');
+        $seasonalrecipes = SeasonRecipe::where('season_id',$season_id)->get();
+        $seasonalrecipesResource= SeasonalRecipeResource::collection($seasonalrecipes);
+        return $seasonalrecipesResource;
     }
 
     /**

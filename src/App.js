@@ -14,7 +14,7 @@ import SinglepageSection from './components/SinglepageSection.js';
 import ChefSection from './components/ChefSection.js';
 import NavHeaderSection from './components/NavHeaderSection.js';
 import Form from './components/Form.js';
-
+import AllrecipesSection from './components/AllrecipesSection.js'
 
 function App() {
   
@@ -25,10 +25,9 @@ function App() {
       <NavHeaderSection/>
       <br/>
       <MainSection /> 
-      {/* <NavbarSection/>
-      <HeaderSection /> */}
+    
       <RecipeSliderSection />
-      {/* <SidebarSection /> */} 
+    
       <SeasonSection /> 
       <RecipeSection />
      
@@ -36,14 +35,22 @@ function App() {
       <FooterSection />
       <SocialSection />   
 
-     {/* < HeadlineSection />
 
-     {/* <SinglepageSection /> */}
+
+
+
+  {/* <NavbarSection/>
+      <HeaderSection />
+  <SidebarSection />  
+     < HeadlineSection />
+
+     <SinglepageSection />
   
 
-      {/* <Form /> */}
+       <Form />
     
-   {/* <AllrecipesSection /> */}
+   <AllrecipesSection /> */}
+
     </div>
   );
 }

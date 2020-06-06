@@ -16,7 +16,7 @@
         <div class="form-group">
         
             <label for="exampleFormControlFile1">Image</label>
-            <input type="file" class="form-control-file" id="image">
+            <input type="file" name ='image' class="form-control-file" id="image" value="{{$chef->image}}">
   
         </div>
         <div class="form-group">

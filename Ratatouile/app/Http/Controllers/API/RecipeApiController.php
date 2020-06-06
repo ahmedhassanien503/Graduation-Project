@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ResipeResource;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -26,11 +27,9 @@ class RecipeApiController extends Controller
 
     public function index()
     {
-     
-
-        $chefs = User::where('is_chef','1')->get();
-       return response()->json(Recipe::get(),200);
-
+     return ResipeResource::collection(
+         Recipe::all()
+     );
     }
 
     /**

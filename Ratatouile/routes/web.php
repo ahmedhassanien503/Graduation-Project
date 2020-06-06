@@ -92,11 +92,12 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::put('users/{user}', 'UserController@userUpdate')->name('users.update');
     Route::delete('users/{user}/delete', 'UserController@userDestroy')->name('users.destroy');
     ##################### Chefs Routes #############################################################
-    Route::get('chefs', 'UserController@chefIndex')->name('chefs.index');
-    Route::get('chefs/{chef}/edit', 'UserController@chefEdit')->name('chefs.edit');
-    Route::put('chefs/{chef}', 'UserController@chefUpdate')->name('chefs.update');
-    Route::delete('chefs/{chef}/delete', 'UserController@chefDestroy')->name('chefs.destroy');
+    Route::get('chefs', 'ChefController@chefIndex')->name('chefs.index');
+    Route::get('chefs/{chef}/edit', 'ChefController@chefEdit')->name('chefs.edit');
+    Route::put('chefs/{chef}', 'ChefController@chefUpdate')->name('chefs.update');
+    Route::delete('chefs/{chef}/delete', 'ChefController@chefDestroy')->name('chefs.destroy');
 });
+
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 

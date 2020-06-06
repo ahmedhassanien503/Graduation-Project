@@ -2,9 +2,6 @@ import React , {Component , useState} from 'react';
 //stylesheet;
 import  '../../src/assets/css/headerlinks.css';
 import Carousel from 'react-bootstrap/Carousel';
-import Navbar  from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import NavDropdown from 'react-bootstrap/NavDropdown'
 
 function NavHeaderSection() {
     const [index, setIndex] = useState(0);
@@ -15,22 +12,22 @@ function NavHeaderSection() {
   
     return (
         <div>
-            <Navbar bg="light" variant="light" fixed="top">
+            {/* <Navbar bg="light" variant="light" fixed="top">
                 <Navbar.Brand href="#home"> <img src="img/chefs.svg" alt=""  width="40" height="50"/> Ratatouille</Navbar.Brand>
 
                 <Nav className="ml-auto">
                     <NavDropdown title="المزيد" id="nav-dropdown">
                         <NavDropdown.Item eventKey="4.1">
                             <Nav.Link  href="#home"> التصنيفات
-                                <i class="fas fa-hamburger" style={{width: "25px"} ,{color:'#e07b39'}}></i></Nav.Link>
+                                <i className="fas fa-hamburger" style={{width: "25px"} ,{color:'#e07b39'}}></i></Nav.Link>
                         </NavDropdown.Item>
                         <NavDropdown.Item eventKey="4.2">
                             <Nav.Link  href="#home"> ورش الطبخ
-                                <i class="fas fa-users" style={{width: "15px"} ,{color:'#e07b39'}}></i></Nav.Link>
+                                <i className="fas fa-users" style={{width: "15px"} ,{color:'#e07b39'}}></i></Nav.Link>
                         </NavDropdown.Item>
                         <NavDropdown.Item eventKey="4.3">
                             <Nav.Link  href="#home"> اسأل الشيف
-                                <i class="fas fa-comment" style={{width: "15px"} ,{color:'#e07b39'}}></i></Nav.Link>
+                                <i className="fas fa-comment" style={{width: "15px"} ,{color:'#e07b39'}}></i></Nav.Link>
                         </NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item eventKey="4.3">
@@ -39,7 +36,7 @@ function NavHeaderSection() {
                         </NavDropdown.Item>
                         <NavDropdown.Item eventKey="4.3">
                             <Nav.Link  href="#home"> من نحن؟
-                    <i class="far fa-address-card" style={{width: "15px"} ,{color:'#e07b39'}}></i></Nav.Link>
+                    <i className="far fa-address-card" style={{width: "15px"} ,{color:'#e07b39'}}></i></Nav.Link>
                         </NavDropdown.Item>
                     </NavDropdown>
                     <NavDropdown title="الوصفات" id="nav-dropdown">
@@ -52,10 +49,10 @@ function NavHeaderSection() {
                         </NavDropdown.Item>
                     </NavDropdown>
                     <Nav.Link  href="#home"> <span className="sr-only">(current)</span>الرئيسية
-                        <i class="fa fa-fw fa-home" style={{width: "25px"},{color:'#e07b39'}}></i></Nav.Link>
-                    <Nav.Link href="#home"> تسجيل الدخول/الاشتراك<i class="fa fa-fw fa-user" style={{width: "25px"},{color:'#e07b39'}}></i></Nav.Link>
+                        <i className="fa fa-fw fa-home" style={{width: "25px"},{color:'#e07b39'}}></i></Nav.Link>
+                    <Nav.Link href="#home"> تسجيل الدخول/الاشتراك<i className="fa fa-fw fa-user" style={{width: "25px"},{color:'#e07b39'}}></i></Nav.Link>
                 </Nav>
-            </Navbar>
+            </Navbar> */}
 
             <Carousel activeIndex={index} onSelect={handleSelect} interval={3000}>
                 <Carousel.Item>

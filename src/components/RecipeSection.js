@@ -8,7 +8,7 @@ class RecipeSection extends Component {
     return (
         <div className="RecipeSection container">
 
-<section className="welcome-post-sliders">
+   <section className="welcome-post-sliders">
 <h2> تصنيفاتنا من المأكولات تحتوى على كل ما تشتهيه</h2>
 <hr/>
 
@@ -101,7 +101,14 @@ class RecipeSection extends Component {
             </div>
         </div>
         </OwlCarousel>
-    </section>
+    </section> 
+
+
+
+
+
+
+
 
         </div>
 

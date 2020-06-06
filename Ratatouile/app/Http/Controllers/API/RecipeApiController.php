@@ -27,9 +27,14 @@ class RecipeApiController extends Controller
 
     public function index()
     {
-     return ResipeResource::collection(
-         Recipe::all()
-     );
+       $recipes=Recipe::paginate(4);
+       $recipeResource=ResipeResource::collection($recipes);
+       return $recipeResource;
+
+    //  return ResipeResource::collection(
+    //      Recipe::all()
+    // );
+     
     }
 
     /**

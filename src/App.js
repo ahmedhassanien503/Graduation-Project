@@ -28,51 +28,23 @@ import workshopPage from "./pages/workshopPage.js";
 function App() {
   
   return (
- 
-
-
-      <NavHeaderSection/>
-      <br/>
-      <MainSection /> 
-    
-      <RecipeSliderSection />
-    
-      <SeasonSection /> 
-      <RecipeSection />
-     
-      <ChefSection />
-      <FooterSection />
-      <SocialSection />   
-
-
-
-
-
-  {/* <NavbarSection/>
-      <HeaderSection />
-  <SidebarSection />  
-     < HeadlineSection />
-
-     <SinglepageSection />
   
-
-       <Form />
     
-   <AllrecipesSection /> */}
-
-   <Router>
-   <Switch>
-     <Route exact path='/' component={homePage} />
-     <Route exact path='/workshop/:workshop' component={workshopPage} />
-     <Route exact path='/workshops' component={workshopsPage} />
-     {/* <Route path="/sign-in" component={Login} />
-     <Route path="/item-list" component={ItemsList} />
-     <Route path="/sign-up" component={SignUp} /> */}
-   </Switch>
+<div>
+  
    
-</Router>
-
-   
+  <Router>
+  <Switch>
+    <Route exact path='/' component={homePage} />
+    <Route exact path='/workshop/:workshop' component={workshopPage} />
+    <Route exact path='/workshops' component={workshopsPage} />
+    {/* <Route path="/sign-in" component={Login} />
+    <Route path="/item-list" component={ItemsList} />
+    <Route path="/sign-up" component={SignUp} /> */}
+  </Switch>
+  
+  </Router>
+  </div>
 
   );
 }

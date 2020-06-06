@@ -12,7 +12,7 @@ function NavHeaderSection() {
   
     return (
         <div>
-            <Navbar bg="light" variant="light" fixed="top">
+            {/* <Navbar bg="light" variant="light" fixed="top">
                 <Navbar.Brand href="#home"> <img src="img/chefs.svg" alt=""  width="40" height="50"/> Ratatouille</Navbar.Brand>
 
                 <Nav className="ml-auto">
@@ -52,7 +52,7 @@ function NavHeaderSection() {
                         <i className="fa fa-fw fa-home" style={{width: "25px"},{color:'#e07b39'}}></i></Nav.Link>
                     <Nav.Link href="#home"> تسجيل الدخول/الاشتراك<i className="fa fa-fw fa-user" style={{width: "25px"},{color:'#e07b39'}}></i></Nav.Link>
                 </Nav>
-            </Navbar>
+            </Navbar> */}
 
             <Carousel activeIndex={index} onSelect={handleSelect} interval={3000}>
                 <Carousel.Item>

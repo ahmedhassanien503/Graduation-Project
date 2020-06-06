@@ -34,6 +34,11 @@ Route::get('/recipes', 'API\RecipeApiController@index')->name('recipes.index');
     ##################### Workshop Routes #############################################################
     Route::get('/workshops','API\WorkshopController@index');
     Route::get('/workshops/{workshop}','API\WorkshopController@show');
+
+     ##################### Season Routes #############################################################
+     Route::get('/seasons','API\SeasonController@index');
+     
+ 
     ##################### Users Routes #############################################################
     Route::get('/users','API\UserController@index');
     Route::get('/users/{user}','API\UserController@show');

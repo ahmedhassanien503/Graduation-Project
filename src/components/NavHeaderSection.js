@@ -22,15 +22,15 @@ function NavHeaderSection() {
                     <NavDropdown title="المزيد" id="nav-dropdown">
                         <NavDropdown.Item eventKey="4.1">
                             <Nav.Link  href="#home"> التصنيفات
-                                <i class="fas fa-hamburger" style={{width: "25px"} ,{color:'#e07b39'}}></i></Nav.Link>
+                                <i className="fas fa-hamburger" style={{width: "25px"} ,{color:'#e07b39'}}></i></Nav.Link>
                         </NavDropdown.Item>
                         <NavDropdown.Item eventKey="4.2">
                             <Nav.Link  href="#home"> ورش الطبخ
-                                <i class="fas fa-users" style={{width: "15px"} ,{color:'#e07b39'}}></i></Nav.Link>
+                                <i className="fas fa-users" style={{width: "15px"} ,{color:'#e07b39'}}></i></Nav.Link>
                         </NavDropdown.Item>
                         <NavDropdown.Item eventKey="4.3">
                             <Nav.Link  href="#home"> اسأل الشيف
-                                <i class="fas fa-comment" style={{width: "15px"} ,{color:'#e07b39'}}></i></Nav.Link>
+                                <i className="fas fa-comment" style={{width: "15px"} ,{color:'#e07b39'}}></i></Nav.Link>
                         </NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item eventKey="4.3">
@@ -39,7 +39,7 @@ function NavHeaderSection() {
                         </NavDropdown.Item>
                         <NavDropdown.Item eventKey="4.3">
                             <Nav.Link  href="#home"> من نحن؟
-                    <i class="far fa-address-card" style={{width: "15px"} ,{color:'#e07b39'}}></i></Nav.Link>
+                    <i className="far fa-address-card" style={{width: "15px"} ,{color:'#e07b39'}}></i></Nav.Link>
                         </NavDropdown.Item>
                     </NavDropdown>
                     <NavDropdown title="الوصفات" id="nav-dropdown">
@@ -52,8 +52,8 @@ function NavHeaderSection() {
                         </NavDropdown.Item>
                     </NavDropdown>
                     <Nav.Link  href="#home"> <span className="sr-only">(current)</span>الرئيسية
-                        <i class="fa fa-fw fa-home" style={{width: "25px"},{color:'#e07b39'}}></i></Nav.Link>
-                    <Nav.Link href="#home"> تسجيل الدخول/الاشتراك<i class="fa fa-fw fa-user" style={{width: "25px"},{color:'#e07b39'}}></i></Nav.Link>
+                        <i className="fa fa-fw fa-home" style={{width: "25px"},{color:'#e07b39'}}></i></Nav.Link>
+                    <Nav.Link href="#home"> تسجيل الدخول/الاشتراك<i className="fa fa-fw fa-user" style={{width: "25px"},{color:'#e07b39'}}></i></Nav.Link>
                 </Nav>
             </Navbar>
 

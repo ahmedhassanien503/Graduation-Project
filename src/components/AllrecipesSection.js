@@ -14,17 +14,12 @@ class AllrecipesSection extends Component {
             
                 <div className="col-12 col-md-6 col-lg-4">
                     <div className="single-post wow fadeInUp" data-wow-delay="0.1s">
-                    
-
                         <div className="post-thumb">
                             <img src="img/blog-img/2.jpg" alt=""/>
                         </div>
-                   
-
                         <div className="post-content">
                             <div className="post-meta d-flex">
                                 <div className="post-author-date-area d-flex">
-
                                     
                                     <div className="post-author">
                                         <a href="#">By Marian</a>
@@ -34,10 +29,7 @@ class AllrecipesSection extends Component {
                                         <a href="#">May 19, 2017</a>
                                     </div>
                                 </div>
-                          
                                 <div className="post-comment-share-area d-flex">
-
-                                
                                     <div className="post-favourite">
                                         <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
                                     </div>

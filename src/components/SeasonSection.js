@@ -4,7 +4,6 @@ class SeasonSection extends Component {
 
     constructor()
     {
-       
         super();
         this.state={
             seasons:[]

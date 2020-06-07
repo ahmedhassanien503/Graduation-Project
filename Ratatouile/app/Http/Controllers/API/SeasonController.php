@@ -18,15 +18,10 @@ class SeasonController extends Controller
      */
     public function index()
     {
-      $seasons = Season::all();
+      $seasons = Season::paginate(3);
     //    return response()->json($seasons);
       $seasonResource= SeasonResource::collection($seasons);
       return $seasonResource;
-
-//       return SeasonResource::collection(
-//         Season::paginate(5)
-// //if we need to select total pages 
-// //           Post::paginate()
 
 
 //     );    
@@ -62,7 +57,7 @@ class SeasonController extends Controller
     public function show($id)
     {
         $season_id = DB::table('seasons')->where('id',$id)->value('id');
-        $seasonalrecipes = SeasonRecipe::where('season_id',$season_id)->get();
+        $seasonalrecipes = SeasonRecipe::where('season_id',$season_id)->paginate(6);
         $seasonalrecipesResource= SeasonalRecipeResource::collection($seasonalrecipes);
         return $seasonalrecipesResource;
     }

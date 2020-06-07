@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import axios from 'axios';
+import { BrowserRouter as Router, Switch, Route, Link , Redirect } from "react-router-dom";
 class SeasonSection extends Component {
 
     constructor()
@@ -36,9 +37,9 @@ class SeasonSection extends Component {
             <div className="single_catagory wow fadeInUp" data-wow-delay=".3s">
                 <img src={`http://localhost:8000/uploads/seasons/${season.image}`} alt="" width="340" height="240"/>
                 <div className="catagory-title">
-                    <a href="#">
+                    <Link to={`/seasons/${season.id}`}>
                         <h5 >{season.season_name}</h5>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>

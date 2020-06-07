@@ -39,7 +39,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
      ##################### Season Routes #############################################################
      Route::get('/seasons','API\SeasonController@index');
-     
+     Route::get('/seasons/{id}','API\SeasonController@show');
  
     ##################### Users Routes #############################################################
     Route::get('/users','API\UserController@index');

@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\API;
-
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\SeasonResource;
+use App\Http\Resources\SeasonalRecipeResource;
 use App\Season;
-
+use App\SeasonRecipe;
+use App\Recipe;
 class SeasonController extends Controller
 {
     /**
@@ -16,15 +18,10 @@ class SeasonController extends Controller
      */
     public function index()
     {
-      $seasons = Season::all();
+      $seasons = Season::paginate(3);
     //    return response()->json($seasons);
       $seasonResource= SeasonResource::collection($seasons);
       return $seasonResource;
-
-//       return SeasonResource::collection(
-//         Season::paginate(5)
-// //if we need to select total pages 
-// //           Post::paginate()
 
 
 //     );    
@@ -59,7 +56,10 @@ class SeasonController extends Controller
      */
     public function show($id)
     {
-        //
+        $season_id = DB::table('seasons')->where('id',$id)->value('id');
+        $seasonalrecipes = SeasonRecipe::where('season_id',$season_id)->paginate(6);
+        $seasonalrecipesResource= SeasonalRecipeResource::collection($seasonalrecipes);
+        return $seasonalrecipesResource;
     }
 
     /**

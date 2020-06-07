@@ -2,6 +2,7 @@ import React  ,{Component , useState}from 'react';
 import { BrowserRouter as Router, Switch, Route, Link , Redirect } from "react-router-dom";
 
 import axios from 'axios';
+import Pagination from "react-js-pagination";
 import NavbarSection from '../components/NavbarSection.js';
 import HeaderSection from '../components/HeaderSection.js';
 import SocialSection from '../components/SocialSection.js';
@@ -12,18 +13,46 @@ class seasonalrecipesPage extends Component {
     {
         super();
         this.state={
-            recipes:[]
+            recipes:[],
+            activePage:1,
+            itemsCountPerPage:1,
+            totalItemsCount:1,
+            pageRangeDisplayed:2,
         }
+        this.handlePageChange=this.handlePageChange.bind(this);
     }
     
     componentDidMount()
     {
        axios.get(`http://127.0.0.1:8000/api/seasons/${this.props.match.params.id}`)
        .then(
-           res=>{this.setState({ recipes: res.data.data})},
-           );
-
+        res=>{
+            this.setState({
+                recipes:res.data.data,
+                itemsCountPerPage:res.data.meta.per_page,
+                totalItemsCount:res.data.meta.total,
+                activePage:res.data.meta.current_page,
+                
+            })});
     }
+
+
+
+    handlePageChange(pageNumber) {
+        console.log(`active page is ${pageNumber}`);
+        // this.setState({activePage: pageNumber});
+        axios.get(`http://127.0.0.1:8000/api/seasons/${this.props.match.params.id}?page=${pageNumber}`)
+        .then(res=>{
+            this.setState({
+                recipes:res.data.data,
+                itemsCountPerPage:res.data.meta.per_page,
+                totalItemsCount:res.data.meta.total,
+                activePage:res.data.meta.current_page,
+                
+
+            });});
+      }
+
  
     render(){
     return(
@@ -81,21 +110,15 @@ class seasonalrecipesPage extends Component {
 
                 <div className="col-12">
                     <div className="pagination-area d-sm-flex mt-15">
-                        <nav aria-label="#">
-                            <ul className="pagination">
-                                <li className="page-item active">
-                                    <a className="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li className="page-item"><a className="page-link" href="#">2</a></li>
-                                <li className="page-item"><a className="page-link" href="#">3</a></li>
-                                <li className="page-item">
-                                    <a className="page-link" href="#">Next <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                                </li>
-                            </ul>
-                        </nav>
-                        <div className="page-status">
-                            <p>Page 1 of 10 results</p>
-                        </div>
+                    <Pagination
+                    activePage={this.state.activePage}
+                    itemsCountPerPage={this.state.itemsCountPerPage}
+                    totalItemsCount={this.state.totalItemsCount}
+                    pageRangeDisplayed={this.state.pageRangeDisplayed}
+                    onChange={this.handlePageChange}
+                    itemClass='page-item'
+                    linkClass='page-link'
+                    />
                     </div>
                 </div>
 

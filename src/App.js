@@ -22,7 +22,8 @@ import { BrowserRouter as Router, Switch, Route, Link , Redirect } from "react-r
 import homePage from "./pages/homePage.js";
 import workshopsPage from "./pages/workshopsPage.js";
 import workshopPage from "./pages/workshopPage.js";
-
+import allChefs from "./pages/allChefs.js";
+import chefProfile from "./pages/chefProfile.js";
 
 
 function App() {
@@ -38,6 +39,8 @@ function App() {
     <Route exact path='/' component={homePage} />
     <Route exact path='/workshop/:workshop' component={workshopPage} />
     <Route exact path='/workshops' component={workshopsPage} />
+    <Route exact path='/chefs' component={allChefs} />
+    <Route exact path='/chefs/:chef' component={chefProfile} />
     {/* <Route path="/sign-in" component={Login} />
     <Route path="/item-list" component={ItemsList} />
     <Route path="/sign-up" component={SignUp} /> */}

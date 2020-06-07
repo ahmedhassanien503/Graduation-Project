@@ -17,4 +17,10 @@ class SeasonRecipe extends Model
     {
         return $this->belongsto('App\Recipe');
     }
+
+    public function season()
+    {
+        return $this->belongsto('App\Season');
+    }
+
 }

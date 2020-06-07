@@ -96,6 +96,15 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('chefs/{chef}/edit', 'ChefController@chefEdit')->name('chefs.edit');
     Route::put('chefs/{chef}', 'ChefController@chefUpdate')->name('chefs.update');
     Route::delete('chefs/{chef}/delete', 'ChefController@chefDestroy')->name('chefs.destroy');
+    ##################### SeasonalRecipes Routes #############################################################
+    Route::get('/seasonalrecipes', 'SeasonalRecipeController@index')->name('seasonalrecipes.index');
+    Route::get('/seasonalrecipes/create', 'SeasonalRecipeController@create')->name('seasonalrecipes.create');
+    Route::post('/seasonalrecipes', 'SeasonalRecipeController@store')->name('seasonalrecipes.store');
+    Route::get('/seasonalrecipes/{seasonalrecipe}', 'SeasonalRecipeController@show')->name('seasonalrecipes.show');
+    Route::get('/seasonalrecipes/{seasonalrecipe}/edit', 'SeasonalRecipeController@edit')->name('seasonalrecipes.edit');
+    Route::put('/seasonalrecipes/{seasonalrecipe}', 'SeasonalRecipeController@update')->name('seasonalrecipes.update');
+    Route::delete('/seasonalrecipes/{seasonalrecipe}/delete', 'SeasonalRecipeController@destroy')->name('seasonalrecipes.destroy');
+    
 });
 
 Auth::routes();

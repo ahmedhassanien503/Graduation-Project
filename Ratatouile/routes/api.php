@@ -22,7 +22,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 //recipes routes
 
-Route::get('/recipes', 'API\RecipeApiController@index')->name('recipes.index');
+    Route::get('/recipes', 'API\RecipeApiController@index')->name('recipes.index');
+    Route::get('/userrecipes', 'API\RecipeApiController@indexx')->name('recipes.indexx');
+
     Route::get('/recipes/create','API\RecipeApiController@create')->name('recipes.create');
     Route::get('/recipes/{recipe}', 'API\RecipeApiController@show')->name('recipes.show');
     Route::post('/recipes','API\RecipeApiController@store')->name('recipes.store');

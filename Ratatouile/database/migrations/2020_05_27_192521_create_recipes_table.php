@@ -18,7 +18,7 @@ class CreateRecipesTable extends Migration
             $table->timestamps();
             $table->string('RecipeName');
             $table->text('details');
-            $table->string('image')-> nullable();  
+            $table->string('recipe_image')-> nullable();  
             $table->integer('Serving')-> nullable();    
             $table->char('TakenTime', 100)-> nullable();
             // $table->unsignedBigInteger('chef_id')->nullable();

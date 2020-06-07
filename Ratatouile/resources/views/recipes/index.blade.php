@@ -34,7 +34,7 @@
       <td>{{$recipe->updated_at}}</td>
       <td>{{$recipe->RecipeName}}</td>
       <td>{{$recipe->details}}</td>
-      <td><img src="{{asset('uploads/recipes/'.$recipe->image)}}" width="100px" height="100px"></td>
+      <td><img src="{{asset('uploads/recipes/'.$recipe->recipe_image)}}" width="100px" height="100px"></td>
       <td>{{$recipe->Serving}}</td>
       <td>{{$recipe->TakenTime}}</td>
       <td>{{$recipe->user->name}}</td>

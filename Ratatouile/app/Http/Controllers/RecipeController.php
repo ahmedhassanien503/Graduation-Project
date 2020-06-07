@@ -59,7 +59,7 @@ class RecipeController extends Controller
             'updated_at'=>$request->updated_at,
             'RecipeName'=>$request->RecipeName,
             'details'=>$request->details,
-            'image'=>$filename,
+            'recipe_image'=>$filename,
             'Serving'=>$request->Serving,
             'TakenTime'=>$request->TakenTime,
             'user_id'=>$request->user_id,
@@ -127,7 +127,7 @@ class RecipeController extends Controller
             $extension = $file->getClientOriginalExtension();
             $filename =time().'.'.$extension;
             Storage::disk('public')->put('recipes/'.$filename, File::get($file));
-            $recipe->image= $filename;
+            $recipe->recipe_image= $filename;
         } 
         $recipe->serving=$request->get('Serving');
         $recipe->TakenTime=$request->get('TakenTime');

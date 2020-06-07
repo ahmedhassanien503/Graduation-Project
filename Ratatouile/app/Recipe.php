@@ -11,7 +11,7 @@ class Recipe extends Model
         'updated_at',
         'RecipeName',
         'details', 
-        'image',
+        'recipe_image',
         'Serving',
         'TakenTime',
         'user_id',
@@ -31,7 +31,7 @@ class Recipe extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User', 'user_id');
+        return $this->belongsTo('App\User');
     }
 
     // public function chef()

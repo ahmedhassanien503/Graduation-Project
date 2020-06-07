@@ -20,16 +20,15 @@ class ResipeResource extends JsonResource
             'updated_at'=>$this->updated_at,
             'RecipeName'=>$this->RecipeName,
             'details'=>$this->details,
-            'image'=>$this->image,
+            'recipe_image'=>$this->recipe_image,
             'Serving'=>$this->Serving,
             'TakenTime'=>$this->TakenTime,
             'user_id'=>$this->user_id,
-            'user_info'=>[
-                'name'=>$this->user ? $this->user->name:'not exist',
-                'email'=>$this->user ? $this->user->email:'not exist',
-                'image'=>$this->user ? $this->user->image:'not exist',
-                'is_chef'=>$this->user ? $this->user->is_chef:'not exist',
-            ]
+            'is_chef'=>$this->is_chef,
+            'image'=>$this->image,
+            'name'=>$this->name,
+            // 'user_info'=>new UserResource($this->user), 
+           
         ];
     }
 }

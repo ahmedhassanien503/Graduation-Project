@@ -1,5 +1,6 @@
 import React , {Component} from 'react';
 import axios from 'axios';
+import { BrowserRouter as Router, Switch, Route, Link , Redirect } from "react-router-dom";
 
 
 class MainSection extends Component {
@@ -32,7 +33,7 @@ class MainSection extends Component {
                 <div className="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".2s">
                 
                     <div className="post-thumb">
-                    <img src={`http://localhost:8000/uploads/recipes/${recipe.image}`} alt="" />
+                    <img src={`http://localhost:8000/uploads/recipes/${recipe.recipe_image}`} alt="" />
 
                     </div>
                  
@@ -41,7 +42,7 @@ class MainSection extends Component {
                             <div className="post-author-date-area d-flex">
                              
                                 <div className="post-author">
-                                    <a href="#">By {recipe.user_info.name}</a>
+                                    <a href="#">By {recipe.name}</a>
                                 </div>
                            
                                 <div className="post-date">
@@ -57,9 +58,11 @@ class MainSection extends Component {
                             <h4 className="post-headline">{recipe.RecipeName}</h4>
                         </a>
                         <p>{recipe.details}</p>
+                        <div className="post-thumb">
                         <a href="#" className="read-more">Continue Reading..</a>
-                        {/* <img src={`http://localhost:8000/uploads/user/${recipe.user_info.image}`} alt="" width="340" height="240"/> */}
-
+                         </div>
+                      
+                        
                     </div>
                 </div>
             </div>

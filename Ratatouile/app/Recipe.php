@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Recipe extends Model
 {
+    protected $primaryKey = 'id';
+    
     protected $fillable = [
         'created_at',
         'updated_at',

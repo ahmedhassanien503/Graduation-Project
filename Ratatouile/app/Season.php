@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Season extends Model
 {
+    protected $primaryKey = 'id';
 
     protected $fillable=[
         'season_name',

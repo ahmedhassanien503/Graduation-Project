@@ -12,7 +12,7 @@ class FooterSection extends Component {
             <div className="footer-content">
               
                 <div className="footer-logo-area text-center">
-                    <a href="index.html" className="yummy-logo">Ratatouille  <img src="img/chefs.svg" alt=""  width="60" height="70"/></a>
+                    <a href="index.html" className="yummy-logo">Ratatouille  <img src={require('../../src/chefs.svg')} alt=""  width="70" height="80"/></a>
                 </div>
              
                 <nav className="navbar navbar-expand-lg">

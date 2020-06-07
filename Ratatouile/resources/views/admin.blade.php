@@ -259,6 +259,13 @@
                   <p> Seasons</p>
                 </a>
               </li>
+
+              <li class="nav-item">
+                <a href="{{route('seasonalrecipes.index')}}" class="nav-link">
+                  <i class="fas fa-hotdog"></i>
+                  <p> Seasonal Recipes</p>
+                </a>
+              </li>
             </ul>
           </li>
           

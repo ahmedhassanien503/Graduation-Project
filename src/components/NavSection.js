@@ -50,7 +50,7 @@ function NavSection() {
                         <Link to={"/"} style={{color:"#e07b39"}}>  <span className="sr-only">(current)</span>الرئيسية  </Link> 
                         <i className="fa fa-fw fa-home" style={{width: "25px"},{color:'#e07b39'}}></i>
                         </Nav.Link>
-                    <Nav.Link href="#home"> تسجيل الدخول | الاشتراك<i className="fa fa-fw fa-user" style={{width: "25px"},{color:'#e07b39'}}></i></Nav.Link>
+                    <Nav.Link href="/layout"> تسجيل الدخول | الاشتراك<i className="fa fa-fw fa-user" style={{width: "25px"},{color:'#e07b39'}}></i></Nav.Link>
                 
                 </Nav>
             </Navbar>

@@ -1,4 +1,10 @@
-import React from 'react';
+import React from "react";
+import "./css/tailwind.css";
+import Login from "./Login.js";
+import Profile from "./Profile.js";
+import Register from "./Register.js";
+import GuestRoute from "./components/GuestRoute.js";
+import AuthRoute from "./components/AuthRoute.js";
 import './App.css';
 
 import HeaderSection from './components/HeaderSection.js';
@@ -16,6 +22,9 @@ import ChefSection from './components/ChefSection.js';
 import NavHeaderSection from './components/NavHeaderSection.js';
 import Form from './components/Form.js';
 import AllrecipesSection from './components/AllrecipesSection.js'
+import Layout from "./components/Layout";
+
+
 
 import { BrowserRouter as Router, Switch, Route, Link , Redirect } from "react-router-dom";
 
@@ -27,31 +36,22 @@ import chefProfile from "./pages/chefProfile.js";
 import seasonalrecipesPage from "./pages/seasonalrecipesPage.js";
 
 
-
 function App() {
-  
   return (
-  
-    
-<div>
-  
-   
-  <Router>
-  <Switch>
+    <Router>
+        <div className="bg-gray-300 h-screen">
     <Route exact path='/' component={homePage} />
     <Route exact path='/workshop/:workshop' component={workshopPage} />
     <Route exact path='/workshops' component={workshopsPage} />
     <Route exact path='/chefs' component={allChefs} />
     <Route exact path='/chefs/:chef' component={chefProfile} />
     <Route exact path='/seasons/:id' component={seasonalrecipesPage} />
-    {/* <Route path="/sign-in" component={Login} />
-    <Route path="/item-list" component={ItemsList} />
-    <Route path="/sign-up" component={SignUp} /> */}
-  </Switch>
-  
-  </Router>
-  </div>
-
+    <GuestRoute path="/layout" component={Layout} />
+    <GuestRoute path="/login" component={Login} />
+    <GuestRoute path="/register" component={Register} />
+    <AuthRoute path="/profile" component={Profile} />
+        </div>
+    </Router>
   );
 }
 

@@ -1,6 +1,8 @@
 import React , {Component} from 'react';
 import axios from 'axios';
 import OwlCarousel from 'react-owl-carousel';
+import { BrowserRouter as Router, Switch, Route, Link , Redirect } from "react-router-dom";
+
 class RecipeSection extends Component {
  
     constructor()
@@ -45,9 +47,9 @@ class RecipeSection extends Component {
          
   
             <div className="project_title">
-                <a href="#">
+            <Link to={`/categories/${category.id}`}>
                     <h5>{category.category_name }</h5>
-                </a>
+            </Link>
             </div>
         </div>
  ) } )}

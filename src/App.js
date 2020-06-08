@@ -25,7 +25,8 @@ import workshopPage from "./pages/workshopPage.js";
 import allChefs from "./pages/allChefs.js";
 import chefProfile from "./pages/chefProfile.js";
 import seasonalrecipesPage from "./pages/seasonalrecipesPage.js";
-
+import categoryrecipesPage from "./pages/categoryrecipesPage.js";
+import AllCategories from './pages/AllCategories';
 
 
 function App() {
@@ -44,6 +45,8 @@ function App() {
     <Route exact path='/chefs' component={allChefs} />
     <Route exact path='/chefs/:chef' component={chefProfile} />
     <Route exact path='/seasons/:id' component={seasonalrecipesPage} />
+    <Route exact path='/categories/:id' component={categoryrecipesPage} />
+    <Route exact path='/categories' component={AllCategories} />
     {/* <Route path="/sign-in" component={Login} />
     <Route path="/item-list" component={ItemsList} />
     <Route path="/sign-up" component={SignUp} /> */}

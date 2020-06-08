@@ -31,6 +31,9 @@ import { BrowserRouter as Router, Switch, Route, Link , Redirect } from "react-r
 import homePage from "./pages/homePage.js";
 import workshopsPage from "./pages/workshopsPage.js";
 import workshopPage from "./pages/workshopPage.js";
+import chefrecipe from "./pages/chefrecipe.js";
+import chefrecipes from "./pages/chefrecipes.js";
+import userRecipes from "./pages/userRecipes.js";
 import allChefs from "./pages/allChefs.js";
 import chefProfile from "./pages/chefProfile.js";
 import seasonalrecipesPage from "./pages/seasonalrecipesPage.js";
@@ -43,6 +46,10 @@ function App() {
     <Route exact path='/' component={homePage} />
     <Route exact path='/workshop/:workshop' component={workshopPage} />
     <Route exact path='/workshops' component={workshopsPage} />
+
+    <Route exact path='/recipe/:recipe' component={chefrecipe} />
+    <Route exact path='/recipes' component={chefrecipes} />
+    <Route exact path='/userrecipes' component={userRecipes} />
     <Route exact path='/chefs' component={allChefs} />
     <Route exact path='/chefs/:chef' component={chefProfile} />
     <Route exact path='/seasons/:id' component={seasonalrecipesPage} />

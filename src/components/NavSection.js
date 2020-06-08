@@ -38,13 +38,14 @@ function NavSection() {
                     <i class="far fa-address-card" style={{width: "15px"} ,{color:'#e07b39'}}></i></Nav.Link>
                         </NavDropdown.Item>
                     </NavDropdown>
+                  
                     <NavDropdown title="الوصفات" id="nav-dropdown">
                         <NavDropdown.Item eventKey="4.1">
-                            <Nav.Link  href="#home"> وصفات الطهاه</Nav.Link>
+                            <Link  to={"/recipes"}> وصفات الطهاه</Link>
                         </NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item eventKey="4.2">
-                        <Nav.Link  href="#home"> وصفات الاعضاء</Nav.Link>
+                        <Link to={"/userrecipes"}> وصفات الاعضاء</Link>
                         </NavDropdown.Item>
                     </NavDropdown>
                     <Nav.Link  href="/">

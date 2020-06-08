@@ -64,8 +64,8 @@ class HeaderSection extends Component {
                                 <li className="nav-item dropdown">
                                     <a className="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">الوصفات</a>
                                     <div className="dropdown-menu" aria-labelledby="yummyDropdown">
-                                        <a className="dropdown-item" href="index.html">وصفات الطهاة</a>
-                                        <a className="dropdown-item" href="archive.html">وصفات الاعضاء</a>
+                                        <a className="dropdown-item"> <Link to={"/recipes"}>وصفات الطهاه </Link></a>
+                                        <a className="dropdown-item"><Link to={"/recipes"}>وصفات الأعضاء </Link> </a>
                                    
                                 
                                     </div>

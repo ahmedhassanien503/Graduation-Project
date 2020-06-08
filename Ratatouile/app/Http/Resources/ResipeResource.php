@@ -23,12 +23,17 @@ class ResipeResource extends JsonResource
             'recipe_image'=>$this->recipe_image,
             'Serving'=>$this->Serving,
             'TakenTime'=>$this->TakenTime,
-            'user_id'=>$this->user_id,
-            'is_chef'=>$this->is_chef,
-            'image'=>$this->image,
-            'name'=>$this->name,
+            // 'user_id'=>$this->user_id,
+            // 'is_chef'=>$this->is_chef,
+            // 'image'=>$this->image,
+            // 'name'=>$this->name,
             // 'user_info'=>new UserResource($this->user), 
-           
+           'user'=>[
+               'id'=>$this->user? $this->user->id:'not exist',
+               'name'=>$this->user? $this->user->name:'not exist',
+            //    'id'=>$this->user? $this->user->id:'not exist',
+
+           ]
         ];
     }
 }

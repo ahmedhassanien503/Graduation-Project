@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\File;
 use App\User;
 use App\Recipe;
 use Illuminate\Support\Facades\DB; 
+// use App\Http\Controllers\API\Builder;
+use Illuminate\Database\Eloquent\Builder;
 
 
 class RecipeApiController extends Controller
@@ -48,14 +50,14 @@ class RecipeApiController extends Controller
 
    // $chefs= DB::table('users')->where('is_chef',0)->value('id'); 
      //dd($chefs);
-     $data=DB::table('recipes')->join('users','recipes.user_id','users.id')->where('users.is_chef',1)
-     ->get();
+
+
+    //  $data=DB::table('recipes')->join('users','recipes.user_id','users.id')->where('users.is_chef',1)
+    //  ->get();
     
+    $recipes =Recipe::whereHas('user', function (Builder $query) { $query->whereIsChef(1); })->get();
 
-    // $re-cipes=Recipe::where('user_id' ,$chefs)->get();
-  
-
-    $recipeResource=ResipeResource::collection($data);
+    $recipeResource=ResipeResource::collection($recipes);
       return $recipeResource;
 
 
@@ -73,10 +75,12 @@ class RecipeApiController extends Controller
      
     
     public function indexx(){
-     $data=DB::table('recipes')->join('users','recipes.user_id','users.id')->where('users.is_chef',0)
-     ->get();
+    //  $data=DB::table('recipes')->join('users','recipes.user_id','users.id')->where('users.is_chef',0)
+    //  ->get();
+    $recipes =Recipe::whereHas('user', function (Builder $query) { $query->whereIsChef(0); })->get();
 
-    $recipeResource=ResipeResource::collection($data);
+
+    $recipeResource=ResipeResource::collection($recipes);
       return $recipeResource;
 
 

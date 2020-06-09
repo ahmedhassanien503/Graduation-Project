@@ -70,7 +70,7 @@ class seasonalrecipesPage extends Component {
                 <div className="col-12 col-md-6 col-lg-4" key={recipe.id}>
                     <div className="single-post wow fadeInUp" data-wow-delay="0.1s">
                         <div className="post-thumb">
-                            <img src={`http://localhost:8000/uploads/recipes/${recipe.recipe_info.image}`} alt="" width="340" height="240"/>
+                            <img src={`http://localhost:8000/uploads/recipes/${recipe.recipe_info.recipe_image}`} alt="" width="340" height="240"/>
                         </div>
                         <div className="post-content">
                             <div className="post-meta d-flex">

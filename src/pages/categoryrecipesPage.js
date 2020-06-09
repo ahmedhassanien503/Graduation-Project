@@ -86,7 +86,7 @@ class categoryrecipesPage extends Component {
                                     </div>
                              
                                     <div className="post-date">
-                                        <a href="#">{recipe.recipe_info.user_info.name}</a>
+                                        <a href="#">{recipe.recipe_info.user.name}</a>
                                     </div>
                                     
                                 </div>

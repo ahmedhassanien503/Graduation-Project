@@ -81,7 +81,7 @@ class seasonalrecipesPage extends Component {
                                     </div>
                              
                                     <div className="post-date">
-                                        <a href="#">{recipe.recipe_info.created_at}</a>
+                                        <a href="#">{recipe.recipe_info.user.name}</a>
                                     </div>
                                 </div>
                                 {/* <div className="post-comment-share-area d-flex">

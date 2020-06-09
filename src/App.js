@@ -1,5 +1,5 @@
 import React from "react";
-import "./css/tailwind.css";
+// import "./css/tailwind.css";
 import Login from "./Login.js";
 import Profile from "./Profile.js";
 import Register from "./Register.js";
@@ -36,32 +36,41 @@ import userRecipes from "./pages/userRecipes.js";
 import allChefs from "./pages/allChefs.js";
 import chefProfile from "./pages/chefProfile.js";
 import seasonalrecipesPage from "./pages/seasonalrecipesPage.js";
-
+import categoryrecipesPage from "./pages/categoryrecipesPage.js";
+import AllCategories from './pages/AllCategories';
 
 function App() {
   return (
+   
+    <div>
     <Router>
-      <Switch>
-     
-            
-        {/* <div className="bg-gray-300 h-screen"> */}
-        <Route exact path='/' component={homePage} />
-        <Route exact path='/workshops/:workshop' component={workshopPage} />
-        <Route exact path='/workshops' component={workshopsPage} />
+      <Switch> 
+    <Route exact path='/' component={homePage} />
+    <Route exact path='/workshop/:workshop' component={workshopPage} />
+    <Route exact path='/workshops' component={workshopsPage} />
 
-        <Route exact path='/recipe/:recipe' component={chefrecipe} />
-        <Route exact path='/recipes' component={chefrecipes} />
-        <Route exact path='/userrecipes' component={userRecipes} />
-        <Route exact path='/chefs' component={allChefs} />
-        <Route exact path='/chefs/:chef' component={chefProfile} />
-        <Route exact path='/seasons/:id' component={seasonalrecipesPage} />
-        <GuestRoute path="/layout" component={Layout} />
-        <GuestRoute path="/login" component={Login} />
-        <GuestRoute path="/register" component={Register} />
-        <AuthRoute path="/profile" component={Profile} />
-        {/* </div> */}
-      </Switch>
+    <Route exact path='/recipe/:recipe' component={chefrecipe} />
+    <Route exact path='/recipes' component={chefrecipes} />
+    <Route exact path='/userrecipes' component={userRecipes} />
+    <Route exact path='/chefs' component={allChefs} />
+    <Route exact path='/chefs/:chef' component={chefProfile} />
+    <Route exact path='/seasons/:id' component={seasonalrecipesPage} />
+    <Route exact path='/categories/:id' component={categoryrecipesPage} />
+    <Route exact path='/categories' component={AllCategories} />
+    {/* <Route path="/sign-in" component={Login} />
+    <Route path="/item-list" component={ItemsList} />
+    <Route path="/sign-up" component={SignUp} /> */}
+  <div className="bg-gray-300 h-screen">
+    <GuestRoute path="/layout" component={Layout} />
+    <GuestRoute path="/login" component={Login} />
+    <GuestRoute path="/register" component={Register} />
+    <AuthRoute path="/profile" component={Profile} />
+    </div>
+      
+        </Switch>
     </Router>
+    </div>
+    
   );
 }
 

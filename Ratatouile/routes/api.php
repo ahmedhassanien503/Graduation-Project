@@ -47,4 +47,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     ##################### Chefs Routes #############################################################
     Route::get('/chefs','API\ChefController@index');
     Route::get('/chefs/{chef}','API\ChefController@show');
-
+    ##################### Category Routes #########################################################
+    Route::get('/categories','API\CategoryApiController@index');
+    Route::get('/categories/{id}','API\CategoryApiController@show');

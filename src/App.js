@@ -41,34 +41,26 @@ import seasonalrecipesPage from "./pages/seasonalrecipesPage.js";
 function App() {
   return (
     <Router>
-<<<<<<< HEAD
-        <Switch>
-          <Route exact path='/' component={homePage} />
-          <Route exact path='/workshops/:workshop' component={workshopPage} />
-          <Route exact path='/workshops' component={workshopsPage} />
-          {/* <Route path="/sign-in" component={Login} />
-          <Route path="/item-list" component={ItemsList} />
-          <Route path="/sign-up" component={SignUp} /> */}
-        </Switch>
-        
-=======
-        <div className="bg-gray-300 h-screen">
-    <Route exact path='/' component={homePage} />
-    <Route exact path='/workshop/:workshop' component={workshopPage} />
-    <Route exact path='/workshops' component={workshopsPage} />
+      <Switch>
+     
+            
+        {/* <div className="bg-gray-300 h-screen"> */}
+        <Route exact path='/' component={homePage} />
+        <Route exact path='/workshops/:workshop' component={workshopPage} />
+        <Route exact path='/workshops' component={workshopsPage} />
 
-    <Route exact path='/recipe/:recipe' component={chefrecipe} />
-    <Route exact path='/recipes' component={chefrecipes} />
-    <Route exact path='/userrecipes' component={userRecipes} />
-    <Route exact path='/chefs' component={allChefs} />
-    <Route exact path='/chefs/:chef' component={chefProfile} />
-    <Route exact path='/seasons/:id' component={seasonalrecipesPage} />
-    <GuestRoute path="/layout" component={Layout} />
-    <GuestRoute path="/login" component={Login} />
-    <GuestRoute path="/register" component={Register} />
-    <AuthRoute path="/profile" component={Profile} />
-        </div>
->>>>>>> 53611314ecac6c9170e86780787fb66b67cd3d96
+        <Route exact path='/recipe/:recipe' component={chefrecipe} />
+        <Route exact path='/recipes' component={chefrecipes} />
+        <Route exact path='/userrecipes' component={userRecipes} />
+        <Route exact path='/chefs' component={allChefs} />
+        <Route exact path='/chefs/:chef' component={chefProfile} />
+        <Route exact path='/seasons/:id' component={seasonalrecipesPage} />
+        <GuestRoute path="/layout" component={Layout} />
+        <GuestRoute path="/login" component={Login} />
+        <GuestRoute path="/register" component={Register} />
+        <AuthRoute path="/profile" component={Profile} />
+        {/* </div> */}
+      </Switch>
     </Router>
   );
 }

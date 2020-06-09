@@ -38,7 +38,7 @@ class workshopPage extends Component {
                 <div className="container styles.center" style={{marginTop:"10px"}}>
                     <h3 style={{fontWeight:"bold"},{ textAlign: "center"}}> { this.state.workshop.workshop_name}</h3>
                         <div  style={{ textAlign: "center"}}>
-                            <img src={`http://localhost:8000/uploads/workshops/${this.state.workshop.image}`} alt="" width="450" height="400"/>
+                            <img src={`http://localhost:8000/uploads/workshops/${this.state.workshop.image}`} alt="" width="400" height="350" />
                             <hr/>
                             <h6>:جدول الورشه </h6>
                             <p >{ this.state.workshop.workshop_description}</p><hr/>

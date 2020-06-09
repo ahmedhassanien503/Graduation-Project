@@ -11,15 +11,21 @@ class workshopPage extends Component {
     {
         super();
         this.state={
-            workshop:[]
-        }
+            workshop:{
+            "workshop_name":"loading...",
+            "workshop_description":"loading...",
+            "app_deadline":"loading...",
+            "no_of_applicant":"loading...",
+            "chef_name":{"name":"loading..."},
+            "image":""}}
+       
     }
     
     componentDidMount()
     {
        axios.get(`http://127.0.0.1:8000/api/workshops/${this.props.match.params.workshop}`)
        .then(
-           res=>{  this.setState({ workshop: res.data.data})},
+        res=>{this.setState({ workshop: res.data.data})},
            );
     }
 
@@ -37,6 +43,7 @@ class workshopPage extends Component {
                             <h6>:جدول الورشه </h6>
                             <p >{ this.state.workshop.workshop_description}</p><hr/>
                             <p> { this.state.workshop.app_deadline} :تاريخ البدء</p><hr/>
+                            <p >{ this.state.workshop.chef_name.name}: الشيف</p>
                             <span style={{color: "orange"}}> {this.state.workshop.no_of_applicant} :عدد المشتركين</span><hr></hr>
                             <Link to="/"> </Link>
                         </div>

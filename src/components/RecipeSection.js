@@ -2,9 +2,9 @@ import React , {Component} from 'react';
 import OwlCarousel from 'react-owl-carousel';
 class RecipeSection extends Component {
  
-
   render(){
-   
+
+
     return (
         <div className="RecipeSection container">
 

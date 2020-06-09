@@ -82,18 +82,19 @@ class categoryrecipesPage extends Component {
                                 <div className="post-author-date-area d-flex">
                                     
                                     <div className="post-author">
-                                        <a href="#">{recipe.recipe_info.RecipeName}</a>
+                                       
+                                        <a href="#"> بواسطة : {recipe.recipe_info.user.name}</a>
                                     </div>
                              
                                     <div className="post-date">
-                                        <a href="#">{recipe.recipe_info.user.name}</a>
+                                    <a href="#">{recipe.recipe_info.created_at}</a>
                                     </div>
                                     
                                 </div>
 
                             </div>
                             <a href="#">
-                            <h4 className="post-headline">{recipe.recipe_info.details}</h4>
+                            <h4 className="post-headline">{recipe.recipe_info.RecipeName}</h4>
                             </a>
                         </div>
                     </div>

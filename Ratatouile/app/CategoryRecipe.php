@@ -10,4 +10,9 @@ class CategoryRecipe extends Model
         'category_id',
         'recipe_id',
     ];
+
+    public function Recipe()
+    {
+        return $this->belongsto('App\Recipe');
+    }
 }

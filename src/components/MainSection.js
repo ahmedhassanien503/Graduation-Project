@@ -1,23 +1,70 @@
 import React , {Component} from 'react';
+import axios from 'axios';
+import Pagination from "react-js-pagination";
+import { BrowserRouter as Router, Switch, Route, Link , Redirect } from "react-router-dom";
 
 
 class MainSection extends Component {
- 
+    constructor()
+    {
+        super();
+        this.state={
+        recipes:[],
+        activePage:1,
+        itemsCountPerPage:1,
+        totalItemsCount:1,
+        pageRangeDisplayed:2,
+        }
+        this.handlePageChange=this.handlePageChange.bind(this);
+    }
+    
+    componentDidMount()
+    {
+       axios.get('http://127.0.0.1:8000/api/recipes')
+       .then(result=>{this.setState({
+           recipes:result.data.data,
+           itemsCountPerPage:result.data.per_page,
+           totalItemsCount:result.data.total,
+           activePage:result.data.current_page,
+           
+        
+        })});
+
+    }
+
+  
+    handlePageChange(pageNumber) {
+        console.log(`active page is ${pageNumber}`);
+        // this.setState({activePage: pageNumber});
+        axios.get(`http://127.0.0.1:8000/api/recipes/${this.props.match.params.id}?page=${pageNumber}`)
+        .then(result=>{
+            this.setState({
+                recipes:result.data.data,
+                itemsCountPerPage:result.data.per_page,
+                totalItemsCount:result.data.total,
+                activePage:result.data.current_page,
+                
+
+            });});
+      }
 
   render(){
-   
     return (
         <div className="MainSection container">
-
-<br/>
-<br/>
+<div>
 <h2>افضل الوصفات</h2>
 <hr/>
+</div>
+{this.state.recipes.map(recipe=>{
+            return(
+       
+
             <div className="col-12">
                 <div className="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".2s">
                 
                     <div className="post-thumb">
-                        <img src="img/blog-img/6.jpg" alt=""/>
+                    <img src={`http://localhost:8000/uploads/recipes/${recipe.recipe_image}`} alt="" />
+
                     </div>
                  
                     <div className="post-content">
@@ -25,177 +72,52 @@ class MainSection extends Component {
                             <div className="post-author-date-area d-flex">
                              
                                 <div className="post-author">
-                                    <a href="#">By Marian</a>
+                                    <a href="#">By {recipe.name}</a>
                                 </div>
                            
                                 <div className="post-date">
-                                    <a href="#">May 19, 2017</a>
+                                    <a href="#"> {recipe.created_at}</a>
                                 </div>
                             </div>
                        
                             <div className="post-comment-share-area d-flex">
                         
-                                <div className="post-favourite">
-                                    <a href="#"><i className="fa fa-heart-o" aria-hidden="true"></i> 10</a>
-                                </div>
-                         
-                                <div className="post-comments">
-                                    <a href="#"><i className="fa fa-comment-o" aria-hidden="true"></i> 12</a>
-                                </div>
-                        
-                                <div className="post-share">
-                                    <a href="#"><i className="fa fa-share-alt" aria-hidden="true"></i></a>
-                                </div>
                             </div>
                         </div>
                         <a href="#">
-                            <h4 className="post-headline">The 10 Best Bars By The Seaside In Blackpool, UK</h4>
+                            <h4 className="post-headline">{recipe.RecipeName}</h4>
                         </a>
-                        <p>Tiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                        <p>{recipe.details}</p>
+                        <div className="post-thumb">
                         <a href="#" className="read-more">Continue Reading..</a>
+                         </div>
+              
+                        
                     </div>
                 </div>
             </div>
 
-                  
-                        <div className="col-12">
-                            <div className="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".4s">
-                          
-                                <div className="post-thumb">
-                                    <img src="img/blog-img/7.jpg" alt=""/>
-                                </div>
-                          
-                                <div className="post-content">
-                                    <div className="post-meta d-flex">
-                                        <div className="post-author-date-area d-flex">
-                                      
-                                            <div className="post-author">
-                                                <a href="#">By Marian</a>
-                                            </div>
-                                       
-                                            <div className="post-date">
-                                                <a href="#">May 19, 2017</a>
-                                            </div>
-                                        </div>
-                                    
-                                        <div className="post-comment-share-area d-flex">
-                                      
-                                            <div className="post-favourite">
-                                                <a href="#"><i className="fa fa-heart-o" aria-hidden="true"></i> 10</a>
-                                            </div>
-                                       
-                                            <div className="post-comments">
-                                                <a href="#"><i className="fa fa-comment-o" aria-hidden="true"></i> 12</a>
-                                            </div>
-                                           
-                                            <div className="post-share">
-                                                <a href="#"><i className="fa fa-share-alt" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a href="#">
-                                        <h4 className="post-headline">How To Get a Narcissist to Feel Empathy</h4>
-                                    </a>
-                                    <p>Tiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-                                    <a href="#" className="read-more">Continue Reading..</a>
-                                </div>
-                            </div>
-                        </div>
+           
 
-          
-                        <div className="col-12">
-                            <div className="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".6s">
-                         
-                                <div className="post-thumb">
-                                    <img src="img/blog-img/8.jpg" alt=""/>
-                                </div>
-                           
-                                <div className="post-content">
-                                    <div className="post-meta d-flex">
-                                        <div className="post-author-date-area d-flex">
-                                         
-                                            <div className="post-author">
-                                                <a href="#">By Marian</a>
-                                            </div>
-                                    
-                                            <div className="post-date">
-                                                <a href="#">May 19, 2017</a>
-                                            </div>
-                                        </div>
-                                  
-                                        <div className="post-comment-share-area d-flex">
-                                     
-                                            <div className="post-favourite">
-                                                <a href="#"><i className="fa fa-heart-o" aria-hidden="true"></i> 10</a>
-                                            </div>
-                                     
-                                            <div className="post-comments">
-                                                <a href="#"><i className="fa fa-comment-o" aria-hidden="true"></i> 12</a>
-                                            </div>
-                                        
-                                            <div className="post-share">
-                                                <a href="#"><i className="fa fa-share-alt" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a href="#">
-                                        <h4 className="post-headline">Bristol's 10 Amazing Weekend Brunches And Late Breakfasts</h4>
-                                    </a>
-                                    <p>Tiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-                                    <a href="#" className="read-more">Continue Reading..</a>
-                                </div>
-                            </div>
-                        </div>
-
-                  
-                        <div className="col-12">
-                            <div className="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".8s">
-                    
-                                <div className="post-thumb">
-                                    <img src="img/blog-img/9.jpg" alt=""/>
-                                </div>
-                        
-                                <div className="post-content">
-                                    <div className="post-meta d-flex">
-                                        <div className="post-author-date-area d-flex">
-                                      
-                                            <div className="post-author">
-                                                <a href="#">By Marian</a>
-                                            </div>
-                                          
-                                            <div className="post-date">
-                                                <a href="#">May 19, 2017</a>
-                                            </div>
-                                        </div>
-                                    
-                                        <div className="post-comment-share-area d-flex">
-                                     
-                                            <div className="post-favourite">
-                                                <a href="#"><i className="fa fa-heart-o" aria-hidden="true"></i> 10</a>
-                                            </div>
-                                  
-                                            <div className="post-comments">
-                                                <a href="#"><i className="fa fa-comment-o" aria-hidden="true"></i> 12</a>
-                                            </div>
-                                       
-                                            <div className="post-share">
-                                                <a href="#"><i className="fa fa-share-alt" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a href="#">
-                                        <h4 className="post-headline">10 Of The Best Places To Eat In Liverpool, England</h4>
-                                    </a>
-                                    <p>Tiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-                                    <a href="#" className="read-more">Continue Reading..</a>
-                                </div>
-                            </div>
-                        </div>
-
+      ) } )}
+             <div className="col-12">
+                    <div className="pagination-area d-sm-flex mt-15">
+                    <Pagination
+                    activePage={this.state.activePage}
+                    itemsCountPerPage={this.state.itemsCountPerPage}
+                    totalItemsCount={this.state.totalItemsCount}
+                    pageRangeDisplayed={this.state.pageRangeDisplayed}
+                    onChange={this.handlePageChange}
+                    itemClass='page-item'
+                    linkClass='page-link'
+                    />
                     </div>
-         
+                </div>      
 
+         </div>
+          
 );
+ 
 }
   }
 

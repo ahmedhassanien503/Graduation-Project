@@ -45,7 +45,7 @@ class workshopsPage extends Component {
                                                 <h6>:بيانات الورشه</h6>
                                                 <span>{workshop.workshop_name} / </span>
                                                 <span>{workshop.app_deadline}</span>
-                                                <p className="post-headline" >{workshop.chef_name.name}: الشيف</p>
+                                                {/* <p className="post-headline" >{workshop.chef_name.name}: الشيف</p> */}
                                         </div>
                                     </div>
                                 </div>

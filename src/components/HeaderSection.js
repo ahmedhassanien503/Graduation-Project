@@ -18,7 +18,7 @@ class HeaderSection extends Component {
               
                 <div className="col-12">
                     <div className="logo_area text-center">
-                        <a href="index.html" className="yummy-logo">Ratatouille <img src="img/chefs.svg" alt=""  width="60" height="70"/></a>
+                        <Link to="/" className="yummy-logo">Ratatouille <img src={require('../../src/chefs.svg')} alt=""  width="70" height="80"/></Link>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@ class HeaderSection extends Component {
                      
                         <div className="collapse navbar-collapse justify-content-center" id="yummyfood-nav">
                             <ul className="navbar-nav" id="yummy-nav">
-                                <li className="nav-item active">
+                                <li className="nav-item">
                                     <a className="nav-link" href="index.html">
                                         للتواصل معنا 
                                         <i className="fas fa-blender-phone" style={{width: "25px"}}></i>
@@ -50,7 +50,7 @@ class HeaderSection extends Component {
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="/workshops">
-                                    <Link to={"/workshops"}> ورش الطبخ </Link> 
+                                    <Link to={"/workshops"} style={{color:"grey"}}> ورش الطبخ </Link> 
                                      <i class="fas fa-users"  style={{width: "25px"}}></i></a>
                                   
                                 </li>
@@ -62,17 +62,17 @@ class HeaderSection extends Component {
                                 <li className="nav-item dropdown">
                                     <a className="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">الوصفات</a>
                                     <div className="dropdown-menu" aria-labelledby="yummyDropdown">
-                                        <a className="dropdown-item" href="index.html">وصفات الطهاة</a>
-                                        <a className="dropdown-item" href="archive.html">وصفات الاعضاء</a>
+                                        <a className="dropdown-item"> <Link to={"/recipes"}>وصفات الطهاه </Link></a>
+                                        <a className="dropdown-item"><Link to={"/recipes"}>وصفات الأعضاء </Link> </a>
                                    
                                 
                                     </div>
                                 </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="/">
-                                        <Link to={"/"}>  <span className="sr-only">(current)</span>الرئيسية  </Link> 
-                                        <i class="fa fa-fw fa-home" style={{width: "25px"}}></i>
-                                    </a>
+                                <li className="nav-link active">
+                                   
+                                        <Link to={"/"} style={{color:"#e07b39"}}>  <span className="sr-only">(current)</span>الرئيسية  </Link> 
+                                        <i class="fa fa-fw fa-home" style={{width: "25px"},{color:"#e07b39"}}></i>
+                                 
                                 </li>
                             </ul>
                         </div>

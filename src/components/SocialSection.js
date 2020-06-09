@@ -14,7 +14,7 @@ class SocialSection extends Component {
                     </div>
                   
                     <div className="single-icon">
-                        <a href="#"><i className="fab fa-instagram" style={{width: "30px"}} aria-hidden="true"></i><span>Instagram</span></a>
+                        <a href="https://www.instagram.com/ratatouile6/"><i className="fab fa-instagram" style={{width: "30px"}} aria-hidden="true"></i><span>Instagram</span></a>
                     </div>
                  
                 </div>

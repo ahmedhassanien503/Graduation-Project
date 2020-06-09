@@ -10,7 +10,7 @@ function NavSection() {
     return (
         <div>
             <Navbar bg="light" variant="light" fixed="top">
-                <Navbar.Brand href="#home"> <img src="img/chefs.svg" alt=""  width="40" height="50"/> Ratatouille</Navbar.Brand>
+                <Navbar.Brand href="#home"> <div> <img src="img/chefs.svg" alt=""  width="40" height="50"/> </div> <div>Ratatouille </div></Navbar.Brand>
 
                 <Nav className="ml-auto">
                     <NavDropdown title="المزيد" id="nav-dropdown">

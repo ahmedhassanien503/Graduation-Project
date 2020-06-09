@@ -50,3 +50,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     ##################### Category Routes #########################################################
     Route::get('/categories','API\CategoryApiController@index');
     Route::get('/categories/{id}','API\CategoryApiController@show');
+     
+    ##################### Order Routes #############################################################
+    Route::get('/orders','API\OrderController@index');
+    Route::get('/orders/{order}','API\OrderController@show');
+    Route::post('/orders','API\OrderController@store');

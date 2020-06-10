@@ -17,7 +17,7 @@ class AuthAdmin
      */
     public function handle($request, Closure $next)
     {  if (false == Auth::guard('admin')->check()) {
-        return redirect()->route('login');
+        return redirect()->route('admin.login');
     }
         return $next($request);
     }

@@ -45,4 +45,5 @@ Route::get('/recipes', 'API\RecipeApiController@index')->name('recipes.index');
     ##################### Chefs Routes #############################################################
     Route::get('/chefs','API\ChefController@index');
     Route::get('/chefs/{chef}','API\ChefController@show');
+    Route::put('/chef/edit/{chef}','API\ChefController@edit');
 

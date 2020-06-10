@@ -13,9 +13,16 @@ class ChefController extends Controller
             User::where('is_admin',false)->where('is_chef',true)->get()
         );
     }
-    public function show($user){
+    public function show($chef){
         return new ChefResource(
-            User::find($user)
+            User::find($chef)
         );
     }
+    public function edit($id){
+        $request = request();
+        $chef = User::findOrFail($id);
+        $chef->update($request->all());
+        return $chef;
+    }
+    
 }

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div class="card mb-3">
-  <img src="{{asset('uploads/recipes/'.$recipe->image)}}" class="card-img-top" alt="..." style="margin-left:50px width:200px;height:300px;>
+  <img src="{{asset('uploads/recipes/'.$recipe->image)}}" class="card-img-top" alt="..." style="margin-left:50px width:200px;height:300px;">
 
   <div class="card-body">
      {{-- <strong><i class="far fa-clock"></i> Recipe Name</strong> --}}
@@ -17,8 +17,40 @@
 
 
   </div>
+  @foreach($comments as $comment)
+
+    <div class="display-comment"  style="margin-left:40px;" >
+
+        <strong>{{ $comment->user->name }}</strong>
+
+        <p>{{ $comment->content }}</p>
+
+        <!-- <a href="" id="reply"></a> -->
+
+        @endforeach
+        <form method="post" action="{{ route('comments.store') }}">
+
+            @csrf
+
+            <div class="form-group">
+
+                <input type="text" name="content" class="form-control" />
+
+                <input type="hidden" name="recipe_id" value="{{ $recipe->id }}" />
+                <input type="text" name="user_id"   />
+            </div>
+
+            <div class="form-group">
+
+                <input type="submit" class="btn btn-warning" value="comment" />
+
+            </div>
+
+        </form>
+
+
+    </div>
+
+
 </div>
-
-
-      
       @endsection

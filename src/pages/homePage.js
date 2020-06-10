@@ -14,6 +14,7 @@ import SinglepageSection from '../components/SinglepageSection.js';
 import ChefSection from '../components/ChefSection.js';
 import NavHeaderSection from '../components/NavHeaderSection.js';
 import NavSection from '../components/NavSection.js';
+import AllrecipesSection from '../components/AllrecipesSection.js';
 
 
 
@@ -30,6 +31,8 @@ function homePage() {
       <HeaderSection /> */}
       <RecipeSliderSection />
       {/* <SidebarSection /> */} 
+
+
       <SeasonSection /> 
       <RecipeSection />
      

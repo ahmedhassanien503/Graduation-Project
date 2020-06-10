@@ -24,7 +24,7 @@ function homePage() {
   return (
     <div className="App">
       <NavSection/>
-      <NavHeaderSection/>
+      {/* <NavHeaderSection/> */}
       <br/>
       <MainSection /> 
       {/* <NavbarSection/>

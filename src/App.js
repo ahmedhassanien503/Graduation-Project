@@ -25,9 +25,12 @@ import workshopPage from "./pages/workshopPage.js";
 import chefrecipe from "./pages/chefrecipe.js";
 import chefrecipes from "./pages/chefrecipes.js";
 import userRecipes from "./pages/userRecipes.js";
+import userRecipe from "./pages/userRecipe.js";
+
 import allChefs from "./pages/allChefs.js";
 import chefProfile from "./pages/chefProfile.js";
 import seasonalrecipesPage from "./pages/seasonalrecipesPage.js";
+import AddRecipe from "./pages/AddRecipe.js";
 
 
 
@@ -44,13 +47,16 @@ function App() {
     <Route exact path='/' component={homePage} />
     <Route exact path='/workshop/:workshop' component={workshopPage} />
     <Route exact path='/workshops' component={workshopsPage} />
+    <Route exact path='/addrecipe' component={AddRecipe} />
 
     <Route exact path='/recipe/:recipe' component={chefrecipe} />
     <Route exact path='/recipes' component={chefrecipes} />
-    <Route exact path='/userrecipes' component={userRecipes} />
+    <Route exact path='/userRecipes' component={userRecipes} />
+    <Route exact path='/userRecipe/:userrecipe' component={userRecipe} />
     <Route exact path='/chefs' component={allChefs} />
     <Route exact path='/chefs/:chef' component={chefProfile} />
     <Route exact path='/seasons/:id' component={seasonalrecipesPage} />
+
     {/* <Route path="/sign-in" component={Login} />
     <Route path="/item-list" component={ItemsList} />
     <Route path="/sign-up" component={SignUp} /> */}

@@ -59,12 +59,9 @@ function App() {
     <Route exact path='/chefs' component={allChefs} />
     <Route exact path='/chefs/:chef' component={chefProfile} />
     <Route exact path='/seasons/:id' component={seasonalrecipesPage} />
-<<<<<<< HEAD
     <Route exact path='/chef/edit/:chef' component={Chef} />
-=======
     <Route exact path='/categories/:id' component={categoryrecipesPage} />
     <Route exact path='/categories' component={AllCategories} />
->>>>>>> 8da92f5407143e6a9a68be09c0dd3aabde70f5f4
     {/* <Route path="/sign-in" component={Login} />
     <Route path="/item-list" component={ItemsList} />
     <Route path="/sign-up" component={SignUp} /> */}

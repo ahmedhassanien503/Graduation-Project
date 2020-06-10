@@ -18,8 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
-
 //recipes routes
 
     Route::get('/recipes', 'API\RecipeApiController@index')->name('recipes.index');
@@ -32,10 +30,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::get('/recipes/{recipe}/edit','API\RecipeApiController@edit')->name('recipes.edit');
     Route::put('/recipes/{recipe}','API\RecipeApiController@update')->name('recipes.update');
 
-//API Routes
     ##################### Workshop Routes #############################################################
     Route::get('/workshops','API\WorkshopController@index');
+    Route::post('/workshops/store','API\WorkshopController@store');
     Route::get('/workshops/{workshop}','API\WorkshopController@show');
+    Route::put('/workshops/update/{workshop}','API\WorkshopController@update');
 
      ##################### Season Routes #############################################################
      Route::get('/seasons','API\SeasonController@index');

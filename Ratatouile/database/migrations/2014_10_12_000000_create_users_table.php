@@ -23,7 +23,6 @@ class CreateUsersTable extends Migration
             $table->string('work_place')->nullable();
             $table->boolean('is_banned')->default(false);
             $table->boolean('is_chef')->default(false);
-            $table->boolean('is_admin')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

@@ -15,11 +15,10 @@ class DatabaseSeeder extends Seeder
         //add admin username:admin , email: admin@gmail.com , password: password
         // is_admin => true
         // $this->call(UserTableSeeder::class);
-        DB::table('users')->insert([
+        DB::table('admins')->insert([
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('password'),
-            'is_admin'=>true,
         ]);
     }
 }

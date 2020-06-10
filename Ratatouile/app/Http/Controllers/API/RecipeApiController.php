@@ -4,12 +4,16 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ResipeResource;
+use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use App\User;
 use App\Recipe;
+use Illuminate\Support\Facades\DB; 
+// use App\Http\Controllers\API\Builder;
+use Illuminate\Database\Eloquent\Builder;
 
 
 class RecipeApiController extends Controller
@@ -27,14 +31,60 @@ class RecipeApiController extends Controller
 
     public function index()
     {
-       $recipes=Recipe::paginate(4);
-       $recipeResource=ResipeResource::collection($recipes);
-       return $recipeResource;
+    //    $recipes=Recipe::all();
+    //    $recipeResource=ResipeResource::collection($recipes);
+    //    return $recipeResource;
 
-    //  return ResipeResource::collection(
-    //      Recipe::all()
-    // );
+    //    return UserResource::collection(
+    //      User::where('is_chef',true)->get()
+    //    );
+
+    
+    //    return $chefs;
+    //    $recipes=Recipe::all();
+    //    $chefs=User::where('is_chef',true)->get();
+    //    $recipes=Recipe::where('user_id',$chefs)->get();
+    //     $recipeResource=ResipeResource::collection($recipes);
+    //    return $recipeResource;
+
+
+   // $chefs= DB::table('users')->where('is_chef',0)->value('id'); 
+     //dd($chefs);
+
+
+    //  $data=DB::table('recipes')->join('users','recipes.user_id','users.id')->where('users.is_chef',1)
+    //  ->get();
+    
+    $recipes =Recipe::whereHas('user', function (Builder $query) { $query->whereIsChef(1); })->get();
+
+    $recipeResource=ResipeResource::collection($recipes);
+      return $recipeResource;
+
+
      
+    }
+
+    // public function indexx(){
+    //  $data=DB::table('recipes')->join('users','recipes.user_id','users.id')->where('users.is_chef',0)
+    //  ->get();
+
+    // $recipeResource=ResipeResource::collection($data);
+    //   return $recipeResource;
+
+
+     
+    
+    public function indexx(){
+    //  $data=DB::table('recipes')->join('users','recipes.user_id','users.id')->where('users.is_chef',0)
+    //  ->get();
+    $recipes =Recipe::whereHas('user', function (Builder $query) { $query->whereIsChef(0); })->get();
+
+
+    $recipeResource=ResipeResource::collection($recipes);
+      return $recipeResource;
+
+
+    
     }
 
     /**
@@ -92,11 +142,11 @@ class RecipeApiController extends Controller
      */
     public function show($id)
     {
-      
-        return response()->json(Recipe::find($id),200);
-	
-
+    return  Recipe::find($id) ?new ResipeResource(  Recipe::find($id) ) : 'does not exist';
+        
     }
+
+
 
     /**
      * Show the form for editing the specified resource.

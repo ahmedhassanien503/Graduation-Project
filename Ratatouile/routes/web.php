@@ -13,15 +13,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
+Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm')->name('admin.login');
+Route::post('/login/admin', 'Auth\LoginController@adminLogin')->name('admin.post.login');
 
-// Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm')->name('admin.login');
-// Route::post('/login/admin', 'Auth\LoginController@adminLogin');
-
-Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::get('/admin', function () {return view('admin');})->name('admin.index');
+Route::group(['middleware' => ['auth.admin']], function () {
+    Route::get('/admin', function () {return view('admin');})->name('admin');
     ######################   Recipes Routes ##########################################################
     Route::get('/recipes', 'RecipeController@index')->name('recipes.index');
     Route::get('/recipes/create','RecipeController@create')->name('recipes.create');

@@ -9,7 +9,7 @@
         <div class="card-body login-card-body"  style="width: 700px; height: 320px;">
           <p class="login-box-msg justify-content-center">{{ __('Login') }}</p>
 
-          <form  method="POST" action="{{ route('login') }}">
+          <form  method="POST" action="{{ route('admin.post.login') }}">
             @csrf
             <div class="input-group mb-3">
               

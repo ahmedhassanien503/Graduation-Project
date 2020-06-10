@@ -63,7 +63,6 @@ class RecipeController extends Controller
             'Serving'=>$request->Serving,
             'TakenTime'=>$request->TakenTime,
             'user_id'=>$request->user_id,
-            'chef_id'=>$request->chef_id,
         
         ]);
         return redirect()->route('recipes.index');

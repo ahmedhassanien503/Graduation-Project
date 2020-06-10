@@ -38,6 +38,7 @@ import chefProfile from "./pages/chefProfile.js";
 import seasonalrecipesPage from "./pages/seasonalrecipesPage.js";
 import categoryrecipesPage from "./pages/categoryrecipesPage.js";
 import AllCategories from './pages/AllCategories';
+import createWorkshop from './pages/createWorkshop';
 
 function App() {
   return (
@@ -46,9 +47,10 @@ function App() {
     <Router>
       <Switch> 
     <Route exact path='/' component={homePage} />
-    <Route exact path='/workshop/:workshop' component={workshopPage} />
+    <Route exact path='/workshops/:workshop' component={workshopPage} />
     <Route exact path='/workshops' component={workshopsPage} />
-
+    <Route exact path='/createWorkshop' component={createWorkshop} />
+    
     <Route exact path='/recipe/:recipe' component={chefrecipe} />
     <Route exact path='/recipes' component={chefrecipes} />
     <Route exact path='/userrecipes' component={userRecipes} />

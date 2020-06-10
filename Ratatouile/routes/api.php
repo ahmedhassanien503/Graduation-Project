@@ -27,8 +27,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-
-
 //recipes routes
 
     Route::get('/recipes', 'API\RecipeApiController@index')->name('recipes.index');
@@ -41,10 +39,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::get('/recipes/{recipe}/edit','API\RecipeApiController@edit')->name('recipes.edit');
     Route::put('/recipes/{recipe}','API\RecipeApiController@update')->name('recipes.update');
 
-//API Routes
     ##################### Workshop Routes #############################################################
-    Route::get('/workshops','API\WorkshopController@index');
-    Route::get('/workshops/{workshop}','API\WorkshopController@show');
+    Route::get('/workshops','API\WorkshopController@index')->middleware('auth:sanctum');
+    Route::post('/workshops/store','API\WorkshopController@store')->middleware('auth:sanctum');
+    Route::get('/workshops/{workshop}','API\WorkshopController@show')->middleware('auth:sanctum');
+    Route::put('/workshops/update/{workshop}','API\WorkshopController@update')->middleware('auth:sanctum');
 
      ##################### Season Routes #############################################################
      Route::get('/seasons','API\SeasonController@index');

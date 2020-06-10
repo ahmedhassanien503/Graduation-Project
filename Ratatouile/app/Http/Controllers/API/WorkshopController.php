@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Http\Resources\ WorkshopResource;
 use App\Workshop;
+use Illuminate\Support\Facades\Auth;
 
 class WorkshopController extends Controller
 {
@@ -32,9 +33,10 @@ class WorkshopController extends Controller
     }
 
     public function store(Request $request)
-    {
-        // $id = Auth::id();
-
+    {   
+   
+        $id = Auth::id();
+        // dd($id);
         if($request->hasFile('image'))
         {
             $file = $request->file('image');
@@ -58,14 +60,14 @@ class WorkshopController extends Controller
             'app_deadline' =>  $request->app_deadline,
             'no_of_applicant' =>  $request->no_of_applicant,
             'image'=>$filename,
-            'chef_id' => "1",
+            'chef_id' => $id,
         ]);
         return new WorkshopResource($workshop);
     }
 
     public function update(Request $request)
     {
-         // $id = Auth::id();
+         $id = Auth::id();
          $request->validate([
             'name' => 'required',
             'description' => 'required',
@@ -91,7 +93,7 @@ class WorkshopController extends Controller
         $workshopData->app_deadline = $request->app_deadline;
         $workshopData->no_of_applicant =  $request->no_of_applicant;
         $workshopData->image= $filename;
-        $workshopData->chef_id = "1";
+        $workshopData->chef_id = $id;
 
         $workshopData->save();
         return new WorkshopResource($workshopData);

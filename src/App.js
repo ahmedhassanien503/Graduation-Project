@@ -1,4 +1,10 @@
-import React from 'react';
+import React from "react";
+// import "./css/tailwind.css";
+import Login from "./Login.js";
+import Profile from "./Profile.js";
+import Register from "./Register.js";
+import GuestRoute from "./components/GuestRoute.js";
+import AuthRoute from "./components/AuthRoute.js";
 import './App.css';
 
 import HeaderSection from './components/HeaderSection.js';
@@ -16,6 +22,9 @@ import ChefSection from './components/ChefSection.js';
 import NavHeaderSection from './components/NavHeaderSection.js';
 import Form from './components/Form.js';
 import AllrecipesSection from './components/AllrecipesSection.js'
+import Layout from "./components/Layout";
+
+
 
 import { BrowserRouter as Router, Switch, Route, Link , Redirect } from "react-router-dom";
 
@@ -33,17 +42,16 @@ import seasonalrecipesPage from "./pages/seasonalrecipesPage.js";
 import AddRecipe from "./pages/AddRecipe.js";
 
 
+import categoryrecipesPage from "./pages/categoryrecipesPage.js";
+import AllCategories from './pages/AllCategories';
 
 function App() {
-  
   return (
-  
-    
-<div>
-  
    
-  <Router>
-  <Switch>
+    <div>
+    <Router>
+      <Switch>
+        
     <Route exact path='/' component={homePage} />
     <Route exact path='/workshop/:workshop' component={workshopPage} />
     <Route exact path='/workshops' component={workshopsPage} />
@@ -57,14 +65,25 @@ function App() {
     <Route exact path='/chefs/:chef' component={chefProfile} />
     <Route exact path='/seasons/:id' component={seasonalrecipesPage} />
 
+    <Route exact path='/categories/:id' component={categoryrecipesPage} />
+    <Route exact path='/categories' component={AllCategories} />
     {/* <Route path="/sign-in" component={Login} />
     <Route path="/item-list" component={ItemsList} />
     <Route path="/sign-up" component={SignUp} /> */}
-  </Switch>
   
-  </Router>
-  </div>
-
+  
+ 
+  <div className="bg-gray-300 h-screen">
+    <GuestRoute path="/layout" component={Layout} />
+    <GuestRoute path="/login" component={Login} />
+    <GuestRoute path="/register" component={Register} />
+    <AuthRoute path="/profile" component={Profile} />
+    </div>
+      
+        </Switch>
+    </Router>
+    </div>
+    
   );
 }
 

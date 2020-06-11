@@ -7,7 +7,7 @@ import NavbarSection from '../components/NavbarSection.js';
 import HeaderSection from '../components/HeaderSection.js';
 import SocialSection from '../components/SocialSection.js';
 import FooterSection from '../components/FooterSection.js';
-class seasonalrecipesPage extends Component {
+class categoryrecipesPage extends Component {
 
     constructor()
     {
@@ -17,23 +17,28 @@ class seasonalrecipesPage extends Component {
             activePage:1,
             itemsCountPerPage:1,
             totalItemsCount:1,
-            pageRangeDisplayed:2,
+            pageRangeDisplayed:4,
         }
         this.handlePageChange=this.handlePageChange.bind(this);
     }
+         
+       
     
     componentDidMount()
     {
-       axios.get(`http://127.0.0.1:8000/api/seasons/${this.props.match.params.id}`)
+       axios.get(`http://127.0.0.1:8000/api/categories/${this.props.match.params.id}`)
        .then(
         res=>{
             this.setState({
                 recipes:res.data.data,
+        //    ( console.log(res.data.data));
                 itemsCountPerPage:res.data.meta.per_page,
                 totalItemsCount:res.data.meta.total,
                 activePage:res.data.meta.current_page,
-                
-            })});
+                        
+            }
+            )
+        });
     }
 
 
@@ -41,7 +46,7 @@ class seasonalrecipesPage extends Component {
     handlePageChange(pageNumber) {
         console.log(`active page is ${pageNumber}`);
         // this.setState({activePage: pageNumber});
-        axios.get(`http://127.0.0.1:8000/api/seasons/${this.props.match.params.id}?page=${pageNumber}`)
+        axios.get(`http://127.0.0.1:8000/api/categories/${this.props.match.params.id}?page=${pageNumber}`)
         .then(res=>{
             this.setState({
                 recipes:res.data.data,
@@ -77,27 +82,16 @@ class seasonalrecipesPage extends Component {
                                 <div className="post-author-date-area d-flex">
                                     
                                     <div className="post-author">
-                                        <a href="#">بواسطة : {recipe.recipe_info.user.name}</a>
+                                       
+                                        <a href="#"> بواسطة : {recipe.recipe_info.user.name}</a>
                                     </div>
                              
                                     <div className="post-date">
-                                        <a href="#">{recipe.recipe_info.created_at}</a>
+                                    <a href="#">{recipe.recipe_info.created_at}</a>
                                     </div>
+                                    
                                 </div>
-                                {/* <div className="post-comment-share-area d-flex">
-                                    <div className="post-favourite">
-                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
-                                    </div>
 
-                              
-                                    <div className="post-comments">
-                                        <a href="#"><i className="fa fa-comment-o" aria-hidden="true"></i> 12</a>
-                                    </div>
-                              
-                                    <div className="post-share">
-                                        <a href="#"><i className="fa fa-share-alt" aria-hidden="true"></i></a>
-                                    </div>
-                                </div> */}
                             </div>
                             <a href="#">
                             <h4 className="post-headline">{recipe.recipe_info.RecipeName}</h4>
@@ -138,4 +132,4 @@ class seasonalrecipesPage extends Component {
   );
 }
 }
-export default seasonalrecipesPage;
+export default categoryrecipesPage;

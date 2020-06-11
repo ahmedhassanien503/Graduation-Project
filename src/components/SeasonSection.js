@@ -61,7 +61,7 @@ class SeasonSection extends Component {
 
         {this.state.seasons.map(season=>{
             return(
-        <div className="col-12 col-md-6 col-lg-4">
+        <div className="col-12 col-md-6 col-lg-4" key={season.id}>
             <div className="single_catagory wow fadeInUp" data-wow-delay=".3s">
                 <img src={`http://localhost:8000/uploads/seasons/${season.image}`} alt="" width="340" height="240"/>
                 <div className="catagory-title">

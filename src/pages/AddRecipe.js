@@ -25,7 +25,7 @@ class AddRecipe extends Component {
           user_id:'',
       };
       
-console.log("Hello therer")
+
    //   this.handleChange=this.handleChange.bind(this);
     // this.handleChangeCreate=this.handleChangeCreate.bind(this);
     // this.handleChangeRecipe=this.handleChangeRecipe.bind(this);
@@ -33,7 +33,7 @@ console.log("Hello therer")
     // this.handleChangeServing=this.handleChangeServing.bind(this);
     // this.handleChangeTime=this.handleChangeTime.bind(this);
     // this.handleChangeUser=this.handleChangeUser.bind(this);
-      this.submit=this.submit.bind(this);
+     this.submit=this.submit.bind(this);
   }
 
 //   onChangeValue(e){
@@ -103,8 +103,8 @@ console.log("Hello therer")
     };
 
 
-    submit (event) {
-        event.prevantDefalt();
+    submit =(e)=> {
+        e.prevantDefalt();
         console.log('mmmmmm');
         console.log('zzzzzzzzzzzzzzzzzzzzz');
     }
@@ -117,7 +117,13 @@ console.log("Hello therer")
     return(
   
         <div className="AddRecipe">
-          
+           <div className="container">
+                    <div className="row justify-content-center">
+                        <div className="col-md-8">
+                            <div className="card">
+                                <div className="card-header">adding Recipe</div>
+                                <div className="card-body">
+
                                     <form onSubmit={this.submit}>
                                     <label>
                                         <input type="text" name="created_at"  value={this.state.created_at} onChange={this.handleChange} />
@@ -132,8 +138,24 @@ console.log("Hello therer")
                                     <input type="submit" value="Submit" />
                                     </form>
 
-                           
+                                </div>
 
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    </div>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <div className="copy_right_text text-center">
+                                <p>@2020, Made with <i className="fas fa-heart"></i> by <a href="#" > Ratatouille Team </a> for food lover's.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </div>
    
   );

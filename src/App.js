@@ -1,6 +1,6 @@
 import React from "react";
 // import "./css/tailwind.css";
-import Login from "./Login.js";
+//import Login from "./Login.js";
 import Profile from "./Profile.js";
 import Register from "./Register.js";
 import GuestRoute from "./components/GuestRoute.js";
@@ -36,6 +36,9 @@ import userRecipes from "./pages/userRecipes.js";
 import allChefs from "./pages/allChefs.js";
 import chefProfile from "./pages/chefProfile.js";
 import seasonalrecipesPage from "./pages/seasonalrecipesPage.js";
+import Login from "./pages/Login.js";
+
+
 import categoryrecipesPage from "./pages/categoryrecipesPage.js";
 import AllCategories from './pages/AllCategories';
 import createWorkshop from './pages/createWorkshop';
@@ -71,7 +74,7 @@ function App() {
   <div className="bg-gray-300 h-screen">
     <GuestRoute path="/layout" component={Layout} />
     <GuestRoute path="/login" component={Login} />
-    <GuestRoute path="/register" component={Register} />
+    {/* <GuestRoute path="/register" component={Register} /> */}
     <AuthRoute path="/profile" component={Profile} />
     </div>
       

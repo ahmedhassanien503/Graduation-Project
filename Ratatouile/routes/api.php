@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +17,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
 
 
 //recipes routes
@@ -32,11 +39,20 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::get('/recipes/{recipe}/edit','API\RecipeApiController@edit')->name('recipes.edit');
     Route::put('/recipes/{recipe}','API\RecipeApiController@update')->name('recipes.update');
 
-//API Routes
     ##################### Workshop Routes #############################################################
     Route::get('/workshops','API\WorkshopController@index');
+    Route::get('/ChefWorkshops','API\WorkshopController@chef')->name('workshops');
+    Route::post('/workshops/store','API\WorkshopController@store');
     Route::get('/workshops/{workshop}','API\WorkshopController@show');
+    Route::put('/workshops/update/{workshop}','API\WorkshopController@update');
 
+    ##################### WorkshopUser Routes #############################################################
+    Route::get('/applicants','API\WorkshopUserController@index');
+    Route::get('/workshopApplicants/{workshopId}','API\WorkshopUserController@workshop');
+    // Route::post('/workshopApplicants/store','API\WorkshopUserController@store');
+    Route::get('/applicants/{workshopUser}','API\WorkshopUserController@show');
+    Route::put('/applicants/{applicant}/accept','API\WorkshopUserController@accept');
+    Route::put('/applicants/{applicant}/reject','API\WorkshopUserController@reject');
      ##################### Season Routes #############################################################
      Route::get('/seasons','API\SeasonController@index');
      Route::get('/seasons/{id}','API\SeasonController@show');
@@ -50,3 +66,30 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     ##################### Category Routes #########################################################
     Route::get('/categories','API\CategoryApiController@index');
     Route::get('/categories/{id}','API\CategoryApiController@show');
+     
+    ##################### Order Routes #############################################################
+    Route::get('/orders','API\OrderController@index');
+    Route::get('/orders/{order}','API\OrderController@show');
+    Route::post('/orders','API\OrderController@store');
+
+
+
+Route::post('/login', function (Request $request) {
+    $request->validate([
+        'email' => 'required|email',
+        'password' => 'required',
+        'device_name' => 'required'
+    ]);
+
+    $user = User::where('email', $request->email)->first();
+
+    if (! $user || ! Hash::check($request->password, $user->password)) {
+        throw ValidationException::withMessages([
+            'email' => ['The provided credentials are incorrect.'],
+        ]);
+    }
+
+    return $user->createToken($request->device_name)->plainTextToken;
+});
+
+

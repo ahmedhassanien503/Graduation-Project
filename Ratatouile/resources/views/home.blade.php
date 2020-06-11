@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <a href="{{route('admin.index')}}">
+                    <a href="{{route('admin')}}">
                   <p>visit your admin panel</p>
                 </a>
                     You are logged in!

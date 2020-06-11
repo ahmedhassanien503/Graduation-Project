@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function index(){
         return UserResource::collection(
-            User::where('is_admin',false)->where('is_chef',false)->get()
+            User::where('is_chef',false)->get()
         );
     }
     public function show($user){

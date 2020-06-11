@@ -94,7 +94,7 @@ class WorkshopController extends Controller
         $workshopData->no_of_applicant =  $request->no_of_applicant;
         $workshopData->image= $filename;
         $workshopData->chef_id = $id;
-
+        
         $workshopData->save();
         return new WorkshopResource($workshopData);
     }

@@ -36,7 +36,7 @@
         <!-- <a href="" id="reply"></a> -->
 
         @endforeach
-        <form method="post" action="{{ route('comments.store') }}">
+        <!-- <form method="post" action="{{ route('comments.store') }}">
 
             @csrf
 
@@ -45,7 +45,7 @@
                 <input type="text" name="content" class="form-control" />
 
                 <input type="hidden" name="recipe_id" value="{{ $recipe->id }}" />
-                <input type="text" name="user_id"   />
+                
             </div>
 
             <div class="form-group">
@@ -54,7 +54,7 @@
 
             </div>
 
-        </form>
+        </form> -->
 
 
     </div>

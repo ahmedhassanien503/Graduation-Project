@@ -10,21 +10,7 @@ use App\User;
 use Illuminate\Support\Facades\Auth;
 class RecipeCommentController extends Controller
 {
-    // public function index($recipeId){
-    //     $recipeId->recipe;
-    //     $comments = Comment::all();
-    //     $recipe= Recipe::find($recipeId);
-    //     return view('recipes.show',[
-    //         'comments'=> $comments,
-    //         'recipe'=>$recipe
-    //     ]);
-    // }
-    // public function create($recipeId){
-    //     return view ('recipes.comments.create');
-    // }
-    // public function show(){
-    //     return
-    // }
+    
     public function store(){
         $request = request();
         $comment = new Comment;

@@ -18,7 +18,7 @@ class HeaderSection extends Component {
               
                 <div className="col-12">
                     <div className="logo_area text-center">
-                        <Link to="/" className="yummy-logo"><div> <img src={require('../../src/chefs.svg')} alt=""  width="80" height="90"/> Ratatouille </div></Link>
+                        <Link to="/" className="yummy-logo">Ratatouille <img src={require('../../src/chefs.svg')} alt=""  width="70" height="80"/></Link>
                     </div>
                 </div>
             </div>
@@ -39,27 +39,25 @@ class HeaderSection extends Component {
                               
                                 <li className="nav-item">
                                     <a className="nav-link" href="#">
-                                        من نحن ؟ <i className="far fa-address-card" style={{width: "25px"}}></i>
+                                        من نحن ؟ <i class="far fa-address-card" style={{width: "25px"}}></i>
                                     </a>
 
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="#"> اسأل الشيف
-                                        <i className="fas fa-comment" style={{width: "25px"}}></i>
+                                        <i class="fas fa-comment" style={{width: "25px"}}></i>
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    
-                                    <Link to={"/workshops"} className="nav-link"> ورش الطبخ 
-                                     <i className="fas fa-users"  style={{width: "25px"}}></i>
-                                     </Link> 
-                                    
+                                    <a className="nav-link" href="/workshops">
+                                    <Link to={"/workshops"} style={{color:"grey"}}> ورش الطبخ </Link> 
+                                     <i class="fas fa-users"  style={{width: "25px"}}></i></a>
                                   
                                 </li>
                                 <li className="nav-item">
-                                    <Link to={"/categories"} className="nav-link" href="#"> التصنيفات
-                                        <i className="fas fa-hamburger" style={{width: "25px"}}></i>
-                                    </Link>
+                                    <a className="nav-link" href="#"> التصنيفات
+                                        <i class="fas fa-hamburger" style={{width: "25px"}}></i>
+                                    </a>
                                 </li>
                                 <li className="nav-item dropdown">
                                     <a className="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">الوصفات</a>
@@ -73,7 +71,7 @@ class HeaderSection extends Component {
                                 <li className="nav-link active">
                                    
                                         <Link to={"/"} style={{color:"#e07b39"}}>  <span className="sr-only">(current)</span>الرئيسية  </Link> 
-                                        <i className="fa fa-fw fa-home" style={{width: "25px"},{color:"#e07b39"}}></i>
+                                        <i class="fa fa-fw fa-home" style={{width: "25px"},{color:"#e07b39"}}></i>
                                  
                                 </li>
                             </ul>

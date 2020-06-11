@@ -11,21 +11,15 @@ class workshopPage extends Component {
     {
         super();
         this.state={
-            workshop:{
-            "workshop_name":"loading...",
-            "workshop_description":"loading...",
-            "app_deadline":"loading...",
-            "no_of_applicant":"loading...",
-            "chef_name":{"name":"loading..."},
-            "image":""}}
-       
+            workshop:[]
+        }
     }
     
     componentDidMount()
     {
        axios.get(`http://127.0.0.1:8000/api/workshops/${this.props.match.params.workshop}`)
        .then(
-        res=>{this.setState({ workshop: res.data.data})},
+           res=>{  this.setState({ workshop: res.data.data})},
            );
     }
    

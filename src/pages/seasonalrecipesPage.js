@@ -67,17 +67,17 @@ class seasonalrecipesPage extends Component {
 
             {this.state.recipes.map(recipe=>{
             return(
-                <div className="col-12 col-md-6 col-lg-4" key={recipe.id}>
+                <div className="col-12 col-md-6 col-lg-4">
                     <div className="single-post wow fadeInUp" data-wow-delay="0.1s">
                         <div className="post-thumb">
-                            <img src={`http://localhost:8000/uploads/recipes/${recipe.recipe_info.recipe_image}`} alt="" width="340" height="240"/>
+                            <img src={`http://localhost:8000/uploads/recipes/${recipe.recipe_info.image}`} alt="" width="340" height="240"/>
                         </div>
                         <div className="post-content">
                             <div className="post-meta d-flex">
                                 <div className="post-author-date-area d-flex">
                                     
                                     <div className="post-author">
-                                        <a href="#">بواسطة : {recipe.recipe_info.user.name}</a>
+                                        <a href="#">{recipe.recipe_info.RecipeName}</a>
                                     </div>
                              
                                     <div className="post-date">
@@ -100,7 +100,7 @@ class seasonalrecipesPage extends Component {
                                 </div> */}
                             </div>
                             <a href="#">
-                            <h4 className="post-headline">{recipe.recipe_info.RecipeName}</h4>
+                            <h4 className="post-headline">{recipe.recipe_info.details}</h4>
                             </a>
                         </div>
                     </div>

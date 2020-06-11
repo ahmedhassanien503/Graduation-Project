@@ -42,6 +42,12 @@ import Register from "./pages/Register.js";
 
 
 
+import categoryrecipesPage from "./pages/categoryrecipesPage.js";
+import AllCategories from './pages/AllCategories';
+import createWorkshop from './pages/createWorkshop';
+import editWorkshop from './pages/editWorkshop';
+import workshopsApplicants from './pages/workshopsApplicants';
+import chefWorkshops from './pages/chefWorkshops';
 
 function App() {
   return (
@@ -51,6 +57,11 @@ function App() {
     <Route exact path='/workshop/:workshop' component={workshopPage} />
     <Route exact path='/workshops' component={workshopsPage} />
 
+    <Route exact path='/chefWorkshops' component={chefWorkshops} />
+    <Route exact path='/createWorkshop' component={createWorkshop} />
+    <Route exact path='/editWorkshop/:workshop' component={editWorkshop} />
+    <Route exact path='/workshopsApplicants/:workshop' component={workshopsApplicants} />
+    
     <Route exact path='/recipe/:recipe' component={chefrecipe} />
     <Route exact path='/recipes' component={chefrecipes} />
     <Route exact path='/userrecipes' component={userRecipes} />

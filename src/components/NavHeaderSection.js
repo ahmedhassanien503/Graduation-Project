@@ -2,7 +2,6 @@ import React , {Component , useState} from 'react';
 //stylesheet;
 import  '../../src/assets/css/headerlinks.css';
 import Carousel from 'react-bootstrap/Carousel';
-
 function NavHeaderSection() {
     const [index, setIndex] = useState(0);
   

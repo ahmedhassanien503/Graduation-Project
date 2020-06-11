@@ -63,7 +63,7 @@ class MainSection extends Component {
                 <div className="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".2s">
                 
                     <div className="post-thumb">
-                    <img src={`http://localhost:8000/uploads/recipes/${recipe.recipe_image}`} alt="" />
+                    <img src={`http://localhost:8000/uploads/recipes/${recipe.recipe_image}`} alt="" width="440" height="340" />
 
                     </div>
                  

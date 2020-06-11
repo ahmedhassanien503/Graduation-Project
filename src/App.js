@@ -1,6 +1,6 @@
 import React from "react";
-import "./css/tailwind.css";
-// import Login from "./Login.js";
+// import "./css/tailwind.css";
+//import Login from "./Login.js";
 import Profile from "./Profile.js";
 import Register from "./Register.js";
 import GuestRoute from "./components/GuestRoute.js";
@@ -27,7 +27,6 @@ import Layout from "./components/Layout";
 
 
 import { BrowserRouter as Router, Switch, Route, Link , Redirect } from "react-router-dom";
-
 import homePage from "./pages/homePage.js";
 import workshopsPage from "./pages/workshopsPage.js";
 import workshopPage from "./pages/workshopPage.js";
@@ -40,27 +39,43 @@ import seasonalrecipesPage from "./pages/seasonalrecipesPage.js";
 import Login from "./pages/Login.js";
 
 
+import categoryrecipesPage from "./pages/categoryrecipesPage.js";
+import AllCategories from './pages/AllCategories';
+import createWorkshop from './pages/createWorkshop';
 
 function App() {
   return (
+   
+    <div>
     <Router>
-        <div className="bg-gray-300 h-screen">
+      <Switch> 
     <Route exact path='/' component={homePage} />
-    <Route exact path='/workshop/:workshop' component={workshopPage} />
+    <Route exact path='/workshops/:workshop' component={workshopPage} />
     <Route exact path='/workshops' component={workshopsPage} />
-
+    <Route exact path='/createWorkshop' component={createWorkshop} />
+    
     <Route exact path='/recipe/:recipe' component={chefrecipe} />
     <Route exact path='/recipes' component={chefrecipes} />
     <Route exact path='/userrecipes' component={userRecipes} />
     <Route exact path='/chefs' component={allChefs} />
     <Route exact path='/chefs/:chef' component={chefProfile} />
     <Route exact path='/seasons/:id' component={seasonalrecipesPage} />
+    <Route exact path='/categories/:id' component={categoryrecipesPage} />
+    <Route exact path='/categories' component={AllCategories} />
+    {/* <Route path="/sign-in" component={Login} />
+    <Route path="/item-list" component={ItemsList} />
+    <Route path="/sign-up" component={SignUp} /> */}
+  <div className="bg-gray-300 h-screen">
     <GuestRoute path="/layout" component={Layout} />
     <GuestRoute path="/login" component={Login} />
     {/* <GuestRoute path="/register" component={Register} /> */}
     <AuthRoute path="/profile" component={Profile} />
-        </div>
+    </div>
+      
+        </Switch>
     </Router>
+    </div>
+    
   );
 }
 

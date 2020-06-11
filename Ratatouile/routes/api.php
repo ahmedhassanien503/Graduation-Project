@@ -51,6 +51,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::get('/workshopApplicants/{workshopId}','API\WorkshopUserController@workshop');
     // Route::post('/workshopApplicants/store','API\WorkshopUserController@store');
     Route::get('/applicants/{workshopUser}','API\WorkshopUserController@show');
+    Route::post('/applicants', 'API\WorkshopUserController@store')->name('applicants.store');
     Route::put('/applicants/{applicant}/accept','API\WorkshopUserController@accept');
     Route::put('/applicants/{applicant}/reject','API\WorkshopUserController@reject');
      ##################### Season Routes #############################################################

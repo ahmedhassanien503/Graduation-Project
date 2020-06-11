@@ -14,6 +14,14 @@
   
     <p class="card-text" style="text-align: center"m> {{$recipe->details}}</p>
 
+    <div class="categories">
+      @foreach ($recipe->categories as $category)
+    <h1 class="card-title" style="text-align: center">{{$category->category_name}}</h1>
+    <br/>
+          
+      @endforeach
+
+
 
 
   </div>

@@ -83,6 +83,16 @@
                 <input type="text"   name= "user_id"class="form-control">
               </div>
 
+              <div class="form-group">
+                <label for="exampleInputPassword1">Categories</label>
+              <select name="categories[]" class="form-control custom-select" size="3" multiple>
+                {{-- <option selected disabled>Select Category</option> --}}
+                @foreach($categories as $category)
+                <option value="{{$category->id}}">{{$category->category_name}}</option>
+                @endforeach
+              </select>
+              </div>
+
 
         <div class="row ">
         <div class="col-12">

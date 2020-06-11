@@ -83,6 +83,9 @@ return (
                         </div>
                     
                         <button type="submit" className="btn btn-primary">تسجيل الدخول</button>
+                        <br></br>
+                        <a href="/register" class="stretched-link">هل تريد انشاء حساب جديد؟</a>
+
                 </form>
             </div>
     <SocialSection />

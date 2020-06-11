@@ -19,6 +19,7 @@ class ChefResource extends JsonResource
             'name'=>$this->name,
             'email'=>$this->email,
             'image'=>$this->image,
+            'work_place'=>$this->work_place,
             'is_banned'=>$this->is_banned
         ];
     }

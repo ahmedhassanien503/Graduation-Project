@@ -27,6 +27,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
+
+
 //recipes routes
 
     Route::get('/recipes', 'API\RecipeApiController@index')->name('recipes.index');
@@ -39,8 +41,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::get('/recipes/{recipe}/edit','API\RecipeApiController@edit')->name('recipes.edit');
     Route::put('/recipes/{recipe}','API\RecipeApiController@update')->name('recipes.update');
 
+//API Routes
     ##################### Workshop Routes #############################################################
     Route::get('/workshops','API\WorkshopController@index');
+    Route::get('/workshops/{workshop}','API\WorkshopController@show');
     Route::get('/ChefWorkshops','API\WorkshopController@chef')->name('workshops');
     Route::post('/workshops/store','API\WorkshopController@store');
     Route::get('/workshops/{workshop}','API\WorkshopController@show');
@@ -64,6 +68,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     ##################### Chefs Routes #############################################################
     Route::get('/chefs','API\ChefController@index');
     Route::get('/chefs/{chef}','API\ChefController@show');
+    Route::put('/chef/edit/{chef}','API\ChefController@edit');
     ##################### Category Routes #########################################################
     Route::get('/categories','API\CategoryApiController@index');
     Route::get('/categories/{id}','API\CategoryApiController@show');
@@ -75,22 +80,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 
-Route::post('/login', function (Request $request) {
-    $request->validate([
-        'email' => 'required|email',
-        'password' => 'required',
-        'device_name' => 'required'
-    ]);
+Route::post('/login','UserController@login');
 
-    $user = User::where('email', $request->email)->first();
-
-    if (! $user || ! Hash::check($request->password, $user->password)) {
-        throw ValidationException::withMessages([
-            'email' => ['The provided credentials are incorrect.'],
-        ]);
-    }
-
-    return $user->createToken($request->device_name)->plainTextToken;
-});
+    Route::post('/register', 'UserController@register');
+    Route::post('/logout', 'UserController@logout');
+    Route::post('/user', 'UserController@me');
 
 

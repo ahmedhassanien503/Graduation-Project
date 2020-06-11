@@ -1,6 +1,7 @@
 import React  ,{Component , useState}from 'react';
 import { BrowserRouter as Router, Switch, Route, Link , Redirect } from "react-router-dom";
 import Table from 'react-bootstrap/Table';
+// import fetch from 'unfetch';
 import axios from 'axios';
 import NavbarSection from '../components/NavbarSection.js';
 import HeaderSection from '../components/HeaderSection.js';
@@ -14,9 +15,7 @@ class workshopsApplicants extends Component {
         super();
         this.state={
             workshopApplicants:[],
-            applicant:{
-                "id":"loading...",
-                "is_accepted":"loading...", },
+            id:"",
         }
     }
     
@@ -27,6 +26,14 @@ class workshopsApplicants extends Component {
             res=>{this.setState({ workshopApplicants: res.data.data})},
             );
     }
+    
+    
+    getData = async (id) =>
+    { 
+        const res = await axios(`http://127.0.0.1:8000/api/applicants/${id}`);
+        return await res.data.data; 
+    } 
+
     handleSubmit = e =>{
         // event.preventDefault();
 
@@ -35,35 +42,28 @@ class workshopsApplicants extends Component {
         // console.log("description: " + this.state.description);
     
         console.log(e.target.value);
-        axios.get(`http://127.0.0.1:8000/api/applicants/${e.target.value}`)
-        .then(
-            res=>{this.setState({ applicant: res.data.data})},
-            // 
-        )
-        .then(this.sendRequest);
-    }
-    sendRequest = e =>{
-        let url="";
-        console.log(this.state.applicant.is_accepted);
-        if(this.state.applicant.is_accepted){
-            url =`/applicants/${this.state.applicant.id}/reject`;
-            console.log(url);
-        }else{
-            url =`/applicants/${this.state.applicant.id}/accept`;
-            console.log(url);}
-        // fetch(url, { method: 'PUT’', // or 'PUT’
-        // headers:{ 
-        //     // 'Content-Type': 'application/json',
-        //     'Accept': 'application/json'
-        //     },
-        // //   body:formData, // data can be `string` or {object}!
-        // })
-        // .then(res => res.json())
-        // .catch(error => console.error('Error:', error))
-        // .then(response =>
-        //     {  console.log('Success:', response); 
-        //     // this.props.history.push(`/workshopApplicants/${this.props.match.params.workshop}`)
-        // });
+        console.log(`http://127.0.0.1:8000/api/applicants/${e.target.value}`);
+
+       const data=this.getData(`${e.target.value}`);
+       
+        var promise = Promise.resolve(data);
+         promise.then(function(val) { 
+            console.log(val); 
+            let url="";
+            console.log(val.is_accepted);
+            if(val.is_accepted){
+                url =`http://127.0.0.1:8000/api/applicants/${val.id}/reject`;
+                console.log(url);
+            }else{
+                url =`http://127.0.0.1:8000/api/applicants/${val.id}/accept`;
+                console.log(url);}
+            axios.put(url)
+            .then(
+                res=>{console.log(res)},
+                );
+            }); 
+            this.setState({id:  this.props.match.params.workshop});
+    
     }
     render(){
     return(
@@ -71,32 +71,37 @@ class workshopsApplicants extends Component {
         <div>
             <NavbarSection/>
             <HeaderSection/>
-                <div className="container" >
-                    <h3 style={{ textAlign: "center"}}>   المتقدمين الى ورشه الطبخ</h3><hr/>
-                    <div className="row" >
+                <div className="container" style={{marginTop: "5px"}} >
+                    <div> <img src="img/food10.jpg" alt=""/>
+                    <h3 style={{textAlign: "center" , color: "#bf360c"}}> 
+                     المتقدمين الى ورشه الطبخ</h3><hr/>
+                    </div>{/* <div className="row" > */}
                     <Table responsive>
                         <thead>
                             <tr>
-                            <th>رقم</th>
-                            <th>اسم المتقدم</th>
-                            <th>صورة المتقدم</th>
-                            <th>تأكيد/الغاء</th>
+                            <th style={{color: "#bf360c"}} >رقم</th>
+                            <th style={{color: "#bf360c"}} >اسم المتقدم</th>
+                            <th style={{color: "#bf360c" }} >صورة المتقدم</th>
+                            <th style={{color: "#bf360c"}} >ايميل المتقدم</th>
+                            <th style={{color: "#bf360c"}} >رقم الهاتف المتقدم</th>
+                            <th style={{color: "#bf360c"}} >تأكيد/الغاء</th>
                             </tr>
                         </thead>
                         <tbody>
                             {this.state.workshopApplicants.map((workshopApplicant, i) => (   
                                     <tr>
-                                    <td>{i}</td>
+                                    <td>{i+1}</td>
                                     <td>{workshopApplicant.user_name.name}</td>
                                     <td>
-                                        <img src={`http://localhost:8000/uploads/workshops/${workshopApplicant.user_name.image}`} alt="" width="340" height="240"/>
+                                        <img src={`http://localhost:8000/uploads/user/${workshopApplicant.user_name.image}`} alt="" width="200" height="120"/>
                                     </td>
+                                    <td>{workshopApplicant.user_name.email}</td>
+                                    <td> </td>
                                     <td>
-                             
                                     { workshopApplicant.is_accepted ?     
-                                        <button className="btn btn-outline-success btn-sm" onClick={this.handleSubmit} value={workshopApplicant.user_name.id}> <i class="far fa-check-square"></i> Accept</button>   
+                                        <button className="btn btn-outline-success btn-sm" onClick={this.handleSubmit} value={workshopApplicant.id}> <i class="far fa-check-square"></i> Accept</button>   
                                         : 
-                                        <button className="btn btn-outline-warning btn-sm" value={workshopApplicant.user_name.id} onClick={this.handleSubmit} >   
+                                        <button className="btn btn-outline-warning btn-sm" value={workshopApplicant.id} onClick={this.handleSubmit} >   
                                             <i class="fas fa-user-slash" ></i>Reject </button>                                   
                                         }
                                     </td>
@@ -105,7 +110,7 @@ class workshopsApplicants extends Component {
                             }
                         </tbody>
                     </Table>
-                    </div>
+                    {/* </div> */}
                 </div>
                 <div className="container">
                     <div className="row">

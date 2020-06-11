@@ -18,7 +18,7 @@ class HeaderSection extends Component {
               
                 <div className="col-12">
                     <div className="logo_area text-center">
-                        <Link to="/" className="yummy-logo"><div> <img src={require('../../src/chefs.svg')} alt=""  width="70" height="80"/></div><div>Ratatouille </div></Link>
+                        <Link to="/" className="yummy-logo"><div> <img src={require('../../src/chefs.svg')} alt=""  width="80" height="90"/> Ratatouille </div></Link>
                     </div>
                 </div>
             </div>

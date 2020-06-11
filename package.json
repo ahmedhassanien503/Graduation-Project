@@ -23,8 +23,8 @@
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "save": "^2.4.0",
-    "universal-cookie": "^4.0.3",
-    "tailwindcss": "^1.4.6"
+    "tailwindcss": "^1.4.6",
+    "universal-cookie": "^4.0.3"
   },
   "scripts": {
     "start": "react-scripts start",

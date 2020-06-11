@@ -27,6 +27,9 @@ class editWorkshop extends Component {
         handleChange = event =>{
           this.setState({ [event.target.name]:event.target.value })
         }
+        handleImage= event =>{
+            this.setState({ [event.target.name]:event.target.files[0] })
+          }
         componentDidMount()
         {
             axios.get(`http://127.0.0.1:8000/api/workshops/${this.props.match.params.workshop}`)
@@ -131,7 +134,7 @@ render(){
                                     name="image"
                                     type="file" 
                                     className="form-control" 
-                                    onChange={this.handleChange} />
+                                    onChange={this.handleImage} />
                                 </div>
                                 <button type="submit" className="btn btn-primary">Submit</button>
                         </form>

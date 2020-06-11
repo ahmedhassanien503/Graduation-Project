@@ -37,13 +37,17 @@ class ChefSection extends Component {
                         <li data-target="#carouselExampleCaptions" data-slide-to="0" className="active"></li>
                         <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
                     </ol>
-                    <div className="carousel-inner">
-                                     <div className="carousel-item active">
-                                     <div className="slide-box row">
+                    {/* <div className="carousel-inner">
+                    <div className="carousel-item active"> */}
                     {this.state.chefs.length && (
+                    <OwlCarousel autoPlay  >
+                    
+                    <div className="slide-box row">
 
                     
-                        <OwlCarousel loop autoPlay  >
+
+                    
+                       
                            
                             {this.state.chefs.map(chef=>{
                                 return(
@@ -66,9 +70,9 @@ class ChefSection extends Component {
                                 
                                 );}
                                 )}
-                            </OwlCarousel>
+                            
                        
-                       )}
+                       
                          {/* <div className="carousel-item">
                             <div className="slide-box row">
                             
@@ -77,8 +81,11 @@ class ChefSection extends Component {
                             </div>
                         </div>  */}
                     </div>
-                                </div>
-                                </div>
+                    
+                    </OwlCarousel>
+                    )}
+                                {/* </div>
+                                </div> */}
                  </div>
                 </div>
       

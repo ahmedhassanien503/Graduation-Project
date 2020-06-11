@@ -10,7 +10,7 @@ function NavSection() {
     return (
         <div>
             <Navbar bg="light" variant="light" fixed="top">
-                <Navbar.Brand href="#home"> <div> <img src="img/chefs.svg" alt=""  width="40" height="50"/> </div> <div>Ratatouille </div></Navbar.Brand>
+                <Navbar.Brand href="#home"> <img src="img/chefs.svg" alt=""  width="40" height="50"/> Ratatouille</Navbar.Brand>
 
                 <Nav className="ml-auto">
                     <Nav.Link  href={'/chefs'}>  تعرف على الطهاه  
@@ -18,9 +18,8 @@ function NavSection() {
                     </Nav.Link>
                     <NavDropdown title="المزيد" id="nav-dropdown">
                         <NavDropdown.Item eventKey="4.1">
-                            <Nav.Link  to={"/categories"}>
-                            <Link to={"/categories"} style={{color:"grey"}}>  التصنيفات
-                                <i className="fas fa-hamburger" style={{width: "25px"} ,{color:'#e07b39'}}></i> </Link> </Nav.Link>
+                            <Nav.Link  href="#home"> التصنيفات
+                                <i className="fas fa-hamburger" style={{width: "25px"} ,{color:'#e07b39'}}></i></Nav.Link>
                         </NavDropdown.Item>
                         <NavDropdown.Item eventKey="4.2">
                             <Nav.Link  href="/workshops">
@@ -57,7 +56,7 @@ function NavSection() {
                         <Link to={"/"} style={{color:"#e07b39"}}>  <span className="sr-only">(current)</span>الرئيسية  </Link> 
                         <i className="fa fa-fw fa-home" style={{width: "25px"},{color:'#e07b39'}}></i>
                         </Nav.Link>
-                    <Nav.Link href="/layout"> تسجيل الدخول | الاشتراك<i className="fa fa-fw fa-user" style={{width: "25px"},{color:'#e07b39'}}></i></Nav.Link>
+                    <Nav.Link href="/login"> تسجيل الدخول<i className="fa fa-fw fa-user" style={{width: "25px"},{color:'#e07b39'}}></i></Nav.Link>
                 
                 </Nav>
             </Navbar>

@@ -134,6 +134,7 @@ class UserController extends Controller
             'name'     => request('name'),
             'email'    => request('email'),
             'password' => Hash::make(request('password')),
+            'is_chef'  => request('is_chef'),
         ]);
 
         return $this->login(request());

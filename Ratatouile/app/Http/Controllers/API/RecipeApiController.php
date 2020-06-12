@@ -68,10 +68,12 @@ class RecipeApiController extends Controller
     public function indexxx()
     {
  
-    $recipes =Recipe::whereHas('user', function (Builder $query) { $query->whereIsChef(1); })->paginate(3);
+    $recipes =Recipe::whereHas('user', function (Builder $query) { $query->whereIsChef(1); })->paginate(4);
 
     $recipeResource=ResipeResource::collection($recipes);
       return $recipeResource;
+
+
      
     }
 
@@ -151,9 +153,9 @@ class RecipeApiController extends Controller
     public function store(Request $request){
 
         // dd($request);
-        if($request->hasFile('image'))
+        if($request->hasFile('recipe_image'))
         {
-        $file = $request->file('image');
+        $file = $request->file('recipe_image');
         $extension = $file->getClientOriginalExtension(); 
         $filename =time().'.'.$extension;
         Storage::disk('public')->put('recipes/'.$filename, File::get($file));
@@ -177,18 +179,12 @@ class RecipeApiController extends Controller
         $recipe->categories()->sync($request->categories, false);
         // Recipe::create([
         // 'created_at'=>$request- 
-        // return redirect()->route('recipes.index');
+        //  return redirect()->route('recipes.index');
         return response()->json($recipe,201);
+        // return new ResipeResource($recipe);
+
 
         } 
-
-
-
-
-
-
-
-
 
 
 

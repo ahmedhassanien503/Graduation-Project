@@ -37,7 +37,7 @@ class AllCategories extends Component {
        <br/>
        <br/>
        
-    <h2 style={{ textAlign: "center", color:"orange"}} >  التصنيفات </h2>
+    <h2 style={{ textAlign: "center", color:"#e07b39"}} >  التصنيفات </h2>
 <hr/>
     <div className="row">
 

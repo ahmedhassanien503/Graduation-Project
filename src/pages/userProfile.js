@@ -6,20 +6,20 @@ import FooterSection from '../components/FooterSection.js';
 import jQuery from 'jquery';
 
 import { BrowserRouter as Router, Switch, Route, Link , Redirect } from "react-router-dom";
-class chefProfile extends Component {
+class userProfile extends Component {
     constructor() {
         super();
         this.state = {
-            chef : []
+            user : []
          };
       }
     
     componentDidMount(){
-     axios.get(`http://127.0.0.1:8000/api/chefs/${this.props.match.params.chef}`)
+     axios.get(`http://127.0.0.1:8000/api/users/${this.props.match.params.user}`)
      .then(res=>{
              console.log(res.data.data)
              this.setState({
-                 chef: res.data.data
+                user: res.data.data
              });
          })
     }
@@ -34,16 +34,15 @@ class chefProfile extends Component {
                 <div className="row">
                     
                             <div className="col-lg-4 mb-5">
-                                <img src={`http://127.0.0.1:8000/uploads/chef/${this.state.chef.image}`} className="mr-3 img-fluid" id="chef-img" alt=""/>  
+                                <img src={`http://127.0.0.1:8000/uploads/user/${this.state.user.image}`} className="mr-3 img-fluid" id="chef-img" alt=""/>  
                                 <div className="media row">
                                     <div className="media-body col-12">
-                                        <h5 className="mt-0"> {this.state.chef.name} </h5>
-                                        <p> {this.state.chef.email} </p>
-                                        <p> {this.state.chef.work_place} </p>
+                                        <h5 className="mt-0"> {this.state.user.name} </h5>
+                                        <p> {this.state.user.email} </p>
                                     </div>
                                 </div>
                             </div>
-                       <Link to={`/chef/edit/${this.state.chef.id}`}>
+                       <Link to={`/chef/edit/${this.state.user.id}`}>
                        <p> edit your profile</p></Link>
 
                 </div>
@@ -55,4 +54,4 @@ class chefProfile extends Component {
     );
 }
 }
-export default chefProfile;
+export default userProfile;

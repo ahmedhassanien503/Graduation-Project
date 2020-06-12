@@ -94,7 +94,8 @@ class allQuestions extends Component {
                         <br/>
                         <p>{question.question}</p>
                         <div className="post-thumb">
-                        <Link to={`/questions/${question.id}`} className="read-more">Continue Reading..</Link>
+                        <Link to={`/questions/${question.id}`} className="answer-more"> التفاصيل ..</Link>
+                        <Link to={`/questions/answers/${question.id}`} className="answer-more">الاجابات</Link>
                          </div>
               
                         

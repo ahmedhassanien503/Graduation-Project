@@ -52,7 +52,10 @@ import chefWorkshops from './pages/chefWorkshops';
 import askQuestion from './pages/askQuestion.js';
 import allQuestions from "./pages/allQuestions.js";
 import showQuestion from "./pages/showQuestion.js";
-import editQuestion from "./pages/editQuestion.js"
+import editQuestion from "./pages/editQuestion.js";
+import addAnswer from "./pages/addAnswer";
+import Answers from "./pages/Answers";
+
 
 function App() {
   return (
@@ -80,6 +83,9 @@ function App() {
     <Route exact path='/questions' component={allQuestions} />
     <Route exact path='/questions/:question' component={showQuestion} />
     <Route exact path='/editquestion/:question' component={editQuestion} />
+    <Route exact path='/questions/answers/:id' component={Answers} />
+    {/* <Route exact path='/addAnswer' component={addAnswer} /> */}
+   
   
     
   

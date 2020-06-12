@@ -72,6 +72,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::get('/orders/{order}','API\OrderController@show');
     Route::post('/orders','API\OrderController@store');
 
+    ##################### Questions Routes #############################################################
+    Route::get('/questions','API\QuestionApiController@index');
+    Route::post('/questions/submit','API\QuestionApiController@store');
+    Route::get('/questions/{question}','API\QuestionApiController@show');
+    Route::delete('/questions/delete/{question}','API\QuestionApiController@destroy');
+    Route::put('/questions/update/{questionid}','API\QuestionApiController@update');
+    
+  
+    
+   
 
 
 Route::post('/login', function (Request $request) {

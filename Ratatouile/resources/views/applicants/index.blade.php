@@ -29,7 +29,7 @@
               <td>{{ $applicant->user->name }} </td>
               <td>{{$applicant->user->email }}</td>
               <td>{{ $applicant->workshop->name}}</td>
-              <td><img src="{{asset('uploads/applicants/'.$applicant->user->image)}}" width="90px" height="90px"></td>
+              <td><img src="{{asset('uploads/user/'.$applicant->user->image)}}" width="90px" height="90px"></td>
               <td>{{ $applicant->is_accepted ? 'Accepted':'Rejected'}} </td>
               <td>{{ $applicant->created_at}} </td>
               

@@ -49,7 +49,7 @@ class workshopPage extends Component {
                                 <h6>:جدول الورشه </h6>
                                 <p >{ this.state.workshop.workshop_description}</p><hr/>
                                 <p> { this.state.workshop.app_deadline} :تاريخ البدء</p><hr/>
-                                <p >{ this.state.workshop.chef_name.name}: الشيف</p>
+                                {/* <p >{ this.state.workshop.chef_name.name}: الشيف</p> */}
                                 <span style={{color: "orange"}}> {this.state.workshop.no_of_applicant} :عدد المشتركين</span><hr></hr>
                                 <div> <img src="img/food10.jpg" alt=""/></div><div><button className="btn btn-outline-success btn-sm" onClick={this.handleSubmit} >   
                                 <i class="fas fa-user-check"></i>  اكتسب مهارة الطبخ واحجز اﻻن </button>  </div>

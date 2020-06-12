@@ -13,7 +13,7 @@ class AddRecipe extends Component {
             created_at:"",  
             RecipeName:"",
             details:"",
-            recipe_image:"1591818376.jpg",
+            recipe_image:"",
             Serving:"",
             TakenTime:"",
             user_id:"",     
@@ -22,6 +22,9 @@ class AddRecipe extends Component {
         handleChange = event =>{
           this.setState({ [event.target.name]:event.target.value })
         }
+        handleImage = event =>{
+            this.setState({ [event.target.name]:event.target.files[0] })
+          }
         handleSubmit = event =>{
           event.preventDefault();
          console.log("RecipeName: " + this.state.RecipeName);
@@ -75,7 +78,7 @@ render(){
                                 </div>
                                 <div className="form-group">
                                     <label>Image</label>
-                    <input  name="recipe_image" type="file"  className="form-control" onChange={this.handleChange} />
+                    <input  name="recipe_image" type="file"  className="form-control"   onChange={this.handleImage} />
                                 </div>
                                 <div className="form-group">
                                     <label>Serving</label>

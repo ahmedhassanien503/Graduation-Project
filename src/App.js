@@ -36,7 +36,9 @@ import chefrecipes from "./pages/chefrecipes.js";
 import userRecipes from "./pages/userRecipes.js";
 import userRecipe from "./pages/userRecipe.js";
 import EditRecipe from "./pages/EditRecipe.js";
-import ContactUsPage from "./pages/ContactUsPage.js"
+import ContactUsPage from "./pages/ContactUsPage.js";
+import AboutUsPage from "./pages/AboutUsPage.js"
+
 
 
 import allChefs from "./pages/allChefs.js";
@@ -62,7 +64,11 @@ import editQuestion from "./pages/editQuestion.js";
 import addAnswer from "./pages/addAnswer";
 import Answers from "./pages/Answers";
 import AddOrder from './pages/AddOrder';
-import ordersubmission from './pages/ordersubmission';
+import showorder from './pages/showorder';
+import EditOrder from './pages/EditOrder';
+import orderdeleted from './pages/orderdeleted';
+
+
 
 
 
@@ -72,6 +78,7 @@ function App() {
       <Switch>
     <Route exact path='/' component={homePage} />
     <Route exact path='/contactus' component={ContactUsPage} />
+    <Route exact path='/aboutus' component={AboutUsPage} />
     <Route exact path='/workshops/:workshop' component={workshopPage} />
     <Route exact path='/workshops' component={workshopsPage} />
     <Route exact path='/addrecipe' component={AddRecipe} />
@@ -106,14 +113,18 @@ function App() {
    
 
     <Route exact path='/addorder' component={AddOrder} />
-    <Route exact path='/ordersubmitted' component={ordersubmission} />
+    <Route exact path='/orders/:order' component={showorder} />
+    <Route exact path='/editorder/:order' component={EditOrder} />
+    <Route exact path='/orderdeleted' component={orderdeleted} />
+
+
 
 
   
     
   
 
-  <div className="bg-gray-300 h-screen">
+  <div className="bg-white-300 h-screen">
     <GuestRoute path="/layout" component={Layout} />
     <GuestRoute path="/login" component={Login} />
      <GuestRoute path="/register" component={Register} /> 

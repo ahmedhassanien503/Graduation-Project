@@ -24,11 +24,12 @@ function homePage() {
   return (
     <div className="App">
       <NavSection/>
-      <NavHeaderSection/>
+      {/* <NavHeaderSection/> */}
       <br/>
       <MainSection /> 
       {/* <NavbarSection/>
       <HeaderSection /> */}
+      <br></br>
       <RecipeSliderSection />
       {/* <SidebarSection /> */} 
 

@@ -1197,6 +1197,9 @@ date-commnents a {
     background-size: cover;
     background-position: center center;
     background-image: url(img/bg-img/contact.jpg);
+    width: 450px;
+    height: 500px;
+    padding-left: 10px;
 }
 
 /* -------------------- 

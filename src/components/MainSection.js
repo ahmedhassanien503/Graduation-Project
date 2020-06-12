@@ -20,29 +20,28 @@ class MainSection extends Component {
     
     componentDidMount()
     {
-       axios.get('http://127.0.0.1:8000/api/recipes')
+       axios.get('http://127.0.0.1:8000/api/rec')
        .then(result=>{this.setState({
            recipes:result.data.data,
-           itemsCountPerPage:result.data.per_page,
-           totalItemsCount:result.data.total,
-           activePage:result.data.current_page,
+           itemsCountPerPage:result.data.meta.per_page,
+           totalItemsCount:result.data.meta.total,
+           activePage:result.data.meta.current_page,
            
         
         })});
 
     }
-
-  
+   
     handlePageChange(pageNumber) {
         console.log(`active page is ${pageNumber}`);
         // this.setState({activePage: pageNumber});
-        axios.get(`http://127.0.0.1:8000/api/recipes/${this.props.match.params.id}?page=${pageNumber}`)
+        axios.get('http://127.0.0.1:8000/api/rec?page='+pageNumber)
         .then(result=>{
             this.setState({
                 recipes:result.data.data,
-                itemsCountPerPage:result.data.per_page,
-                totalItemsCount:result.data.total,
-                activePage:result.data.current_page,
+                itemsCountPerPage:result.data.meta.per_page,
+                totalItemsCount:result.data.meta.total,
+                activePage:result.data.meta.current_page,
                 
 
             });});
@@ -100,19 +99,21 @@ class MainSection extends Component {
            
 
       ) } )}
-             <div className="col-12">
-                    <div className="pagination-area d-sm-flex mt-15">
-                    <Pagination
+          <div className="d-flex justify-content-center" >
+           <div className="pagination-area d-sm-flex mt-15">
+            <Pagination
                     activePage={this.state.activePage}
                     itemsCountPerPage={this.state.itemsCountPerPage}
                     totalItemsCount={this.state.totalItemsCount}
                     pageRangeDisplayed={this.state.pageRangeDisplayed}
-                    onChange={this.handlePageChange}
+                    onChange={this.handlePageChange.bind(this)}
                     itemClass='page-item'
                     linkClass='page-link'
-                    />
-                    </div>
-                </div>      
+                    innerClass='pagination pagination-sm'
+                    
+            />
+            </div>
+        </div>  
 
          </div>
           

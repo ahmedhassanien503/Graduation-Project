@@ -11,7 +11,7 @@ class chefrecipe extends Component {
     {
         super();
         this.state={
-        recipe:[]
+        recipe:null
         }
     }
     
@@ -19,11 +19,16 @@ class chefrecipe extends Component {
     {
        axios.get(`http://127.0.0.1:8000/api/recipes/${this.props.match.params.recipe}`)
        .then(
-           res=>{ this.setState({recipe: res.data.data})},
+           res=>{ this.setState({recipe: res.data.data}) ;console.log('cheffff')},
+           
            );
     }
 
     render(){
+        if(this.state.recipe== null){
+
+          return  <p>loadin...</p>
+        }
     return(
   
         <div>
@@ -31,7 +36,7 @@ class chefrecipe extends Component {
             <HeaderSection/>
                              
 
-{this.state.recipe.user.name}
+{/* {this.state.recipe.user.name} */}
 
 <section className="single_blog_area section_padding_80">
         <div className="container">
@@ -51,11 +56,13 @@ class chefrecipe extends Component {
                                         <div className="post-author-date-area d-flex">
                                           
                                             <div className="post-author">
-                                               {/* <a href="#">{this.state.recipe.user.name}</a> */}
+                                               <a href="#">{this.state.recipe.user.name}</a>
                                             </div>
                                       
                                             <div className="post-date">
                                               <a href="#">{this.state.recipe.created_at}</a>
+                                              {/* <a href="#">{this.state.recipe.user.name}</a> */}
+
                                             </div>
                                         </div>
                                     
@@ -65,6 +72,8 @@ class chefrecipe extends Component {
                         <h2 className="post-headline" >{this.state.recipe.RecipeName}</h2>
                                     
                                      <p>{this.state.recipe.details}</p>
+                                     <p>{this.state.recipe.user.name}</p>
+
 
                                     <blockquote className="yummy-blockquote mt-30 mb-30">
                                        
@@ -281,7 +290,9 @@ class chefrecipe extends Component {
                                 <h6>معلومات عن الشيف</h6>
                             </div>
                             <div className="about-me-widget-thumb">
-                                <img src="img/about-img/1.jpg" alt=""/>
+                            <img src={`http://localhost:8000/uploads/chef/${this.state.recipe.user.image}`} alt="" width="450" height="400"/> 
+                            <img src={`http://localhost:8000/uploads/user/${this.state.recipe.user.image}`} alt="" width="450" height="400"/> 
+
                             </div>
                             <h4 className="font-shadow-into-light">Shopia Bernard</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>

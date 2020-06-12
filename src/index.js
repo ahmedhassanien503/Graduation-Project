@@ -8,6 +8,12 @@ import { Provider } from "react-redux";
 import axios from "axios";
 import cookie from "js-cookie";
 
+// const jwt_secret =
+//   "SSGGUb3Z0LJlijBLdfOzKvNapWnRw864l0DZrlILuydIIjW3xqw3OnWAYxG4iXGo";
+
+// let token = cookie.get("token");
+// if (token) {
+//   jwt.verify(token, (err, decoded) => {
 
  let token = cookie.get("token");
 // if (token) {
@@ -16,6 +22,7 @@ import cookie from "js-cookie";
 //       cookie.remove("token");
 //       token = null;
 //     } else {
+//       if (decoded.iss !== "http://localhost:8000/api/auth/login") {
 //       if (decoded.iss !== "http://localhost:8000/api/login") {
 //         cookie.remove("token");
 //         token = null;
@@ -32,17 +39,17 @@ const render = () => {
     document.getElementById("root")
   );
 };
-if (token) {
-  axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-  axios.post("http://localhost:8000/api/user").then(res => {
-    store.dispatch({ type: "SET_LOGIN", payload: res.data });
-    render();
-  });
-} else {
+// if (token) {
+//   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+//   axios.post("http://localhost:8000/api/auth/me").then(res => {
+//     store.dispatch({ type: "SET_LOGIN", payload: res.data });
+//     render();
+//   });
+// } else {
   render();
-}
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-//serviceWorker.unregister();
+// serviceWorker.unregister();

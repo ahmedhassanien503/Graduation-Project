@@ -1,5 +1,5 @@
 import React from "react";
-import "./css/tailwind.css";
+// import "./css/tailwind.css";
 // import Login from "./Login.js";
 import Profile from "./Profile.js";
 // import Register from "./Register.js";

@@ -39,11 +39,11 @@ class HeaderSection extends Component {
                                      </Link> 
                                     
                                   </li>
-                              
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#">
-                                        من نحن ؟ <i className="far fa-address-card" style={{width: "25px"}}></i>
-                                    </a>
+
+                                  <li className="nav-item">
+                                  <Link to={"/aboutus"} className="nav-link">
+                                    من نحن ؟ <i className="far fa-address-card" style={{width: "25px"}}></i>
+                                    </Link> 
 
                                 </li>
                                 <li className="nav-item">

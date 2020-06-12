@@ -1,7 +1,10 @@
 import React, {Component} from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Switch, Route, Link , Redirect } from "react-router-dom";
-import { Carousel } from 'react-responsive-carousel';
+// import { Carousel } from 'react-responsive-carousel';
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
 class ChefSection extends Component {
     constructor() {
         super();
@@ -34,16 +37,22 @@ class ChefSection extends Component {
                         <li data-target="#carouselExampleCaptions" data-slide-to="0" className="active"></li>
                         <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
                     </ol>
-                    <div className="carousel-inner">
-                                     <div className="carousel-item active">
-                                     <div className="slide-box row">
+                    {/* <div className="carousel-inner">
+                    <div className="carousel-item active"> */}
+                    {this.state.chefs.length && (
+                    <OwlCarousel autoPlay  >
                     
-                        {/* <Carousel autoPlay activeIndex={2} items={2}> */}
+                    <div className="slide-box row">
+
+                    
+
+                    
+                       
                            
                             {this.state.chefs.map(chef=>{
                                 return(
                                     
-                                    <div className="col-lg-6 mb-5">
+                                    <div className="col-lg-5 mb-5">
                                     <div className="media row">
                                         <div className="col-12" >
                                         <Link to={`/chefs/${chef.id}`}> 
@@ -57,22 +66,13 @@ class ChefSection extends Component {
                                     <p> {chef.work_place} </p>
                                     </div>
                                     
-                                    <div className="row">
-                                    
-                                        <p className="col-12 content">يمكنك كتابة تفاصيل هنا عن أحد أعضاء فريقك. يمكنك إعطاء مزيد من التفاصيل حول ما يفعلونه. لا تتردد في الإضافة
-                                            بعض <a href="#">الروابط</a> ليتمكن الأشخاص من متابعتهم خارج الموقع.</p>
-                                    </div>
                                 </div>
                                 
                                 );}
                                 )}
-                                
-
-                                
                             
-                            {/* </Carousel> */}
                        
-                        
+                       
                          {/* <div className="carousel-item">
                             <div className="slide-box row">
                             
@@ -81,8 +81,11 @@ class ChefSection extends Component {
                             </div>
                         </div>  */}
                     </div>
-                                </div>
-                                </div>
+                    
+                    </OwlCarousel>
+                    )}
+                                {/* </div>
+                                </div> */}
                  </div>
                 </div>
       

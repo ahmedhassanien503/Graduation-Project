@@ -20,6 +20,9 @@ class createWorkshop extends Component {
         handleChange = event =>{
           this.setState({ [event.target.name]:event.target.value })
         }
+        handleImage = event =>{
+            this.setState({ [event.target.name]:event.target.files[0] })
+          }
         handleSubmit = event =>{
           event.preventDefault();
           console.log("name : " + this.state.name);
@@ -118,7 +121,7 @@ render(){
                                     name="image"
                                     type="file" 
                                     className="form-control" 
-                                    onChange={this.handleChange} />
+                                    onChange={this.handleImage} />
                                 </div>
                                 <button type="submit" className="btn btn-primary">Submit</button>
                         </form>

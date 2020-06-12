@@ -11,23 +11,29 @@ class workshopPage extends Component {
     {
         super();
         this.state={
-            workshop:{
-            "workshop_name":"loading...",
-            "workshop_description":"loading...",
-            "app_deadline":"loading...",
-            "no_of_applicant":"loading...",
-            "chef_name":{"name":"loading..."},
-            "image":""}}
-       
+            workshop:[]
+        }
     }
     
     componentDidMount()
     {
        axios.get(`http://127.0.0.1:8000/api/workshops/${this.props.match.params.workshop}`)
        .then(
-        res=>{this.setState({ workshop: res.data.data})},
+           res=>{  this.setState({ workshop: res.data.data})},
            );
     }
+   
+
+    handleSubmit = event =>{
+        const  data= {
+            'user_id':"2",
+            'workshop_id' :  `${this.props.match.params.workshop}`,
+        }
+        axios.post(`http://127.0.0.1:8000/api/applicants` ,data)
+        .then(
+        res=>{console.log(res)},
+        );
+        }
 
     render(){
     return(
@@ -45,7 +51,8 @@ class workshopPage extends Component {
                                 <p> { this.state.workshop.app_deadline} :تاريخ البدء</p><hr/>
                                 <p >{ this.state.workshop.chef_name.name}: الشيف</p>
                                 <span style={{color: "orange"}}> {this.state.workshop.no_of_applicant} :عدد المشتركين</span><hr></hr>
-                                <Link to="/createWorkshop"> اكتسب مهارة الطبخ واحجز اﻻن</Link>
+                                <div> <img src="img/food10.jpg" alt=""/></div><div><button className="btn btn-outline-success btn-sm" onClick={this.handleSubmit} >   
+                                <i class="fas fa-user-check"></i>  اكتسب مهارة الطبخ واحجز اﻻن </button>  </div>
                             </div>
                     </div>
                     <div className="container">

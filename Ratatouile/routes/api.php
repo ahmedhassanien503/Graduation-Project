@@ -109,13 +109,17 @@ Route::post('/login', function (Request $request) {
     Route::delete('/orders/delete/{order}','API\OrderController@destroy');
 
 
-    ##################### Questions Routes #############################################################
+    ##################### Questions Routes #########################################################
     Route::get('/questions','API\QuestionApiController@index');
     Route::post('/questions/submit','API\QuestionApiController@store');
     Route::get('/questions/{question}','API\QuestionApiController@show');
     Route::delete('/questions/delete/{question}','API\QuestionApiController@destroy');
     Route::put('/questions/update/{questionid}','API\QuestionApiController@update');
-    
+    Route::get('/questions/answers/{id}','API\QuestionApiController@answers');
+    ##################### Answers Routes ##########################################################
+    Route::post('/answers/{question}','API\AnswerApiController@store');
+    Route::delete('/answers/delete/{answer}','API\AnswerApiController@destroy');
+
   
     
    

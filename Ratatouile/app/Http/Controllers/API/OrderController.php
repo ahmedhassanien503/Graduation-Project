@@ -84,6 +84,8 @@ public function destroy()
     $orderId = $request->orderId;
     Order::find($orderId)->delete();
     // return redirect()->route('orders');
+    // $order=Order::find($order);
+    // $order->delete();
 }
 
 }

@@ -27,6 +27,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
+
+
 //recipes routes
 
     Route::get('/recipes', 'API\RecipeApiController@index')->name('recipes.index');
@@ -41,8 +43,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::get('/recipes/{recipe}/edit','API\RecipeApiController@edit')->name('recipes.edit');
     Route::put('/recipes/{recipe}','API\RecipeApiController@update')->name('recipes.update');
 
+//API Routes
     ##################### Workshop Routes #############################################################
     Route::get('/workshops','API\WorkshopController@index');
+    Route::get('/workshops/{workshop}','API\WorkshopController@show');
     Route::get('/ChefWorkshops','API\WorkshopController@chef')->name('workshops');
     Route::post('/workshops/store','API\WorkshopController@store');
     Route::get('/workshops/{workshop}','API\WorkshopController@show');
@@ -53,6 +57,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::get('/workshopApplicants/{workshopId}','API\WorkshopUserController@workshop');
     // Route::post('/workshopApplicants/store','API\WorkshopUserController@store');
     Route::get('/applicants/{workshopUser}','API\WorkshopUserController@show');
+    Route::post('/applicants', 'API\WorkshopUserController@store')->name('applicants.store');
     Route::put('/applicants/{applicant}/accept','API\WorkshopUserController@accept');
     Route::put('/applicants/{applicant}/reject','API\WorkshopUserController@reject');
      ##################### Season Routes #############################################################
@@ -65,6 +70,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     ##################### Chefs Routes #############################################################
     Route::get('/chefs','API\ChefController@index');
     Route::get('/chefs/{chef}','API\ChefController@show');
+    Route::put('/chef/edit/{chef}','API\ChefController@edit');
     ##################### Category Routes #########################################################
     Route::get('/categories','API\CategoryApiController@index');
     Route::get('/categories/{id}','API\CategoryApiController@show');
@@ -96,5 +102,29 @@ Route::post('/login', function (Request $request) {
 
     return $user->createToken($request->device_name)->plainTextToken;
 });
+    Route::post('/orders/add','API\OrderController@store');
+    // Route::get('/ChefOrders','API\OrderController@chef')->name('cheforders');
+   // Route::get('/userOrders','API\OrderController@user')->name('userorders');
+    Route::put('/orders/update/{order}','API\OrderController@update');
+    Route::delete('/orders/delete/{order}','API\OrderController@destroy');
+
+
+    ##################### Questions Routes #############################################################
+    Route::get('/questions','API\QuestionApiController@index');
+    Route::post('/questions/submit','API\QuestionApiController@store');
+    Route::get('/questions/{question}','API\QuestionApiController@show');
+    Route::delete('/questions/delete/{question}','API\QuestionApiController@destroy');
+    Route::put('/questions/update/{questionid}','API\QuestionApiController@update');
+    
+  
+    
+   
+
+
+Route::post('/login','UserController@login');
+
+    Route::post('/register', 'UserController@register');
+    Route::post('/logout', 'UserController@logout');
+    Route::post('/user', 'UserController@me');
 
 

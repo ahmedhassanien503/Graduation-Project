@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Recipe;
+use App\Comment;
+use Illuminate\Support\Facades\DB;
+use App\User;
 use App\Category;
 
 
@@ -85,9 +88,10 @@ class RecipeController extends Controller
 		$recipeId=$request->recipe;
 
 		$recipe=Recipe::find($recipeId);
-	
-
-		return view('recipes.show',['recipe'=>$recipe]);
+        // $comments=DB::table('comments')->where('recipe_id',$recipeId);
+        $comments=Comment::all();
+        $user = 1;
+		return view('recipes.show',['recipe'=>$recipe, 'comments'=>$comments,]);
     }
 
     /**

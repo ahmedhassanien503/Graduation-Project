@@ -42,8 +42,9 @@ class ChefController extends Controller
             $file=$request->file('image');
             $extention=$file->getClientOriginalExtension();
             $filename=time() . '.' . $extention;
-            $file->move('uploads/chef/', $filename);
-            $chef->image = $filename;
+            // $file->move('uploads/chef/', $filename);
+            $path = $request->file('image')->storeAs( 'chef',$filename,'public' );
+            $chef->image = $path;
         }
         $chef->save();
         if($chef->is_chef == false){

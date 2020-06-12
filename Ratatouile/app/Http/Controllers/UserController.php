@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\File;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
+
 class UserController extends Controller
 {
     public function userIndex(){
@@ -98,4 +101,56 @@ class UserController extends Controller
     //     $user -> delete();
     //     return redirect()->route('chefs.index');
     // }
+
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+            'device_name' => 'required'
+        ]);
+    
+        $user = User::where('email', $request->email)->first();
+    
+        if (! $user || ! Hash::check($request->password, $user->password)) {
+            throw ValidationException::withMessages([
+                'email' => ['The provided credentials are incorrect.'],
+            ]);
+        }
+    
+        return $user->createToken($request->device_name)->plainTextToken;
+    }
+
+
+    public function register(Request $request)
+    {
+        $request->validate([
+            'name'    => 'required',
+            'email'   => 'required',
+            'password'=> 'required|confirmed',
+        ]);
+
+        User::create([
+            'name'     => request('name'),
+            'email'    => request('email'),
+            'password' => Hash::make(request('password')),
+            'is_chef'  => request('is_chef'),
+        ]);
+
+        return $this->login(request());
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+
+        return response()->json(['message' => 'Successfully logged out']);
+    }
+
+    public function me()
+    {
+        return response()->json(auth()->user());
+    }
+
+
 }

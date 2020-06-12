@@ -34,10 +34,35 @@ class WorkshopUserController extends Controller
     }
 
     public function show($workshopUser){
+
+        // return WorkshopUserResource::collection(
+        //     WorkshopUser::where('email',$workshopUser)->get()
+        //     // Workshop::paginate(4)
+        // );
         return  WorkshopUser::find($workshopUser)
             ?new WorkshopUserResource(
                 WorkshopUser::find($workshopUser)
             ) : 'does not exist';
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $request->validate([
+            'user_id' => 'required',
+            'workshop_id' => 'required',
+        ]);
+
+        $applicant= WorkshopUser::create([
+            'user_id' => $request->user_id,
+            'workshop_id' =>  $request->workshop_id,
+        ]);
+        return new WorkshopUserResource($applicant);
     }
 
     public function accept()

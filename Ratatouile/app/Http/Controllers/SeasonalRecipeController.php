@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
 use App\Season;
 use App\Recipe;
 use App\SeasonRecipe;
@@ -30,7 +31,8 @@ class SeasonalRecipeController extends Controller
     public function create()
     {
         $seasons=Season::all();
-        $recipes=Recipe::all();
+        // $recipes=Recipe::all();
+        $recipes =Recipe::whereHas('user', function (Builder $query) { $query->whereIsChef(1); })->get();
         return view('seasonalrecipes.create',[
             'seasons' =>$seasons,
             'recipes' =>$recipes,

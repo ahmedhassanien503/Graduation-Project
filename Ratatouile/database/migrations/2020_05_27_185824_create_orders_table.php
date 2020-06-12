@@ -15,9 +15,11 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('description');
+            $table->string('payment_method');
             $table->dateTime('date');
             $table->string('address');
-            $table->char('total_price');       
+            $table->integer('total_price');       
             //user_id of user who made the order 
             $table->foreignId('user_id')
             ->references('id')

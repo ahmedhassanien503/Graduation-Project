@@ -109,6 +109,11 @@ Route::group(['middleware' => ['auth.admin']], function () {
   Route::get('/contacts/{contact}', 'ContactController@show')->name('contacts.show');
   Route::post('/contacts','ContactController@store')->name('contacts.store');
 
+    ##################### Comments Routes #############################################################
+    // Route::get('recipes/{recipe}/comments', 'RecipeCommentController@index')->name('recipes.comments.index');
+    // Route::get('/comments/create', 'RecipeCommentController@create')->name('comments.create');
+    Route::post('/comments/create', 'RecipeCommentController@store')->name('comments.store');
+    
 });
 
 Auth::routes();

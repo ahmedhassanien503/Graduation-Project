@@ -34,12 +34,24 @@
                 <form method="POST" action="{{route('orders.update',['order' => $order->id])}}" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
+                    <div class="form-group">
+                <label for="inputName">Order's Description</label>
+                <input type="text" id="inputName" name="description" class="form-control" value="{{$order->description}}">
+              </div>
+              <div class="form-group">
+                <label for="inputStatus">Order's Payment Method</label>
+                <select name="payment_method" class="form-control custom-select">
+                  <!-- <option selected disabled>Select payment method</option> -->
+                  <option value="Cash">Cash on Delivery</option>
+                  <option value="Credit Card">Credit Card</option>
+                </select>
+              </div>
               <div class="form-group">
                 <label for="inputName">Order's Address</label>
                 <input type="text" id="inputName" name="address" class="form-control" value="{{$order->address}}">
               </div>
               <div class="form-group">
-                <label for="inputName">Order's Date</label>
+                <label for="inputName">Order's Delivery Date</label>
                 <input type="text" id="inputName" name="date" class="form-control" value="{{$order->date}}">
               </div>
               <div class="form-group">

@@ -37,7 +37,7 @@ import allChefs from "./pages/allChefs.js";
 import chefProfile from "./pages/chefProfile.js";
 import seasonalrecipesPage from "./pages/seasonalrecipesPage.js";
 import Login from "./pages/Login.js";
-
+ 
 
 import categoryrecipesPage from "./pages/categoryrecipesPage.js";
 import AllCategories from './pages/AllCategories';
@@ -45,6 +45,10 @@ import createWorkshop from './pages/createWorkshop';
 import editWorkshop from './pages/editWorkshop';
 import workshopsApplicants from './pages/workshopsApplicants';
 import chefWorkshops from './pages/chefWorkshops';
+import askQuestion from './pages/askQuestion.js';
+import allQuestions from "./pages/allQuestions.js";
+import showQuestion from "./pages/showQuestion.js";
+import editQuestion from "./pages/editQuestion.js"
 
 function App() {
   return (
@@ -68,15 +72,20 @@ function App() {
     <Route exact path='/seasons/:id' component={seasonalrecipesPage} />
     <Route exact path='/categories/:id' component={categoryrecipesPage} />
     <Route exact path='/categories' component={AllCategories} />
+    <Route exact path='/askquestion' component={askQuestion} />
+    <Route exact path='/questions' component={allQuestions} />
+    <Route exact path='/questions/:question' component={showQuestion} />
+    <Route exact path='/editquestion/:question' component={editQuestion} />
+    {/* <Route exact path='/askquestion' component={askQuestion} /> */}
     {/* <Route path="/sign-in" component={Login} />
     <Route path="/item-list" component={ItemsList} />
     <Route path="/sign-up" component={SignUp} /> */}
-  <div className="bg-gray-300 h-screen">
-    <GuestRoute path="/layout" component={Layout} />
-    <GuestRoute path="/login" component={Login} />
+  {/* <div className="bg-gray-300 h-screen"> */}
+    {/* <GuestRoute path="/layout" component={Layout} />
+    <GuestRoute path="/login" component={Login} /> */}
     {/* <GuestRoute path="/register" component={Register} /> */}
-    <AuthRoute path="/profile" component={Profile} />
-    </div>
+    {/* <AuthRoute path="/profile" component={Profile} /> */}
+    {/* </div> */}
       
         </Switch>
     </Router>

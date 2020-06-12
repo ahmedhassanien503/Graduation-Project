@@ -28,7 +28,7 @@ class FooterSection extends Component {
                                 <a className="nav-link" href="#">من نحن ؟</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#"> اسأل الشيف </a>
+                                <Link to={"/askquestion"} className="nav-link" href="#">  اسأل الشيف <i className="fas fa-comment" style={{width: "25px"}}></i></Link>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="#">ورش الطبخ</a>

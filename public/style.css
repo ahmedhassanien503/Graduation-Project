@@ -1518,4 +1518,9 @@ chefs section
     margin-top: 10px;
    
 }
+.question{
+    outline: none;
+    /* border: none; */
+  border-bottom: 2px solid #e07b39;
+}
 

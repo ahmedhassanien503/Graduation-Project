@@ -44,9 +44,9 @@ class HeaderSection extends Component {
 
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#"> اسأل الشيف
+                                    <Link to={"/askquestion"} className="nav-link" href="#"> اسأل الشيف
                                         <i className="fas fa-comment" style={{width: "25px"}}></i>
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="nav-item">
                                     

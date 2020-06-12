@@ -84,20 +84,6 @@ class seasonalrecipesPage extends Component {
                                         <a href="#">{recipe.recipe_info.created_at}</a>
                                     </div>
                                 </div>
-                                {/* <div className="post-comment-share-area d-flex">
-                                    <div className="post-favourite">
-                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
-                                    </div>
-
-                              
-                                    <div className="post-comments">
-                                        <a href="#"><i className="fa fa-comment-o" aria-hidden="true"></i> 12</a>
-                                    </div>
-                              
-                                    <div className="post-share">
-                                        <a href="#"><i className="fa fa-share-alt" aria-hidden="true"></i></a>
-                                    </div>
-                                </div> */}
                             </div>
                             <a href="#">
                             <h4 className="post-headline">{recipe.recipe_info.RecipeName}</h4>
@@ -109,7 +95,11 @@ class seasonalrecipesPage extends Component {
             )}
 
                 <div className="col-12">
-                    <div className="pagination-area d-sm-flex mt-15">
+                    <div className="pagination-area d-sm-flex mt-15" style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                        }}>
                     <Pagination
                     activePage={this.state.activePage}
                     itemsCountPerPage={this.state.itemsCountPerPage}

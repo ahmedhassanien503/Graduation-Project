@@ -128,7 +128,7 @@ class RecipeController extends Controller
             $extension = $file->getClientOriginalExtension();
             $filename =time().'.'.$extension;
             Storage::disk('public')->put('recipes/'.$filename, File::get($file));
-            $recipe->image= $filename;
+            $recipe->Recipe_image= $filename;
         } 
         $recipe->serving=$request->get('Serving');
         $recipe->TakenTime=$request->get('TakenTime');

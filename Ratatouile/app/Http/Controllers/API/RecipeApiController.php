@@ -65,6 +65,16 @@ class RecipeApiController extends Controller
      
     }
 
+    public function indexxx()
+    {
+ 
+    $recipes =Recipe::whereHas('user', function (Builder $query) { $query->whereIsChef(1); })->paginate(3);
+
+    $recipeResource=ResipeResource::collection($recipes);
+      return $recipeResource;
+     
+    }
+
     // public function indexx(){
     //  $data=DB::table('recipes')->join('users','recipes.user_id','users.id')->where('users.is_chef',0)
     //  ->get();
@@ -220,9 +230,37 @@ class RecipeApiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    //
+    public function update(Request $request)
     {
-        //
+      
+        $recipeId=$request->recipe;
+        $recipeInfo=Recipe::find($recipeId);
+        $image=$recipeInfo->recipe_image;
+
+        if($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename =time().'.'.$extension;
+            Storage::disk('public')->put('recipes/'.$filename, File::get($file));
+        } else {
+            $filename =  $image;
+        }
+
+
+        $recipeInfo->created_at = $request->created_at;
+        $recipeInfo->updated_at=  $request->updated_at;
+        $recipeInfo->RecipeName = $request->RecipeName;
+        $recipeInfo->details =  $request->details;
+        $recipeInfo->recipe_image= $filename;
+        $recipeInfo->Serving = $request->Serving;
+        $recipeInfo->TakenTime=  $request->TakenTime;
+        $recipeInfo->user_id= $request->user_id;
+        
+
+        $recipeInfo->save();
+        return new ResipeResource($recipeInfo);
     }
 
     /**

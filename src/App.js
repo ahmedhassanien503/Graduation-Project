@@ -34,9 +34,15 @@ import workshopPage from "./pages/workshopPage.js";
 import chefrecipe from "./pages/chefrecipe.js";
 import chefrecipes from "./pages/chefrecipes.js";
 import userRecipes from "./pages/userRecipes.js";
+import userRecipe from "./pages/userRecipe.js";
+import EditRecipe from "./pages/EditRecipe.js";
+import ContactUsPage from "./pages/ContactUsPage.js"
+
+
 import allChefs from "./pages/allChefs.js";
 import chefProfile from "./pages/chefProfile.js";
 import seasonalrecipesPage from "./pages/seasonalrecipesPage.js";
+import AddRecipe from "./pages/AddRecipe.js";
 import Chef from "./pages/editChefProfile.js";
 import Login from "./pages/Login.js";
 import Register from "./pages/Register.js";
@@ -53,6 +59,8 @@ import askQuestion from './pages/askQuestion.js';
 import allQuestions from "./pages/allQuestions.js";
 import showQuestion from "./pages/showQuestion.js";
 import editQuestion from "./pages/editQuestion.js";
+import addAnswer from "./pages/addAnswer";
+import Answers from "./pages/Answers";
 import AddOrder from './pages/AddOrder';
 import showorder from './pages/showorder';
 import EditOrder from './pages/EditOrder';
@@ -67,6 +75,13 @@ function App() {
     <Router>
       <Switch>
     <Route exact path='/' component={homePage} />
+    <Route exact path='/contactus' component={ContactUsPage} />
+    <Route exact path='/workshops/:workshop' component={workshopPage} />
+    <Route exact path='/workshops' component={workshopsPage} />
+    <Route exact path='/addrecipe' component={AddRecipe} />
+    <Route exact path='/editrecipe' component={EditRecipe} />
+
+
     <Route exact path='/workshop/:workshop' component={workshopPage} />
     <Route exact path='/workshops' component={workshopsPage} />
 
@@ -77,10 +92,12 @@ function App() {
     
     <Route exact path='/recipe/:recipe' component={chefrecipe} />
     <Route exact path='/recipes' component={chefrecipes} />
-    <Route exact path='/userrecipes' component={userRecipes} />
+    <Route exact path='/userRecipes' component={userRecipes} />
+    <Route exact path='/userRecipe/:userrecipe' component={userRecipe} />
     <Route exact path='/chefs' component={allChefs} />
     <Route exact path='/chefs/:chef' component={chefProfile} />
     <Route exact path='/seasons/:id' component={seasonalrecipesPage} />
+
     <Route exact path='/chef/edit/:chef' component={Chef} />
     <Route exact path='/categories/:id' component={categoryrecipesPage} />
     <Route exact path='/categories' component={AllCategories} />
@@ -88,6 +105,9 @@ function App() {
     <Route exact path='/questions' component={allQuestions} />
     <Route exact path='/questions/:question' component={showQuestion} />
     <Route exact path='/editquestion/:question' component={editQuestion} />
+    <Route exact path='/questions/answers/:id' component={Answers} />
+    {/* <Route exact path='/addAnswer' component={addAnswer} /> */}
+   
 
     <Route exact path='/addorder' component={AddOrder} />
     <Route exact path='/orders/:order' component={showorder} />

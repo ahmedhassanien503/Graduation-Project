@@ -5,6 +5,9 @@ import NavbarSection from '../components/NavbarSection.js';
 import HeaderSection from '../components/HeaderSection.js';
 import FooterSection from '../components/FooterSection.js';
 import SocialSection from '../components/SocialSection.js';
+import Answers from './Answers.js';
+import addAnswer from './addAnswer.js';
+
 
 class showQuestion extends Component {
     constructor(){
@@ -13,7 +16,9 @@ class showQuestion extends Component {
             question:{
                 "question":"loading...",
                 "user_info":"loading ...",
-            }
+            },
+       
+        answer:"", 
         }
     }
         
@@ -36,6 +41,26 @@ class showQuestion extends Component {
 
         );
     }
+
+
+      handleChange = event =>{
+        this.setState({ [event.target.name]:event.target.value })
+      }
+      onAnswer = event =>{
+        event.preventDefault();
+        console.log("answer : " + this.state.answer);
+        const url =`http://127.0.0.1:8000/api/answers/${this.props.match.params.question}`;
+        const answer=  this.state.answer ;
+
+        const formData = new FormData(); 
+        formData.append('answer',answer); 
+
+          axios.post(url, formData)
+          .then(
+              res=>{  this.props.history.push('/questions')},
+
+          );
+      }
 
 
 render(){
@@ -61,11 +86,35 @@ render(){
         justifyContent: 'center',
             }}>
     <Link to={`/editquestion/${this.state.question.id}`}> <button type="button" className="btn btn-outline-dark" style={{margin:"10px"}}> <i className="far fa-edit"></i>  تعديل السؤال </button></Link>
-    <button type="submit" className="btn btn-outline-warning" onClick={this.onDelete.bind(this,this.state.question.id)}><i className="far fa-trash-alt"></i> مسح السؤال </button></div>
-<SocialSection />
-                    </div>
-                 
+    <button type="submit" className="btn contact-btn" onClick={this.onDelete.bind(this,this.state.question.id)}><i className="far fa-trash-alt"></i> مسح السؤال </button>
+<Link to={`/questions/answers/${this.state.question.id}`}> <button type="button" className="btn btn-outline-dark" style={{margin:"10px"}}> <i className="far fa-comments"></i>  الاجابات  </button></Link>
+</div>
+                
+{/* <Answers/> */}
 
+
+<div className="leave-comment-area section_padding_50 clearfix container">
+    <div className="comment-form">
+        <h4 className="mb-30"style={{ textAlign: "center"}}>اضف اجابتك</h4>
+
+        <form onSubmit={this.onAnswer}>
+           
+            <div className="form-group">
+                <textarea className="form-control" name="answer" cols="30" rows="10" placeholder="الاجابة" onChange={this.handleChange} rows="5" />
+            </div>
+                        <div style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                }}>
+            <button type="submit" className="btn contact-btn" > <i className="fas fa-paper-plane"></i> ارسل اجابتك</button>
+            </div>
+        </form>
+    </div>
+</div>
+<SocialSection />
+</div>
+                    
                     </div>
    
   );

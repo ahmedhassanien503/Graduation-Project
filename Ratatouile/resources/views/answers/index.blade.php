@@ -48,5 +48,6 @@
       @endforeach
     </tbody>
   </table> 
+  {{$answers->links()}}
 </div>
 @endsection

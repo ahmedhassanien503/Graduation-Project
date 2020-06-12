@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\API;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\QuestionResource;
+use App\Http\Resources\AnswerResource;
 use App\Question;
+use App\Answer;
 
 class QuestionApiController extends Controller
 {
@@ -96,5 +99,20 @@ class QuestionApiController extends Controller
     {
         $question=Question::find($question);
         $question->delete();
+    }
+
+
+    public function answers($id)
+    {
+        
+        $question_id = DB::table('questions')->where('id',$id)->value('id');
+        $question_answers = Answer::where('question_id',$question_id)->get();
+        // dd($question_answers);
+        $questionAnswersResource= AnswerResource::collection($question_answers);
+        return $questionAnswersResource;
+
+        // return AnswerResource::collection(
+        //     Answer::where('question_id',$id)->get()
+        // );
     }
 }

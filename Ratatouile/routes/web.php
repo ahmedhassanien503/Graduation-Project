@@ -103,6 +103,12 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('/seasonalrecipes/{seasonalrecipe}/edit', 'SeasonalRecipeController@edit')->name('seasonalrecipes.edit');
     Route::put('/seasonalrecipes/{seasonalrecipe}', 'SeasonalRecipeController@update')->name('seasonalrecipes.update');
     Route::delete('/seasonalrecipes/{seasonalrecipe}/delete', 'SeasonalRecipeController@destroy')->name('seasonalrecipes.destroy');
+  ##############################contact Routes##########################################
+  Route::get('/contacts', 'ContactController@index')->name('contacts.index');
+  Route::get('/contacts/create','ContactController@create')->name('contacts.create');
+  Route::get('/contacts/{contact}', 'ContactController@show')->name('contacts.show');
+  Route::post('/contacts','ContactController@store')->name('contacts.store');
+
     ##################### Comments Routes #############################################################
     // Route::get('recipes/{recipe}/comments', 'RecipeCommentController@index')->name('recipes.comments.index');
     // Route::get('/comments/create', 'RecipeCommentController@create')->name('comments.create');

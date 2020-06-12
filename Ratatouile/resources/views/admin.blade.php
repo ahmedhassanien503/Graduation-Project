@@ -266,6 +266,14 @@
                   <p> Seasonal Recipes</p>
                 </a>
               </li>
+
+              <li class="nav-item">
+                <a href="{{route('contacts.index')}}" class="nav-link">
+                  <i class="fas fa-carrot"></i>
+                  <p>Contacts</p>
+                </a>
+              </li>
+
             </ul>
           </li>
           

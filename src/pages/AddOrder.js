@@ -40,7 +40,7 @@ class AddOrder extends Component {
      
             axios.post(url, formData)
             .then(
-                res=>{  this.props.history.push(`/ordersubmitted`)},
+                res=>{  this.props.history.push(`/orders/${res.data.data.id}`)},
 
             );
         }

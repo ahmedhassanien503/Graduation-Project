@@ -1177,15 +1177,15 @@ date-commnents a {
 }
 
 .contact-btn {
-    margin-top: 50px;
+    /* margin-top: 50px; */
     width: 160px;
     height: 40px;
-    font-size: 12px;
+    font-size: 15px;
     text-transform: uppercase;
     font-weight: 500;
     color: #fff;
     background-color: #fc6c3f;
-    border-radius: 30px;
+    /* border-radius: 30px; */
 }
 
 .contact-btn:hover {
@@ -1527,3 +1527,19 @@ chefs section
   border-bottom: 2px solid #e07b39;
 }
 
+.single-post .answer-more {
+    font-size: 15px;
+    color:#000000;
+    display: inline-block;
+    border: 1px solid #ebebeb;
+    border-radius: 30px;
+    height: 40px;
+    min-width: 170px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.single-post .answer-more:hover {
+    color: #e07b39;
+    border: 1px solid #e07b39;
+}

@@ -61,8 +61,14 @@ import askQuestion from './pages/askQuestion.js';
 import allQuestions from "./pages/allQuestions.js";
 import showQuestion from "./pages/showQuestion.js";
 import editQuestion from "./pages/editQuestion.js";
+import addAnswer from "./pages/addAnswer";
+import Answers from "./pages/Answers";
 import AddOrder from './pages/AddOrder';
-import ordersubmission from './pages/ordersubmission';
+import showorder from './pages/showorder';
+import EditOrder from './pages/EditOrder';
+import orderdeleted from './pages/orderdeleted';
+
+
 
 
 
@@ -102,16 +108,23 @@ function App() {
     <Route exact path='/questions' component={allQuestions} />
     <Route exact path='/questions/:question' component={showQuestion} />
     <Route exact path='/editquestion/:question' component={editQuestion} />
+    <Route exact path='/questions/answers/:id' component={Answers} />
+    {/* <Route exact path='/addAnswer' component={addAnswer} /> */}
+   
 
     <Route exact path='/addorder' component={AddOrder} />
-    <Route exact path='/ordersubmitted' component={ordersubmission} />
+    <Route exact path='/orders/:order' component={showorder} />
+    <Route exact path='/editorder/:order' component={EditOrder} />
+    <Route exact path='/orderdeleted' component={orderdeleted} />
+
+
 
 
   
     
   
 
-  <div className="bg-gray-300 h-screen">
+  <div className="bg-white-300 h-screen">
     <GuestRoute path="/layout" component={Layout} />
     <GuestRoute path="/login" component={Login} />
      <GuestRoute path="/register" component={Register} /> 

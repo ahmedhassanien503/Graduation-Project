@@ -7,7 +7,6 @@ import store from "./store/index";
 import { Provider } from "react-redux";
 import axios from "axios";
 import cookie from "js-cookie";
-import jwt from "jsonwebtoken";
 
 // const jwt_secret =
 //   "SSGGUb3Z0LJlijBLdfOzKvNapWnRw864l0DZrlILuydIIjW3xqw3OnWAYxG4iXGo";
@@ -15,11 +14,16 @@ import jwt from "jsonwebtoken";
 // let token = cookie.get("token");
 // if (token) {
 //   jwt.verify(token, (err, decoded) => {
+
+ let token = cookie.get("token");
+// if (token) {
+//   jwt.verify(token, jwt_secret, (err, decoded) => {
 //     if (err) {
 //       cookie.remove("token");
 //       token = null;
 //     } else {
 //       if (decoded.iss !== "http://localhost:8000/api/auth/login") {
+//       if (decoded.iss !== "http://localhost:8000/api/login") {
 //         cookie.remove("token");
 //         token = null;
 //       }

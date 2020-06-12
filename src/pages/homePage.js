@@ -29,6 +29,7 @@ function homePage() {
       <MainSection /> 
       {/* <NavbarSection/>
       <HeaderSection /> */}
+      <br></br>
       <RecipeSliderSection />
       {/* <SidebarSection /> */} 
 

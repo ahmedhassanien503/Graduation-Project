@@ -30,12 +30,15 @@ class HeaderSection extends Component {
                      
                         <div className="collapse navbar-collapse justify-content-center" id="yummyfood-nav">
                             <ul className="navbar-nav" id="yummy-nav">
-                                <li className="nav-item">
-                                    <a className="nav-link" href="index.html">
-                                        للتواصل معنا 
-                                        <i className="fas fa-blender-phone" style={{width: "25px"}}></i>
-                                    </a>
-                                </li>
+                             
+
+                                  <li className="nav-item">
+                                    
+                                    <Link to={"/contactus"} className="nav-link">تواصل معنا 
+                                     <i className="fas fa-blender-phone"  style={{width: "25px"}}></i>
+                                     </Link> 
+                                    
+                                  </li>
                               
                                 <li className="nav-item">
                                     <a className="nav-link" href="#">

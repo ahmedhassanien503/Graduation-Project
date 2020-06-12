@@ -6,49 +6,72 @@ import HeaderSection from '../components/HeaderSection.js';
 import FooterSection from '../components/FooterSection.js';
 import SocialSection from '../components/SocialSection.js';
 
-class AddRecipe extends Component {
+class EditRecipe extends Component {
     constructor(){
         super();
         this.state={
+            recipe:{
+            "created_at":"10-10-2020",
+            "updated_at":"10-10-2020",
+            "RecipeName":"pizaa",
+            "details":"data",
+            "recipe_image":"",
+            "Serving":"5 Person",
+            "TakenTime":"1 Hour"},
             created_at:"",  
+            updated_at:"",
             RecipeName:"",
             details:"",
-            recipe_image:"1591818376.jpg",
+            recipe_image:"",
             Serving:"",
-            TakenTime:"",
-            user_id:"",     
-          }
+            TakenTime:"",    
+            
         }
+    }
         handleChange = event =>{
           this.setState({ [event.target.name]:event.target.value })
         }
+        componentDidMount()
+        {
+            axios.get(`http://127.0.0.1:8000/api/recipes/${this.props.match.params.recipe}`)
+            .then(
+                res=>{this.setState({ recipe:res.data.data})},
+            )
+        }
         handleSubmit = event =>{
           event.preventDefault();
-         console.log("RecipeName: " + this.state.RecipeName);
-          console.log("details: " + this.state.details);
-          const url ="http://127.0.0.1:8000/api/recipes";
-          const created_at=  this.state.created_at;
-          const RecipeName=  this.state.RecipeName;
+          const url = `http://127.0.0.1:8000/api/recipes/${this.props.match.params.workshop}`;
+          const updated_at= this.state.updated_at;
+          const created_at= this.state.created_at;
+          const RecipeName= this.state.RecipeName;
           const details= this.state.details;
           const recipe_image= this.state.recipe_image;
           const Serving= this.state.Serving;
           const TakenTime= this.state.TakenTime;
-          const user_id= this.state.user_id;
           const formData = new FormData(); 
+          formData.append('_method','PUT'); 
+          formData.append('updated_at',updated_at); 
           formData.append('created_at',created_at); 
           formData.append('RecipeName',RecipeName); 
           formData.append('details',details); 
           formData.append('recipe_image',recipe_image); 
           formData.append('Serving',Serving); 
           formData.append('TakenTime',TakenTime); 
-          formData.append('user_id',user_id);
-       
+   
+          console.log(formData.get('RecipeName'));
+          console.log(formData.get('recipe_image'));
 
-            axios.post(url, formData)
-            .then(
-                res=>{  this.props.history.push(`/recipes/${res.data.data}`)},
+            fetch(url, { method: 'POST',
+            headers:{ 'Accept': 'application/json' },
+            body:formData,})
+            .then(res => res.json())
+            .catch(error => console.error('Error:', error))
+            .then(response =>
+                {  console.log('Success:', response); 
+                   this.props.history.push(`/recipes/${this.props.match.params.recipe}`)
+            
+                });
 
-            );
         }
 
 render(){
@@ -58,11 +81,15 @@ render(){
             <NavbarSection/>
             <HeaderSection/>
                     <div className="container" style={{marginTop:"10px"}}>
-                        <form onSubmit={this.handleSubmit}>
+                    <form onSubmit={this.handleSubmit}>
                             <h3>وصفات جديدة</h3>
                                 <div className="form-group">
                                     <label>Created at</label>
-                        <input name="created_at" type="text" className="form-control" onChange={this.handleChange} />
+                        <input name="created_at" type="text" className="form-control"  onChange={this.handleChange} />
+                                </div>
+                                <div className="form-group">
+                                    <label>Updated at</label>
+                        <input name="updated_at" type="text" className="form-control"  onChange={this.handleChange} />
                                 </div>
 
                                 <div className="form-group">
@@ -86,10 +113,6 @@ render(){
                   <input name="TakenTime" type="number"className="form-control" placeholder="This Meal will Take ?? To Be Ready"onChange={this.handleChange} />
                                 </div>
                              
-                                <div className="form-group">
-                                    <label>User</label>
-                 <input name="user_id" type="number" className="form-control" placeholder="Enter no_of_applicant" onChange={this.handleChange} />
-                                        </div>
                                 <button type="submit" className="btn btn-primary">Submit</button>
                         </form>
                     </div>
@@ -99,4 +122,4 @@ render(){
   );
 }
 }
-export default AddRecipe;
+export default EditRecipe;

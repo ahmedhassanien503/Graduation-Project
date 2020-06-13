@@ -17,6 +17,7 @@ class CreateRecipesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('RecipeName');
+            $table->string('title');
             $table->text('details');
             $table->string('recipe_image')-> nullable();  
             $table->integer('Serving')-> nullable();    

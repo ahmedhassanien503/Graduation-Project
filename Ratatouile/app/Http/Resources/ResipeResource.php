@@ -19,6 +19,7 @@ class ResipeResource extends JsonResource
             'created_at'=>$this->created_at,
             'updated_at'=>$this->updated_at,
             'RecipeName'=>$this->RecipeName,
+            'title'=>$this->title,
             'details'=>$this->details,
             'recipe_image'=>$this->recipe_image,
             'Serving'=>$this->Serving,

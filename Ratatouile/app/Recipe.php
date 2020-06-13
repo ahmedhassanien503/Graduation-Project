@@ -12,6 +12,7 @@ class Recipe extends Model
         'created_at',
         'updated_at',
         'RecipeName',
+        'title',
         'details', 
         'recipe_image',
         'Serving',

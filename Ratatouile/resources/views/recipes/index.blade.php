@@ -13,6 +13,7 @@
               <th scope="col">Created at</th>
               <th scope="col">Updated at</th>
               <th scope="col">Recipe Name</th>
+              <th scope="col">title</th>
               <th scope="col">Details</th>
                <th scope="col">Image</th>
                <th scope="col">Serving</th>
@@ -33,6 +34,7 @@
       <td>{{$recipe->created_at}}</td>
       <td>{{$recipe->updated_at}}</td>
       <td>{{$recipe->RecipeName}}</td>
+      <td>{{$recipe->title}}</td>
       <td>{{$recipe->details}}</td>
       <td><img src="{{asset('uploads/recipes/'.$recipe->recipe_image)}}" width="100px" height="100px"></td>
       <td>{{$recipe->Serving}}</td>

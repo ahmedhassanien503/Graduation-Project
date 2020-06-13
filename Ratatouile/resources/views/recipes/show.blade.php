@@ -12,7 +12,9 @@
     <h1 class="card-title" style="text-align: center">{{$recipe->TakenTime}}</h1>
     <h1 class="card-title" style="text-align: center">{{$recipe->Serving}}</h1>
   
+    <p class="card-text" style="text-align: center"m> {{$recipe->title}}</p>
     <p class="card-text" style="text-align: center"m> {{$recipe->details}}</p>
+
 
     <div class="categories">
       @foreach ($recipe->categories as $category)

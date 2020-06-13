@@ -168,6 +168,7 @@ class RecipeApiController extends Controller
         $recipe->created_at =$request->created_at;
         $recipe->updated_at=$request->updated_at;
         $recipe->RecipeName =$request->RecipeName;
+        $recipe->title=$request->title;
         $recipe->details=$request->details;
         $recipe->recipe_image =$filename;
         $recipe->Serving=$request->Serving;
@@ -248,6 +249,7 @@ class RecipeApiController extends Controller
         $recipeInfo->created_at = $request->created_at;
         $recipeInfo->updated_at=  $request->updated_at;
         $recipeInfo->RecipeName = $request->RecipeName;
+        $recipeInfo->title =  $request->title;
         $recipeInfo->details =  $request->details;
         $recipeInfo->recipe_image= $filename;
         $recipeInfo->Serving = $request->Serving;

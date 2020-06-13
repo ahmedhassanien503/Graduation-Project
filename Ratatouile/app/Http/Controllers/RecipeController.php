@@ -64,6 +64,7 @@ class RecipeController extends Controller
         $recipe->created_at =$request->created_at;
         $recipe->updated_at=$request->updated_at;
         $recipe->RecipeName =$request->RecipeName;
+        $recipe->title=$request->title;
         $recipe->details=$request->details;
         $recipe->recipe_image =$filename;
         $recipe->Serving=$request->Serving;
@@ -125,6 +126,7 @@ class RecipeController extends Controller
         $recipeId= $request->recipe;
         $recipe=Recipe::find($recipeId);
         $recipe->RecipeName=$request->get('RecipeName');
+        $recipe->title=$request->get('title');
         $recipe->details=$request->get('details');
         if($request->hasFile('image'))
         {

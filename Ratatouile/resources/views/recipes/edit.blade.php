@@ -36,6 +36,11 @@
           <input name="RecipeName" type="text" class="form-control" id="validationDefault01" value="{{ $recipe['RecipeName'] }}" required>
         </div>
         <div class="col-md-6 mb-3">
+          <label for="validationDefault02">Title</label>
+          <input name="title" type="text" class="form-control" id="validationDefault02" value="{{ $recipe['title'] }}" required>
+        </div>
+      </div>
+        <div class="col-md-6 mb-3">
           <label for="validationDefault02">Details</label>
           <input name="details" type="text" class="form-control" id="validationDefault02" value="{{ $recipe['details'] }}" required>
         </div>

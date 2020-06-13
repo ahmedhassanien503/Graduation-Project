@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return redirect()->route('admin.login');
 });
 
 Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm')->name('admin.login');
@@ -115,7 +115,8 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::post('/comments/create', 'RecipeCommentController@store')->name('comments.store');
     
 });
-
+// Auth::logout();
+// Auth::login();
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 

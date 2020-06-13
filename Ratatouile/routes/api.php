@@ -51,10 +51,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::post('/workshops/store','API\WorkshopController@store');
     Route::get('/workshops/{workshop}','API\WorkshopController@show');
     Route::put('/workshops/update/{workshop}','API\WorkshopController@update');
-
+    Route::post('/workshops/delete/{workshop}','API\WorkshopController@destroy');
+    
     ##################### WorkshopUser Routes #############################################################
     Route::get('/applicants','API\WorkshopUserController@index');
-    Route::get('/workshopApplicants/{workshopId}','API\WorkshopUserController@workshop');
+    Route::get('/workshopApplicants/{workshopId}','API\WorkshopUserController@workshopUsers');
     // Route::post('/workshopApplicants/store','API\WorkshopUserController@store');
     Route::get('/applicants/{workshopUser}','API\WorkshopUserController@show');
     Route::post('/applicants', 'API\WorkshopUserController@store')->name('applicants.store');

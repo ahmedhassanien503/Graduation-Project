@@ -24,7 +24,7 @@ class WorkshopUserController extends Controller
             // Workshop::paginate(4)
         ); 
     }
-    public function workshop($workshopId)
+    public function workshopUsers($workshopId)
     {
         return WorkshopUserResource::collection(
             WorkshopUser::where('workshop_id',$workshopId)->get()
@@ -53,6 +53,7 @@ class WorkshopUserController extends Controller
      */
     public function store(Request $request)
     {
+         //  $id = Auth::id();
         $request->validate([
             'user_id' => 'required',
             'workshop_id' => 'required',

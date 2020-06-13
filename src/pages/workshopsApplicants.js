@@ -1,11 +1,10 @@
 import React  ,{Component , useState}from 'react';
 import { BrowserRouter as Router, Switch, Route, Link , Redirect } from "react-router-dom";
 import Table from 'react-bootstrap/Table';
-// import fetch from 'unfetch';
+
 import axios from 'axios';
 import NavbarSection from '../components/NavbarSection.js';
 import HeaderSection from '../components/HeaderSection.js';
-import FooterSection from '../components/FooterSection.js';
 import SocialSection from '../components/SocialSection.js';
 
 class workshopsApplicants extends Component {
@@ -15,7 +14,6 @@ class workshopsApplicants extends Component {
         super();
         this.state={
             workshopApplicants:[],
-            id:"",
         }
     }
     
@@ -26,8 +24,7 @@ class workshopsApplicants extends Component {
             res=>{this.setState({ workshopApplicants: res.data.data})},
             );
     }
-    
-    
+      
     getData = async (id) =>
     { 
         const res = await axios(`http://127.0.0.1:8000/api/applicants/${id}`);
@@ -35,12 +32,6 @@ class workshopsApplicants extends Component {
     } 
 
     handleSubmit = e =>{
-        // event.preventDefault();
-
-        // this.setState({applicant: `${click.Value}`})
-        // console.log("name : " + this.state.name);
-        // console.log("description: " + this.state.description);
-    
         console.log(e.target.value);
         console.log(`http://127.0.0.1:8000/api/applicants/${e.target.value}`);
 
@@ -59,32 +50,29 @@ class workshopsApplicants extends Component {
                 console.log(url);}
             axios.put(url)
             .then(
-                res=>{console.log(res)},
+                res=>{ window.location.reload(false);},
                 );
             }); 
-            this.setState({id:  this.props.match.params.workshop});
-    
     }
     render(){
     return(
-  
         <div>
             <NavbarSection/>
             <HeaderSection/>
                 <div className="container" style={{marginTop: "5px"}} >
                     <div> <img src="img/food10.jpg" alt=""/>
-                    <h3 style={{textAlign: "center" , color: "#bf360c"}}> 
+                    <h3 style={{textAlign: "center" , color: "#d84315"}}> 
                      المتقدمين الى ورشه الطبخ</h3><hr/>
                     </div>{/* <div className="row" > */}
                     <Table responsive>
                         <thead>
                             <tr>
-                            <th style={{color: "#bf360c"}} >رقم</th>
-                            <th style={{color: "#bf360c"}} >اسم المتقدم</th>
-                            <th style={{color: "#bf360c" }} >صورة المتقدم</th>
-                            <th style={{color: "#bf360c"}} >ايميل المتقدم</th>
-                            <th style={{color: "#bf360c"}} >رقم الهاتف المتقدم</th>
-                            <th style={{color: "#bf360c"}} >تأكيد/الغاء</th>
+                            <th style={{color: "#d84315"}} >رقم</th>
+                            <th style={{color: "#d84315"}} >اسم المتقدم</th>
+                            <th style={{color: "#d84315" }} >صورة المتقدم</th>
+                            <th style={{color: "#d84315"}} >ايميل المتقدم</th>
+                            <th style={{color: "#d84315"}} >رقم الهاتف المتقدم</th>
+                            <th style={{color: "#d84315"}} >تأكيد/الغاء</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -110,9 +98,8 @@ class workshopsApplicants extends Component {
                             }
                         </tbody>
                     </Table>
-                    {/* </div> */}
                 </div>
-                <div className="container">
+                <div className="container" style={{marginTop: "25px"}}>
                     <div className="row">
                         <div className="col-12">
                             <div className="copy_right_text text-center">
@@ -123,8 +110,6 @@ class workshopsApplicants extends Component {
                 </div>
             <SocialSection />
         </div>
-   
   );
-}
-}
+}}
 export default workshopsApplicants;

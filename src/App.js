@@ -85,8 +85,8 @@ function App() {
     <Route exact path='/editrecipe' component={EditRecipe} />
 
 
-    <Route exact path='/workshop/:workshop' component={workshopPage} />
-    <Route exact path='/workshops' component={workshopsPage} />
+    {/* <Route exact path='/workshop/:workshop' component={workshopPage} />
+    <Route exact path='/workshops' component={workshopsPage} /> */}
 
     <Route exact path='/chefWorkshops' component={chefWorkshops} />
     <Route exact path='/createWorkshop' component={createWorkshop} />
@@ -116,12 +116,6 @@ function App() {
     <Route exact path='/orders/:order' component={showorder} />
     <Route exact path='/editorder/:order' component={EditOrder} />
     <Route exact path='/orderdeleted' component={orderdeleted} />
-
-
-
-
-  
-    
   
 
   <div className="bg-white-300 h-screen">

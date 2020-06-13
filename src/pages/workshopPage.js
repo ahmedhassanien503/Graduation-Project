@@ -11,7 +11,13 @@ class workshopPage extends Component {
     {
         super();
         this.state={
-            workshop:[]
+            workshop:{
+                "workshop_name":"loading...",
+                "workshop_description":"loading...",
+                "app_deadline":"loading...",
+                "no_of_applicant":"loading...",
+                "chef_name":{"name":"loading..."},
+                "image":""},
         }
     }
     
@@ -26,7 +32,7 @@ class workshopPage extends Component {
 
     handleSubmit = event =>{
         const  data= {
-            'user_id':"2",
+            'user_id':"1",
             'workshop_id' :  `${this.props.match.params.workshop}`,
         }
         axios.post(`http://127.0.0.1:8000/api/applicants` ,data)
@@ -42,20 +48,22 @@ class workshopPage extends Component {
             <NavbarSection/>
             <HeaderSection/>
                     <div className="container styles.center" style={{marginTop:"10px"}}>
-                        <h3 style={{fontWeight:"bold"},{ textAlign: "center"}}> { this.state.workshop.workshop_name}</h3>
+                        <h3 style={{fontWeight:"bold" ,textAlign: "center"}}> { this.state.workshop.workshop_name} : ورشه عمل</h3>
                             <div  style={{ textAlign: "center"}}>
-                                <img src={`http://localhost:8000/uploads/workshops/${this.state.workshop.image}`} alt="" width="400" height="350" />
-                                <hr/>
-                                <h6>:جدول الورشه </h6>
-                                <p >{ this.state.workshop.workshop_description}</p><hr/>
+                                <img src={`http://localhost:8000/uploads/workshops/${this.state.workshop.image}`} alt="" width="7000" height="450" />
+                          
+                                <div style={{backgroundColor :"#f0f4c3" , marginTop:"15px"}}>
+                                <p >{ this.state.workshop.workshop_description} :جدول الورشه </p><hr/>
                                 <p> { this.state.workshop.app_deadline} :تاريخ البدء</p><hr/>
-                                {/* <p >{ this.state.workshop.chef_name.name}: الشيف</p> */}
+                                <p >{ this.state.workshop.chef_name.name}: الشيف</p><hr/>
                                 <span style={{color: "orange"}}> {this.state.workshop.no_of_applicant} :عدد المشتركين</span><hr></hr>
-                                <div> <img src="img/food10.jpg" alt=""/></div><div><button className="btn btn-outline-success btn-sm" onClick={this.handleSubmit} >   
+                                <div> <img src="/img/food10.jpg" alt=""  width="150" height="100"/><button className="btn btn-outline-success btn-sm" onClick={this.handleSubmit} >   
                                 <i class="fas fa-user-check"></i>  اكتسب مهارة الطبخ واحجز اﻻن </button>  </div>
                             </div>
+                        </div>
                     </div>
-                    <div className="container">
+
+                    <div className="container" style={{marginTop: "25px"}}>
                         <div className="row">
                             <div className="col-12">
                                 <div className="copy_right_text text-center">

@@ -27,6 +27,9 @@ class editWorkshop extends Component {
         handleChange = event =>{
           this.setState({ [event.target.name]:event.target.value })
         }
+        handleImage= event =>{
+            this.setState({ [event.target.name]:event.target.files[0] })
+          }
         componentDidMount()
         {
             axios.get(`http://127.0.0.1:8000/api/workshops/${this.props.match.params.workshop}`)
@@ -84,9 +87,9 @@ render(){
             <HeaderSection/>
                     <div className="container" style={{marginTop:"10px"}}>
                         <form onSubmit={this.handleSubmit}>
-                            <h3>Sign In</h3>
-                                <div className="form-group">
-                                    <label>WorkshopName</label>
+                            <h3 style={{fontWeight:"bold" ,textAlign: "center" , color: "#455a64 "}}> {this.state.workshop.workshop_name} / تعديل ورشه عمل </h3><hr/>
+                                <div className=" row"  style={{marginTop: "25px"}}>
+                                    <div className=" col">
                                     <input 
                                         name="name"
                                         type="text" 
@@ -95,18 +98,7 @@ render(){
                                         placeholder={this.state.workshop.workshop_name}
                                         onChange={this.handleChange} />
                                 </div>
-
-                                <div className="form-group">
-                                    <label>Description</label>
-                                    <textarea 
-                                        name="description"
-                                        // value={this.state.workshop.workshop_description}
-                                        className="form-control" 
-                                        placeholder={this.state.workshop.workshop_description}
-                                        onChange={this.handleChange} />
-                                </div>
-                                <div className="form-group">
-                                    <label>Workshop Day</label>
+                                <div className="col">
                                     <input 
                                         name="app_deadline"
                                         type="text" 
@@ -114,9 +106,20 @@ render(){
                                         className="form-control" 
                                         placeholder={this.state.workshop.app_deadline}
                                         onChange={this.handleChange} />
+                                </div> </div>
+                                <div className="row" style={{marginTop: "25px"}}>
+                                    <textarea 
+                                        rows="8"
+                                        cols="35"
+                                        name="description"
+                                        // value={this.state.workshop.workshop_description}
+                                        className="form-control" 
+                                        placeholder={this.state.workshop.workshop_description}
+                                        onChange={this.handleChange} />
                                 </div>
-                                <div className="form-group">
-                                    <label>No_Of_Applicant</label>
+
+                                <div className="row"  style={{marginTop: "25px"}}>
+                                <div className="col">
                                     <input 
                                         name="no_of_applicant"
                                         // value={this.state.workshop.no_of_applicant}
@@ -125,16 +128,26 @@ render(){
                                         placeholder={this.state.workshop.no_of_applicant}
                                         onChange={this.handleChange} />
                                 </div>
-                                <div className="form-group">
-                                    <label>Image</label>
+                                <div className="col">
                                     <input 
                                     name="image"
                                     type="file" 
                                     className="form-control" 
-                                    onChange={this.handleChange} />
-                                </div>
-                                <button type="submit" className="btn btn-primary">Submit</button>
+                                    onChange={this.handleImage} />
+                                </div> </div>
+                                <div className="text-center mt-4 mb-2">
+                                <button type="submit" className="btn btn-info"> <i class="fas fa-user-edit"></i> تعديل</button>
+                                </div> 
                         </form>
+                    </div>
+                    <div className="container" style={{marginTop: "25px"}}>
+                        <div className="row">
+                            <div className="col-12">
+                                <div className="copy_right_text text-center">
+                                    <p>@2020, Made with <i className="fas fa-heart"></i> by <a href="#" > Ratatouille Team </a> for food lover's.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
             <SocialSection />
         </div>

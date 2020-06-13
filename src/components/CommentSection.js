@@ -5,12 +5,12 @@ class CommentSection extends Component{
     constructor() {
         super();
         this.state = {
-            chefs : []
+            comments : []
          };
       }
     
     componentDidMount(){
-     axios.get('http://127.0.0.1:8000/api/chefs')
+     axios.get('http://127.0.0.1:8000/api/recipes//comments')
      .then(res=>{
              console.log(res.data.data)
             //  const chefs = res.data;

@@ -10,7 +10,7 @@ class SocialSection extends Component {
             <div className="col-12">
                 <div className="footer-social-area d-flex">
                     <div className="single-icon">
-                        <a href="#"><i className="fab fa-facebook"  style={{width: "30px"}} aria-hidden="true"></i><span>facebook</span></a>
+                        <a href="https://www.facebook.com/Ratatouile-108911094195742/"><i className="fab fa-facebook"  style={{width: "30px"}} aria-hidden="true"></i><span>facebook</span></a>
                     </div>
                   
                     <div className="single-icon">

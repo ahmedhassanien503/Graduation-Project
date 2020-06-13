@@ -24,7 +24,7 @@ function Register(){
             password_confirmation: '',
             image: '',
             device_name:'web',
-            is_chef:'',
+            is_chef:0,
             redirect:false,
         });
 
@@ -165,10 +165,11 @@ return (
                         <div className="form-group">
                             <label> هل تريد ان تسجل معنا كواحد من الطهاة؟ </label>
                             <br></br>
-                            <label class="checkbox-inline" >
-                            <input type="checkbox" value="1" name="is_chef" className="form-control"
-                                   onChange={handleChange} ref={register({})} /> 
-                                    نعم </label>
+                        
+                                      <input type="text" name="is_chef" className="form-control"                                 
+                                placeholder="ادخل رقم 1 اذا كنت تريد التسجيل كطاهى"
+                                   onChange={handleChange} ref={register({  })} />
+                           
                         </div>
                         
                     

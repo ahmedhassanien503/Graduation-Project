@@ -1,0 +1,21 @@
+ .breadcumb-area {
+
+        background-image: url(/img/instagram-img/4.jpg);
+      }
+.one{
+          height: 100000;
+          width: 100000;
+      }
+
+.area{
+    background-image: url(/img/instagram-img/1.jpg);
+    height: 200px;
+
+}
+
+.card-group{
+    margin-top: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 100px;
+}

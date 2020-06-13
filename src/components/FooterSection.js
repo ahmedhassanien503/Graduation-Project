@@ -1,4 +1,5 @@
 import React , {Component} from 'react';
+import { BrowserRouter as Router, Switch, Route, Link , Redirect } from "react-router-dom";
 class FooterSection extends Component {
 
   render(){
@@ -27,7 +28,7 @@ class FooterSection extends Component {
                                 <a className="nav-link" href="#">من نحن ؟</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#"> اسأل الشيف </a>
+                                <Link to={"/askquestion"} className="nav-link" href="#">  اسأل الشيف <i className="fas fa-comment" style={{width: "25px"}}></i></Link>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="#">ورش الطبخ</a>

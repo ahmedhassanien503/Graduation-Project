@@ -27,16 +27,19 @@ function NavSection() {
                                 <i className="fas fa-users" style={{width: "15px"} ,{color:'#e07b39'}}></i></Nav.Link>
                         </NavDropdown.Item>
                         <NavDropdown.Item eventKey="4.3">
-                            <Nav.Link  href="#home"> اسأل الشيف
-                                <i className="fas fa-comment" style={{width: "15px"} ,{color:'#e07b39'}}></i></Nav.Link>
+                            <Nav.Link to={"/questions"}>
+                            <Link to={"/questions"} style={{color:"grey"}}> الاسئلة و الاستفسارات </Link>
+                            <i class="fas fa-question" style={{width: "15px"} ,{color:'#e07b39'}}></i></Nav.Link>
                         </NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item eventKey="4.3">
-                            <Nav.Link  href="#home"> للتواصل معنا 
+                            <Nav.Link  href="#home"> 
+                            <Link to={"/contactus"} style={{color:"grey"}}>  للتواصل معنا</Link>
                             <i className="fas fa-blender-phone" style={{width: "15px"} ,{color:'#e07b39'}}></i></Nav.Link>
                         </NavDropdown.Item>
                         <NavDropdown.Item eventKey="4.3">
-                            <Nav.Link  href="#home"> من نحن؟
+                            <Nav.Link  href="#home"> 
+                            <Link to={"/aboutus"} style={{color:"grey"}}>  من نحن ؟</Link>
                     <i class="far fa-address-card" style={{width: "15px"} ,{color:'#e07b39'}}></i></Nav.Link>
                         </NavDropdown.Item>
                     </NavDropdown>

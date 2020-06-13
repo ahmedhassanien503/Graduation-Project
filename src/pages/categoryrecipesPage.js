@@ -103,7 +103,11 @@ class categoryrecipesPage extends Component {
             )}
 
                 <div className="col-12">
-                    <div className="pagination-area d-sm-flex mt-15">
+                    <div className="pagination-area d-sm-flex mt-15" style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                        }}>
                     <Pagination
                     activePage={this.state.activePage}
                     itemsCountPerPage={this.state.itemsCountPerPage}

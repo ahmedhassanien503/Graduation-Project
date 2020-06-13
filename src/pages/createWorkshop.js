@@ -20,6 +20,9 @@ class createWorkshop extends Component {
         handleChange = event =>{
           this.setState({ [event.target.name]:event.target.value })
         }
+        handleImage = event =>{
+            this.setState({ [event.target.name]:event.target.files[0] })
+          }
         handleSubmit = event =>{
           event.preventDefault();
           console.log("name : " + this.state.name);
@@ -63,7 +66,6 @@ class createWorkshop extends Component {
             axios.post(url, formData)
             .then(
                 res=>{  this.props.history.push(`/workshops/${res.data.data.id}`)},
-
             );
         }
 
@@ -73,55 +75,68 @@ render(){
         <div>
             <NavbarSection/>
             <HeaderSection/>
-                    <div className="container" style={{marginTop:"10px"}}>
+                    <div className="container styles.center" style={{marginTop:"10px"}}>
                         <form onSubmit={this.handleSubmit}>
-                            <h3>Sign In</h3>
-                                <div className="form-group">
-                                    <label>WorkshopName</label>
+                            <h3 style={{fontWeight:"bold" ,textAlign: "center" , color: "#455a64 "}}>انشاء ورشه عمل جديدة</h3><hr/>
+                                <div className=" row"  style={{marginTop: "25px"}}>
+                                    <div className=" col">
                                     <input 
                                         name="name"
                                         type="text" 
-                                        className="form-control" 
-                                        placeholder="Enter workshop name"
+                                        className="form-control  align-right"
+                                        placeholder="اسم الورشه"
+                                        border= "2px solid red"
+                                        bordeRadius= "4px"
                                         onChange={this.handleChange} />
-                                </div>
-
-                                <div className="form-group">
-                                    <label>Description</label>
-                                    <textarea 
-                                        name="description"
-                                        className="form-control" 
-                                        placeholder="Enter description"
-                                        onChange={this.handleChange} />
-                                </div>
-                                <div className="form-group">
-                                    <label>Workshop Day</label>
+                                </div> 
+                                <div className="col">
                                     <input 
                                         name="app_deadline"
                                         type="text" 
                                         className="form-control" 
-                                        placeholder="Enter Workshop Day example: 1-1-2001"
+                                        placeholder=" 01-01-2001 تاريخ الورشه"
                                         onChange={this.handleChange} />
                                 </div>
-                                <div className="form-group">
-                                    <label>No_Of_Applicant</label>
+                                </div>
+                                <div className="row" style={{marginTop: "25px"}}>
+                                    <textarea 
+                                        rows="8"
+                                        cols="35"
+                                        name="description"
+                                        className="form-control" 
+                                        placeholder="تفاصيل الورشه"
+                                        onChange={this.handleChange} />
+                                </div>
+
+                                <div className="row"  style={{marginTop: "25px"}}>
+                                <div className="col">
                                     <input 
                                         name="no_of_applicant"
                                         type="number" 
                                         className="form-control" 
-                                        placeholder="Enter no_of_applicant"
+                                        placeholder="عدد المشتركين المحدد للورشه"
                                         onChange={this.handleChange} />
                                 </div>
-                                <div className="form-group">
-                                    <label>Image</label>
+                                <div className="col">
                                     <input 
                                     name="image"
                                     type="file" 
                                     className="form-control" 
-                                    onChange={this.handleChange} />
+                                    onChange={this.handleImage} />
+                                </div>  </div>
+                                <div className="text-center mt-4 mb-2">
+                                <button type="submit" className="btn btn-info"> <i class="fas fa-user-edit"></i> انشاء</button>
                                 </div>
-                                <button type="submit" className="btn btn-primary">Submit</button>
                         </form>
+                    </div>
+                    <div className="container" style={{marginTop: "25px"}}>
+                        <div className="row">
+                            <div className="col-12">
+                                <div className="copy_right_text text-center">
+                                    <p>@2020, Made with <i className="fas fa-heart"></i> by <a href="#" > Ratatouille Team </a> for food lover's.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
             <SocialSection />
         </div>

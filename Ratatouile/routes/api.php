@@ -33,6 +33,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
     Route::get('/recipes', 'API\RecipeApiController@index')->name('recipes.index');
     Route::get('/userrecipes', 'API\RecipeApiController@indexx')->name('recipes.indexx');
+    Route::get('/rec', 'API\RecipeApiController@indexxx')->name('recipes.indexxx');
+
 
     Route::get('/recipes/create','API\RecipeApiController@create')->name('recipes.create');
     Route::get('/recipes/{recipe}', 'API\RecipeApiController@show')->name('recipes.show');
@@ -49,12 +51,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::post('/workshops/store','API\WorkshopController@store');
     Route::get('/workshops/{workshop}','API\WorkshopController@show');
     Route::put('/workshops/update/{workshop}','API\WorkshopController@update');
-
+    Route::post('/workshops/delete/{workshop}','API\WorkshopController@destroy');
+    
     ##################### WorkshopUser Routes #############################################################
     Route::get('/applicants','API\WorkshopUserController@index');
-    Route::get('/workshopApplicants/{workshopId}','API\WorkshopUserController@workshop');
+    Route::get('/workshopApplicants/{workshopId}','API\WorkshopUserController@workshopUsers');
     // Route::post('/workshopApplicants/store','API\WorkshopUserController@store');
     Route::get('/applicants/{workshopUser}','API\WorkshopUserController@show');
+    Route::post('/applicants', 'API\WorkshopUserController@store')->name('applicants.store');
     Route::put('/applicants/{applicant}/accept','API\WorkshopUserController@accept');
     Route::put('/applicants/{applicant}/reject','API\WorkshopUserController@reject');
      ##################### Season Routes #############################################################
@@ -76,10 +80,54 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::get('/orders','API\OrderController@index');
     Route::get('/orders/{order}','API\OrderController@show');
     Route::post('/orders','API\OrderController@store');
+    ######################contact Routes#################################
+    Route::get('/contacts', 'API\ContactApiController@index')->name('contacts.index');
+    Route::post('/contacts','API\ContactApiController@store')->name('contacts.store');
+
+
 
     ##################### Comments Routes #############################################################
     // Route::get('/recipes/{recipe}/comments','API\CommentController@index');
     Route::resource('recipes.comments', 'API\CommentController');
+    
+Route::post('/login', function (Request $request) {
+    $request->validate([
+        'email' => 'required|email',
+        'password' => 'required',
+        'device_name' => 'required'
+    ]);
+
+    $user = User::where('email', $request->email)->first();
+
+    if (! $user || ! Hash::check($request->password, $user->password)) {
+        throw ValidationException::withMessages([
+            'email' => ['The provided credentials are incorrect.'],
+        ]);
+    }
+
+    return $user->createToken($request->device_name)->plainTextToken;
+});
+    Route::post('/orders/add','API\OrderController@store');
+    // Route::get('/ChefOrders','API\OrderController@chef')->name('cheforders');
+   // Route::get('/userOrders','API\OrderController@user')->name('userorders');
+    Route::put('/orders/update/{order}','API\OrderController@update');
+    Route::delete('/orders/delete/{order}','API\OrderController@destroy');
+
+
+    ##################### Questions Routes #########################################################
+    Route::get('/questions','API\QuestionApiController@index');
+    Route::post('/questions/submit','API\QuestionApiController@store');
+    Route::get('/questions/{question}','API\QuestionApiController@show');
+    Route::delete('/questions/delete/{question}','API\QuestionApiController@destroy');
+    Route::put('/questions/update/{questionid}','API\QuestionApiController@update');
+    Route::get('/questions/answers/{id}','API\QuestionApiController@answers');
+    ##################### Answers Routes ##########################################################
+    Route::post('/answers/{question}','API\AnswerApiController@store');
+    Route::delete('/answers/delete/{answer}','API\AnswerApiController@destroy');
+
+  
+    
+   
 
 
 Route::post('/login','UserController@login');

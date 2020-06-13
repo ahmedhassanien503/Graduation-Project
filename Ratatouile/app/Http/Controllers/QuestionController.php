@@ -39,7 +39,7 @@ class QuestionController extends Controller
      */
     public function create(){
         $action =route('question.store');
-        $users= User::where([ ['is_chef','==',false],['is_admin','==',false] ])->get();
+        $users= User::where('is_chef','==',false)->get();
         // dd($users);
         return view('questions.create',[
             'action'=> $action,
@@ -69,7 +69,7 @@ class QuestionController extends Controller
      */
     public function edit(){
         $request=request();
-        $users= User::where([ ['is_chef','==',false],['is_admin','==',false] ])->get();
+        $users= User::where('is_chef','==',false)->get();
         $questionId=$request->question;
         $question = Question::find($questionId);
         $action =route('question.update',['questionid'=>$questionId]);
@@ -87,5 +87,6 @@ class QuestionController extends Controller
         $question->save();
         return redirect()->route('question.index');
     }
+
 
 }

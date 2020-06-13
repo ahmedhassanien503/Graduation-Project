@@ -39,21 +39,33 @@
           </div>
           <!-- /.card-header -->
           <div class="card-body"  style="text-align:center">
-            <strong><i class="fas fa-file-signature"></i> Order ID</strong>
+          <strong><i class="fas fa-file-signature"></i> Order ID</strong>
 
-            <p class="text-muted">
-             {{$order->id}}
-            </p>
+                 <p class="text-muted">
+                   {{$order->id}}
+                   </p>
 
-            <hr>
+                   <hr>
 
+        <strong><i class="fas fa-calendar-week"></i> Order Description</strong>
+
+<p class="text-muted">{{$order->description}}</p>
+
+<hr>
+
+<strong><i class="fas fa-calendar-week"></i> Order Payment method</strong>
+
+<p class="text-muted">{{$order->payment_method}}</p>
+
+<hr>
+          
             <strong><i class="fas fa-calendar-week"></i> Order Address</strong>
 
             <p class="text-muted">{{$order->address}}</p>
 
             <hr>
 
-            <strong><i class="fas fa-calendar-week"></i> Order Date</strong>
+            <strong><i class="fas fa-calendar-week"></i> Order Delivery Date</strong>
 
             <p class="text-muted">{{$order->date}}</p>
 

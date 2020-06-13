@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return redirect()->route('admin.login');
 });
 
 Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm')->name('admin.login');
@@ -103,13 +103,20 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('/seasonalrecipes/{seasonalrecipe}/edit', 'SeasonalRecipeController@edit')->name('seasonalrecipes.edit');
     Route::put('/seasonalrecipes/{seasonalrecipe}', 'SeasonalRecipeController@update')->name('seasonalrecipes.update');
     Route::delete('/seasonalrecipes/{seasonalrecipe}/delete', 'SeasonalRecipeController@destroy')->name('seasonalrecipes.destroy');
+  ##############################contact Routes##########################################
+  Route::get('/contacts', 'ContactController@index')->name('contacts.index');
+  Route::get('/contacts/create','ContactController@create')->name('contacts.create');
+  Route::get('/contacts/{contact}', 'ContactController@show')->name('contacts.show');
+  Route::post('/contacts','ContactController@store')->name('contacts.store');
+
     ##################### Comments Routes #############################################################
     // Route::get('recipes/{recipe}/comments', 'RecipeCommentController@index')->name('recipes.comments.index');
     // Route::get('/comments/create', 'RecipeCommentController@create')->name('comments.create');
     Route::post('/comments/create', 'RecipeCommentController@store')->name('comments.store');
     
 });
-
+// Auth::logout();
+// Auth::login();
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 

@@ -17,7 +17,7 @@ class OrderController extends Controller
     }
 
     public function create(){
-        $users= User::where([ ['is_chef','==',false],['is_admin','==',false] ])->get();
+        $users= User::where( 'is_chef','==',false)->get();
         $chefs = User::where('is_chef','!=',false)->get();
         $action =route('orders.store');
         return view('orders.create',[
@@ -32,6 +32,8 @@ class OrderController extends Controller
     public function store(Request $request){
     
          Order::create([
+             'description' => $request->description,
+             'payment_method'=>$request->payment_method,
             'date' =>  $request->date,
             'address' =>  $request->address,
             'total_price' =>  $request->total_price,
@@ -63,7 +65,7 @@ class OrderController extends Controller
     public function edit(){
 
         $request=request();
-        $users= User::where([ ['is_chef','==',false],['is_admin','==',false] ])->get();
+        $users= User::where( 'is_chef','==',false)->get();
         $chefs = User::where('is_chef','!=',false)->get();
         $orderId=$request->order;
         $order = Order::find($orderId);
@@ -83,6 +85,8 @@ class OrderController extends Controller
         $request=request();
         $orderId=$request->order;
         $order= Order::find($orderId);
+        $order->description = $request->description;
+        $order->payment_method = $request->payment_method;
         $order->date = $request->date;
         $order->address = $request->address;
         $order->total_price =  $request->total_price;

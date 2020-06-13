@@ -32,15 +32,60 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-        
+        'description' =>'required',
+        'payment_method' => 'required',
         'address' => 'required',
-        'total_price' => 'integer',
-        'chef_id' => 'required',
-        'user_id' => 'required',
+        'total_price' => 'required',
+        // 'chef_id' => 'required',
+        // 'user_id' => 'required',
     ]);
-        $order = Order::create($request->all());
- 
-        return response()->json($order, 201);
-    }
+
+    $order= Order::create([
+        'description' => $request->description,
+        'payment_method' => $request->payment_method,
+        'address' => $request->address,
+        'total_price' =>  $request->total_price,
+        'date'=>$request->date,
+        'user_id' =>  "1",
+        'chef_id' => "1",
+    ]);
+    // return response()->json($orders,201);
+
+     return new OrderResource($order);
+}
+
+
+
+public function update(Request $request)
+{
+     $request->validate([
+        'description' =>'required',
+        'payment_method' => 'required',
+        'address' => 'required',
+        'total_price' => 'required',
+    ]); 
+
+    $orderId=$request->order;
+    $orderData=Order::find($orderId);
+    $orderData->description = $request->description;
+    $orderData->payment_method = $request->payment_method;
+    $orderData->address = $request->address;
+    $orderData->date = $request->date;
+    $orderData->total_price =  $request->total_price;
+    $orderData->chef_id = "1";
+    $orderData->user_id = "1";
+    $orderData->save();
+    return new OrderResource($orderData);
+}
+
+public function destroy()
+{
+    $request = request();
+    $orderId = $request->orderId;
+    Order::find($orderId)->delete();
+    // return redirect()->route('orders');
+    // $order=Order::find($order);
+    // $order->delete();
+}
 
 }

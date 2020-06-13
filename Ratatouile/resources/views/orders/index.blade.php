@@ -10,8 +10,10 @@
         <thead class="thead-light">
             <tr>
               <th scope="col">ID</th>
+              <th scope="col">Order Description</th>
+              <th scope="col">Order Payment method</th>
               <th scope="col">Order Address</th>
-              <th scope="col">Order Date</th>
+              <th scope="col">Order Delivery Date</th>
               <th scope="col">Total Price</th>
               <th scope="col">Chef Name</th>
               <th scope="col">User Name</th>
@@ -25,6 +27,8 @@
             <tr>
                 
             <th scope="row">{{ $order->id }}</th>
+            <td>{{ $order->description }} </td>
+            <td>{{ $order->payment_method}} </td>
               <td>{{ $order->address }} </td>
               <td>{{ $order->date }} </td>
               <td>{{$order->total_price }}</td>

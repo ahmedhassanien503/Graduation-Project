@@ -21,7 +21,7 @@ class WorkshopResource extends JsonResource
             'workshop_description'=> $this->description,
             'app_deadline'=> $this->app_deadline,
             'no_of_applicant'=> $this->no_of_applicant,
-            // 'chef_id'=> new ChefResource($this->chef_id),
+            'chef_name'=> new ChefResource($this->user),
             'image'=> $this->image,
         ];
     }

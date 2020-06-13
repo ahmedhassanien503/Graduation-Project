@@ -19,6 +19,7 @@ class ResipeResource extends JsonResource
             'created_at'=>$this->created_at,
             'updated_at'=>$this->updated_at,
             'RecipeName'=>$this->RecipeName,
+            'title'=>$this->title,
             'details'=>$this->details,
             'recipe_image'=>$this->recipe_image,
             'Serving'=>$this->Serving,
@@ -31,6 +32,8 @@ class ResipeResource extends JsonResource
            'user'=>[
                'id'=>$this->user? $this->user->id:'not exist',
                'name'=>$this->user? $this->user->name:'not exist',
+               'image'=>$this->user? $this->user->image: 'not exist',
+               'is_chef'=>$this->user? $this->user->is_chef: 'not exist',
             //    'id'=>$this->user? $this->user->id:'not exist',
 
            ]

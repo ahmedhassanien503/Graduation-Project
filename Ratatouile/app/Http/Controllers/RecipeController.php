@@ -64,6 +64,7 @@ class RecipeController extends Controller
         $recipe->created_at =$request->created_at;
         $recipe->updated_at=$request->updated_at;
         $recipe->RecipeName =$request->RecipeName;
+        $recipe->title=$request->title;
         $recipe->details=$request->details;
         $recipe->recipe_image =$filename;
         $recipe->Serving=$request->Serving;
@@ -72,26 +73,10 @@ class RecipeController extends Controller
         $recipe->save();
         $recipe->categories()->sync($request->categories, false);
      
-        // Recipe::create([
-          
-
-        //     'created_at'=>$request->created_at,
-        //     'updated_at'=>$request->updated_at,
-        //     'RecipeName'=>$request->RecipeName,
-        //     'details'=>$request->details,
-        //     'image'=>$filename,
-        //     'Serving'=>$request->Serving,
-        //     'TakenTime'=>$request->TakenTime,
-        //     'user_id'=>$request->user_id,
-        //     'chef_id'=>$request->chef_id,
-        
-        // ]);
         return redirect()->route('recipes.index');
 
     }
-
-
-    /**
+       /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -141,6 +126,7 @@ class RecipeController extends Controller
         $recipeId= $request->recipe;
         $recipe=Recipe::find($recipeId);
         $recipe->RecipeName=$request->get('RecipeName');
+        $recipe->title=$request->get('title');
         $recipe->details=$request->get('details');
         if($request->hasFile('image'))
         {
@@ -148,7 +134,7 @@ class RecipeController extends Controller
             $extension = $file->getClientOriginalExtension();
             $filename =time().'.'.$extension;
             Storage::disk('public')->put('recipes/'.$filename, File::get($file));
-            $recipe->image= $filename;
+            $recipe->Recipe_image= $filename;
         } 
         $recipe->serving=$request->get('Serving');
         $recipe->TakenTime=$request->get('TakenTime');

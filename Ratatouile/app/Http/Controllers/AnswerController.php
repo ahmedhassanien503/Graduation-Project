@@ -20,7 +20,6 @@ class AnswerController extends Controller
         return view('answers.index', [
             'answers' => $answers,
         ]);
-
     }
 
     /**

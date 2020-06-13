@@ -33,12 +33,24 @@
             <div class="card-body">
                 <form method="POST" action="{{route('orders.store')}}" enctype="multipart/form-data">
                     @csrf
+                    <div class="form-group">
+                <label for="inputName">Order's Description</label>
+                <input type="text" id="inputName" name="description" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="inputStatus">Order's Payment Method</label>
+                <select name="payment_method" class="form-control custom-select">
+                  <option selected disabled>Select payment method</option>
+                  <option value="Cash">Cash on Delivery</option>
+                  <option value="Credit Card">Credit Card</option>
+                </select>
+              </div>
               <div class="form-group">
                 <label for="inputName">Order's Address</label>
                 <input type="text" id="inputName" name="address" class="form-control">
               </div>
               <div class="form-group">
-                <label for="inputName">Order's Date</label>
+                <label for="inputName">Order's Delivery Date</label>
                 <input type="text" id="inputName" name="date" class="form-control">
               </div>
               <div class="form-group">

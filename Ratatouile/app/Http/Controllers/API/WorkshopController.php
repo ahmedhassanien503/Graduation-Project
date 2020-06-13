@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\ WorkshopResource;
 use App\Workshop;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+
 
 class WorkshopController extends Controller
 {
@@ -105,7 +108,7 @@ class WorkshopController extends Controller
     {  
         //  $id = Auth::id();
         return WorkshopResource::collection(
-            Workshop::where('chef_id','1')->get()
+            Workshop::where('chef_id','5')->get()
             // Workshop::paginate(4)
         ); 
     }
@@ -113,8 +116,7 @@ class WorkshopController extends Controller
     public function destroy()
     {
         $request = request();
-        $workshopId = $request->workshopId;
+        $workshopId = $request->workshop;
         Workshop::find($workshopId)->delete();
-        return redirect()->route('workshops');
     }
 }

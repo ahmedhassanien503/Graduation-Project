@@ -22,11 +22,10 @@ class chefrecipe extends Component {
     {
        axios.get(`http://127.0.0.1:8000/api/recipes/${this.props.match.params.recipe}`)
        .then(
-           res=>{ this.setState({recipe: res.data.data})
+           res=>{ this.setState({recipe: res.data.data});console.log('cheffff')
            return  axios.get(`http://127.0.0.1:8000/api/recipes/${this.props.match.params.recipe}/comments`);
            
-        }).then(
-            res=>{ this.setState({recipe: res.data.data}) ;console.log('cheffff')})
+        })
            .then(res=>{ 
                 console.log(res.data.data)
                 this.setState({
@@ -36,6 +35,8 @@ class chefrecipe extends Component {
            
            
     }
+    // .then(
+    //     res=>{ this.setState({recipe: res.data.data}) ;console.log('cheffff')})
     // componentDidMount(){
     //     axios.get(`http://127.0.0.1:8000/api/recipes/${this.props.match.params.recipe}/comments`)
     //     .then(res=>{

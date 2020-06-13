@@ -77,6 +77,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::get('/orders/{order}','API\OrderController@show');
     Route::post('/orders','API\OrderController@store');
 
+    ##################### Comments Routes #############################################################
+    // Route::get('/recipes/{recipe}/comments','API\CommentController@index');
+    Route::resource('recipes.comments', 'API\CommentController');
 
 
 Route::post('/login','UserController@login');

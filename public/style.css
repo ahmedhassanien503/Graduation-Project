@@ -512,8 +512,7 @@ li {
     bottom: 0;
 }
 
-.welcome-single-slide .
-date-commnents a {
+.welcome-single-slide .date-commnents a {
     font-size: 14px;
     font-weight: 400;
     color: #fff;
@@ -1510,6 +1509,7 @@ chefs section
 #testimonial h2 {margin-bottom: 6rem;}
 
 #testimonial .slide-box .content {margin-top: 2rem;}
+
 #chef-img{
     border-radius: 100%;
     height: 120px;

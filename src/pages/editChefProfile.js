@@ -33,8 +33,9 @@ class Chef extends Component{
     //         })
     //     })
     // }
-    handleSubmit = event =>{
 
+    handleSubmit = event =>{
+       
         event.preventDefault();
         const url =`http://127.0.0.1:8000/api/chef/edit/${this.props.match.params.chef}`;
         const name= this.state.name ;

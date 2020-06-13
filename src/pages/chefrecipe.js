@@ -11,7 +11,9 @@ class chefrecipe extends Component {
     {
         super();
         this.state={
-        recipe:[]
+            recipe:[],
+            comments : []
+            
         }
     }
     
@@ -19,9 +21,26 @@ class chefrecipe extends Component {
     {
        axios.get(`http://127.0.0.1:8000/api/recipes/${this.props.match.params.recipe}`)
        .then(
-           res=>{ this.setState({recipe: res.data.data})},
-           );
+           res=>{ this.setState({recipe: res.data.data})
+           return  axios.get(`http://127.0.0.1:8000/api/recipes/${this.props.match.params.recipe}/comments`);
+           
+        })
+           .then(res=>{ 
+                console.log(res.data.data)
+                this.setState({
+                   comments: res.data.data
+                });
+            })
     }
+    // componentDidMount(){
+    //     axios.get(`http://127.0.0.1:8000/api/recipes/${this.props.match.params.recipe}/comments`)
+    //     .then(res=>{
+    //             console.log(res.data.data)
+    //             this.setState({
+    //                 comments: res.data.data
+    //             });
+    //         })
+    //    }
 
     render(){
     return(
@@ -206,7 +225,7 @@ class chefrecipe extends Component {
                                                 <a className="active" href="#">Reply</a>
                                             </div>
                                         </div>
-                                        <ol className="children">
+                                        {/* <ol className="children">
                                             <li className="single_comment_area">
                                                 <div className="comment-wrapper d-flex">
                                             
@@ -223,9 +242,9 @@ class chefrecipe extends Component {
                                                     </div>
                                                 </div>
                                             </li>
-                                        </ol>
+                                        </ol> */}
                                     </li>
-                                    <li className="single_comment_area">
+                                    {/* <li className="single_comment_area">
                                         <div className="comment-wrapper d-flex">
                                         
                                             <div className="comment-author">
@@ -240,7 +259,7 @@ class chefrecipe extends Component {
                                                 <a className="active" href="#">Reply</a>
                                             </div>
                                         </div>
-                                    </li>
+                                    </li> */}
                                 </ol>
                             </div>
 

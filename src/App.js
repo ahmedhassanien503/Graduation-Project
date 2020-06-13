@@ -37,14 +37,11 @@ import userRecipes from "./pages/userRecipes.js";
 import allChefs from "./pages/allChefs.js";
 import chefProfile from "./pages/chefProfile.js";
 import seasonalrecipesPage from "./pages/seasonalrecipesPage.js";
-<<<<<<< HEAD
 import Chef from "./pages/editChefProfile.js";
-=======
 import Login from "./pages/Login.js";
 import Register from "./pages/Register.js";
 
 
->>>>>>> 25c59bbc71b22cbe5de7bb8401fe1bfde0eb5c9b
 
 import categoryrecipesPage from "./pages/categoryrecipesPage.js";
 import AllCategories from './pages/AllCategories';
@@ -56,7 +53,7 @@ import chefWorkshops from './pages/chefWorkshops';
 function App() {
   return (
     <Router>
-        <div className="bg-gray-300 h-screen">
+    <div className="bg-gray-300 h-screen">
     <Route exact path='/' component={homePage} />
     <Route exact path='/workshop/:workshop' component={workshopPage} />
     <Route exact path='/workshops' component={workshopsPage} />
@@ -72,7 +69,6 @@ function App() {
     <Route exact path='/chefs' component={allChefs} />
     <Route exact path='/chefs/:chef' component={chefProfile} />
     <Route exact path='/seasons/:id' component={seasonalrecipesPage} />
-<<<<<<< HEAD
     <Route exact path='/chef/edit/:chef' component={Chef} />
     <Route exact path='/categories/:id' component={categoryrecipesPage} />
     <Route exact path='/categories' component={AllCategories} />
@@ -80,11 +76,9 @@ function App() {
     <Route path="/item-list" component={ItemsList} />
     <Route path="/sign-up" component={SignUp} /> */}
   
-  
+  </div>
  
   <div className="bg-gray-300 h-screen">
-=======
->>>>>>> 25c59bbc71b22cbe5de7bb8401fe1bfde0eb5c9b
     <GuestRoute path="/layout" component={Layout} />
     <GuestRoute path="/login" component={Login} />
      <GuestRoute path="/register" component={Register} /> 

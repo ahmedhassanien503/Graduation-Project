@@ -43,7 +43,7 @@ class userProfile extends Component {
                                 </div>
                             </div>
                        <Link to={`/chef/edit/${this.state.user.id}`}>
-                       <p> edit your profile</p></Link>
+                       <p> edit user profile</p></Link>
 
                 </div>
             </div>

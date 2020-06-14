@@ -140,6 +140,8 @@ class chefProfile extends Component {
 
 
                
+                       {/* <Link to={`/chef/edit/${this.state.chef.id}`}>
+                       <p> edit chef profile</p></Link> */}
 
                 </div>
             </div>

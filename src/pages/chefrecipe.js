@@ -72,7 +72,7 @@ class chefrecipe extends Component {
                         <h2 className="post-headline" >{this.state.recipe.RecipeName}</h2>
                                     
                                      <p>{this.state.recipe.details}</p>
-                                     <p>{this.state.recipe.user.name}</p>
+                                     
 
 
                                     <blockquote className="yummy-blockquote mt-30 mb-30">
@@ -290,12 +290,11 @@ class chefrecipe extends Component {
                                 <h6>معلومات عن الشيف</h6>
                             </div>
                             <div className="about-me-widget-thumb">
-                            <img src={`http://localhost:8000/uploads/chef/${this.state.recipe.user.image}`} alt="" width="450" height="400"/> 
+                            <img src={`http://localhost:8000/uploads/${this.state.recipe.user.image}`} alt="" width="450" height="400"/> 
                             <img src={`http://localhost:8000/uploads/user/${this.state.recipe.user.image}`} alt="" width="450" height="400"/> 
 
                             </div>
-                            <h4 className="font-shadow-into-light">Shopia Bernard</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                            <h3>{this.state.recipe.user.name}</h3>
                         </div>
 
                  

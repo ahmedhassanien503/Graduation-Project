@@ -15,5 +15,6 @@ class VerifyCsrfToken extends Middleware
         //
         "api/*",
         "api/workshops/store",
+        "api/recipes/{recipe}/comments"
     ];
 }

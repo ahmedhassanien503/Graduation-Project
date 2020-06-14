@@ -67,6 +67,7 @@ import AddOrder from './pages/AddOrder';
 import showorder from './pages/showorder';
 import EditOrder from './pages/EditOrder';
 import orderdeleted from './pages/orderdeleted';
+import editComment from "./pages/editComment.js";
 
 
 
@@ -112,6 +113,7 @@ function App() {
     <Route exact path='/questions/answers/:id' component={Answers} />
     {/* <Route exact path='/addAnswer' component={addAnswer} /> */}
    
+    <Route exact path='/comment/:comment' component={editComment} />
 
     <Route exact path='/addorder' component={AddOrder} />
     <Route exact path='/orders/:order' component={showorder} />

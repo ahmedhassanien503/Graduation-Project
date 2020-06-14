@@ -6,11 +6,15 @@ import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import { BrowserRouter as Router, Switch, Route, Link , Redirect } from "react-router-dom";
 import Cookies from 'universal-cookie';
+import User from '../pages/User';
+
 
 
 
 const cookies = new Cookies();
 const is_auth = cookies.get('UserData');
+// const is_chef = cookies.get('UserData').is_chef;
+
 
 
 function NavSection() {
@@ -66,14 +70,29 @@ function NavSection() {
                         <Link to={"/"} style={{color:"#e07b39"}}>  <span className="sr-only">(current)</span>الرئيسية  </Link> 
                         <i className="fa fa-fw fa-home" style={{width: "25px"},{color:'#e07b39'}}></i>
                         </Nav.Link>
-                    {/* <Nav.Link href="/login"> تسجيل الدخول<i className="fa fa-fw fa-user" style={{width: "25px"},{color:'#e07b39'}}></i></Nav.Link> */}
                     {!is_auth? (
                 <Nav.Link href="/login"> تسجيل الدخول<i className="fa fa-fw fa-user" style={{width: "25px"},{color:'#e07b39'}}></i></Nav.Link> 
 
           ) : (
-            <Nav.Link href="/logout"> تسجيل الخروج<i className="fa fa-fw fa-user" style={{width: "25px"},{color:'#e07b39'}}></i></Nav.Link> 
+        <Nav.Link href="/logout"> تسجيل الخروج<i className="fa fa-fw fa-user" style={{width: "25px"},{color:'#e07b39'}}></i></Nav.Link> 
 
-          )}
+          )
+          }
+           {is_auth && is_auth.is_chef?
+           (
+           <Nav.Link href="/chefprofile"> حساب الطاهى<i className="fa fa-fw fa-user" style={{width: "25px"},{color:'#e07b39'}}></i></Nav.Link> 
+          ): null
+        }
+        {is_auth && !is_auth.is_chef?
+(
+           <Nav.Link href="/userprofile"> حساب المستخدم<i className="fa fa-fw fa-user" style={{width: "25px"},{color:'#e07b39'}}></i></Nav.Link> 
+          ):null
+        }
+    
+          
+          
+          
+          
                 </Nav>
             </Navbar>
         </div>

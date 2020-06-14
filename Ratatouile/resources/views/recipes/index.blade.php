@@ -13,7 +13,7 @@
               <th scope="col">Created at</th>
               <th scope="col">Updated at</th>
               <th scope="col">Recipe Name</th>
-              <th scope="col">title</th>
+              <th scope="col">Title</th>
               <th scope="col">Details</th>
                <th scope="col">Image</th>
                <th scope="col">Serving</th>
@@ -39,7 +39,7 @@
       <td><img src="{{asset('uploads/recipes/'.$recipe->recipe_image)}}" width="100px" height="100px"></td>
       <td>{{$recipe->Serving}}</td>
       <td>{{$recipe->TakenTime}}</td>
-      <td>{{$recipe->user->name}}</td>
+      {{-- <td>{{$recipe->user->name}}</td> --}}
    
    
     <td><a href="{{route('recipes.show',['recipe' => $recipe->id])}}"  class="btn btn-outline-info" >  <i class="fas fa-folder">

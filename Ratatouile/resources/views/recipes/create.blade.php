@@ -57,7 +57,6 @@
                 <label for="inputName">Recipe Name</label>
                 <input type="text" name="RecipeName" class="form-control">
               </div>
-               
               <div class="form-group">
                 <label for="inputName">Title</label>
                 <input type="text" name="title" class="form-control">

@@ -64,7 +64,7 @@ class RecipeController extends Controller
         $recipe->created_at =$request->created_at;
         $recipe->updated_at=$request->updated_at;
         $recipe->RecipeName =$request->RecipeName;
-        $recipe->title=$request->title;
+        $recipe->title =$request->title;
         $recipe->details=$request->details;
         $recipe->recipe_image =$filename;
         $recipe->Serving=$request->Serving;

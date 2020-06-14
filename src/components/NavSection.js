@@ -5,6 +5,13 @@ import Navbar  from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import { BrowserRouter as Router, Switch, Route, Link , Redirect } from "react-router-dom";
+import Cookies from 'universal-cookie';
+
+
+
+const cookies = new Cookies();
+const is_auth = cookies.get('UserData');
+
 
 function NavSection() {
     return (
@@ -59,8 +66,14 @@ function NavSection() {
                         <Link to={"/"} style={{color:"#e07b39"}}>  <span className="sr-only">(current)</span>الرئيسية  </Link> 
                         <i className="fa fa-fw fa-home" style={{width: "25px"},{color:'#e07b39'}}></i>
                         </Nav.Link>
-                    <Nav.Link href="/login"> تسجيل الدخول<i className="fa fa-fw fa-user" style={{width: "25px"},{color:'#e07b39'}}></i></Nav.Link>
-                
+                    {/* <Nav.Link href="/login"> تسجيل الدخول<i className="fa fa-fw fa-user" style={{width: "25px"},{color:'#e07b39'}}></i></Nav.Link> */}
+                    {!is_auth? (
+                <Nav.Link href="/login"> تسجيل الدخول<i className="fa fa-fw fa-user" style={{width: "25px"},{color:'#e07b39'}}></i></Nav.Link> 
+
+          ) : (
+            <Nav.Link href="/logout"> تسجيل الخروج<i className="fa fa-fw fa-user" style={{width: "25px"},{color:'#e07b39'}}></i></Nav.Link> 
+
+          )}
                 </Nav>
             </Navbar>
         </div>

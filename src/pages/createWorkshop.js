@@ -5,17 +5,22 @@ import NavbarSection from '../components/NavbarSection.js';
 import HeaderSection from '../components/HeaderSection.js';
 import FooterSection from '../components/FooterSection.js';
 import SocialSection from '../components/SocialSection.js';
+import User from './User';
 
 class createWorkshop extends Component {
     constructor(){
         super();
+        console.log(User);
         this.state={
             name:"",  
             description:"",
             app_deadline:"",
             no_of_applicant:"",
-            image:"",     
+            image:"", 
+            user_id: User.id,
           }
+          console.log(this.state);
+
         }
         handleChange = event =>{
           this.setState({ [event.target.name]:event.target.value })

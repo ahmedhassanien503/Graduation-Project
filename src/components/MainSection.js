@@ -86,7 +86,7 @@ class MainSection extends Component {
                         <a href="#">
                             <h4 className="post-headline">{recipe.RecipeName}</h4>
                         </a>
-                        <p>{recipe.details}</p>
+                        <h3>{recipe.title}</h3>
                         <div className="post-thumb">
                         <a href="#" className="read-more">Continue Reading..</a>
                          </div>

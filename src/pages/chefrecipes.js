@@ -49,7 +49,7 @@ class chefrecipes extends Component {
                                 <div className="post-author-date-area d-flex">
                                     
                                     <div className="post-author">
-                                        <a href="#">by {recipe.name}</a>
+                                        <a href="#">by {recipe.user.name}</a>
                                     </div>
                              
                                     <div className="post-date">
@@ -64,7 +64,9 @@ class chefrecipes extends Component {
                                 </div>
                             </div>
                             <a href="#">
-                                <h3 className="post-headline">{recipe.RecipeName}</h3>
+                                {/* <h3 className="post-headline">{recipe.RecipeName}</h3> */}
+                                <h3 className="post-headline">{recipe.title}</h3>
+
                             </a>
                         </div>
                     </div>

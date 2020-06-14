@@ -43,11 +43,13 @@ import AboutUsPage from "./pages/AboutUsPage.js"
 
 import allChefs from "./pages/allChefs.js";
 import chefProfile from "./pages/chefProfile.js";
+import userProfile from "./pages/userProfile.js"
 import seasonalrecipesPage from "./pages/seasonalrecipesPage.js";
 import AddRecipe from "./pages/AddRecipe.js";
 import Chef from "./pages/editChefProfile.js";
 import Login from "./pages/Login.js";
 import Register from "./pages/Register.js";
+import Logout from "./pages/Logout.js";
 
 
 
@@ -114,6 +116,8 @@ function App() {
     {/* <Route exact path='/addAnswer' component={addAnswer} /> */}
    
     <Route exact path='/comment/:comment' component={editComment} />
+    <Route exact path='/userprofile' component={userProfile} />
+    <Route exact path='/chefprofile' component={chefProfile} />
 
     <Route exact path='/addorder' component={AddOrder} />
     <Route exact path='/orders/:order' component={showorder} />
@@ -123,6 +127,7 @@ function App() {
   <div className="bg-white-300 h-screen">
     <GuestRoute path="/layout" component={Layout} />
     <GuestRoute path="/login" component={Login} />
+    <GuestRoute path="/logout" component={Logout} />
      <GuestRoute path="/register" component={Register} /> 
     <AuthRoute path="/profile" component={Profile} />
         </div>

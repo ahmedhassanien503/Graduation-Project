@@ -56,7 +56,7 @@ class ChefSection extends Component {
                                     <div className="media row">
                                         <div className="col-12" >
                                         <Link to={`/chefs/${chef.id}`}> 
-                                            <img href="" src={`http://127.0.0.1:8000/uploads/chef/${chef.image}`} className="mr-3 img-fluid" id="chef-img" alt=""/>
+                                            <img href="" src={`http://127.0.0.1:8000/uploads/${chef.image}`} className="mr-3 img-fluid" id="chef-img" alt=""/>
                                             </Link>
                                         </div>
                                     </div>

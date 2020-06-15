@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->route('admin.login');
+    return redirect()->route('login');
 });
 
 Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm')->name('admin.login');
@@ -118,5 +118,5 @@ Route::group(['middleware' => ['auth.admin']], function () {
 // Auth::logout();
 // Auth::login();
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 

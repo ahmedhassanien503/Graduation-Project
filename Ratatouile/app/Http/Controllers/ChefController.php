@@ -45,6 +45,9 @@ class ChefController extends Controller
             // $file->move('uploads/chef/', $filename);
             $path = $request->file('image')->storeAs( 'chef',$filename,'public' );
             $chef->image = $path;
+        }        
+        else {
+            $filename = 'chef.jpg';
         }
         $chef->save();
         if($chef->is_chef == false){

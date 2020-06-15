@@ -16,7 +16,7 @@ class ResipeResource extends JsonResource
     {
         return [
             'id'=>$this->id,
-            'created_at'=>$this->created_at,
+            'created_at'=> $this->created_at->format('d/m/y'), 
             'updated_at'=>$this->updated_at,
             'RecipeName'=>$this->RecipeName,
             'title'=>$this->title,

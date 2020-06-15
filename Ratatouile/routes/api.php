@@ -42,12 +42,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::delete('/recipes/{recipe}','API\RecipeApiController@destroy')->name('recipes.destroy');
     Route::get('/recipes/{recipe}/edit','API\RecipeApiController@edit')->name('recipes.edit');
     Route::put('/recipes/{recipe}','API\RecipeApiController@update')->name('recipes.update');
+####################################################################################
+##################################ChefApiController#################################
+// Route::get('/chefrecipes/{chefid}', 'API\ChefApiController@index')->name('chefrecipes.index');
+Route::get('/chefrecipes/{chefid}', 'API\ChefController@recipes');
 
+// Route::get('/chefrecipes/{recipe}', 'API\RecipeApiController@show')->name('recipes.show');
 //API Routes
+
     ##################### Workshop Routes #############################################################
     Route::get('/workshops','API\WorkshopController@index');
     Route::get('/workshops/{workshop}','API\WorkshopController@show');
-    Route::get('/ChefWorkshops','API\WorkshopController@chef')->name('workshops');
+    Route::get('/ChefWorkshops/{chefId}','API\WorkshopController@chef')->name('workshops');
     Route::post('/workshops/store','API\WorkshopController@store');
     Route::get('/workshops/{workshop}','API\WorkshopController@show');
     Route::put('/workshops/update/{workshop}','API\WorkshopController@update');
@@ -132,16 +138,15 @@ Route::post('/login', function (Request $request) {
     ##################### Answers Routes ##########################################################
     Route::post('/answers/{question}','API\AnswerApiController@store');
     Route::delete('/answers/delete/{answer}','API\AnswerApiController@destroy');
-
-  
+    Route::put('/answers/update/{answerid}','API\AnswerApiController@update');
+    Route::get('/answers/{answer}','API\AnswerApiController@show');
     
    
 
 
 Route::post('/login','UserController@login');
-
-    Route::post('/register', 'UserController@register');
-    Route::post('/logout', 'UserController@logout');
-    Route::post('/user', 'UserController@me');
+Route::post('/register', 'UserController@register');
+Route::post('/logout', 'UserController@logout');
+Route::post('/user', 'UserController@me');
 
 

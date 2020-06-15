@@ -42,8 +42,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::delete('/recipes/{recipe}','API\RecipeApiController@destroy')->name('recipes.destroy');
     Route::get('/recipes/{recipe}/edit','API\RecipeApiController@edit')->name('recipes.edit');
     Route::put('/recipes/{recipe}','API\RecipeApiController@update')->name('recipes.update');
+####################################################################################
+##################################ChefApiController#################################
+// Route::get('/chefrecipes/{chefid}', 'API\ChefApiController@index')->name('chefrecipes.index');
+Route::get('/chefrecipes/{chefid}', 'API\ChefController@recipes');
 
+// Route::get('/chefrecipes/{recipe}', 'API\RecipeApiController@show')->name('recipes.show');
 //API Routes
+
     ##################### Workshop Routes #############################################################
     Route::get('/workshops','API\WorkshopController@index');
     Route::get('/workshops/{workshop}','API\WorkshopController@show');
@@ -88,8 +94,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
     ##################### Comments Routes #############################################################
     // Route::get('/recipes/{recipe}/comments','API\CommentController@index');
-    Route::resource('recipes.comments', 'API\CommentController');
-    
+    Route::apiResource('recipes.comments', 'API\CommentController');
+    Route::put('/comments/{comment}','API\CommentController@update');
+    Route::delete('/comments/{comment}','API\CommentController@destroy');
+    // Route::get('/comments/{comment}','API\CommentController@show');
+
 Route::post('/login', function (Request $request) {
     $request->validate([
         'email' => 'required|email',
@@ -124,8 +133,8 @@ Route::post('/login', function (Request $request) {
     ##################### Answers Routes ##########################################################
     Route::post('/answers/{question}','API\AnswerApiController@store');
     Route::delete('/answers/delete/{answer}','API\AnswerApiController@destroy');
-
-  
+    Route::put('/answers/update/{answerid}','API\AnswerApiController@update');
+    Route::get('/answers/{answer}','API\AnswerApiController@show');
     
    
 

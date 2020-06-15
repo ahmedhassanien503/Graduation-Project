@@ -48,7 +48,7 @@ class QuestionApiController extends Controller
         ]);
         $question= Question::create([
             'question' => $request->question,
-            'user_id' => "1",
+            'user_id' => $request->user_id,
         ]);     
         // return response()->json($question);
         return new QuestionResource($question);
@@ -82,7 +82,7 @@ class QuestionApiController extends Controller
         $questionId=$request->questionid;
         $questiondata = Question::find($questionId);
         $questiondata->question=$request->question;
-        $questiondata->user_id="1";
+        $questiondata->user_id=$request->user_id;
         $questiondata->save();
        
         return new QuestionResource($questiondata);
@@ -106,7 +106,7 @@ class QuestionApiController extends Controller
     {
         
         $question_id = DB::table('questions')->where('id',$id)->value('id');
-        $question_answers = Answer::where('question_id',$question_id)->get();
+        $question_answers = Answer::where('question_id',$question_id)->paginate(6);
         // dd($question_answers);
         $questionAnswersResource= AnswerResource::collection($question_answers);
         return $questionAnswersResource;

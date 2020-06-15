@@ -212,6 +212,16 @@ class chefProfile extends Component {
             <Link to={"/chefWorkshops"}><button class="btn btn-outline-success"> ورش عمل</button></Link>
           </li> : ""}
 
+          { this.is_auth && this.is_auth.is_chef && this.state.chef.id==this.is_auth.id  ?
+          <li>
+            <Link to={"/cheforders"}><button class="btn btn-outline-success"> الطلبات الخاصة بالطاهى</button></Link>
+          </li> : ""}
+
+          {  this.is_auth && !this.is_auth.is_chef  ?
+          <li>
+            <Link to={`/addorder/${this.props.match.params.chef}`}><button class="btn btn-outline-success">أضافه طلب</button></Link>
+          </li> : ""}
+
           {this.is_auth && this.props.match.params.chef && !this.is_auth.is_chef?
           <li>
             <Link to={`/userChefWorkshop/${this.props.match.params.chef}`}><button class="btn btn-outline-success"> ورش عمل</button></Link>

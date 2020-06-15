@@ -25,9 +25,9 @@ class showorder extends Component {
 
     onDelete(id)
     {
-        axios.delete(`http://127.0.0.1:8000/api/orders/delete/${this.props.match.params.order}`)
+        axios.post(`http://127.0.0.1:8000/api/orders/delete/${this.props.match.params.order}`)
         .then(response=>{
-            this.props.history.push('/orderdeleted');
+            this.props.history.push(`/orderdeleted/${this.state.order.chef_name.id}`);
 
         }
 
@@ -40,6 +40,7 @@ class showorder extends Component {
        <div>
            <NavbarSection/>
             <HeaderSection/>
+            { this.state.order ? 
             <div className="container">
                 <div className="row">
                     
@@ -52,19 +53,25 @@ class showorder extends Component {
                                         <p> {this.state.order.address} </p>
                                         <p> {this.state.order.total_price} </p>
                                         <p> {this.state.order.date} </p>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                       <Link to={`/editorder/${this.state.order.id}`}>
+                                        <Link to={`/editorder/${this.state.order.id}`}>
                        <button type="submit" className="btn btn-primary">عدل طلبك </button>
 </Link>
 <button type="submit" className="btn btn-primary" onClick={this.onDelete.bind(this,this.state.order.id)}> الغاء الطلب </button>
 
 
+                                    </div>
+                                </div>
+                            </div>
                 </div>
-            </div>
+            </div> :
+            <div>
+                <h3>لقد قمت بحذف طلبك</h3>
+                <Link to={'/chefs'}>
+               <button type="submit" className="btn btn-primary">عرض الطهاة</button>
+ </Link>
+</div>
+
+    }
             <FooterSection/>
         </div>
       

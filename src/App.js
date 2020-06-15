@@ -68,6 +68,7 @@ import AddOrder from './pages/AddOrder';
 import showorder from './pages/showorder';
 import EditOrder from './pages/EditOrder';
 import orderdeleted from './pages/orderdeleted';
+import cheforders from './pages/cheforders';
 import editAnswer from "./pages/editAnswer.js";
 import userChefWorkshop from './pages/userChefWorkshop';
 import editComment from "./pages/editComment.js";
@@ -124,10 +125,12 @@ function App() {
     <Route exact path='/userprofile' component={userProfile} />
     <Route exact path='/chefprofile' component={chefProfile} />
 
-    <Route exact path='/addorder' component={AddOrder} />
+    <Route exact path='/addorder/:chef' component={AddOrder} />
     <Route exact path='/orders/:order' component={showorder} />
     <Route exact path='/editorder/:order' component={EditOrder} />
-    <Route exact path='/orderdeleted' component={orderdeleted} />
+    <Route exact path='/orderdeleted/:chef' component={orderdeleted} />
+    <Route exact path='/cheforders' component={cheforders} />
+
   
   <div className="bg-white-300 h-screen">
     <GuestRoute path="/layout" component={Layout} />

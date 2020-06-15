@@ -5,16 +5,21 @@ import NavbarSection from '../components/NavbarSection.js';
 import HeaderSection from '../components/HeaderSection.js';
 import FooterSection from '../components/FooterSection.js';
 import SocialSection from '../components/SocialSection.js';
+import User from './User';
+import Cookies from 'universal-cookie';
 
 class AddOrder extends Component {
     constructor(){
         super();
+        this.cookies = new Cookies();
+        this.is_auth = this.cookies.get('UserData');
         this.state={
             description:"",
             payment_method:"",
             address:"",  
             total_price:"",
             date:""   ,
+            user_id: User.id,
           }
         }
         handleChange = event =>{
@@ -29,6 +34,8 @@ class AddOrder extends Component {
           const address=  this.state.address ;
           const total_price=  this.state.total_price ;
           const date=  this.state.date ;
+          const chef_id = this.props.match.params.chef;
+          const user_id = this.state.user_id;
 
           const formData = new FormData(); 
           formData.append('description',description); 
@@ -36,6 +43,9 @@ class AddOrder extends Component {
           formData.append('address',address); 
           formData.append('total_price',total_price); 
           formData.append('date',date); 
+          formData.append('chef_id',chef_id);
+          formData.append('user_id',user_id);
+          
 
      
             axios.post(url, formData)
@@ -100,7 +110,6 @@ render(){
                                         placeholder="ادخل حساب طلبك هنا"
                                         onChange={this.handleChange} />
                                 </div>
-                               
                                 <button type="submit" className="btn btn-primary">تأكيد الطلب</button>
                         </form>
                     </div>

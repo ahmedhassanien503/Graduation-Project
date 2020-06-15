@@ -5,10 +5,14 @@ import NavbarSection from '../components/NavbarSection.js';
 import HeaderSection from '../components/HeaderSection.js';
 import FooterSection from '../components/FooterSection.js';
 import SocialSection from '../components/SocialSection.js';
+import User from './User';
+import Cookies from 'universal-cookie';
 
 class EditOrder extends Component {
     constructor(){
         super();
+        this.cookies = new Cookies();
+        this.is_auth = this.cookies.get('UserData');
         this.state={
             order:{
             "order_description":"loading...",
@@ -45,6 +49,8 @@ class EditOrder extends Component {
           const address=  this.state.address ;
           const total_price=  this.state.total_price ;
           const date=  this.state.date ;
+
+
 
           const formData = new FormData(); 
           formData.append('_method','PUT'); 

@@ -53,6 +53,7 @@ class chefProfile extends Component {
             <div className="container">
                 <div className="row">
                             <div className="col-lg-4 mb-5">
+
                                 <img src={`http://127.0.0.1:8000/uploads/${this.state.chef.image}`} className="mr-3 img-fluid" id="chef-img" alt=""/>  
                                 <div className="media row">
                                     <div className="media-body col-12">

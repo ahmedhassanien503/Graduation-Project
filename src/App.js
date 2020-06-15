@@ -70,6 +70,8 @@ import showorder from './pages/showorder';
 import EditOrder from './pages/EditOrder';
 import orderdeleted from './pages/orderdeleted';
 import userChefWorkshop from './pages/userChefWorkshop';
+import editComment from "./pages/editComment.js";
+
 
 
 
@@ -77,6 +79,7 @@ import userChefWorkshop from './pages/userChefWorkshop';
 function App() {
   return (
     <Router>
+    <div className="bg-gray-300 h-screen">
       <Switch>
     <Route exact path='/' component={homePage} />
     <Route exact path='/contactus' component={ContactUsPage} />
@@ -114,6 +117,7 @@ function App() {
     <Route exact path='/questions/answers/:id' component={Answers} />
     {/* <Route exact path='/addAnswer' component={addAnswer} /> */}
    
+    <Route exact path='/comment/:comment' component={editComment} />
     <Route exact path='/userprofile' component={userProfile} />
     <Route exact path='/chefprofile' component={chefProfile} />
 
@@ -122,7 +126,6 @@ function App() {
     <Route exact path='/editorder/:order' component={EditOrder} />
     <Route exact path='/orderdeleted' component={orderdeleted} />
   
-
   <div className="bg-white-300 h-screen">
     <GuestRoute path="/layout" component={Layout} />
     <GuestRoute path="/login" component={Login} />
@@ -131,6 +134,8 @@ function App() {
     <AuthRoute path="/profile" component={Profile} />
         </div>
         </Switch>
+
+        </div>
     </Router>
   );
 }

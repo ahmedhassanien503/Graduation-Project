@@ -71,7 +71,7 @@ class Answers extends Component {
             <HeaderSection/>
 
 <div className="comment_area section_padding_50 clearfix container">
-    <h4 className="mb-30"style={{ textAlign: "center", color:"#e07b39"}}>الاجابات</h4>
+    <h4 className="mb-30"style={{ textAlign: "center", color:"#e07b39"}}> الاجابات</h4>
 
     {this.state.answers.map(answer=>{
             return(

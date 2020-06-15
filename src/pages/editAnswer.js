@@ -84,7 +84,7 @@ render(){
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 }}>
-            <button type="submit" className="btn contact-btn" > <i className="far fa-edit"></i> تعديل الاجابة</button>
+            <button type="submit" className="btn question-btn" > <i className="far fa-edit"></i> تعديل الاجابة</button>
             </div>
         </form>
     </div>

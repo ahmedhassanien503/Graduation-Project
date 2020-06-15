@@ -33,8 +33,9 @@ class Chef extends Component{
     //         })
     //     })
     // }
-    handleSubmit = event =>{
 
+    handleSubmit = event =>{
+       
         event.preventDefault();
         const url =`http://127.0.0.1:8000/api/chef/edit/${this.props.match.params.chef}`;
         const name= this.state.name ;
@@ -69,7 +70,7 @@ class Chef extends Component{
             <NavbarSection/>
             <div className="container" style={{marginTop:"10px"}}>
                 <form onSubmit={this.handleSubmit}>
-                    <h3>Sign In</h3>
+                    <h3>Edit</h3>
                     <div className="form-group">
                         <label>Name</label>
                         <input 
@@ -96,7 +97,7 @@ class Chef extends Component{
                         className="form-control" 
                         onChange={this.handleImage} />
                     </div>
-                    <button type="submit">Update</button>
+                    <button type="submit">تعديل</button>
                 </form>
             </div>
             <FooterSection/>

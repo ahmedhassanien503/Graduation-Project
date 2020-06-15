@@ -69,6 +69,8 @@ import showorder from './pages/showorder';
 import EditOrder from './pages/EditOrder';
 import orderdeleted from './pages/orderdeleted';
 import editAnswer from "./pages/editAnswer.js";
+import userChefWorkshop from './pages/userChefWorkshop';
+import editComment from "./pages/editComment.js";
 
 
 
@@ -77,6 +79,7 @@ import editAnswer from "./pages/editAnswer.js";
 function App() {
   return (
     <Router>
+    <div className="bg-gray-300 h-screen">
       <Switch>
     <Route exact path='/' component={homePage} />
     <Route exact path='/contactus' component={ContactUsPage} />
@@ -94,7 +97,8 @@ function App() {
     <Route exact path='/createWorkshop' component={createWorkshop} />
     <Route exact path='/editWorkshop/:workshop' component={editWorkshop} />
     <Route exact path='/workshopsApplicants/:workshop' component={workshopsApplicants} />
-    
+    <Route exact path='/userChefWorkshop/:chefId' component={userChefWorkshop} />
+
     <Route exact path='/recipe/:recipe' component={chefrecipe} />
     <Route exact path='/recipes' component={chefrecipes} />
     <Route exact path='/userRecipes' component={userRecipes} />
@@ -114,6 +118,9 @@ function App() {
     <Route exact path='/editanswer/:answer' component={editAnswer} />
     {/* <Route exact path='/answer/:answer' component={showAnswer} /> */}
 
+    {/* <Route exact path='/addAnswer' component={addAnswer} /> */}
+   
+    <Route exact path='/comment/:comment' component={editComment} />
     <Route exact path='/userprofile' component={userProfile} />
     <Route exact path='/chefprofile' component={chefProfile} />
 
@@ -122,7 +129,6 @@ function App() {
     <Route exact path='/editorder/:order' component={EditOrder} />
     <Route exact path='/orderdeleted' component={orderdeleted} />
   
-
   <div className="bg-white-300 h-screen">
     <GuestRoute path="/layout" component={Layout} />
     <GuestRoute path="/login" component={Login} />
@@ -131,6 +137,8 @@ function App() {
     <AuthRoute path="/profile" component={Profile} />
         </div>
         </Switch>
+
+        </div>
     </Router>
   );
 }

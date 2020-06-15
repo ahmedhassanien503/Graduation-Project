@@ -11,7 +11,11 @@ class chefrecipe extends Component {
     {
         super();
         this.state={
-        recipe:null
+            // recipe:[],
+            comments : [],
+            content:"",
+            recipe:null,
+            count:0
         }
     }
     
@@ -19,11 +23,50 @@ class chefrecipe extends Component {
     {
        axios.get(`http://127.0.0.1:8000/api/recipes/${this.props.match.params.recipe}`)
        .then(
-           res=>{ this.setState({recipe: res.data.data}) ;console.log('cheffff')},
+           res=>{ this.setState({recipe: res.data.data});console.log('cheffff')
+           return  axios.get(`http://127.0.0.1:8000/api/recipes/${this.props.match.params.recipe}/comments`);
            
-           );
+        })
+           .then(res=>{ 
+                console.log(res.data)
+                this.setState({
+                   comments: res.data.data,
+                   count:res.data.data.length
+                });
+                console.log(res.data.data.length)
+            }) 
+             
     }
 
+    handleChange = event =>{
+        this.setState({ [event.target.name]:event.target.value })
+    }
+      
+    handleSubmit = event =>{
+    event.preventDefault();
+    axios.post(`http://127.0.0.1:8000/api/recipes/${this.props.match.params.recipe}/comments`,{
+        'content':this.state.content,
+        'user_id':4,
+        'recipe_id': parseInt(this.props.match.params.recipe) 
+    }).then(
+            res=>{ console.log(res)},
+            
+        );
+    }
+    handleClick = commentId => {
+        // const requestOptions = {
+        //   method: 'DELETE'
+        // };
+        fetch(`http://127.0.0.1:8000/api/comments/${commentId}`,  {method: 'DELETE'})
+            .then((response) => {
+                console.log(commentId);
+                console.log(response);
+                // return response.json();
+            }) 
+            // .then((result) => {
+            //     console.log('Success:', response)
+            // });
+        }
     render(){
         if(this.state.recipe== null){
 
@@ -72,7 +115,7 @@ class chefrecipe extends Component {
                         <h2 className="post-headline" >{this.state.recipe.RecipeName}</h2>
                                     
                                      <p>{this.state.recipe.details}</p>
-                                     <p>{this.state.recipe.user.name}</p>
+                                     
 
 
                                     <blockquote className="yummy-blockquote mt-30 mb-30">
@@ -196,33 +239,53 @@ class chefrecipe extends Component {
 
                   
                             <div className="comment_area section_padding_50 clearfix">
-                                <h4 className="mb-30">2 Comments</h4>
-
-                                <ol>
-                               
-                                    <li className="single_comment_area">
-                                        <div className="comment-wrapper d-flex">
-                                       
-                                            <div className="comment-author">
-                                                <img src="img/blog-img/17.jpg" alt=""/>
-                                            </div>
+                                <h4 className="mb-30" id="right-align">{this.state.count} تعليقات</h4>
+                                {this.state.comments.map(comment=>{
+                                    return(
+                                        <ol>
                                     
-                                            <div className="comment-content">
-                                                <span className="comment-date text-muted">27 Aug 2018</span>
-                                                <h5>Brandon Kelley</h5>
-                                                <p>Neque porro qui squam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
-                                                <a href="#">Like</a>
-                                                <a className="active" href="#">Reply</a>
-                                            </div>
-                                        </div>
-                                        <ol className="children">
-                                            <li className="single_comment_area">
+                                            <li className="single_comment_area" id="right-align">
                                                 <div className="comment-wrapper d-flex">
                                             
-                                                    <div className="comment-author">
-                                                        <img src="img/blog-img/18.jpg" alt=""/>
+                                            
+                                                    <div className="comment-content">
+                                                        <span className="comment-date text-muted"></span>
+                                                        <h5 id="right-align">{comment.user.name}</h5>
+                                                        <p id="right-align">{comment.content}</p>
+                                                        <Link to={`/comment/${comment.id}`}> <a className="active">تعديل</a></Link>
+                                                        <button className="delete-btn" onClick={() => { this.handleClick(comment.id) }}>حذف</button>
                                                     </div>
-                                           
+
+                                                    <div className="comment-author" id="right-align">
+                                                        <img className="img-fluid user-img" src={`http://127.0.0.1:8000/uploads/${comment.user.image}`} alt=""/>
+                                                    </div>
+                                                </div>
+                                                {/* <ol className="children">
+                                                    <li className="single_comment_area">
+                                                        <div className="comment-wrapper d-flex">
+                                                    
+                                                            <div className="comment-author">
+                                                                <img src="img/blog-img/18.jpg" alt=""/>
+                                                            </div>
+                                                
+                                                            <div className="comment-content">
+                                                                <span className="comment-date text-muted">27 Aug 2018</span>
+                                                                <h5>Brandon Kelley</h5>
+                                                                <p>Neque porro qui squam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
+                                                                <a href="#">Like</a>
+                                                                <a className="active" href="#">Reply</a>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ol> */}
+                                            </li>
+                                            {/* <li className="single_comment_area">
+                                                <div className="comment-wrapper d-flex">
+                                                
+                                                    <div className="comment-author">
+                                                        <img src="img/blog-img/19.jpg" alt=""/>
+                                                    </div>
+                                            
                                                     <div className="comment-content">
                                                         <span className="comment-date text-muted">27 Aug 2018</span>
                                                         <h5>Brandon Kelley</h5>
@@ -231,48 +294,25 @@ class chefrecipe extends Component {
                                                         <a className="active" href="#">Reply</a>
                                                     </div>
                                                 </div>
-                                            </li>
+                                            </li> */}
                                         </ol>
-                                    </li>
-                                    <li className="single_comment_area">
-                                        <div className="comment-wrapper d-flex">
-                                        
-                                            <div className="comment-author">
-                                                <img src="img/blog-img/19.jpg" alt=""/>
-                                            </div>
-                                    
-                                            <div className="comment-content">
-                                                <span className="comment-date text-muted">27 Aug 2018</span>
-                                                <h5>Brandon Kelley</h5>
-                                                <p>Neque porro qui squam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
-                                                <a href="#">Like</a>
-                                                <a className="active" href="#">Reply</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ol>
+                                    )}
+                                )}
                             </div>
 
              
                             <div className="leave-comment-area section_padding_50 clearfix">
-                                <div className="comment-form">
-                                    <h4 className="mb-30">Leave A Comment</h4>
+                                <div className="comment-form"  id="right-align">
+                                {/* <i class="far fa-comment-o"></i> */}
+                                    <h4 className="mb-30" id="right-align">اترك تعليقا</h4>
 
                             
-                                    <form action="#" method="post">
-                                        <div className="form-group">
-                                            <input type="text" className="form-control" id="contact-name" placeholder="Name"/>
+                                    <form onSubmit={this.handleSubmit}>
+                                        <div className="form-group" id="right-align">
+                                            <input type="text" name="content" className="form-control" onChange={this.handleChange} id="contact-name" placeholder="أضف تعليقك"/>
                                         </div>
-                                        <div className="form-group">
-                                            <input type="email" className="form-control" id="contact-email" placeholder="Email"/>
-                                        </div>
-                                        <div className="form-group">
-                                            <input type="text" className="form-control" id="contact-website" placeholder="Website"/>
-                                        </div>
-                                        <div className="form-group">
-                                            <textarea className="form-control" name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
-                                        </div>
-                                        <button type="submit" className="btn contact-btn">Post Comment</button>
+                                        
+                                        <button type="submit" className="btn contact-btn right-align" id="right-align">أضف تعليقا</button>
                                     </form>
                                 </div>
                             </div>
@@ -290,12 +330,11 @@ class chefrecipe extends Component {
                                 <h6>معلومات عن الشيف</h6>
                             </div>
                             <div className="about-me-widget-thumb">
-                            <img src={`http://localhost:8000/uploads/chef/${this.state.recipe.user.image}`} alt="" width="450" height="400"/> 
+                            <img src={`http://localhost:8000/uploads/${this.state.recipe.user.image}`} alt="" width="450" height="400"/> 
                             <img src={`http://localhost:8000/uploads/user/${this.state.recipe.user.image}`} alt="" width="450" height="400"/> 
 
                             </div>
-                            <h4 className="font-shadow-into-light">Shopia Bernard</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                            <h3>{this.state.recipe.user.name}</h3>
                         </div>
 
                  

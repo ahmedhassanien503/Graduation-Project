@@ -29,7 +29,7 @@ function NavSection() {
                     </Nav.Link>
                     <NavDropdown title="المزيد" id="nav-dropdown">
                         <NavDropdown.Item eventKey="4.1">
-                            <Nav.Link  href="#home"> التصنيفات
+                            <Nav.Link   href="/categories"> <Link to={"/categories"} style={{color:"grey"}}>  التصنيفات </Link>  
                                 <i className="fas fa-hamburger" style={{width: "25px"} ,{color:'#e07b39'}}></i></Nav.Link>
                         </NavDropdown.Item>
                         <NavDropdown.Item eventKey="4.2">

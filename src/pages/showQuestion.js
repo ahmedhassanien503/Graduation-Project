@@ -94,7 +94,7 @@ render(){
                 <Link to={`/editquestion/${this.state.question.id}`}> <button type="button" className="btn btn-outline-dark" style={{margin:"10px"}}> <i className="far fa-edit"></i>  تعديل السؤال </button></Link>
                 :""}
                             {this.is_auth && this.is_auth.id && this.state.question.user_id == this.is_auth.id  ?
-            <button type="submit" className="btn contact-btn" onClick={this.onDelete.bind(this,this.state.question.id)}><i className="far fa-trash-alt"></i> مسح السؤال </button>
+            <button type="submit" className="btn question-btn" onClick={this.onDelete.bind(this,this.state.question.id)}><i className="far fa-trash-alt"></i> مسح السؤال </button>
             :""}
             <Link to={`/questions/answers/${this.state.question.id}`}> <button type="button" className="btn btn-outline-dark" style={{margin:"10px"}}> <i className="far fa-comments"></i>  الاجابات  </button></Link>
 </div>
@@ -116,7 +116,7 @@ render(){
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 }}>
-            <button type="submit" className="btn contact-btn" > <i className="fas fa-paper-plane"></i> ارسل اجابتك</button>
+            <button type="submit" className="btn question-btn" > <i className="fas fa-paper-plane"></i> ارسل اجابتك</button>
             </div>
         </form>
     </div>

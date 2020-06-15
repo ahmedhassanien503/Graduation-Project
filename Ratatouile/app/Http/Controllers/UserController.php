@@ -127,22 +127,20 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
-
-        if($request->hasfile('image')){
-            $file=$request->file('image');
-            $extention=$file->getClientOriginalExtension();
-            $filename=time() . '.' . $extention;
-            // $file->move('uploads/user/', $filename);
-
-            $path = $request->file('image')->storeAs( 'user',$filename,'public' );
-          
-            
+        if($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename =time().'.'.$extension;
+            // storeas('chef',,public)
+            // $path=Storage::disk('public')->put('uploads/chef/'.$filename, File::get($file));
+            // $file->move('uploads/chef/', $filename);
+            // $chef->image = $filename;
+            $path = $request->file('image')->storeAs( 'chef',$filename,'public' );//$request->user()->id
         }
-
-        else{
-            $filename='chef.jpg';
+        else {
+            $filename = 'chef.jpg';
         }
-        
         $request->validate([
             'name'    => 'required',
             'email'   => 'required',
@@ -153,7 +151,7 @@ class UserController extends Controller
             'name'     => request('name'),
             'email'    => request('email'),
             'password' => Hash::make(request('password')),
-            'image'    => $path,
+            'image'    =>  $path,
             'is_chef'  => request('is_chef'),
             
         ]);

@@ -177,12 +177,12 @@ class RecipeApiController extends Controller
         // $recipe->chef_id=$request->chef_id;
         $recipe->save();
 
-        $recipe->categories()->sync($request->categories, false);
+        // $recipe->categories()->sync($request->categories, false);
         // Recipe::create([
         // 'created_at'=>$request- 
         //  return redirect()->route('recipes.index');
-        return response()->json($recipe,201);
-        // return new ResipeResource($recipe);
+        // return response()->json($recipe,201);
+        return new ResipeResource($recipe);
 
 
         } 

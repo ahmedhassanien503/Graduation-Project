@@ -35,7 +35,7 @@
       <td>{{$recipe->updated_at}}</td>
       <td>{{$recipe->RecipeName}}</td>
       <td>{{$recipe->title}}</td>
-      <td>{{$recipe->details}}</td>
+      <td>{{ mb_substr($recipe->details, 0, 100) . ' ...'}}</td>
       <td><img src="{{asset('uploads/recipes/'.$recipe->recipe_image)}}" width="100px" height="100px"></td>
       <td>{{$recipe->Serving}}</td>
       <td>{{$recipe->TakenTime}}</td>

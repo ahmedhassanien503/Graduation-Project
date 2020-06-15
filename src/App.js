@@ -69,7 +69,7 @@ import AddOrder from './pages/AddOrder';
 import showorder from './pages/showorder';
 import EditOrder from './pages/EditOrder';
 import orderdeleted from './pages/orderdeleted';
-
+import userChefWorkshop from './pages/userChefWorkshop';
 
 
 
@@ -94,7 +94,8 @@ function App() {
     <Route exact path='/createWorkshop' component={createWorkshop} />
     <Route exact path='/editWorkshop/:workshop' component={editWorkshop} />
     <Route exact path='/workshopsApplicants/:workshop' component={workshopsApplicants} />
-    
+    <Route exact path='/userChefWorkshop/:chefId' component={userChefWorkshop} />
+
     <Route exact path='/recipe/:recipe' component={chefrecipe} />
     <Route exact path='/recipes' component={chefrecipes} />
     <Route exact path='/userRecipes' component={userRecipes} />

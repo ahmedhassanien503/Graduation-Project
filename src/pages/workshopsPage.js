@@ -38,15 +38,16 @@ class workshopsPage extends Component {
                         {this.state.workshops.map((workshop, i) => (   
                                 <div className="col-12 col-md-6 col-lg-4">
                                     <div className="single-post wow fadeInUp" data-wow-delay="0.1s">
-                                        <div className="post-thumb"><Link to={`/workshop/${workshop.id}`}> 
+                                        <div className="post-thumb"><Link to={`/workshops/${workshop.id}`}> 
                                             <img src={`http://localhost:8000/uploads/workshops/${workshop.image}`} alt="" width="340" height="240"/>
                                         </Link></div>
                                         
                                         <div className="post-content"  style={{ textAlign: "right"}}>
-                                                {/* <h6>:بيانات الورشه</h6> */}
-                                                <span>{workshop.workshop_name} / بيانات ورشه الطبخ</span>
-                                                <span> : {workshop.app_deadline}</span>
-                                                <p className="post-headline" >{workshop.chef_name.name}: الشيف</p>
+                                                <h6  style={{textAlign : "right"}}>:بيانات الورشه</h6>
+                                                <span style={{textAlign : "right"}}>   {workshop.workshop_name} </span>
+                                                <span style={{textAlign : "right"}}> / {workshop.app_deadline}</span>
+                                                <h6  style={{textAlign : "right"}}>: الشيف</h6>
+                                                <p className="post-headline" style={{textAlign : "right"}}>   {workshop.chef_name.name} </p>
                                         </div>
                                     </div>
                                 </div>

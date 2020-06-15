@@ -5,32 +5,43 @@ import HeaderSection from '../components/HeaderSection.js';
 import FooterSection from '../components/FooterSection.js';
 import SideSection from '../components/SideSection.js';
 // import { BrowserRouter as Router, Switch, Route, Link , Redirect } from "react-router-dom";
-
-
 import jQuery from 'jquery';
 import { ProSidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import 'react-pro-sidebar/dist/css/styles.css';
 import "./sidebar.css";
-import "./side.js"
-
+import "./side.js";
+import Cookies from 'universal-cookie';
 
 import { BrowserRouter as Router, Switch, Route, Link , Redirect } from "react-router-dom";
 class chefProfile extends Component {
     constructor() {
         super();
+        this.cookies = new Cookies();
+        this.is_auth = this.cookies.get('UserData');
         this.state = {
-            chef : []
+            chef : [],
          };
       }
     
     componentDidMount(){
-     axios.get(`http://127.0.0.1:8000/api/chefs/${this.props.match.params.chef}`)
+      if(this.is_auth  && this.is_auth.is_chef && !this.props.match.params.chef ){
+        console.log(this.is_auth.id);
+     axios.get(`http://127.0.0.1:8000/api/chefs/${this.is_auth.id}`)
      .then(res=>{
-             console.log(res.data.data)
+            //  console.log(res.data.data)
              this.setState({
                  chef: res.data.data
              });
-         })
+         })}
+      else{
+        axios.get(`http://127.0.0.1:8000/api/chefs/${this.props.match.params.chef}`)
+        .then(res=>{
+                // console.log(res.data.data)
+                this.setState({
+                    chef: res.data.data
+                });
+            })
+      }
     }
 
     render(){
@@ -38,21 +49,14 @@ class chefProfile extends Component {
    return(
        <div>
            <NavbarSection/>
-            <HeaderSection/>
-      
+            <HeaderSection/>     
             <div className="container">
                 <div className="row">
-
                             <div className="col-lg-4 mb-5">
-
                                 <img src={`http://127.0.0.1:8000/uploads/${this.state.chef.image}`} className="mr-3 img-fluid" id="chef-img" alt=""/>  
                                 <div className="media row">
                                     <div className="media-body col-12">
                                     {/* <SideSection /> */}
-
-
-
-
     {/* start sidebar    */}
 
 
@@ -99,20 +103,31 @@ class chefProfile extends Component {
                </div>
               
           </li>
+          {  this.is_auth && this.is_auth.is_chef && this.state.chef.id==this.is_auth.id ?
           <li>
-       
          <Link to={`/chef/edit/${this.state.chef.id}`}><button class="btn btn-outline-warning">تعديل الصفحة </button></Link>
-
-          </li>
-   
-        
+          </li> : ""}
+          {  this.is_auth && this.is_auth.is_chef && this.state.chef.id==this.is_auth.id ?
           <li>
-          
             <Link to={"/addrecipe"}><button class="btn btn-outline-success">أضف وصفة جديدة</button></Link>
+          </li> : ""} <hr/>
+          {  this.is_auth && this.is_auth.is_chef&& this.state.chef.id== this.is_auth.id   ?
+          <li style={{fontWeight:"bold" ,textAlign: "center" , color: "white"}}>  ورش العمل</li>
+            : ""}
+          {  this.is_auth && this.is_auth.is_chef && this.state.chef.id==this.is_auth.id  ?
+          <li>
+            <Link to={"/createWorkshop"}><button class="btn btn-outline-success">أضافه ورشه عمل</button></Link>
+          </li> : ""}
+                  
+          { this.is_auth && this.is_auth.is_chef && this.state.chef.id==this.is_auth.id  ?
+          <li>
+            <Link to={"/chefWorkshops"}><button class="btn btn-outline-success"> ورش عمل</button></Link>
+          </li> : ""}
 
-          
-          </li>
-        
+          { this.props.match.params.chef && !this.is_auth.is_chef?
+          <li>
+            <Link to={`/userChefWorkshop/${this.props.match.params.chef}`}><button class="btn btn-outline-success"> ورش عمل</button></Link>
+          </li> : ""} <hr/>
         </ul>
       </div>
 
@@ -126,27 +141,27 @@ class chefProfile extends Component {
 </div>
    
 
-                                    {/* end sidebar */}
+                            {/* end sidebar */}
 
-                                        {/* <h5 className="mt-0"> {this.state.chef.name} </h5> */}
-                                        {/* <p> {this.state.chef.email} </p> */}
-                                        {/* <p> {this.state.chef.work_place} </p> */}
-                                    </div>
-                                </div>
+                                {/* <h5 className="mt-0"> {this.state.chef.name} </h5> */}
+                                {/* <p> {this.state.chef.email} </p> */}
+                                {/* <p> {this.state.chef.work_place} </p> */}
                             </div>
-                       {/* <Link to={`/chef/edit/${this.state.chef.id}`}>
-                       <p> edit your profile</p></Link> */}
+                        </div>
+                    </div>
+                {/* <Link to={`/chef/edit/${this.state.chef.id}`}>
+                <p> edit your profile</p></Link> */}
 
 
 
-               
-                       {/* <Link to={`/chef/edit/${this.state.chef.id}`}>
-                       <p> edit chef profile</p></Link> */}
+        
+                {/* <Link to={`/chef/edit/${this.state.chef.id}`}>
+                <p> edit chef profile</p></Link> */}
 
-                </div>
-            </div>
-            <FooterSection/>
         </div>
+    </div>
+    <FooterSection/>
+</div>
       
  
     );

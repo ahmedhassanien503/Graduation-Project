@@ -44,11 +44,6 @@ class ChefSection extends Component {
                     
                     <div className="slide-box row">
 
-                    
-
-                    
-                       
-                           
                             {this.state.chefs.map(chef=>{
                                 return(
                                     

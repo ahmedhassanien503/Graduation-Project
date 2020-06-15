@@ -88,8 +88,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
     ##################### Comments Routes #############################################################
     // Route::get('/recipes/{recipe}/comments','API\CommentController@index');
-    Route::resource('recipes.comments', 'API\CommentController');
-    
+    Route::apiResource('recipes.comments', 'API\CommentController');
+    Route::put('/comments/{comment}','API\CommentController@update');
+    Route::delete('/comments/{comment}','API\CommentController@destroy');
+    // Route::get('/comments/{comment}','API\CommentController@show');
+
 Route::post('/login', function (Request $request) {
     $request->validate([
         'email' => 'required|email',

@@ -125,7 +125,7 @@ class chefProfile extends Component {
             <Link to={"/chefWorkshops"}><button class="btn btn-outline-success"> ورش عمل</button></Link>
           </li> : ""}
 
-          { this.props.match.params.chef && !this.is_auth.is_chef?
+          {this.is_auth && this.props.match.params.chef && !this.is_auth.is_chef?
           <li>
             <Link to={`/userChefWorkshop/${this.props.match.params.chef}`}><button class="btn btn-outline-success"> ورش عمل</button></Link>
           </li> : ""} <hr/>

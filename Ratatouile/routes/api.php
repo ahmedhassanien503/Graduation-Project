@@ -94,8 +94,11 @@ Route::get('/chefrecipes/{chefid}', 'API\ChefController@recipes');
 
     ##################### Comments Routes #############################################################
     // Route::get('/recipes/{recipe}/comments','API\CommentController@index');
-    Route::resource('recipes.comments', 'API\CommentController');
-    
+    Route::apiResource('recipes.comments', 'API\CommentController');
+    Route::put('/comments/{comment}','API\CommentController@update');
+    Route::delete('/comments/{comment}','API\CommentController@destroy');
+    // Route::get('/comments/{comment}','API\CommentController@show');
+
 Route::post('/login', function (Request $request) {
     $request->validate([
         'email' => 'required|email',
@@ -130,8 +133,8 @@ Route::post('/login', function (Request $request) {
     ##################### Answers Routes ##########################################################
     Route::post('/answers/{question}','API\AnswerApiController@store');
     Route::delete('/answers/delete/{answer}','API\AnswerApiController@destroy');
-
-  
+    Route::put('/answers/update/{answerid}','API\AnswerApiController@update');
+    Route::get('/answers/{answer}','API\AnswerApiController@show');
     
    
 

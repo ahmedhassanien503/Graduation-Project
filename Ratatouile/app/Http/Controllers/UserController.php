@@ -59,8 +59,11 @@ class UserController extends Controller
             $file=$request->file('image');
             $extention=$file->getClientOriginalExtension();
             $filename=time() . '.' . $extention;
-            $file->move('uploads/user/', $filename);
+            // $file->move('uploads/user/', $filename);
+
+            $path = $request->file('image')->storeAs( 'user',$filename,'public' );
             $user->image = $filename;
+            
         }
         $user->save();
         if($user->is_chef == true){

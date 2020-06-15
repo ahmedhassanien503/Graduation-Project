@@ -18,32 +18,39 @@ class CommentController extends Controller
             Comment::where('recipe_id',$recipeId)->get()
         );
     }
-    public function store($recipeId){
+    public function store(){
         $request = request();
-        // $user=Auth::user();
+        $user_id=4;
+        // Auth::user();
         $comment = Comment::create([
             'content'=>$request->content,
             'recipe_id'=>$request->recipe_id,
-            'user_id'=>2
+            'user_id'=>$user_id
         ]);
+        // $comment->save();
+        // $comment= Comment::create($request->all());
         return new CommentResource($comment);
     }
-    public function update($recipeId,$comment_id){
+    public function update($id){
         $request = request();
         // $user=Auth::user();
-        $comment = Comment::findOrFail($comment_id);
+        // $recipeId=
+        $comment = Comment::find($id);
         $comment->content=$request->content;
-        $comment->recipe_id=$recipeId;
-        $comment->user_id=2;
         $comment->save();
         
         return new CommentResource($comment);
+    }
+    public function show($id){
+        return new CommentResource(
+            Comment::find($id)
+        );
     }
     public function destroy($commentId)
     {
         $request = request();
         $commentId = $request->comment;
         Comment::find($commentId)->delete();
-        return redirect()->route('recipes.comments.index');
+        // return redirect()->route('recipes.comments.index');
     }
 }

@@ -63,12 +63,12 @@ import askQuestion from './pages/askQuestion.js';
 import allQuestions from "./pages/allQuestions.js";
 import showQuestion from "./pages/showQuestion.js";
 import editQuestion from "./pages/editQuestion.js";
-import addAnswer from "./pages/addAnswer";
 import Answers from "./pages/Answers";
 import AddOrder from './pages/AddOrder';
 import showorder from './pages/showorder';
 import EditOrder from './pages/EditOrder';
 import orderdeleted from './pages/orderdeleted';
+import editAnswer from "./pages/editAnswer.js";
 
 
 
@@ -111,8 +111,9 @@ function App() {
     <Route exact path='/questions/:question' component={showQuestion} />
     <Route exact path='/editquestion/:question' component={editQuestion} />
     <Route exact path='/questions/answers/:id' component={Answers} />
-    {/* <Route exact path='/addAnswer' component={addAnswer} /> */}
-   
+    <Route exact path='/editanswer/:answer' component={editAnswer} />
+    {/* <Route exact path='/answer/:answer' component={showAnswer} /> */}
+
     <Route exact path='/userprofile' component={userProfile} />
     <Route exact path='/chefprofile' component={chefProfile} />
 

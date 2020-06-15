@@ -75,7 +75,10 @@ class categoryrecipesPage extends Component {
                 <div className="col-12 col-md-6 col-lg-4" key={recipe.id}>
                     <div className="single-post wow fadeInUp" data-wow-delay="0.1s">
                         <div className="post-thumb">
+
+                        <Link to={`/recipe/${recipe.recipe_info.id}`}> 
                             <img src={`http://localhost:8000/uploads/recipes/${recipe.recipe_info.recipe_image}`} alt="" width="340" height="240"/>
+                            </Link>
                         </div>
                         <div className="post-content">
                             <div className="post-meta d-flex">
@@ -93,9 +96,10 @@ class categoryrecipesPage extends Component {
                                 </div>
 
                             </div>
-                            <a href="#">
+                           
+                        <Link to={`/recipe/${recipe.recipe_info.id}`}> 
                             <h4 className="post-headline">{recipe.recipe_info.RecipeName}</h4>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

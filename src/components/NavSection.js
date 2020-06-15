@@ -24,8 +24,8 @@ function NavSection() {
                 <Navbar.Brand href="#home"> <img src="img/chefs.svg" alt=""  width="40" height="50"/> Ratatouille</Navbar.Brand>
 
                 <Nav className="ml-auto">
-                    <Nav.Link  href={'/chefs'}>  تعرف على الطهاه  
-                        <i className="fas fa-hat-chef" style={{width: "25px"} ,{color:'#e07b39'}}></i>
+                    <Nav.Link  href={'/chefs'}>  تعرف على الطهاه <i className="far fa-address-book" style={{width: "25px", color:'#e07b39'}}></i>
+                   
                     </Nav.Link>
                     <NavDropdown title="المزيد" id="nav-dropdown">
                         <NavDropdown.Item eventKey="4.1">

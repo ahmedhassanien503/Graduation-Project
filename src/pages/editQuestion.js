@@ -4,10 +4,13 @@ import axios from 'axios';
 import NavbarSection from '../components/NavbarSection.js';
 import HeaderSection from '../components/HeaderSection.js';
 import SocialSection from '../components/SocialSection.js';
+import Cookies from 'universal-cookie';
 
 class editQuestion extends Component {
     constructor(){
         super();
+        this.cookies = new Cookies();
+        this.is_auth = this.cookies.get('UserData');
         this.state={
             
                 question:{"question":"loading",
@@ -33,9 +36,11 @@ class editQuestion extends Component {
           event.preventDefault();
           const url = `http://127.0.0.1:8000/api/questions/update/${this.props.match.params.question}`;
           const question=  this.state.question ;
+          const user_id= this.is_auth.id;
           const formData = new FormData(); 
           formData.append('_method','PUT'); 
           formData.append('question',question); 
+          formData.append('user_id',user_id); 
 
 
             fetch(url, { method: 'POST', // or 'PUT’

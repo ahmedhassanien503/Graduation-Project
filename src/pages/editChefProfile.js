@@ -68,37 +68,42 @@ class Chef extends Component{
    return(
         <div>
             <NavbarSection/>
-            <div className="container" style={{marginTop:"10px"}}>
+            <div className="container" style={{marginTop:"10px"}} id="right-align">
+                <div className="row">
+                <div className="col-lg-10">
                 <form onSubmit={this.handleSubmit}>
-                    <h3>Edit</h3>
-                    <div className="form-group">
-                        <label>Name</label>
+                    <h3 id="right-align">تعديل</h3>
+                    <div className="form-group" id="right-align">
+                        <label>الاسم</label>
                         <input 
                         name="name"
                         type="text" 
                         className="form-control" 
-                        placeholder="Edit Name"
-                        onChange={this.handleChange} />
+                        placeholder="تعديل الاسم"
+                        onChange={this.handleChange}/>
                     </div>
-                    <div className="form-group">
-                        <label>Work Place</label>
+                    <div className="form-group" id="right-align">
+                        <label>مكان العمل</label>
                         <input 
                         name="work_place"
                         type="text" 
                         className="form-control" 
-                        placeholder="Edit Work place"
+                        placeholder="تعديل مكان العمل"
                         onChange={this.handleChange} />
                     </div>
-                    <div className="form-group">
-                        <label>Image</label>
+                    <div className="form-group" id="right-align">
+                        <label>الصورة</label>
                         <input 
                         name="image"
                         type="file" 
-                        className="form-control" 
+                        // className="form-control" 
+                        placeholder="تعديل مكان العمل"
                         onChange={this.handleImage} />
                     </div>
-                    <button type="submit">تعديل</button>
+                    <button className="edit-btn" type="submit" >تعديل</button>
                 </form>
+                </div>
+                </div>
             </div>
             <FooterSection/>
             

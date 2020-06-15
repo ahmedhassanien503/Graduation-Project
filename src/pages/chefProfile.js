@@ -30,6 +30,8 @@ class chefProfile extends Component {
              this.setState({
                  chef: res.data.data
              });
+            return  axios.get(`http://127.0.0.1:8000/api/chefs/${this.props.match.params.chef}/menus`);
+           
          })
     }
 
@@ -44,10 +46,7 @@ class chefProfile extends Component {
                 <div className="row">
 
                             <div className="col-lg-4 mb-5">
-<<<<<<< HEAD
-=======
 
->>>>>>> 2e811aed1c914f2e8167d65cda9e39f54657646a
                                 <img src={`http://127.0.0.1:8000/uploads/${this.state.chef.image}`} className="mr-3 img-fluid" id="chef-img" alt=""/>  
                                 <div className="media row">
                                     <div className="media-body col-12">

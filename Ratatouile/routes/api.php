@@ -91,7 +91,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::apiResource('recipes.comments', 'API\CommentController');
     Route::put('/comments/{comment}','API\CommentController@update');
     Route::delete('/comments/{comment}','API\CommentController@destroy');
-    // Route::get('/comments/{comment}','API\CommentController@show');
+
+    ##################### Menu Routes #############################################################
+    Route::apiResource('chefs.menus', 'API\MenuController');
+    // Route::get('/chefs/{chef}/menus','API\MenuController@index');
+    Route::put('/menus/{menu}','API\MenuController@update');
+    Route::delete('/menus/{menu}','API\MenuController@destroy');
 
 Route::post('/login', function (Request $request) {
     $request->validate([

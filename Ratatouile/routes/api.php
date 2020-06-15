@@ -124,8 +124,8 @@ Route::post('/login', function (Request $request) {
     ##################### Answers Routes ##########################################################
     Route::post('/answers/{question}','API\AnswerApiController@store');
     Route::delete('/answers/delete/{answer}','API\AnswerApiController@destroy');
-
-  
+    Route::put('/answers/update/{answerid}','API\AnswerApiController@update');
+    Route::get('/answers/{answer}','API\AnswerApiController@show');
     
    
 

@@ -269,6 +269,14 @@
             </a>
           </li>
           
+
+          <li class="nav-item">
+            <a href="{{route('contacts.index')}}" class="nav-link">
+              <i class="fas fa-apple-alt"></i>
+              <p>Contacts</p>
+            </a>
+          </li>
+          
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

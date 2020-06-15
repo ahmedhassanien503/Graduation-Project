@@ -47,7 +47,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     ##################### Workshop Routes #############################################################
     Route::get('/workshops','API\WorkshopController@index');
     Route::get('/workshops/{workshop}','API\WorkshopController@show');
-    Route::get('/ChefWorkshops','API\WorkshopController@chef')->name('workshops');
+    Route::get('/ChefWorkshops/{chefId}','API\WorkshopController@chef')->name('workshops');
     Route::post('/workshops/store','API\WorkshopController@store');
     Route::get('/workshops/{workshop}','API\WorkshopController@show');
     Route::put('/workshops/update/{workshop}','API\WorkshopController@update');
@@ -131,9 +131,8 @@ Route::post('/login', function (Request $request) {
 
 
 Route::post('/login','UserController@login');
-
-    Route::post('/register', 'UserController@register');
-    Route::post('/logout', 'UserController@logout');
-    Route::post('/user', 'UserController@me');
+Route::post('/register', 'UserController@register');
+Route::post('/logout', 'UserController@logout');
+Route::post('/user', 'UserController@me');
 
 

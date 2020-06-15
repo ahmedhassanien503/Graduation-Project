@@ -57,10 +57,11 @@ class workshopsPage extends Component {
                                         </Link></div>
                                         
                                         <div className="post-content"  style={{ textAlign: "right"}}>
-                                                {/* <h6>:بيانات الورشه</h6> */}
-                                                <span>{workshop.workshop_name} / بيانات ورشه الطبخ</span>
-                                                <span> : {workshop.app_deadline}</span>
-                                                <p className="post-headline" >{workshop.chef_name.name}: الشيف</p>
+                                                <h6  style={{textAlign : "right"}}>:بيانات الورشه</h6>
+                                                <span style={{textAlign : "right"}}>   {workshop.workshop_name} </span>
+                                                <span style={{textAlign : "right"}}> / {workshop.app_deadline}</span>
+                                                <h6  style={{textAlign : "right"}}>: الشيف</h6>
+                                                <p className="post-headline" style={{textAlign : "right"}}>   {workshop.chef_name.name} </p>
                                         </div>
                                     </div>
                                 </div>

@@ -5,11 +5,14 @@ import NavbarSection from '../components/NavbarSection.js';
 import HeaderSection from '../components/HeaderSection.js';
 import FooterSection from '../components/FooterSection.js';
 import SocialSection from '../components/SocialSection.js';
+import Cookies from 'universal-cookie';
 
 class workshopPage extends Component {
     constructor()
     {
         super();
+        this.cookies = new Cookies();
+        this.is_auth = this.cookies.get('UserData');
         this.state={
             workshop:{
                 "workshop_name":"loading...",
@@ -32,8 +35,8 @@ class workshopPage extends Component {
 
     handleSubmit = event =>{
         const  data= {
-            'user_id':"1",
-            'workshop_id' :  `${this.props.match.params.workshop}`,
+            'user_id':"7",
+            'workshop_id' : `${this.props.match.params.workshop}`,
         }
         axios.post(`http://127.0.0.1:8000/api/applicants` ,data)
         .then(
@@ -57,8 +60,9 @@ class workshopPage extends Component {
                                 <p> { this.state.workshop.app_deadline} :تاريخ البدء</p><hr/>
                                 <p >{ this.state.workshop.chef_name.name}: الشيف</p><hr/>
                                 <span style={{color: "orange"}}> {this.state.workshop.no_of_applicant} :عدد المشتركين</span><hr></hr>
+                                { this.is_auth ?
                                 <div> <img src="/img/food10.jpg" alt=""  width="150" height="100"/><button className="btn btn-outline-success btn-sm" onClick={this.handleSubmit} >   
-                                <i class="fas fa-user-check"></i>  اكتسب مهارة الطبخ واحجز اﻻن </button>  </div>
+                                <i class="fas fa-user-check"></i>  اكتسب مهارة الطبخ واحجز اﻻن </button>  </div> : ""}
                             </div>
                         </div>
                     </div>

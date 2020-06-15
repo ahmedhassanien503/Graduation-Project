@@ -29,6 +29,18 @@ class ChefSection extends Component {
         <div className="container mt-5">
             <h2 className="text-center">ها هم شيفتنا</h2>
             <hr/>
+            {/* <div id="carouselExampleCaptions" className="carousel slide mt-5 mb-5" data-ride="carousel">
+                    <ol className="carousel-indicators">
+                        <li data-target="#carouselExampleCaptions" data-slide-to="0" className="active"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                    </ol>
+                    {/* <div className="carousel-inner">
+                    <div className="carousel-item active"> */}
+                    {/* {this.state.chefs.length && (
+                    <OwlCarousel autoPlay  >  */}
+                    
+                    <div className="slide-box row">
+
                 <div className="container">
                     {this.state.chefs.length && ( 
                         <div className="slide-box row">
@@ -57,7 +69,7 @@ class ChefSection extends Component {
                     )}
                 </div>
                                 
-        </div>
+        </div>   </div>
       
  
     );

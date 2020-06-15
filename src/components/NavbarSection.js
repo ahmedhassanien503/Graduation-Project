@@ -14,7 +14,7 @@ class NavbarSection extends Component {
     return (
         <div className="MainSection">
                                 
-        <div class="top_header_area">
+        <div className="top_header_area">
         <div className="container">
             <div className="row">
                 <div className="col-5 col-sm-6">

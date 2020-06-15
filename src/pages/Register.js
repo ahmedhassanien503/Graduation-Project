@@ -33,9 +33,9 @@ function Register(){
         console.log(target);
     };
 
-    const onImageChange = (e) =>{
-    console.log(e.target.files[0]); 
-      setState({ ...state, [e.target.name]: e.target.files[0]});
+    const onImageChange = ({target}) =>{
+    console.log(target.files[0]); 
+      setState({ ...state, [target.name]: target.files[0]});
     };
     const ProtectedComponent = (data) => {
         if (state.redirect)

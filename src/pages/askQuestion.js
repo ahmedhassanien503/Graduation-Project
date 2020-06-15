@@ -5,12 +5,17 @@ import NavbarSection from '../components/NavbarSection.js';
 import HeaderSection from '../components/HeaderSection.js';
 import FooterSection from '../components/FooterSection.js';
 import SocialSection from '../components/SocialSection.js';
+import Cookies from 'universal-cookie';
+
 
 class askQuestion extends Component {
     constructor(){
         super();
+      this.cookies = new Cookies();
+      this.is_auth = this.cookies.get('UserData');
         this.state={
             question:"",  
+            // user_id: User.id,
           }
         }
         handleChange = event =>{
@@ -21,9 +26,10 @@ class askQuestion extends Component {
           console.log("question : " + this.state.question);
           const url ="http://127.0.0.1:8000/api/questions/submit";
           const question=  this.state.question ;
-
+          const user_id= this.is_auth.id;
           const formData = new FormData(); 
           formData.append('question',question); 
+          formData.append('user_id',user_id); 
 
             axios.post(url, formData)
             .then(
@@ -54,7 +60,8 @@ render(){
                                         className="form-control" 
                                         placeholder="اضف سؤالك"
                                         onChange={this.handleChange} 
-                                        rows="5"/>
+                                        rows="5"
+                                        required />
                                 </div>
                                 <br/>
                                 <div style={{

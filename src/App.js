@@ -63,12 +63,13 @@ import askQuestion from './pages/askQuestion.js';
 import allQuestions from "./pages/allQuestions.js";
 import showQuestion from "./pages/showQuestion.js";
 import editQuestion from "./pages/editQuestion.js";
-import addAnswer from "./pages/addAnswer";
 import Answers from "./pages/Answers";
 import AddOrder from './pages/AddOrder';
 import showorder from './pages/showorder';
 import EditOrder from './pages/EditOrder';
 import orderdeleted from './pages/orderdeleted';
+import editAnswer from "./pages/editAnswer.js";
+import userChefWorkshop from './pages/userChefWorkshop';
 import editComment from "./pages/editComment.js";
 
 
@@ -96,7 +97,8 @@ function App() {
     <Route exact path='/createWorkshop' component={createWorkshop} />
     <Route exact path='/editWorkshop/:workshop' component={editWorkshop} />
     <Route exact path='/workshopsApplicants/:workshop' component={workshopsApplicants} />
-    
+    <Route exact path='/userChefWorkshop/:chefId' component={userChefWorkshop} />
+
     <Route exact path='/recipe/:recipe' component={chefrecipe} />
     <Route exact path='/recipes' component={chefrecipes} />
     <Route exact path='/userRecipes' component={userRecipes} />
@@ -113,6 +115,9 @@ function App() {
     <Route exact path='/questions/:question' component={showQuestion} />
     <Route exact path='/editquestion/:question' component={editQuestion} />
     <Route exact path='/questions/answers/:id' component={Answers} />
+    <Route exact path='/editanswer/:answer' component={editAnswer} />
+    {/* <Route exact path='/answer/:answer' component={showAnswer} /> */}
+
     {/* <Route exact path='/addAnswer' component={addAnswer} /> */}
    
     <Route exact path='/comment/:comment' component={editComment} />

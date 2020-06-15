@@ -35,7 +35,6 @@ class WorkshopController extends Controller
     public function store(Request $request)
     {   
         
-        // $id = Auth::id();
         // dd($id);
 
         if($request->hasFile('image'))
@@ -62,7 +61,7 @@ class WorkshopController extends Controller
             'app_deadline' =>  $date,
             'no_of_applicant' =>  $request->no_of_applicant,
             'image'=>$filename,
-            'chef_id' => "1",
+            'chef_id' => $request->id,
         ]);
         return new WorkshopResource($workshop);
     }
@@ -98,17 +97,16 @@ class WorkshopController extends Controller
         $workshopData->app_deadline = $date;
         $workshopData->no_of_applicant =  $request->no_of_applicant;
         $workshopData->image= $filename;
-        $workshopData->chef_id = "1";
+        $workshopData->chef_id = $request->id;
 
         $workshopData->save();
         return new WorkshopResource($workshopData);
     }
 
-    public function Chef()
+    public function Chef($chefId)
     {  
-        //  $id = Auth::id();
         return WorkshopResource::collection(
-            Workshop::where('chef_id','5')->get()
+            Workshop::where('chef_id',$chefId)->get()
             // Workshop::paginate(4)
         ); 
     }

@@ -42,8 +42,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::delete('/recipes/{recipe}','API\RecipeApiController@destroy')->name('recipes.destroy');
     Route::get('/recipes/{recipe}/edit','API\RecipeApiController@edit')->name('recipes.edit');
     Route::put('/recipes/{recipe}','API\RecipeApiController@update')->name('recipes.update');
+####################################################################################
+##################################ChefApiController#################################
+// Route::get('/chefrecipes/{chefid}', 'API\ChefApiController@index')->name('chefrecipes.index');
+Route::get('/chefrecipes/{chefid}', 'API\ChefController@recipes');
 
+// Route::get('/chefrecipes/{recipe}', 'API\RecipeApiController@show')->name('recipes.show');
 //API Routes
+
     ##################### Workshop Routes #############################################################
     Route::get('/workshops','API\WorkshopController@index');
     Route::get('/workshops/{workshop}','API\WorkshopController@show');

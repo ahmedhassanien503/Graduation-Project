@@ -6,6 +6,7 @@ import NavbarSection from '../components/NavbarSection.js';
 import HeaderSection from '../components/HeaderSection.js';
 import FooterSection from '../components/FooterSection.js';
 import SocialSection from '../components/SocialSection.js';
+import "./contact.css";
 
 class AllCategories extends Component {
 
@@ -37,7 +38,18 @@ class AllCategories extends Component {
        <br/>
        <br/>
        
-    <h2 style={{ textAlign: "center", color:"#e07b39"}} >  التصنيفات </h2>
+    {/* <h2 style={{ textAlign: "center", color:"#e07b39"}} >  التصنيفات </h2> */}
+    <div className="area ">
+        <div className="container h-100">
+            <div className="row h-100 align-items-center">
+                <div className="col-12">
+                    <div className="bradcumb-title text-center">
+                        <h2>التصنيفات</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 <hr/>
     <div className="row">
 

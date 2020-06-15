@@ -6,6 +6,7 @@ import NavbarSection from '../components/NavbarSection.js';
 import HeaderSection from '../components/HeaderSection.js';
 import FooterSection from '../components/FooterSection.js';
 import SocialSection from '../components/SocialSection.js';
+import "./contact.css";
 
 class workshopsPage extends Component {
 
@@ -33,7 +34,20 @@ class workshopsPage extends Component {
             <NavbarSection/>
             <HeaderSection/>
                 <div className="container" >
-                    <h3 style={{ textAlign: "center"}}> ورش الطبخ المتاحه</h3><hr/>
+                    {/* <h3 style={{ textAlign: "center"}}> ورش الطبخ المتاحه</h3><hr/> */}
+                    <div className="area ">
+        <div className="container h-100">
+            <div className="row h-100 align-items-center">
+                <div className="col-12">
+                    <div className="bradcumb-title text-center">
+                        <h2>الورش المتاحة</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<br></br>
+<hr></hr>
                     <div className="row" >
                         {this.state.workshops.map((workshop, i) => (   
                                 <div className="col-12 col-md-6 col-lg-4">

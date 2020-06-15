@@ -5,6 +5,8 @@ import NavbarSection from '../components/NavbarSection.js';
 import HeaderSection from '../components/HeaderSection.js';
 import FooterSection from '../components/FooterSection.js';
 import SocialSection from '../components/SocialSection.js';
+import User from './User';
+
 
 class AddRecipe extends Component {
     constructor(){
@@ -12,12 +14,15 @@ class AddRecipe extends Component {
         this.state={
             created_at:"",  
             RecipeName:"",
+            title:"",
             details:"",
             recipe_image:"",
             Serving:"",
             TakenTime:"",
-            user_id:"",     
+            user_id: User.id,
           }
+        console.log(this.state);
+
         }
         handleChange = event =>{
           this.setState({ [event.target.name]:event.target.value })
@@ -27,32 +32,33 @@ class AddRecipe extends Component {
           }
         handleSubmit = event =>{
           event.preventDefault();
-         console.log("RecipeName: " + this.state.RecipeName);
-          console.log("details: " + this.state.details);
-          const url ="http://127.0.0.1:8000/api/recipes";
-          const created_at=  this.state.created_at;
-          const RecipeName=  this.state.RecipeName;
-          const details= this.state.details;
-          const recipe_image= this.state.recipe_image;
-          const Serving= this.state.Serving;
-          const TakenTime= this.state.TakenTime;
-          const user_id= this.state.user_id;
-          const formData = new FormData(); 
+          console.log("name : " + this.state.Serving);
+          console.log("description: " + this.state.user_id);
+            const url ="http://127.0.0.1:8000/api/recipes";
+            const created_at=  this.state.created_at;
+            const RecipeName=  this.state.RecipeName;
+            const title= this.state.title;
+            const details= this.state.details;
+            const recipe_image= this.state.recipe_image;
+            const Serving= this.state.Serving;
+            const TakenTime= this.state.TakenTime;
+            const user_id= this.state.user_id;
+            const formData = new FormData(); 
           formData.append('created_at',created_at); 
           formData.append('RecipeName',RecipeName); 
+          formData.append('title',title); 
           formData.append('details',details); 
           formData.append('recipe_image',recipe_image); 
           formData.append('Serving',Serving); 
           formData.append('TakenTime',TakenTime); 
           formData.append('user_id',user_id);
-       
+     
 
-            axios.post(url, formData)
+        axios.post(url, formData)
             .then(
-                res=>{  this.props.history.push(`/recipes/${res.data.data}`)},
-
-            );
-        }
+                res=>{  this.props.history.push('/recipes');
+        })
+    }
 
 render(){
     return(
@@ -72,6 +78,10 @@ render(){
                                     <label>Recipe Name</label>
                      <input name="RecipeName" type="text"  className="form-control"  placeholder="Recipe Name"onChange={this.handleChange} /></div>
 
+                     <div className="form-group">
+                                    <label>Title</label>
+                     <input name="title" type="text"  className="form-control"  placeholder="Recipe Name"onChange={this.handleChange} /></div>
+
                                 <div className="form-group">
                                     <label>Details</label>
                      <textarea name="details"  className="form-control"  placeholder="DETAILS" onChange={this.handleChange} />
@@ -88,11 +98,7 @@ render(){
                                     <label>Timing</label>
                   <input name="TakenTime" type="number"className="form-control" placeholder="This Meal will Take ?? To Be Ready"onChange={this.handleChange} />
                                 </div>
-                             
-                                <div className="form-group">
-                                    <label>User</label>
-                 <input name="user_id" type="number" className="form-control" placeholder="Enter no_of_applicant" onChange={this.handleChange} />
-                                        </div>
+                        
                                 <button type="submit" className="btn btn-primary">Submit</button>
                         </form>
                     </div>

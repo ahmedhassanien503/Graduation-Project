@@ -71,11 +71,11 @@ render(){
                                         type="text" 
                                         className="form-control" 
                                         placeholder="اكتب محتويات الطلب الخاص بك هنا"
-                                        onChange={this.handleChange} />
+                                        onChange={this.handleChange} required />
                                 </div>
                                 <div class="form-group">
                 <label for="inputStatus">طريقة الدفع</label>
-                <select name="payment_method" class="form-control custom-select" onChange={this.handleChange}>
+                <select name="payment_method" class="form-control custom-select" onChange={this.handleChange} required>
                   <option selected disabled>اختر طريقة الدفع</option>
                   <option value="Cash">دفع عند وصول الطلب</option>
                   <option value="Credit Card">دفع ببطاقة الائتمان</option>
@@ -88,7 +88,7 @@ render(){
                                         type="text" 
                                         className="form-control" 
                                         placeholder="اكتب العنوان الخاص بك هنا"
-                                        onChange={this.handleChange} />
+                                        onChange={this.handleChange} required />
                                 </div>
 
                                 <div className="form-group">
@@ -98,7 +98,7 @@ render(){
                                         type="text" 
                                         className="form-control" 
                                         placeholder="    1:30:30 ضع موعد توصيل طلبك على النحو التالى: 1-1-2020  "
-                                        onChange={this.handleChange} />
+                                        onChange={this.handleChange} required/>
                                 </div>
 
                                 <div className="form-group">
@@ -108,7 +108,7 @@ render(){
                                         type="number" 
                                         className="form-control" 
                                         placeholder="ادخل حساب طلبك هنا"
-                                        onChange={this.handleChange} />
+                                        onChange={this.handleChange} required/>
                                 </div>
                                 <button type="submit" className="btn btn-primary">تأكيد الطلب</button>
                         </form>

@@ -14,13 +14,7 @@ class editWorkshop extends Component {
         this.cookies = new Cookies();
         this.is_auth = this.cookies.get('UserData');
         this.state={
-            workshop:{
-            "workshop_name":"loading...",
-            "workshop_description":"loading...",
-            "app_deadline":"loading...",
-            "no_of_applicant":"loading...",
-            "chef_name":{"name":"loading..."},
-            "image":""},
+            workshop:{},
             name:"",  
             description:"",
             app_deadline:"",
@@ -101,20 +95,18 @@ render(){
                                         name="name"
                                         type="text" 
                                         style={{textAlign : "right"}}
-                                        // value={this.state.workshop.workshop_name}
                                         className="form-control" 
                                         placeholder={this.state.workshop.workshop_name}
-                                        onChange={this.handleChange} />
+                                        onChange={this.handleChange} required/>
                                 </div>
                                 <div className="col">
                                     <input 
                                         name="app_deadline"
                                         type="text" 
                                         style={{textAlign : "right"}}
-                                        // value={this.state.workshop.app_deadline}
                                         className="form-control" 
                                         placeholder={this.state.workshop.app_deadline}
-                                        onChange={this.handleChange} />
+                                        onChange={this.handleChange} required/>
                                 </div> </div>
                                 <div className="row" style={{marginTop: "25px"}}>
                                     <textarea 
@@ -122,10 +114,9 @@ render(){
                                         cols="35"
                                         style={{textAlign : "right"}}
                                         name="description"
-                                        // value={this.state.workshop.workshop_description}
                                         className="form-control" 
                                         placeholder={this.state.workshop.workshop_description}
-                                        onChange={this.handleChange} />
+                                        onChange={this.handleChange} required />
                                 </div>
 
                                 <div className="row"  style={{marginTop: "25px"}}>
@@ -133,11 +124,10 @@ render(){
                                     <input 
                                         name="no_of_applicant"
                                         style={{textAlign : "right"}}
-                                        // value={this.state.workshop.no_of_applicant}
                                         type="number" 
                                         className="form-control" 
                                         placeholder={this.state.workshop.no_of_applicant}
-                                        onChange={this.handleChange} />
+                                        onChange={this.handleChange} required />
                                 </div>
                                 <div className="col">
                                     <input 

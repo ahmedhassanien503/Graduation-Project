@@ -20,7 +20,17 @@ class AddOrder extends Component {
             total_price:"",
             date:""   ,
             user_id: User.id,
+            menu_recipe_id:"",
+            menus:[]
           }
+        }
+        componentDidMount()
+        {
+          axios.get(`http://127.0.0.1:8000/api/chefs/${this.props.match.params.chef}/menus`)
+          .then(
+              res=>{ this.setState({menus: res.data.data})
+              
+            })
         }
         handleChange = event =>{
           this.setState({ [event.target.name]:event.target.value })
@@ -45,11 +55,12 @@ class AddOrder extends Component {
           formData.append('date',date); 
           formData.append('chef_id',chef_id);
           formData.append('user_id',user_id);
-          
-
-     
+          const menuData = new FormData();
+          menuData.append('menu_recipe_id',this.state.menu_recipe_id);
             axios.post(url, formData)
             .then(
+              axios.post(`http://127.0.0.1:8000/api/orderMenu`,menuData )
+            ).then(
                 res=>{  this.props.history.push(`/orders/${res.data.data.id}`)},
 
             );
@@ -109,6 +120,15 @@ render(){
                                         className="form-control" 
                                         placeholder="ادخل حساب طلبك هنا"
                                         onChange={this.handleChange} required/>
+                                </div>
+                                <div class="form-group">
+                                  <label for="exampleFormControlSelect2">اختر من قائمتنا</label>
+                                  <select onChange={this.handleChange} name="menu_recipe_id" multiple class="form-control" id="right-align">
+                                    {this.state.menus.map(menu=>
+                                        <option value={menu.id}>{menu.name}</option>
+                                      )}
+                                    
+                                  </select>
                                 </div>
                                 <button type="submit" className="btn btn-primary">تأكيد الطلب</button>
                         </form>

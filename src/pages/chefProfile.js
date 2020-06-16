@@ -200,7 +200,7 @@ class chefProfile extends Component {
             <Link to={"/addrecipe"}><button class="btn btn-outline-success">أضف وصفة جديدة</button></Link>
           </li> : ""} <hr/>
           {  this.is_auth && this.is_auth.is_chef&& this.state.chef.id== this.is_auth.id   ?
-          <li style={{fontWeight:"bold" ,textAlign: "center" , color: "white"}}>  ورش العمل</li>
+          <li style={{fontWeight:"bold" ,textAlign: "center" , color: "white"}}>  </li>
             : ""}
           {  this.is_auth && this.is_auth.is_chef && this.state.chef.id==this.is_auth.id  ?
           <li>
@@ -209,7 +209,7 @@ class chefProfile extends Component {
                   
           { this.is_auth && this.is_auth.is_chef && this.state.chef.id==this.is_auth.id  ?
           <li>
-            <Link to={"/chefWorkshops"}><button class="btn btn-outline-success"> ورش عمل</button></Link>
+            <Link to={"/chefWorkshops"}><button class="btn btn-outline-warning"> ورش عمل</button></Link>
           </li> : ""}
 
           {this.is_auth && this.props.match.params.chef && !this.is_auth.is_chef?

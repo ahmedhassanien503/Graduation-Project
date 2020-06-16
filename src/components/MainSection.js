@@ -61,17 +61,21 @@ class MainSection extends Component {
             <div className="col-12">
                 <div className="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".2s">
                 
-                    <div className="post-thumb">
+                    {/* <div className="post-thumb">
                     <img src={`http://localhost:8000/uploads/recipes/${recipe.recipe_image}`} alt="" />
 
-                    </div>
+                    </div> */}
+                          <div className="post-thumb"><Link to={`/recipe/${recipe.id}`}> 
+                        <img src={`http://localhost:8000/uploads/recipes/${recipe.recipe_image}`} alt="" />
+                             </Link>
+                        </div>
                  
                     <div className="post-content">
                         <div className="post-meta d-flex">
                             <div className="post-author-date-area d-flex">
                              
-                                <div className="post-author">
-                                    <a href="#">By {recipe.name}</a>
+                                <div >
+                                    <h5 style={{color:"#FF8C00"}}> {recipe.name}</h5>
                                 </div>
                            
                                 <div className="post-date">
@@ -86,10 +90,15 @@ class MainSection extends Component {
                         <a href="#">
                             <h4 className="post-headline">{recipe.RecipeName}</h4>
                         </a>
-                        <h3>{recipe.title}</h3>
-                        <div className="post-thumb">
-                        <a href="#" className="read-more">Continue Reading..</a>
-                         </div>
+                        <h6>{recipe.title}</h6>
+
+
+                         <div className="post-thumb"><Link to={`/recipe/${recipe.id}`}> 
+                         {/* <p >... اقرأ التفاصيل</p> */}
+                         <button  className="btn contact-btn">اقراأ التفاصيل</button>
+
+                             </Link>
+                        </div>
               
                         
                     </div>

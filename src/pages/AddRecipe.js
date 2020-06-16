@@ -67,41 +67,56 @@ render(){
             <NavbarSection/>
             <HeaderSection/>
                     <div className="container" style={{marginTop:"10px"}}>
+                    <div className="contact-form-area">
+                <div className="row">
+                    <div className="col-12 col-md-5">
+                        <div className="contact-form-sidebar " data-wow-delay="0.3s" >
+                        <p> . </p>
+                        </div>
+                    </div>
+                    <div className="col-12 col-md-7 item">
+                        <div className="contact-form wow fadeInUpBig" data-wow-delay="0.6s">
+                            <h2 style={{color:"#FF8C00",textAlign:"right"}}> وصفات جديدة</h2>
+                            
                         <form onSubmit={this.handleSubmit}>
-                            <h3>وصفات جديدة</h3>
-                                <div className="form-group">
-                                    <label>Created at</label>
-                        <input name="created_at" type="text" className="form-control" onChange={this.handleChange} />
+                
+                                <div className="form-group"style={{textAlign:"right"}}>
+                                    <label >تاريخ الانشاء</label>
+                        <input style={{textAlign:"right"}}name="created_at" type="text" className="form-control" onChange={this.handleChange} />
                                 </div>
 
-                                <div className="form-group">
-                                    <label>Recipe Name</label>
-                     <input name="RecipeName" type="text"  className="form-control"  placeholder="Recipe Name"onChange={this.handleChange} /></div>
+                                <div className="form-group"style={{textAlign:"right"}}>
+                                    <label>اسم الوصفة</label>
+                     <input style={{textAlign:"right"}} name="RecipeName" type="text"  className="form-control"  placeholder="اسم الوجبه"onChange={this.handleChange} /></div>
 
-                     <div className="form-group">
-                                    <label>Title</label>
-                     <input name="title" type="text"  className="form-control"  placeholder="Recipe Name"onChange={this.handleChange} /></div>
+                     <div className="form-group"style={{textAlign:"right"}}>
+                                    <label>العنوان</label>
+                     <input style={{textAlign:"right"}} name="title" type="text"  className="form-control"  placeholder="المختصر المفيد"onChange={this.handleChange} /></div>
 
-                                <div className="form-group">
-                                    <label>Details</label>
-                     <textarea name="details"  className="form-control"  placeholder="DETAILS" onChange={this.handleChange} />
+                                <div className="form-group"style={{textAlign:"right"}}>
+                                    <label>التفاصيل</label>
+                     <textarea style={{textAlign:"right"}}name="details"  className="form-control"  placeholder="المعاير" onChange={this.handleChange} />
                                 </div>
-                                <div className="form-group">
-                                    <label>Image</label>
-                    <input  name="recipe_image" type="file"  className="form-control"   onChange={this.handleImage} />
+                                <div className="form-group"style={{textAlign:"right"}}>
+                                    <label>صورة الاكلة </label>
+                    <input style={{textAlign:"right"}} name="recipe_image" type="file"  className="form-control"   onChange={this.handleImage} />
                                 </div>
-                                <div className="form-group">
-                                    <label>Serving</label>
-                  <input  name="Serving" type="number" className="form-control" placeholder="This Meal Will Serve" onChange={this.handleChange} />
+                                <div className="form-group"style={{textAlign:"right"}}>
+                                    <label>هذه الوجبة تكفى لعدد</label>
+                  <input style={{textAlign:"right"}} name="Serving" type="number" className="form-control" placeholder="عدد الاشخاص" onChange={this.handleChange} />
                                 </div>
-                                <div className="form-group">
-                                    <label>Timing</label>
-                  <input name="TakenTime" type="number"className="form-control" placeholder="This Meal will Take ?? To Be Ready"onChange={this.handleChange} />
+                                <div className="form-group"style={{textAlign:"right"}}>
+                                    <label>الوقت المستهلك لاعدادها</label>
+                  <input style={{textAlign:"right"}}name="TakenTime" type="number"className="form-control" placeholder="ما هو الوقت اللزم لاعداد هذه الوصفة؟"onChange={this.handleChange} />
                                 </div>
                         
-                                <button type="submit" className="btn btn-primary">Submit</button>
+                                <button type="submit" className="btn contact-btn">اضف الى وصفاتك</button>
                         </form>
                     </div>
+                </div>
+              </div>
+          </div>
+       </div>
             <SocialSection />
         </div>
    

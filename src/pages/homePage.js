@@ -27,28 +27,21 @@ function homePage() {
       <NavHeaderSection/>
       <br/>
       <MainSection /> 
-      {/* <NavbarSection/>
-      <HeaderSection /> */}
+    
       <br></br>
-      <RecipeSliderSection />
-      {/* <SidebarSection /> */} 
+      <RecipeSection />
+    
 
 
       <SeasonSection /> 
-      <RecipeSection />
-     
+    <br></br>
+      <RecipeSliderSection />
+
       <ChefSection />
       <FooterSection />
       <SocialSection />   
 
-     {/* < HeadlineSection />
-
-     {/* <SinglepageSection /> */}
-  
-
-      {/* <Form /> */}
-    
-   {/* <AllrecipesSection /> */}
+   
     </div>
   );
 }

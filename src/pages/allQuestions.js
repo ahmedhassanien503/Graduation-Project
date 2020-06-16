@@ -68,7 +68,6 @@ class allQuestions extends Component {
             <div className="col-12" key={question.id}>
                 <div className="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".2s">
                 
-                
                     <img src={`http://localhost:8000/uploads/${question.user_info.image}`} alt="" width="90" height="90" />
                  
                     <div className="post-content container">

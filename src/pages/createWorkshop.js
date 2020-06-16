@@ -134,7 +134,7 @@ render(){
                                     onChange={this.handleImage} />
                                 </div>  </div>
                                 <div className="text-center mt-4 mb-2">
-                                <button type="submit" className="btn btn-info"> <i class="fas fa-user-edit"></i> انشاء</button>
+                                <button type="submit" className="btn contact-btn"> <i class="fas fa-user-edit"></i> انشاء</button>
                                 </div>
                         </form>
                     </div> : ""}

@@ -80,12 +80,22 @@ return (
     <NavbarSection/>
     <HeaderSection/>
             <div className="container" style={{marginTop:"10px"}}>
+            
+            <div className="row" style={{padding:"50px;"}}>
+                    <div className="col-12 col-md-5">
+                        {/* <div className="contact-form-sidebar " data-wow-delay="0.3s" >
+                        <p> . </p>
+                        </div> */}
+                    </div>
+                    <div className="col-12 col-md-7 item">
+                        <div className="contact-form wow fadeInUpBig" data-wow-delay="0.6s">
+                            <h2 style={{color:"#FF8C00",textAlign:"right"}}> أدخل بياناتك لعالم الاكلات الشهية</h2>
                 <form  onSubmit={handleSubmit(onSubmit)}>
-                    <h3>ادخل بياناتك لعالم الطهى و الاكلات الشهية</h3>
-                        <div className="form-group">
+   
+                        <div className="form-group" style={{textAlign:"right"}}>
                             <label>الاسم الثلاثى للمستخدم</label>
                                   <input type="text" name="name" className="form-control"                                 
-                                placeholder="ادخل اسمك هنا"
+                                placeholder="ادخل اسمك هنا" style={{textAlign:"right"}}
                                    onChange={handleChange} ref={register({ required: true, minLength:3 })} />
                             <span className="errors">
                                 {errors.name && errors.name.type ===  'required' && 
@@ -97,10 +107,10 @@ return (
                         </div>
                        
 
-                        <div className="form-group">
+                        <div className="form-group" style={{textAlign:"right"}}>
                             <label>البريد الالكترونى</label>
                                   <input type="email" name="email" className="form-control"                             
-                                placeholder="ادخل البريد الالكترونى الخاص بك هنا"
+                                placeholder="ادخل البريد الالكترونى الخاص بك هنا" style={{textAlign:"right"}}
 
                                    onChange={handleChange} ref={register({ required: true, 
                                     pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i })} /> 
@@ -113,7 +123,7 @@ return (
                             </span>
                         </div>
 
-                         <div className="form-group">
+                         <div className="form-group" style={{textAlign:"right"}}>
                             <label>الصورة الشخصية</label>
                             <input type="file" name="image" className="form-control"
                                onChange={onImageChange} ref={register({
@@ -126,10 +136,10 @@ return (
                             </span>
                         </div>
 
-                        <div className="form-group">
+                        <div className="form-group" style={{textAlign:"right"}}>
                             <label>كلمة السر</label>
                             <input type="password" name="password" className="form-control"
-                                placeholder="ادخل كلمة السر الخاصة بك هنا"
+                                placeholder="ادخل كلمة السر الخاصة بك هنا" style={{textAlign:"right"}}
                               onChange={handleChange} ref={register({ required: true , minLength:6})} /> 
                             <span className="errors"> 
                                 {errors.password && errors.password.type ===  'required' && 
@@ -140,10 +150,10 @@ return (
                             </span> 
                         </div>
 
-                        <div className="form-group">
+                        <div className="form-group" style={{textAlign:"right"}}>
                             <label>تأكيد كلمة السر</label>
                             <input type="password" name="password_confirmation" className="form-control"
-                                placeholder="ادخل تأكيد كلمة السر الخاصة بك هنا"
+                                placeholder="ادخل تأكيد كلمة السر الخاصة بك هنا" style={{textAlign:"right"}}
                                 onChange={handleChange} ref={register({ required: true , minLength:6 
                                     ,validate: value => value === password.current })} /> 
                             <span className="errors">
@@ -162,19 +172,22 @@ return (
                         </div>
 
 
-                        <div className="form-group">
+                        <div className="form-group" style={{textAlign:"right"}}>
                             <label> هل تريد ان تسجل معنا كواحد من الطهاة؟ </label>
                             <br></br>
                         
                                       <input type="text" name="is_chef" className="form-control"                                 
-                                placeholder="ادخل رقم 1 اذا كنت تريد التسجيل كطاهى"
+                                placeholder="ادخل رقم 1 اذا كنت تريد التسجيل كطاهى" style={{textAlign:"right"}}
                                    onChange={handleChange} ref={register({  })} />
                            
                         </div>
                         
                     
-                        <button type="submit" className="btn btn-primary"> الاشتراك</button>
+                        <button type="submit" className="btn contact-btn"> الاشتراك</button>
                 </form>
+                </div>
+                </div>
+            </div>
             </div>
     <SocialSection />
 </div>

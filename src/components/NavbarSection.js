@@ -22,8 +22,8 @@ class NavbarSection extends Component {
 
                     <div className="top_social_bar">
                        
-                        <a href="#"><i className="fab fa-facebook" style={{width: "20px"}}></i></a>
-                        <a href="#"><i className="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/Ratatouile-108911094195742/?notif_id=1592256183671847&notif_t=page_invite_accept&ref=notif"><i className="fab fa-facebook" style={{width: "20px"}}></i></a>
+                        <a href="https://www.instagram.com/ratatouile6/"><i className="fab fa-instagram"></i></a>
                     
                       
                     </div>

@@ -29,28 +29,28 @@ function NavSection() {
                     </Nav.Link>
                     <NavDropdown title="المزيد" id="nav-dropdown">
                         <NavDropdown.Item eventKey="4.1">
-                            <Nav.Link   href="/categories"> <Link to={"/categories"} style={{color:"grey"}}>  التصنيفات </Link>  
+                            <Nav.Link   href="/categories"> <Link to={"/categories"} style={{color:"#FF8C00"}}>  التصنيفات </Link>  
                                 <i className="fas fa-hamburger" style={{width: "25px"} ,{color:'#e07b39'}}></i></Nav.Link>
                         </NavDropdown.Item>
                         <NavDropdown.Item eventKey="4.2">
                             <Nav.Link  href="/workshops">
-                                <Link to={"/workshops"} style={{color:"grey"}}> ورش الطبخ </Link>  
+                                <Link to={"/workshops"} style={{color:"#FF8C00"}}> ورش الطبخ </Link>  
                                 <i className="fas fa-users" style={{width: "15px"} ,{color:'#e07b39'}}></i></Nav.Link>
                         </NavDropdown.Item>
                         <NavDropdown.Item eventKey="4.3">
                             <Nav.Link to={"/questions"}>
-                            <Link to={"/questions"} style={{color:"grey"}}> الاسئلة و الاستفسارات </Link>
+                            <Link to={"/questions"} style={{color:"#FF8C00"}}> الاسئلة و الاستفسارات </Link>
                             <i class="fas fa-question" style={{width: "15px"} ,{color:'#e07b39'}}></i></Nav.Link>
                         </NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item eventKey="4.3">
                             <Nav.Link  href="#home"> 
-                            <Link to={"/contactus"} style={{color:"grey"}}>  للتواصل معنا</Link>
+                            <Link to={"/contactus"} style={{color:"#FF8C00"}}>  للتواصل معنا</Link>
                             <i className="fas fa-blender-phone" style={{width: "15px"} ,{color:'#e07b39'}}></i></Nav.Link>
                         </NavDropdown.Item>
                         <NavDropdown.Item eventKey="4.3">
                             <Nav.Link  href="#home"> 
-                            <Link to={"/aboutus"} style={{color:"grey"}}>  من نحن ؟</Link>
+                            <Link to={"/aboutus"} style={{color:"#FF8C00"}}>  من نحن ؟</Link>
                     <i class="far fa-address-card" style={{width: "15px"} ,{color:'#e07b39'}}></i></Nav.Link>
                         </NavDropdown.Item>
                     </NavDropdown>
@@ -58,11 +58,11 @@ function NavSection() {
                   
                     <NavDropdown title="الوصفات" id="nav-dropdown">
                         <NavDropdown.Item eventKey="4.1">
-                            <Link  to={"/recipes"}> وصفات الطهاه</Link>
+                            <Link  to={"/recipes"} style={{color:"#FF8C00"}}> وصفات الطهاه</Link>
                         </NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item eventKey="4.2">
-                        <Link to={"/userrecipes"}> وصفات الاعضاء</Link>
+                        <Link to={"/userrecipes"} style={{color:"#FF8C00"}}> وصفات الاعضاء</Link>
                         </NavDropdown.Item>
                     </NavDropdown>
                     

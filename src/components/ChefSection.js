@@ -11,7 +11,7 @@ class ChefSection extends Component {
       }
     
     componentDidMount(){
-     axios.get('http://127.0.0.1:8000/api/chefs')
+     axios.get('http://127.0.0.1:8000/api/chef')
      .then(res=>{
              console.log(res.data.data)
             //  const chefs = res.data;
@@ -26,50 +26,58 @@ class ChefSection extends Component {
    return(
         
 
-        <div className="container mt-5">
+        <div className="container" >
             <h2 className="text-center">ها هم شيفتنا</h2>
             <hr/>
-            {/* <div id="carouselExampleCaptions" className="carousel slide mt-5 mb-5" data-ride="carousel">
-                    <ol className="carousel-indicators">
-                        <li data-target="#carouselExampleCaptions" data-slide-to="0" className="active"></li>
-                        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                    </ol>
-                    {/* <div className="carousel-inner">
-                    <div className="carousel-item active"> */}
-                    {/* {this.state.chefs.length && (
-                    <OwlCarousel autoPlay  >  */}
-                    
-                    <div className="slide-box row">
+        
+                
+                <div >
+                 
+                        <div >
+                            
+{/*                                                    
+                                        // <Link to={`/chefs/${chef.id}`}> 
+                                        //     <img style={{paddingLeft:"10px;"}}  href="" src={`http://127.0.0.1:8000/uploads/${chef.image}`} alt=""/>
+                                        // </Link>  */}
 
-                <div className="container">
-                    {this.state.chefs.length && ( 
-                        <div className="slide-box row">
-                            {this.state.chefs.map(chef=>{
-                                return(
-                                    
-                                <div className="col-lg-5 mb-5" id="chef-parent">
-                                    <div className="media">
-                                       
-                                        <Link to={`/chefs/${chef.id}`}> 
-                                            <img className="img-fluid" href="" src={`http://127.0.0.1:8000/uploads/${chef.image}`} className="mr-3 img-fluid" id="chef-img" alt=""/>
-                                        </Link>
-                                       
+                                        <div className="row">
+                                           
+                      {this.state.chefs.map(chef=>{
+                                            return(  
+                                                <div className="col-3">
+
+
+                                 
+                                            <div className="card border-warning">
+                                    <div className="card-header">{chef.name}</div>
+                                    <div className="card-body text-warning">
+                                        <h5 className="card-title">{chef.work_place}</h5>
+                                         <Link to={`/chefs/${chef.id}`}> 
+                                        <p className="card-text"> <img style={{width:"200px,",height:"200px"}}  href="" src={`http://127.0.0.1:8000/uploads/${chef.image}`} alt=""/></p>
+                                         </Link>  
                                     </div>
-                                    <div className="media-body col-12"  id="chef-name">
-                                        <h5 className="mt-0"> {chef.name} </h5>
-                                            
-                                        <p> {chef.work_place} </p>
                                     </div>
+                                  
+                                
+                                        </div>   
+                                        
+                                        );}
+                                )}
+                                        
+                                              
                                     
                                 </div>
+
+                          
+                             
                                 
-                                );}
-                                )}
+                                
                         </div>
-                    )}
+                    
                 </div>
                                 
-        </div>   </div>
+ 
+         </div>
       
  
     );

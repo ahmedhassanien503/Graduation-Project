@@ -64,11 +64,11 @@ class userRecipes extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                         
                                 {/* <h3 className="post-headline">{recipe.RecipeName}</h3> */}
-                                <h3 className="post-headline">{recipe.title}</h3>
+                                <h6>{recipe.title}</h6>
 
-                            </a>
+                            
                         </div>
                     </div>
                 </div>

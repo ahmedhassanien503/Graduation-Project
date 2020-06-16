@@ -10,6 +10,7 @@ import HeaderSection from '../components/HeaderSection.js';
 import FooterSection from '../components/FooterSection.js';
 import SocialSection from '../components/SocialSection.js';
 import User from './User';
+// import "./contact.css";
 
 function Login(){
     const cookies = new Cookies();
@@ -63,8 +64,7 @@ return ( <div>
     {ProtectedComponent(0)}
     <NavbarSection />
     <HeaderSection />
-    <div className="container" style={{ marginTop: "10px" }}>
-        <form onSubmit={onSubmit}>
+    {/* <form onSubmit={onSubmit}>
             <h3>سجل دخولك لعالم الطهى و الاكلات الشهية</h3>
             <div className="form-group">
                 <label>البريد الالكترونى</label>
@@ -89,8 +89,50 @@ return ( <div>
             <br></br>
             <a href="/register" class="stretched-link">هل تريد انشاء حساب جديد؟</a>
 
-        </form>
-    </div>
+        </form> */}
+
+
+
+<div className="contact-form-area" className="container">
+                <div className="row">
+                    <div className="col-12 col-md-5">
+                        <div className="contact-form-sidebar " data-wow-delay="0.3s" >
+                        <p> . </p>
+                        </div>
+                    </div>
+                    <div className="col-12 col-md-7 item">
+                        <div className="contact-form wow fadeInUpBig" data-wow-delay="0.6s">
+                            <h2 style={{color:"#FF8C00",textAlign:"right"}}> الأن يمكنك الانضمام لنا وبكل سهولة</h2>
+                            
+                         <form onSubmit={onSubmit} >
+                                <div className="form-group" style={{textAlign:"right"}}>
+                                <label style={{textAlign:"right"}}>البريد الالكترونى</label>
+                                <input
+                                    type="email" name="email" id="your_email"
+                                    className="form-control"
+                                    placeholder="ادخل بريدك الالكترونى هنا"
+                                    value={state.email} onChange={handleChange} 
+                                    style={{textAlign:"right"}} />
+                                </div>
+                                <div className="form-group"style={{textAlign:"right"}}>
+                            <label style={{textAlign:"right"}}>كلمة السر</label>
+                            <input
+                                type="password" name="password" id="password"
+
+                                className="form-control"
+                                placeholder="ادخل كلمة السر الخاصة بك هنا"
+                                value={state.password} onChange={handleChange} 
+                                style={{textAlign:"right"}}/>
+                                </div>
+                             
+                                <button type="submit" className="btn contact-btn">تسجيل الدخول</button>
+                                <a href="/register" class="stretched-link">هل تريد انشاء حساب جديد؟</a>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
     <SocialSection />
 </div>
          );

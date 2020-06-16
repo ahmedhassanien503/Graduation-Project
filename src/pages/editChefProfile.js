@@ -69,38 +69,55 @@ class Chef extends Component{
         <div>
             <NavbarSection/>
             <div className="container" style={{marginTop:"10px"}}>
+            <div className="contact-form-area">
+                <div className="row">
+                    <div className="col-12 col-md-5">
+                     
+                    </div>
+                    <div className="col-12 col-md-7 item">
+                        <div className="contact-form wow fadeInUpBig" data-wow-delay="0.6s">
+                            <h2 className="contact-form-title mb-30"></h2>
+                            
                 <form onSubmit={this.handleSubmit}>
-                    <h3>Edit</h3>
-                    <div className="form-group">
-                        <label>Name</label>
+                <h2 style={{color:"#FF8C00",textAlign:"right"}}> ألان يمكنك تعديل صفحتك الشخصية</h2>
+                    <div className="form-group" style={{textAlign:"right"}}>
+                        <label>الاسم</label>
                         <input 
                         name="name"
                         type="text" 
                         className="form-control" 
-                        placeholder="Edit Name"
+                        placeholder="تعديل الاسم"
+                        style={{textAlign:"right"}}
                         onChange={this.handleChange} />
                     </div>
-                    <div className="form-group">
-                        <label>Work Place</label>
+                    <div className="form-group" style={{textAlign:"right"}}>
+                        <label>مكان العمل</label>
                         <input 
-                        name="work_place"
+                        name="مكان العمل"
                         type="text" 
                         className="form-control" 
-                        placeholder="Edit Work place"
+                        placeholder="تعديل مكان العمل"
+                        style={{textAlign:"right"}}
                         onChange={this.handleChange} />
                     </div>
-                    <div className="form-group">
-                        <label>Image</label>
+                    <div className="form-group"                        style={{textAlign:"right"}}
+>
+                        <label>الصورة الشخصية</label>
                         <input 
                         name="image"
                         type="file" 
                         className="form-control" 
                         onChange={this.handleImage} />
                     </div>
-                    <button type="submit">تعديل</button>
+                    <button type="submit" className="btn contact-btn">تعديل</button>
                 </form>
             </div>
+        </div>
+        </div>
+     </div>
+ </div>
             <FooterSection/>
+          
             
         </div>
    );}

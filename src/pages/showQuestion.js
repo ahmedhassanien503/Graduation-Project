@@ -79,10 +79,10 @@ render(){
                     
 
                         <div className="card border-secondary mb-3">
-    <div className="card-header" style={{ color:"#e07b39"}}>  <img src={`http://localhost:8000/uploads/user/${this.state.question.user_info.image}`} alt="" width="60" height="60" />  بواسطة: {this.state.question.user_info.name}</div>
+    <div className="card-header" style={{ color:"#e07b39",textAlign:"right"}}> {this.state.question.user_info.name}  <img src={`http://localhost:8000/uploads/${this.state.question.user_info.image}`} alt="" width="60" height="60" />  </div>
   <div className="card-body text-warning">
-    <h6 className="card-title">{this.state.question.created_at}</h6>
-    <p className="card-text">{this.state.question.question}</p>
+    <h6 className="card-title" style={{textAlign:"right"}}>{this.state.question.created_at}</h6>
+    <p className="card-text" style={{textAlign:"right"}}>{this.state.question.question}</p>
   </div>
 </div>
         <div  style={{
@@ -109,7 +109,7 @@ render(){
         <form onSubmit={this.onAnswer}>
            
             <div className="form-group">
-                <textarea className="form-control" name="answer" cols="30" rows="10" placeholder="الاجابة" onChange={this.handleChange} rows="5" required />
+                <textarea className="form-control" name="answer" cols="30" rows="10" style={{textAlign:"right"}} placeholder="الاجابة" onChange={this.handleChange} rows="5" required />
             </div>
                         <div style={{
                                 display: 'flex',

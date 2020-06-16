@@ -26,7 +26,7 @@ function NavHeaderSection() {
                 autoplayHoverPause={true}
             >
         <div className="welcome-single-slide">   
-            <img  style ={{ display: "block" , width: "100% ", height: "auto"}} src="/img/carousel/food12.jpeg"  alt="First slide" width="340" height="240" />
+            <img  style ={{ display: "block" , width: "100% ", height: "auto"}} src="/img/carousel/food2.jpg"  alt="First slide" width="340" height="240" />
 
         </div>
         <div className="welcome-single-slide">   
@@ -46,37 +46,3 @@ function NavHeaderSection() {
 
 export default NavHeaderSection;
   
-
-        {/* <Carousel activeIndex={index} onSelect={handleSelect} interval={3000}>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src="img/carousel/food1.jpg"
-                        alt="First slide"
-                    />
-                    <Carousel.Caption>
-                        <h3>Ratatouile for food lovers</h3>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src="img/carousel/food6.jpg"
-                        alt="Second slide"
-                    />
-            
-                    <Carousel.Caption>
-                        <h3>Ratatouile for food lovers</h3>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src="img/carousel/food7.jpg"
-                        alt="Third slide"
-                    />
-                    <Carousel.Caption>
-                        <h3>Ratatouile for food lovers</h3>
-                    </Carousel.Caption>
-                </Carousel.Item>
-            </Carousel> */}

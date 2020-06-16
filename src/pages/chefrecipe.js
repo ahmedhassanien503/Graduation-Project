@@ -112,10 +112,10 @@ class chefrecipe extends Component {
                                       
                                     </div>
                                     
-                        <h2 className="post-headline" >{this.state.recipe.RecipeName}</h2>
-                                    
-                                     <p>{this.state.recipe.details}</p>
-                                     
+                        <h2 className="post-headline" style={{textAlign:"right"}}>{this.state.recipe.RecipeName}</h2>
+                                    <div style={{textAlign:"right"}} >
+                                     <p >{this.state.recipe.details}</p>
+                                     </div>
 
 
                                     <blockquote className="yummy-blockquote mt-30 mb-30">
@@ -131,7 +131,6 @@ class chefrecipe extends Component {
 
                         
                             <div className="related-post-area section_padding_50">
-                                <h4 className="mb-30">وصفات اخرى</h4>
 
                                 <div className="related-post-slider owl-carousel">
                             
@@ -254,47 +253,20 @@ class chefrecipe extends Component {
                                                         <p id="right-align">{comment.content}</p>
                                                         <Link to={`/comment/${comment.id}`}> <a className="active">تعديل</a></Link>
                                                         <button className="delete-btn" onClick={() => { this.handleClick(comment.id) }}>حذف</button>
+
+                                                        {/* {this.is_auth && this.is_auth.id && answer.chef_id == this.is_auth.id ?
+<Link to={`/editanswer/${answer.id}`}> <button type="button" className="btn btn-outline-dark btn-sm" style={{margin:"10px"}}> <i className="far fa-edit"></i> تعديل الاجابة </button></Link>
+:""}  */}
+
                                                     </div>
 
                                                     <div className="comment-author" id="right-align">
                                                         <img className="img-fluid user-img" src={`http://127.0.0.1:8000/uploads/${comment.user.image}`} alt=""/>
                                                     </div>
                                                 </div>
-                                                {/* <ol className="children">
-                                                    <li className="single_comment_area">
-                                                        <div className="comment-wrapper d-flex">
-                                                    
-                                                            <div className="comment-author">
-                                                                <img src="img/blog-img/18.jpg" alt=""/>
-                                                            </div>
-                                                
-                                                            <div className="comment-content">
-                                                                <span className="comment-date text-muted">27 Aug 2018</span>
-                                                                <h5>Brandon Kelley</h5>
-                                                                <p>Neque porro qui squam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
-                                                                <a href="#">Like</a>
-                                                                <a className="active" href="#">Reply</a>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ol> */}
+                                
                                             </li>
-                                            {/* <li className="single_comment_area">
-                                                <div className="comment-wrapper d-flex">
-                                                
-                                                    <div className="comment-author">
-                                                        <img src="img/blog-img/19.jpg" alt=""/>
-                                                    </div>
-                                            
-                                                    <div className="comment-content">
-                                                        <span className="comment-date text-muted">27 Aug 2018</span>
-                                                        <h5>Brandon Kelley</h5>
-                                                        <p>Neque porro qui squam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
-                                                        <a href="#">Like</a>
-                                                        <a className="active" href="#">Reply</a>
-                                                    </div>
-                                                </div>
-                                            </li> */}
+       
                                         </ol>
                                     )}
                                 )}

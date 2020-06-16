@@ -58,16 +58,14 @@ class chefrecipes extends Component {
                                 </div>
                                 <div className="post-comment-share-area d-flex">
       
-                                    <div className="post-share">
-                                        <a href="#"><i className="fa fa-share-alt" aria-hidden="true"></i></a>
-                                    </div>
+                                  
                                 </div>
                             </div>
-                            <a href="#">
+                          
                                 {/* <h3 className="post-headline">{recipe.RecipeName}</h3> */}
-                                <h3 className="post-headline">{recipe.title}</h3>
+                                <h6 style={{textAlign:"right;"}}>{recipe.title}</h6>
 
-                            </a>
+                          
                         </div>
                     </div>
                 </div>

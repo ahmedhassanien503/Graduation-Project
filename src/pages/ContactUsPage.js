@@ -77,6 +77,7 @@ class ContactUsPage extends Component {
         </div>
     </div>
  <br></br>
+ <div className="container">
     <div className="contact-form-area">
                 <div className="row">
                     <div className="col-12 col-md-5">
@@ -84,25 +85,26 @@ class ContactUsPage extends Component {
                         <p> . </p>
                         </div>
                     </div>
-                    <div className="col-12 col-md-7 item">
+                    <div className="col-12 col-md-7 item" style={{textAlign:"right"}}>
                         <div className="contact-form wow fadeInUpBig" data-wow-delay="0.6s">
-                            <h2 className="contact-form-title mb-30">If You Have Any Question Contact Me Today !</h2>
+                            <h5 className="contact-form-title mb-30" style={{color:"#FF8C00"}}>      اذا كان لديك اى سؤال ؟يمكنك ارساله بسهوله</h5>
                             
                             <form onSubmit={this.handleSubmit}>
                                 <div className="form-group">
-                                    <input type="text"name="name" className="form-control" id="contact-name" placeholder="Name" onChange={this.handleChange}/>
+                                    <input type="text"name="name" className="form-control" id="contact-name" placeholder="الأسم" style={{textAlign:"right"}} onChange={this.handleChange}/>
                                 </div>
                                 <div className="form-group">
-                                    <input type="email"name="email" className="form-control" id="contact-email" placeholder="Email"onChange={this.handleChange}/>
+                                    <input type="email"name="email" className="form-control" id="contact-email" placeholder="الايميل" style={{textAlign:"right"}} onChange={this.handleChange}/>
                                 </div>
                                 <div class="form-group">
-                                    <textarea className="form-control" name="message" id="message" cols="30" rows="10" placeholder="Message"onChange={this.handleChange}></textarea>
+                                    <textarea className="form-control" name="message" id="message" cols="30" rows="10" placeholder="الرسالة" style={{textAlign:"right"}} onChange={this.handleChange}></textarea>
                                 </div>
-                                <button type="submit" className="btn contact-btn">Send Message</button>
+                                <button type="submit" className="btn contact-btn">ارسل الأن</button>
                             </form>
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
             <br></br><br></br>
  <RecipeSliderSection />

@@ -5,10 +5,14 @@ import NavbarSection from '../components/NavbarSection.js';
 import HeaderSection from '../components/HeaderSection.js';
 import FooterSection from '../components/FooterSection.js';
 import SocialSection from '../components/SocialSection.js';
+import User from './User';
+import Cookies from 'universal-cookie';
 
 class EditOrder extends Component {
     constructor(){
         super();
+        this.cookies = new Cookies();
+        this.is_auth = this.cookies.get('UserData');
         this.state={
             order:{
             "order_description":"loading...",
@@ -45,6 +49,8 @@ class EditOrder extends Component {
           const address=  this.state.address ;
           const total_price=  this.state.total_price ;
           const date=  this.state.date ;
+
+
 
           const formData = new FormData(); 
           formData.append('_method','PUT'); 
@@ -92,11 +98,11 @@ render(){
                                     type="text" 
                                     className="form-control" 
                                     placeholder={this.state.order.order_description}
-                                    onChange={this.handleChange} />
+                                    onChange={this.handleChange} required />
                             </div>
                             <div class="form-group">
             <label for="inputStatus">طريقة الدفع</label>
-            <select name="payment_method" class="form-control custom-select" onChange={this.handleChange}>
+            <select name="payment_method" class="form-control custom-select" onChange={this.handleChange} required>
               <option selected disabled>اختر طريقة الدفع</option>
               <option value="Cash">دفع عند وصول الطلب</option>
               <option value="Credit Card">دفع ببطاقة الائتمان</option>
@@ -109,7 +115,7 @@ render(){
                                     type="text" 
                                     className="form-control" 
                                     placeholder={this.state.order.order_address}
-                                    onChange={this.handleChange} />
+                                    onChange={this.handleChange} required/>
                             </div>
 
                             <div className="form-group">
@@ -118,7 +124,7 @@ render(){
                                     name="date"
                                     type="text" 
                                     className="form-control" 
-                                    placeholder={this.state.order.order_date}
+                                    placeholder={this.state.order.order_date} required
                                     onChange={this.handleChange} />
                             </div>
 
@@ -129,7 +135,7 @@ render(){
                                     type="number" 
                                     className="form-control" 
                                     placeholder={this.state.order.order_total_price}
-                                    onChange={this.handleChange} />
+                                    onChange={this.handleChange} required />
                             </div>
                            
                             <button type="submit" className="btn btn-primary">تعديل الطلب</button>

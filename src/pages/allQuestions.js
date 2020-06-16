@@ -69,7 +69,7 @@ class allQuestions extends Component {
                 <div className="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".2s">
                 
                 
-                    <img src={`http://localhost:8000/uploads/user/${question.user_info.image}`} alt="" width="90" height="90" />
+                    <img src={`http://localhost:8000/uploads/${question.user_info.image}`} alt="" width="90" height="90" />
                  
                     <div className="post-content container">
                         <div className="post-meta d-flex">
@@ -86,9 +86,7 @@ class allQuestions extends Component {
                        
                            
                         </div>
-                        {/* <a href="#">
-                            <h4 className="post-headline">{recipe.RecipeName}</h4>
-                        </a> */}
+
                         <br/>
                         <p>{question.question}</p>
                         <div className="post-thumb">

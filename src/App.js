@@ -71,8 +71,8 @@ import orderdeleted from './pages/orderdeleted';
 import editAnswer from "./pages/editAnswer.js";
 import userChefWorkshop from './pages/userChefWorkshop';
 import editComment from "./pages/editComment.js";
-
-
+import CreateMenuRecipe from './pages/CreateMenuRecipe';
+import EditMenuRecipe from './pages/EditMenuRecipe';
 
 
 
@@ -120,6 +120,9 @@ function App() {
 
     {/* <Route exact path='/addAnswer' component={addAnswer} /> */}
    
+    <Route exact path='/createMenu/:chef' component={CreateMenuRecipe} />
+    <Route exact path='/menus/:menu' component={EditMenuRecipe} />
+
     <Route exact path='/comment/:comment' component={editComment} />
     <Route exact path='/userprofile' component={userProfile} />
     <Route exact path='/chefprofile' component={chefProfile} />

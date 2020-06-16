@@ -22,7 +22,8 @@ class chefProfile extends Component {
         this.is_auth = this.cookies.get('UserData');
         this.state = {
             chef : [],
-            recipes:[]
+            recipes:[],
+            menus:[]
          };
       }
     
@@ -49,7 +50,18 @@ class chefProfile extends Component {
                 this.setState({
                     chef: res.data.users,
                     recipes:res.data.recipes
-                }) })}
+                }) 
+                return  axios.get(`http://127.0.0.1:8000/api/chefs/${this.props.match.params.chef}/menus`);
+           
+            }).then(res=>{
+                this.setState({
+                    menus: res.data.data,
+                })
+            }
+
+            )
+                    
+        }
       else{
         axios.get(`http://127.0.0.1:8000/api/chefs/ ${this.props.match.params.chef}`)
         .then(res=>{
@@ -59,9 +71,24 @@ class chefProfile extends Component {
                 this.setState({
                     chef: res.data.users,
                     recipes:res.data.recipes
-                }) })
-      }
+                }) 
+                return  axios.get(`http://127.0.0.1:8000/api/chefs/${this.props.match.params.chef}/menus`);
+            }).then(res=>{
+                this.setState({
+                    menus: res.data.data,
+                })
+            }
+
+            )}
     }
+    handleClick = menuId => {
+        
+        fetch(`http://127.0.0.1:8000/api/menus/${menuId}`,  {method: 'DELETE'})
+            .then((response) => {
+                console.log(menuId);
+                console.log(response);
+            }) 
+        }
 
 
     render(){
@@ -73,10 +100,9 @@ class chefProfile extends Component {
     
             <div className="container">
                 <div className="row">
-                            <div className="col-lg-4 mb-5">
-
-                                <img src={`http://127.0.0.1:8000/uploads/${this.state.chef.image}`} className="mr-3 img-fluid" id="chef-img" alt=""/>  
-                             </div>
+                    <div className="col-lg-4 mb-5">
+                        {/* <img src={`http://127.0.0.1:8000/uploads/${this.state.chef.image}`} className="mr-3 img-fluid" id="chef-img" alt=""/>   */}
+                    </div>
                                     
             {/* <div className="row">
             {this.state.recipes.map(recipe=>{
@@ -100,7 +126,7 @@ class chefProfile extends Component {
         </div>
        */}
 
-<div className="row">
+            <div className="row">
              {this.state.recipes.map(recipe=>{
              return(
                 <div className="col-12 col-md-6 col-lg-4">
@@ -141,7 +167,33 @@ class chefProfile extends Component {
 
   ) } )} 
 </div>
-          
+          <div className="container">
+              <div className="pad-center-title">
+          <h4>قائمة الشيف المتاحة للطلبات</h4>
+          </div>
+                <div className="row">
+                    
+                {this.state.menus.map(menu=>{
+                    return(
+                        <div className="col-md-3">
+                            
+                            <img className="img-fluid" src={`http://localhost:8000/uploads/${menu.image}`}/>
+                            <h4>{menu.name}</h4>
+                            <span>{menu.price}</span>
+                            <p>{menu.description}</p>
+                            
+                            { this.is_auth && this.is_auth.is_chef && this.state.chef.id==this.is_auth.id  ?
+                            <div>
+                            <Link to={`/menus/${menu.id}`}> <a className=" edit-btn">تعديل</a></Link>
+                            <button className="delete-btn" onClick={() => { this.handleClick(menu.id) }}>حذف</button>
+                            </div> 
+                            : ""}
+                        </div>
+                    )}
+                )}
+                    
+                </div>
+          </div>
 
                     
 
@@ -215,6 +267,10 @@ class chefProfile extends Component {
           {this.is_auth && this.props.match.params.chef && !this.is_auth.is_chef?
           <li>
             <Link to={`/userChefWorkshop/${this.props.match.params.chef}`}><button class="btn btn-outline-success"> ورش عمل</button></Link>
+          </li> : ""} <hr/>
+          { this.is_auth && this.is_auth.is_chef && this.state.chef.id==this.is_auth.id  ?
+          <li>
+            <Link to={`/createMenu/${this.props.match.params.chef}`}><button class="btn btn-outline-success">   أضف اكله جديدة بالمنيو</button></Link>
           </li> : ""} <hr/>
         </ul>
       </div>

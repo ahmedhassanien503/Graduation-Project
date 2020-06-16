@@ -47,7 +47,7 @@ class ChefSection extends Component {
                             {this.state.chefs.map(chef=>{
                                 return(
                                     
-                                <div className="col-lg-5 mb-5" id="chef-parent">
+                                <div className="col-lg-3 mb-3" id="chef-parent">
                                     <div className="media">
                                        
                                         <Link to={`/chefs/${chef.id}`}> 
@@ -55,7 +55,7 @@ class ChefSection extends Component {
                                         </Link>
                                        
                                     </div>
-                                    <div className="media-body col-12"  id="chef-name">
+                                    <div className="media-body"  id="chef-name">
                                         <h5 className="mt-0"> {chef.name} </h5>
                                             
                                         <p> {chef.work_place} </p>

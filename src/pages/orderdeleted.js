@@ -17,12 +17,12 @@ class orderdeleted extends Component {
                
                                     <div className="media-body col-12">
                                       <h3>تم الغاء طلبك بنجاح</h3>
-
-                                    </div>
-                              </div>
-                       <Link to={`/addorder`}>
+                                      <Link to={`/addorder/${this.props.match.params.chef}`}>
                        <button type="submit" className="btn btn-primary">طلب جديد </button>
 </Link>
+                                    </div>
+                              </div>
+                     
 
 
               

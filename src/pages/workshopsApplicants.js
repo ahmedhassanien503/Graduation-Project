@@ -73,7 +73,6 @@ class workshopsApplicants extends Component {
                             <th style={{color: "#d84315" , textAlign : "right"}} >اسم المتقدم</th>
                             <th style={{color: "#d84315" , textAlign : "right" }} >صورة المتقدم</th>
                             <th style={{color: "#d84315" , textAlign : "right"}} >ايميل المتقدم</th>
-                            <th style={{color: "#d84315" , textAlign : "right"}} >رقم الهاتف المتقدم</th>
                             <th style={{color: "#d84315" , textAlign : "right"}} >تأكيد/الغاء</th>
                             </tr>
                         </thead>
@@ -86,7 +85,6 @@ class workshopsApplicants extends Component {
                                         <img src={`http://localhost:8000/uploads/user/${workshopApplicant.user_name.image}`} alt="" width="200" height="120"/>
                                     </td>
                                     <td style={{textAlign : "right"}}>{workshopApplicant.user_name.email}</td>
-                                    <td style={{textAlign : "right"}}> </td>
                                     <td style={{textAlign : "right"}}>
                                     { workshopApplicant.is_accepted ?     
                                         <button className="btn btn-outline-success btn-sm" onClick={this.handleSubmit} value={workshopApplicant.id}> <i class="far fa-check-square"></i> Accept</button>   

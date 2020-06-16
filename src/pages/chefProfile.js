@@ -23,7 +23,8 @@ class chefProfile extends Component {
         this.is_auth = this.cookies.get('UserData');
         this.state = {
             chef : [],
-            recipes:[]
+            recipes:[],
+            menus:[]
          };
       }
     
@@ -50,7 +51,14 @@ class chefProfile extends Component {
                 this.setState({
                     chef: res.data.users,
                     recipes:res.data.recipes
-                }) })}
+                }) 
+                return  axios.get(`http://127.0.0.1:8000/api/chefs/${this.props.match.params.chef}/menus`);
+           
+                }).then(res=>{
+                this.setState({
+                    menus: res.data.data,
+                })
+            })}
       else{
         axios.get(`http://127.0.0.1:8000/api/chefs/ ${this.props.match.params.chef}`)
         .then(res=>{
@@ -60,7 +68,14 @@ class chefProfile extends Component {
                 this.setState({
                     chef: res.data.users,
                     recipes:res.data.recipes
-                }) })
+                }) 
+                return  axios.get(`http://127.0.0.1:8000/api/chefs/${this.props.match.params.chef}/menus`);
+           
+            }).then(res=>{
+            this.setState({
+                menus: res.data.data,
+            })
+            })
       }
     }
 

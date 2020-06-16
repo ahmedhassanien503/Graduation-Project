@@ -3,8 +3,9 @@ import axios from 'axios';
 import NavbarSection from '../components/NavbarSection.js';
 import HeaderSection from '../components/HeaderSection.js';
 import FooterSection from '../components/FooterSection.js';
+import profileNavSection from '../components/profileNavSection.js';
+import SocialSection from '../components/SocialSection.js';
 import SideSection from '../components/SideSection.js';
-// import { BrowserRouter as Router, Switch, Route, Link , Redirect } from "react-router-dom";
 import jQuery from 'jquery';
 import { ProSidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import 'react-pro-sidebar/dist/css/styles.css';
@@ -12,8 +13,8 @@ import "./sidebar.css";
 import "./side.js"
 import User from './User';
 import Cookies from 'universal-cookie';
-
-
+import "./contact.css";
+import  '../../src/assets/css/headerlinks.css';
 import { BrowserRouter as Router, Switch, Route, Link , Redirect } from "react-router-dom";
 class chefProfile extends Component {
     constructor() {
@@ -68,86 +69,118 @@ class chefProfile extends Component {
         
    return(
        <div>
-           <NavbarSection/>
-            <HeaderSection/>
-    
-            <div className="container">
-                <div className="row">
-                            <div className="col-lg-4 mb-5">
-
-                                <img src={`http://127.0.0.1:8000/uploads/${this.state.chef.image}`} className="mr-3 img-fluid" id="chef-img" alt=""/>  
-                             </div>
-                                    
-            {/* <div className="row">
-            {this.state.recipes.map(recipe=>{
-            return(
-               
-                  <div className="col-4">
-                <div className="card border-info mb-3" style={{maxWidth:"18rem;"}}>
-                <div className="car
-                d-header">{recipe.RecipeName}</div>
-                <div className="card-body text-info">
-                    <h5 className="card-title">{recipe.RecipeName}</h5>
-                    <p className="card-text"> <img src={`http://localhost:8000/uploads/recipes/${recipe.recipe_image}`} alt="" /></p>
-                </div>
-                </div>
-                </div>
-
-
-
-                
-            )})}
-        </div>
-       */}
-
-<div className="row">
-             {this.state.recipes.map(recipe=>{
-             return(
-                <div className="col-12 col-md-6 col-lg-4">
-                    <div className="single-post wow fadeInUp" data-wow-delay="0.1s">
-                        <div className="post-thumb"><Link to={`/recipe/${recipe.id}`}> 
-                        <img src={`http://localhost:8000/uploads/recipes/${recipe.recipe_image}`} alt="" />
-                             </Link>
-                        </div>
-
-                        
-                        <div className="post-content">
-                            <div className="post-meta d-flex">
-                                <div className="post-author-date-area d-flex">
-                                    
-                                    <div className="post-author">
-                                        <a href="#">by {recipe.user.name}</a>
-                                    </div>
+                    <nav className="navbar navbar-expand-lg">
+                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#yummyfood-nav" aria-controls="yummyfood-nav" aria-expanded="false" aria-label="Toggle navigation"><i className="fa fa-bars" aria-hidden="true"></i> Menu</button>
+                     
+                        <div className="collapse navbar-collapse justify-content-center" id="yummyfood-nav">
+                            <ul className="navbar-nav" id="yummy-nav">
                              
-                                    <div className="post-date">
-                                    <a href="#">at {recipe.created_at}</a>
-                                    </div>
-                                </div>
-                                <div className="post-comment-share-area d-flex">
-      
-                                    <div className="post-share">
-                                        <a href="#"><i className="fa fa-share-alt" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                {/* <h3 className="post-headline">{recipe.RecipeName}</h3> */}
-                                <h3 className="post-headline">{recipe.title}</h3>
 
-                            </a>
+                                  <li className="nav-item">
+                                    
+                                    <Link to={"/contactus"} className="nav-link">تواصل معنا 
+                                     <i className="fas fa-blender-phone"  style={{width: "25px"}}></i>
+                                     </Link> 
+                                    
+                                  </li>
+
+                                  <li className="nav-item">
+                                  <Link to={"/aboutus"} className="nav-link">
+                                    من نحن ؟ <i className="far fa-address-card" style={{width: "25px"}}></i>
+                                    </Link> 
+
+                                </li>
+                                <li className="nav-item">
+                                    <Link to={"/askquestion"} className="nav-link" href="#"> اسأل الشيف
+                                        <i className="fas fa-comment" style={{width: "25px"}}></i>
+                                    </Link>
+                                </li>
+                                <li className="nav-item">
+                                    
+                                    <Link to={"/workshops"} className="nav-link"> ورش الطبخ 
+                                     <i className="fas fa-users"  style={{width: "25px"}}></i>
+                                     </Link> 
+                                    
+                                  
+                                </li>
+                                <li className="nav-item">
+                                    <Link to={"/categories"} className="nav-link" href="#"> التصنيفات
+                                        <i className="fas fa-hamburger" style={{width: "25px"}}></i>
+                                    </Link>
+                                </li>
+                                <li className="nav-item dropdown">
+                                    <a className="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">الوصفات</a>
+                                    <div className="dropdown-menu" aria-labelledby="yummyDropdown">
+                                        <a className="dropdown-item"> <Link to={"/recipes"}>وصفات الطهاه </Link></a>
+                                        <a className="dropdown-item"><Link to={"/recipes"}>وصفات الأعضاء </Link> </a>
+                                   
+                                
+                                    </div>
+                                </li>
+                                <li className="nav-link active">
+                                   
+                                        <Link to={"/"} style={{color:"#e07b39"}}>  <span className="sr-only">(current)</span>الرئيسية  </Link> 
+                                        <i className="fa fa-fw fa-home" style={{width: "25px"},{color:"#e07b39"}}></i>
+                                 
+                                </li>
+                            </ul>
                         </div>
-                    </div>
-                </div>
+                    </nav>
 
-  ) } )} 
-</div>
-          
+          <div className="user-profile">
+              <div className="container h-100">
+                  <div className="row h-100 align-items-center">
+                      <div className="col-12">
+                          <div className="user-pic text-right ">
+                          <img className="img-responsive img-rounded" src={`http://127.0.0.1:8000/uploads/${this.state.chef.image}`}  width="250" height="150" alt=""/>  
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div className="container">
+          { this.state.recipes ?
+          <div className="row">
+          {this.state.recipes.map(recipe=>{
+          return(
+              <div className="col-12 col-md-6 col-lg-4">
+                  <div className="single-post wow fadeInUp" data-wow-delay="0.1s">
+                      <div className="post-thumb"><Link to={`/recipe/${recipe.id}`}> 
+                      <img src={`http://localhost:8000/uploads/recipes/${recipe.recipe_image}`} alt="" />
+                          </Link>
+                      </div>                     
+                      <div className="post-content">
+                          <div className="post-meta d-flex">
+                              <div className="post-author-date-area d-flex">
+                                  
+                                  <div className="post-author">
+                                      <a href="#">by {recipe.user.name}</a>
+                                  </div>
+                          
+                                  <div className="post-date">
+                                  <a href="#">at {recipe.created_at}</a>
+                                  </div>
+                              </div>
+                              <div className="post-comment-share-area d-flex">
+    
+                                  <div className="post-share">
+                                      <a href="#"><i className="fa fa-share-alt" aria-hidden="true"></i></a>
+                                  </div>
+                              </div>
+                          </div>
+                          <a href="#">
+                              {/* <h3 className="post-headline">{recipe.RecipeName}</h3> */}
+                              <h3 className="post-headline">{recipe.title}</h3>
 
-                    
+                          </a>
+                      </div>
+                  </div>
+              </div>
 
+            ) } )} 
+          </div> : ""}
+          </div>
     {/* start sidebar    */}
-
-
 
     <div className="page-wrapper chiller-theme toggled">
   <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
@@ -156,7 +189,7 @@ class chefProfile extends Component {
   <nav id="sidebar" className="sidebar-wrapper">
     <div className="sidebar-content">
       <div className="sidebar-brand">
-        <a href="#">RATATOILLE</a>
+        <a href="#">RATATOUILLE</a>
         <div id="close-sidebar">
           <i className="fas fa-times"></i>
         </div>
@@ -237,18 +270,18 @@ class chefProfile extends Component {
   </nav>
 
 </div>
-
-
+<div className="container">
+      <div className="row">
+          <div className="col-12">
+              <div className="copy_right_text text-center">
+                  <p>@2020, Made with <i className="fas fa-heart"></i> by <a href="#" > Ratatouille Team </a> for food lover's.</p>
+              </div>
+          </div>
+      </div>
+  </div>
+<SocialSection />
 </div>
-</div>
-                  
 
-             
-           
- 
-    <FooterSection/>
-</div>
-      
  
     );
 }

@@ -76,6 +76,8 @@ Route::get('/chefrecipes/{chefid}', 'API\ChefController@recipes');
     Route::get('/users/{user}','API\UserController@show');
     ##################### Chefs Routes #############################################################
     Route::get('/chefs','API\ChefController@index');
+    Route::get('/chef','API\ChefController@indexx');
+
     Route::get('/chefs/{chef}','API\ChefController@show');
     Route::put('/chef/edit/{chef}','API\ChefController@edit');
     ##################### Category Routes #########################################################

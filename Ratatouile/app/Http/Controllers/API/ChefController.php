@@ -27,6 +27,12 @@ class ChefController extends Controller
         );
     }
 
+    public function indexx(){
+        return ChefResource::collection(
+            User::where('is_chef',true)->paginate(8)
+        );
+    }
+
     public function show($chef){
         // return new ChefResource(
         //     User::find($chef)

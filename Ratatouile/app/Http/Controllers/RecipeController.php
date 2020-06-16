@@ -101,16 +101,29 @@ class RecipeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-            $request= request();
-            $recipeId=$request->recipe;
-            $recipe=Recipe::find($recipeId);
-            return view('recipes.edit',[
-                'recipe'=>$recipe,
-            ]);
+    // public function edit($id)
+    // {
+    //         $request= request();
+    //         $recipeId=$request->recipe;
+    //         $recipe=Recipe::find($recipeId);
+    //         return view('recipes.edit',[
+    //             'recipe'=>$recipe,
+    //         ]);
     
-    }
+    // }
+
+     public function edit($id)
+            {
+                $request= request();
+                $categories= Category::all();
+                $recipeId=$request->recipe;
+                $recipe=Recipe::find($recipeId);
+                return view('recipes.edit',[
+                'recipe'=>$recipe,
+                'categories' =>$categories,
+            ]);
+
+            }
 
     /**
      * Update the specified resource in storage.
@@ -139,6 +152,7 @@ class RecipeController extends Controller
         $recipe->serving=$request->get('Serving');
         $recipe->TakenTime=$request->get('TakenTime');
         $recipe->save();
+        $recipe->categories()->sync($request->categories);
          
         return redirect('/recipes');
     }

@@ -73,6 +73,16 @@
                   <input name="user_id" type="text" class="form-control" id="validationDefault01" value="{{ $recipe['user_id'] }}" required>
                 </div>
             </div>
+
+            <div class="form-group">
+              <label for="exampleInputPassword1">Categories</label>
+              <select name="categories[]" class="form-control custom-select" size="3" multiple>
+              {{-- <option selected disabled>Select Category</option> --}}
+              @foreach($categories as $category)
+              <option value="{{$category->id}}">{{$category->category_name}}</option>
+              @endforeach
+              </select>
+              </div> 
        
                
       <button class="btn btn-outline-primary" type="submit" style="align-center">Update</button>

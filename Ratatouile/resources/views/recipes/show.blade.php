@@ -29,36 +29,7 @@
 
 
   </div>
-  @foreach($comments as $comment)
-
-    <div class="display-comment"  style="margin-left:40px;" >
-
-        <strong>{{ $comment->user->name }}</strong>
-
-        <p>{{ $comment->content }}</p>
-
-        <!-- <a href="" id="reply"></a> -->
-
-        @endforeach
-        <!-- <form method="post" action="{{ route('comments.store') }}">
-
-            @csrf
-
-            <div class="form-group">
-
-                <input type="text" name="content" class="form-control" />
-
-                <input type="hidden" name="recipe_id" value="{{ $recipe->id }}" />
-                
-            </div>
-
-            <div class="form-group">
-
-                <input type="submit" class="btn btn-warning" value="comment" />
-
-            </div>
-
-        </form> -->
+  
 
 
     </div>

@@ -2,6 +2,11 @@
 
         background-image: url(/img/instagram-img/4.jpg);
       }
+
+    .user-profile{
+        background-image: url(/img/instagram-img/2.jpg);
+        height: 300px;
+    }
 .one{
           height: 100000;
           width: 100000;

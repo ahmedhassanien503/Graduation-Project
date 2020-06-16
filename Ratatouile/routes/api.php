@@ -108,6 +108,8 @@ Route::get('/chefrecipes/{chefid}', 'API\ChefController@recipes');
     // Route::get('/chefs/{chef}/menus','API\MenuController@index');
     Route::put('/menus/{menu}','API\MenuController@update');
     Route::delete('/menus/{menu}','API\MenuController@destroy');
+    Route::post('/orderMenu','API\OrderMenuController@store');
+    Route::get('/orderMenu/{order}','API\OrderMenuController@index');
 
 Route::post('/login', function (Request $request) {
     $request->validate([

@@ -14,6 +14,9 @@ class OrderMenuResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'menu_recipe_id'=>$this->menu_recipe_id,
+            'order_id'=>$this->order_id,
+        ];
     }
 }

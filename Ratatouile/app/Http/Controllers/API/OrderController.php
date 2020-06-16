@@ -40,7 +40,7 @@ class OrderController extends Controller
         // 'chef_id' => 'required',
         // 'user_id' => 'required',
     ]);
-    $orderMenu = DB::table('menu_recipes')->where();
+    
     $order= Order::create([
         'description' => $request->description,
         'payment_method' => $request->payment_method,

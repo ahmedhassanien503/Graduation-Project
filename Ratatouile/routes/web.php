@@ -118,5 +118,5 @@ Route::group(['middleware' => ['auth.admin']], function () {
 // Auth::logout();
 // Auth::login();
 Auth::routes();
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 

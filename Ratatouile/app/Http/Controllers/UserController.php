@@ -153,6 +153,7 @@ class UserController extends Controller
             'password' => Hash::make(request('password')),
             'image'    =>  $path,
             'is_chef'  => request('is_chef'),
+            
         ]);
 
         return $this->login(request());

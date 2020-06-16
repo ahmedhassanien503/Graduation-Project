@@ -44,7 +44,7 @@ class WorkshopController extends Controller
             $filename =time().'.'.$extension;
             Storage::disk('public')->put('workshops/'.$filename, File::get($file));
         } else {
-            $filename = 'workshop.jpg';
+            $filename = 'Picture1.jpg';
         }
         // return response()->json($request);
         $request->validate([

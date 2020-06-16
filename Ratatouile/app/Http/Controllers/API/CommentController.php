@@ -20,12 +20,11 @@ class CommentController extends Controller
     }
     public function store(){
         $request = request();
-        $user_id=4;
-        // Auth::user();
+        
         $comment = Comment::create([
             'content'=>$request->content,
             'recipe_id'=>$request->recipe_id,
-            'user_id'=>$user_id
+            'user_id'=> $request->user,
         ]);
         // $comment->save();
         // $comment= Comment::create($request->all());

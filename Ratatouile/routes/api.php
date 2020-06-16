@@ -87,7 +87,12 @@ Route::get('/chefrecipes/{chefid}', 'API\ChefController@recipes');
     ##################### Order Routes #############################################################
     Route::get('/orders','API\OrderController@index');
     Route::get('/orders/{order}','API\OrderController@show');
-    Route::post('/orders','API\OrderController@store');
+    Route::get('/Cheforders/{chefId}','API\OrderController@chef');
+    Route::post('/orders/add','API\OrderController@store');
+    Route::put('/orders/update/{order}','API\OrderController@update');
+    Route::post('/orders/delete/{orderId}','API\OrderController@destroy');
+
+
     ######################contact Routes#################################
     Route::get('/contacts', 'API\ContactApiController@index')->name('contacts.index');
     Route::post('/contacts','API\ContactApiController@store')->name('contacts.store');
@@ -99,7 +104,14 @@ Route::get('/chefrecipes/{chefid}', 'API\ChefController@recipes');
     Route::apiResource('recipes.comments', 'API\CommentController');
     Route::put('/comments/{comment}','API\CommentController@update');
     Route::delete('/comments/{comment}','API\CommentController@destroy');
-    // Route::get('/comments/{comment}','API\CommentController@show');
+
+    ##################### Menu Routes #############################################################
+    Route::apiResource('chefs.menus', 'API\MenuController');
+    // Route::get('/chefs/{chef}/menus','API\MenuController@index');
+    Route::put('/menus/{menu}','API\MenuController@update');
+    Route::delete('/menus/{menu}','API\MenuController@destroy');
+    Route::post('/orderMenu','API\OrderMenuController@store');
+    Route::get('/orderMenu/{order}','API\OrderMenuController@index');
 
 Route::post('/login', function (Request $request) {
     $request->validate([
@@ -118,12 +130,6 @@ Route::post('/login', function (Request $request) {
 
     return $user->createToken($request->device_name)->plainTextToken;
 });
-    Route::post('/orders/add','API\OrderController@store');
-    // Route::get('/ChefOrders','API\OrderController@chef')->name('cheforders');
-   // Route::get('/userOrders','API\OrderController@user')->name('userorders');
-    Route::put('/orders/update/{order}','API\OrderController@update');
-    Route::delete('/orders/delete/{order}','API\OrderController@destroy');
-
 
     ##################### Questions Routes #########################################################
     Route::get('/questions','API\QuestionApiController@index');

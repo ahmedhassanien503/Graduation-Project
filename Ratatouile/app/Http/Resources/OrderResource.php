@@ -22,8 +22,8 @@ class OrderResource extends JsonResource
             'date' =>  $this->date,
             'address' =>  $this->address,
             'total_price' =>  $this->total_price,
-            'chef_id' =>  $this->chef_id,
-            'user_id' =>  $this->user_id,
+            'chef_name'=> new ChefResource($this->chef),
+            'user_name'=> new UserResource($this->user),
         ];
     }
 }

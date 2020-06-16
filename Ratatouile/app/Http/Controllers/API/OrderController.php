@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\OrderResource;
 use App\Order;
-
+use App\OrderMenuRecipes;
+use Illuminate\Support\Facades\DB;
 class OrderController extends Controller
 {
     /**
@@ -39,16 +40,16 @@ class OrderController extends Controller
         // 'chef_id' => 'required',
         // 'user_id' => 'required',
     ]);
-
+    
     $order= Order::create([
         'description' => $request->description,
         'payment_method' => $request->payment_method,
         'address' => $request->address,
         'total_price' =>  $request->total_price,
         'date'=>$request->date,
-        'user_id' =>  "1",
-        'chef_id' => "1",
-    ]);
+        'user_id' => $request->user_id,
+        'chef_id' => $request->chef_id,
+        ]);
     // return response()->json($orders,201);
 
      return new OrderResource($order);
@@ -67,15 +68,26 @@ public function update(Request $request)
 
     $orderId=$request->order;
     $orderData=Order::find($orderId);
+    $chefid = $orderData->chef_id;
+    $userid=$orderData->user_id;
     $orderData->description = $request->description;
     $orderData->payment_method = $request->payment_method;
     $orderData->address = $request->address;
     $orderData->date = $request->date;
     $orderData->total_price =  $request->total_price;
-    $orderData->chef_id = "1";
-    $orderData->user_id = "1";
+    $orderData->chef_id = $chefid;
+    $orderData->user_id = $userid;
+
     $orderData->save();
     return new OrderResource($orderData);
+}
+
+
+public function Chef($chefId)
+{  
+    return OrderResource::collection(
+        Order::where('chef_id',$chefId)->get()
+    ); 
 }
 
 public function destroy()

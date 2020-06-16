@@ -1,5 +1,5 @@
 import React  ,{Component }from 'react';
-
+import { useHistory } from "react-router-dom";
 class editComment extends Component{
     constructor() {
         super();
@@ -29,7 +29,9 @@ class editComment extends Component{
         .then(res => res.json())
         .catch(error => console.error('Error:', error))
         .then(response =>
-        { console.log('Success:', response); });
+        { console.log('Success:', response); 
+    
+    });
     }
     
     
@@ -49,7 +51,7 @@ class editComment extends Component{
             <div class="card-body col-lg-8" id="right-align">
                 <form onSubmit={this.handleSubmit}>
                     <input name="content" type="text" className="form-control" placeholder="تعديل التعليق" onChange={this.handleChange}></input>
-                    <button type="submit" className="btn contact-btn" >تعديل</button>
+                    <button type="submit" className="btn contact-btn"  >تعديل</button>
                 </form>
             </div>
         </div>

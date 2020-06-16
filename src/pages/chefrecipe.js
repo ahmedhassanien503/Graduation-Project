@@ -5,17 +5,21 @@ import NavbarSection from '../components/NavbarSection.js';
 import HeaderSection from '../components/HeaderSection.js';
 import FooterSection from '../components/FooterSection.js';
 import SocialSection from '../components/SocialSection.js';
-
+import Cookies  from 'universal-cookie';
+import User from './User';
 class chefrecipe extends Component {
     constructor()
     {
         super();
+        this.Cookies =new Cookies();
+        this.is_auth=this.Cookies.get('UserData');
         this.state={
             // recipe:[],
             comments : [],
             content:"",
             recipe:null,
-            count:0
+            count:0,
+            
         }
     }
     
@@ -46,17 +50,15 @@ class chefrecipe extends Component {
     event.preventDefault();
     axios.post(`http://127.0.0.1:8000/api/recipes/${this.props.match.params.recipe}/comments`,{
         'content':this.state.content,
-        'user_id':4,
+        'user':User.id,
         'recipe_id': parseInt(this.props.match.params.recipe) 
     }).then(
-            res=>{ console.log(res)},
-            
-        );
+            res=>{ console.log(res) 
+            window.location.reload(true);
+            },);
     }
     handleClick = commentId => {
-        // const requestOptions = {
-        //   method: 'DELETE'
-        // };
+        
         fetch(`http://127.0.0.1:8000/api/comments/${commentId}`,  {method: 'DELETE'})
             .then((response) => {
                 console.log(commentId);
@@ -251,6 +253,8 @@ class chefrecipe extends Component {
                                                         <span className="comment-date text-muted"></span>
                                                         <h5 id="right-align">{comment.user.name}</h5>
                                                         <p id="right-align">{comment.content}</p>
+                                                        {  User.id == comment.user.id ?
+                                                        <div>
                                                         <Link to={`/comment/${comment.id}`}> <a className="active">تعديل</a></Link>
                                                         <button className="delete-btn" onClick={() => { this.handleClick(comment.id) }}>حذف</button>
 
@@ -258,6 +262,7 @@ class chefrecipe extends Component {
 <Link to={`/editanswer/${answer.id}`}> <button type="button" className="btn btn-outline-dark btn-sm" style={{margin:"10px"}}> <i className="far fa-edit"></i> تعديل الاجابة </button></Link>
 :""}  */}
 
+                                                        </div> : ""}
                                                     </div>
 
                                                     <div className="comment-author" id="right-align">
@@ -276,6 +281,8 @@ class chefrecipe extends Component {
                             <div className="leave-comment-area section_padding_50 clearfix">
                                 <div className="comment-form"  id="right-align">
                                 {/* <i class="far fa-comment-o"></i> */}
+                                {  this.is_auth ?
+                                    <div>
                                     <h4 className="mb-30" id="right-align">اترك تعليقا</h4>
 
                             
@@ -286,6 +293,8 @@ class chefrecipe extends Component {
                                         
                                         <button type="submit" className="btn contact-btn right-align" id="right-align">أضف تعليقا</button>
                                     </form>
+                                    </div>
+                                    : ""}
                                 </div>
                             </div>
 

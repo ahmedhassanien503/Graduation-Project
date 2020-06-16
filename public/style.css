@@ -1562,7 +1562,23 @@ chefs section
     display: inline-block;
     text-align: center;
 }
-
+.edit-btn{
+    min-width: 80px;
+    height:  30px;
+    color: #ebebeb!important;
+    background-color:#e07b39 ;
+    border: 1px solid #e07b39;
+    line-height: 30px;
+    font-size: 12px;
+    text-align: center;
+    display: inline-block;
+    text-align: center;
+}
+.pad-center-title{
+    padding-top: 5%;
+    padding-bottom: 5%;
+    text-align: center;
+}
 ::-webkit-input-placeholder { text-align:right; }
 
 .question-btn {

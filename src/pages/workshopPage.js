@@ -35,12 +35,13 @@ class workshopPage extends Component {
 
     handleSubmit = event =>{
         const  data= {
-            'user_id':"7",
+            'user_id':`${this.is_auth}`,
             'workshop_id' : `${this.props.match.params.workshop}`,
         }
         axios.post(`http://127.0.0.1:8000/api/applicants` ,data)
         .then(
-        res=>{console.log(res)},
+            res=>{console.log(res)},
+            alert(" لقد تم ارسال طلبك بنجاح وسوف يتواصل معك الشيف")
         );
         }
 

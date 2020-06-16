@@ -72,8 +72,8 @@ return ( <div>
                     type="email" name="email" id="your_email"
                     className="form-control"
                     placeholder="ادخل بريدك الالكترونى هنا"
-                    value={state.email} onChange={handleChange} />
-            </div>
+                    value={state.email} onChange={handleChange} required />
+            </div> 
 
             <div className="form-group">
                 <label>كلمة السر</label>
@@ -82,7 +82,7 @@ return ( <div>
 
                     className="form-control"
                     placeholder="ادخل كلمة السر الخاصة بك هنا"
-                    value={state.password} onChange={handleChange} />
+                    value={state.password} onChange={handleChange} required />
             </div>
 
             <button type="submit" className="btn btn-primary">تسجيل الدخول</button>

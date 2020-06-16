@@ -106,16 +106,19 @@ class Chef extends Component{
                         <input 
                         name="image"
                         type="file" 
-                        className="form-control" 
+                        // className="form-control" 
+                        placeholder="تعديل مكان العمل"
                         onChange={this.handleImage} />
                     </div>
                     <button type="submit" className="btn contact-btn">تعديل</button>
+                    <button className="edit-btn" type="submit" >تعديل</button>
                 </form>
+                </div>
+                </div>
             </div>
         </div>
         </div>
-     </div>
- </div>
+ 
             <FooterSection/>
           
             

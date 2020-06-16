@@ -93,7 +93,7 @@ render(){
                                         placeholder="اسم الورشه"
                                         border= "2px solid red"
                                         bordeRadius= "4px"
-                                        onChange={this.handleChange} />
+                                        onChange={this.handleChange} required />
                                 </div> 
                                 <div className="col">
                                     <input 
@@ -102,7 +102,7 @@ render(){
                                         type="text" 
                                         className="form-control" 
                                         placeholder=" 01-01-2001 تاريخ الورشه"
-                                        onChange={this.handleChange} />
+                                        onChange={this.handleChange} required/>
                                 </div>
                                 </div>
                                 <div className="row" style={{marginTop: "25px"}}>
@@ -113,7 +113,7 @@ render(){
                                         style={{textAlign : "right"}}
                                         className="form-control" 
                                         placeholder="تفاصيل الورشه"
-                                        onChange={this.handleChange} />
+                                        onChange={this.handleChange} required/>
                                 </div>
 
                                 <div className="row"  style={{marginTop: "25px"}}>
@@ -124,7 +124,7 @@ render(){
                                         style={{textAlign : "right"}}
                                         className="form-control" 
                                         placeholder="عدد المشتركين المحدد للورشه"
-                                        onChange={this.handleChange} />
+                                        onChange={this.handleChange} required/>
                                 </div>
                                 <div className="col">
                                     <input 

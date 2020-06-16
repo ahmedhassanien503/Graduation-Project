@@ -24,7 +24,7 @@ class CommentController extends Controller
         $comment = Comment::create([
             'content'=>$request->content,
             'recipe_id'=>$request->recipe_id,
-            'user_id'=>$request->$user_id
+            'user_id'=> $request->user,
         ]);
         // $comment->save();
         // $comment= Comment::create($request->all());

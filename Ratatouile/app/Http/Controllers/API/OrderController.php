@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\OrderResource;
 use App\Order;
-
+use App\OrderMenuRecipes;
+use Illuminate\Support\Facades\DB;
 class OrderController extends Controller
 {
     /**
@@ -39,7 +40,7 @@ class OrderController extends Controller
         // 'chef_id' => 'required',
         // 'user_id' => 'required',
     ]);
-
+    $orderMenu = DB::table('menu_recipes')->where();
     $order= Order::create([
         'description' => $request->description,
         'payment_method' => $request->payment_method,
@@ -48,6 +49,7 @@ class OrderController extends Controller
         'date'=>$request->date,
         'user_id' =>  "1",
         'chef_id' => "1",
+
     ]);
     // return response()->json($orders,201);
 
